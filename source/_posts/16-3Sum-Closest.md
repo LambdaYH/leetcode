@@ -4,7 +4,7 @@ date: 2021-03-17 21:05:24 +0800
 categories: leetcode
 ---
 #### [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/)
-##### refer [3sum](https://blog.cinte.cc/2021/03/11/15-3Sum/)
+##### refer [3sum](https://leetcode.cinte.cc/2021/03/11/15-3Sum/)
 ##### Solution 1( 2 points)
 ```c++
 class Solution {

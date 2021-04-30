@@ -56,4 +56,4 @@ private:
 };
 ```
 
-和[Unique Binary Search Trees](https://blog.cinte.cc/2021/03/31/96-Unique-Binary-Search-Trees/)相似，只不过这个要列举出所有节点
+和[Unique Binary Search Trees](https://leetcode.cinte.cc/2021/03/31/96-Unique-Binary-Search-Trees/)相似，只不过这个要列举出所有节点
