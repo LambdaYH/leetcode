@@ -1,0 +1,82 @@
+---
+title: 141. Linked List Cycle
+date: 2021-04-05 13:52:38 +0800
+categories: leetcode
+tags: 
+- Linked List
+- Two Point
+mathjax: true
+---
+#### [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+
+##### 最没技术的做法
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_set<ListNode*> set;
+        while(head)
+        {
+            if(set.emplace(head).second)
+                head = head->next;
+            else
+                return true;
+        }
+        return false;
+    }
+};
+```
+T(n) : O(n) <br>
+S(n) : O(n)
+
+##### two point
+
+nb!
+[explanation](https://codingfreak.blogspot.com/2012/09/detecting-loop-in-singly-linked-list_22.html)
+
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if(!head) return false;
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while(fast->next && fast->next->next)
+        {
+            fast = fast->next->next;
+            slow = slow->next;
+            if(slow == fast)
+                return true;
+        }
+        return false;
+    }
+};
+```
+
+假设slow起始位于N(0),而fast位于N(d - 1)（其中d为一个随机位置）<br>
+假设环的长度为M，则t时间后slow位于N(t mod M)，而fast位于N((2t + d) mod M) <br>
+$$\left\{
+\begin{aligned}
+t = pM + x \\
+2t + d = qM + x
+\end{aligned}
+\right.$$
+两式相减<br>
+得到t = (q - p)M - d<br>
+因此，他们必相遇

@@ -1,0 +1,37 @@
+---
+title: 240. Search a 2D Matrix II
+date: 2021-04-20 19:52:40 +0800
+categories: leetcode
+---
+#### [240. Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/)
+
+```c++
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int i = 0;
+        int j = matrix[0].size() - 1;
+        while(i < matrix.size() && j >= 0)
+        {
+            if(matrix[i][j] == target)
+                return true;
+            if(matrix[i][j] < target)
+                ++i;
+            else
+                --j;
+        }
+        return false;
+    }
+};
+```
+T(n) : O(n)
+
+从第一行的最后一个元素开始，如果这个元素比target大，那么让j减小，减小到这个元素比target小，因为`matrix[i][j + 1] > target`，所以这一列及以后都可以被抛弃了
+
+如果当前元素比target小，那么让i增加，由于`matrix[i - 1][j] < target`表明上一行，在经过列筛选后的上限都低于target，因此也可以被抛弃了。
+
+重复上述，不断抛弃列和行，如得到相等，则找到了，若无则未找到
+
+j从最后一列而i从0开始是为了可以使得i和j的**判断条件分离**，若两者都是从0或从最大开始，那么他们的抛弃条件同为<或>，导致无法很好的分开操作2者
+
+真的太棒了

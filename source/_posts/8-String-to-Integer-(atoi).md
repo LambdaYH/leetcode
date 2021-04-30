@@ -1,0 +1,75 @@
+---
+title: 8. String to Integer (atoi)
+date: 2021-02-05 22:58:00 +0800
+categories: leetcode
+---
+#### [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
+##### 第一次
+```c++
+class Solution
+{
+public:
+    int myAtoi(string s)
+    {
+        int sum = 0;
+        int positive = 1;
+        bool isEntered = false;
+        for (const auto &ch : s)
+        {
+            switch (ch)
+            {
+            case '+':
+                if (!isEntered)
+                {
+                    positive = 1;
+                    isEntered = true;                    
+                }
+                else
+                    return positive * sum;
+                break;
+            case '-':
+                if (!isEntered)
+                {
+                    positive = -1;
+                    isEntered = true;                    
+                }
+                else
+                    return positive * sum;
+                break;
+            default:
+                if (ch >= 48 && ch <= 57)
+                {
+                    if (!isEntered)
+                        isEntered = true;
+                    int pop = ch - 48;
+                    switch (positive)
+                    {
+                    case 1:
+                        if (sum > INT_MAX / 10 || (sum == INT_MAX / 10 && pop > 7))
+                            return INT_MAX;
+                        break;
+                    case -1:
+                        if (-sum < INT_MIN / 10 || (-sum == INT_MIN / 10 && pop >= 8))
+                            return INT_MIN;
+                        break;
+                    }
+                    sum = sum * 10 + pop;
+                }
+                else if (ch != ' ')
+                {
+                    return positive * sum;
+                }else if (ch == ' ' && isEntered)
+                {
+                    return positive * sum;
+                }
+            }
+        }
+        return positive * sum;
+    }
+};
+```
+坑有点多，起初忽视了很多种情况
+
+其中判断是否溢出参考了https://leetcode.com/problems/reverse-integer/solution/
+
+![](https://image.cinte.cc/2021/02/05/4cbcd1e8425be.png)

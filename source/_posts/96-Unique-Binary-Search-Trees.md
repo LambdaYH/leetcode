@@ -1,0 +1,26 @@
+---
+title: 96. Unique Binary Search Trees
+date: 2021-03-31 17:38:26 +0800
+categories: leetcode
+tags: Dynamic Programming
+---
+#### [96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/)
+##### 动态规划
+```c++
+class Solution {
+public:
+    int numTrees(int n) {
+        int *dp = new int[n + 1]{ 0 };
+        dp[0] = dp[1] = 1;
+        for(int i = 2; i <= n; ++i)
+        {
+            for(int j = 1; j <= i; ++j)
+                dp[i] += dp[j - 1] * dp[i - j];
+        }
+        return dp[n];
+    }
+};
+```
+抄了[discussion](https://leetcode.com/problems/unique-binary-search-trees/discuss/31666/DP-Solution-in-6-lines-with-explanation.-F(i-n)-G(i-1)-*-G(n-i))
+
+将问题分解为每个小小的n会生成多少的树，最后左树数 * 右树数

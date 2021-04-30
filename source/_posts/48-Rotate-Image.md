@@ -1,0 +1,28 @@
+---
+title: 48. Rotate Image
+date: 2021-03-31 20:41:40 +0800
+categories: leetcode
+tags: Dynamic Programming
+---
+#### [48. Rotate Image](https://leetcode.com/problems/rotate-image/)
+##### 动态规划
+```c++
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        for(size_t i = 0; i < (n + 1) / 2; ++i)
+        {
+            for(size_t j = 0; j < n / 2; ++j)
+            {
+                int tmp = matrix[n - 1 - j][i];
+                matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j];
+                matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i];
+                matrix[j][n - 1 - i] = matrix[i][j];
+                matrix[i][j] = tmp;
+            }
+        }
+    }
+};
+```
+抄de

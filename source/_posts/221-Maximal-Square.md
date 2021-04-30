@@ -1,0 +1,93 @@
+---
+title: 221. Maximal Square
+date: 2021-04-20 11:34:11 +0800
+categories: leetcode
+tags: Dynamic Programming
+---
+#### [221. Maximal Square](https://leetcode.com/problems/maximal-square/)
+
+##### Brute Force
+```c++
+class Solution {
+public:
+    int maximalSquare(vector<vector<char>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+        int maxLen = 0;
+        int curLen = 1;
+        bool stop = false;
+        for(int i = 0; i < m; ++i)
+        {
+            for(int j = 0; j < n; ++j)
+            {
+                if(matrix[i][j] == '1')
+                {
+                    while(curLen + i < m && curLen + j < n && !stop)
+                    {
+                        for(int k = j; k <= curLen + j; ++k)
+                        {
+                            if(matrix[i + curLen][k] == '0')
+                            {
+                                stop = true;
+                                break;
+                            }
+                        }
+                        for(int k = i; k <= curLen + i; ++k)
+                        {
+                            if(matrix[k][j + curLen] == '0')
+                            {
+                                stop = true;
+                                break;
+                            }                            
+                        }
+                        if(!stop)
+                            ++curLen;
+                    }
+                    maxLen = max(curLen, maxLen);
+                    curLen = 1;
+                    stop = false;
+                }
+            }
+        }
+        return maxLen * maxLen;
+    }
+};
+```
+
+对于每个大小每次增长，遍历行
+
+##### DP
+```c++
+class Solution {
+public:
+    int maximalSquare(vector<vector<char>>& matrix) {
+        int maxLen = 0;
+        vector<int> dp(matrix[0].size() + 1, 0);
+        int prev = 0;
+        for(int i = 1; i <= matrix.size(); ++i)
+        {
+            for(int j = 1; j <= matrix[0].size(); ++j)
+            {
+                int tmp = dp[j];
+                if(matrix[i - 1][j - 1] == '1')
+                {
+                    dp[j] = min(min(dp[j - 1], dp[j]), prev) + 1;
+                    maxLen = max(dp[j], maxLen);
+                }else
+                {
+                    dp[j] = 0;
+                }
+                prev = tmp;
+            }
+        }
+        return maxLen * maxLen;
+    }
+};
+```
+
+在答案的approach2中，不能使用原矩阵做为dp的矩阵，因为对于char来说，过大的矩阵会使其溢出
+
+approach3还是不咋懂总体是每行扫描更新当前行的值，然后进入下一行后，只需要用到上一行的数据和当前行
+
+![image.png](https://image.cinte.cc/2021/04/20/f37cb333eda7e.png)
+
