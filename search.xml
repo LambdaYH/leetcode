@@ -1523,6 +1523,20 @@ t = pM + x \\
       </categories>
   </entry>
   <entry>
+    <title>876. Middle of the Linked List</title>
+    <url>/2021/04/30/876.%20Middle%20of%20the%20Linked%20List/</url>
+    <content><![CDATA[<h4 id="middle-of-the-linked-list"><a href="https://leetcode.com/problems/middle-of-the-linked-list/">876. Middle of the Linked List</a></h4>
+<h5 id="section"></h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">middleNode</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* walker = head;</span><br><span class="line">        ListNode* runner = head;</span><br><span class="line">        <span class="keyword">while</span>(runner &amp;&amp; runner-&gt;next)</span><br><span class="line">        &#123;</span><br><span class="line">            walker = walker-&gt;next;</span><br><span class="line">            runner = runner-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> walker;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>9. Palindrome Number</title>
     <url>/2021/03/03/9-Palindrome-Number/</url>
     <content><![CDATA[<h4 id="palindrome-number"><a href="https://leetcode.com/problems/palindrome-number/">9. Palindrome Number</a></h4>
