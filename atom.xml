@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Cinte&#39;s Blog</title>
+  <icon>https://leetcode.cinte.cc/icon.png</icon>
+  
+  <link href="https://leetcode.cinte.cc/atom.xml" rel="self"/>
+  
+  <link href="https://leetcode.cinte.cc/"/>
+  <updated>2021-04-30T09:08:51.097Z</updated>
+  <id>https://leetcode.cinte.cc/</id>
+  
+  <author>
+    <name>Lambda_YH</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>45. Jump Game II</title>
+    <link href="https://leetcode.cinte.cc/2021/04/30/45.%20Jump%20Game%20II/"/>
+    <id>https://leetcode.cinte.cc/2021/04/30/45.%20Jump%20Game%20II/</id>
+    <published>2021-04-30T00:34:42.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;jump-game-ii&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/jump-game-ii/&quot;&gt;45. Jump Game II&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;section&quot;&gt;&lt;/h5&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Array" scheme="https://leetcode.cinte.cc/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>581. Shortest Unsorted Continuous Subarray</title>
+    <link href="https://leetcode.cinte.cc/2021/04/28/581.%20Shortest%20Unsorted%20Continuous%20Subarray/"/>
+    <id>https://leetcode.cinte.cc/2021/04/28/581.%20Shortest%20Unsorted%20Continuous%20Subarray/</id>
+    <published>2021-04-28T23:53:33.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;shortest-unsorted-continuous-subarray&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/shortest-unsorted-continuous-subarray/&quot;&gt;581. Shortest</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Array" scheme="https://leetcode.cinte.cc/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>300. Longest Increasing Subsequence</title>
+    <link href="https://leetcode.cinte.cc/2021/04/28/300.%20Longest%20Increasing%20Subsequence/"/>
+    <id>https://leetcode.cinte.cc/2021/04/28/300.%20Longest%20Increasing%20Subsequence/</id>
+    <published>2021-04-28T20:10:35.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;longest-increasing-subsequence&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/longest-increasing-subsequence/&quot;&gt;300. Longest Increasing</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Array" scheme="https://leetcode.cinte.cc/tags/Array/"/>
+    
+    <category term="leetcode favorite" scheme="https://leetcode.cinte.cc/tags/leetcode-favorite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>138. Copy List with Random Pointer</title>
+    <link href="https://leetcode.cinte.cc/2021/04/28/138.%20Copy%20List%20with%20Random%20Pointer/"/>
+    <id>https://leetcode.cinte.cc/2021/04/28/138.%20Copy%20List%20with%20Random%20Pointer/</id>
+    <published>2021-04-28T04:35:26.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;copy-list-with-random-pointer&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/copy-list-with-random-pointer/&quot;&gt;138. Copy List with Random</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Linked List" scheme="https://leetcode.cinte.cc/tags/Linked-List/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>560. Subarray Sum Equals K</title>
+    <link href="https://leetcode.cinte.cc/2021/04/28/560.%20Subarray%20Sum%20Equals%20K/"/>
+    <id>https://leetcode.cinte.cc/2021/04/28/560.%20Subarray%20Sum%20Equals%20K/</id>
+    <published>2021-04-28T03:13:44.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;subarray-sum-equals-k&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/subarray-sum-equals-k/&quot;&gt;560. Subarray Sum Equals K&lt;/a&gt;&lt;/h4&gt;
+&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Array" scheme="https://leetcode.cinte.cc/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>416. Partition Equal Subset Sum</title>
+    <link href="https://leetcode.cinte.cc/2021/04/27/416.%20Partition%20Equal%20Subset%20Sum/"/>
+    <id>https://leetcode.cinte.cc/2021/04/27/416.%20Partition%20Equal%20Subset%20Sum/</id>
+    <published>2021-04-27T04:25:30.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;partition-equal-subset-sum&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/partition-equal-subset-sum/&quot;&gt;416. Partition Equal Subset</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Dynamic Programming" scheme="https://leetcode.cinte.cc/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>494. Target Sum</title>
+    <link href="https://leetcode.cinte.cc/2021/04/27/494.%20Target%20Sum/"/>
+    <id>https://leetcode.cinte.cc/2021/04/27/494.%20Target%20Sum/</id>
+    <published>2021-04-27T00:11:10.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;target-sum&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/target-sum/&quot;&gt;494. Target Sum&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;hashmap&quot;&gt;hashmap&lt;/h5&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Dynamic Programming" scheme="https://leetcode.cinte.cc/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>437. Path Sum III</title>
+    <link href="https://leetcode.cinte.cc/2021/04/26/437.%20Path%20Sum%20III/"/>
+    <id>https://leetcode.cinte.cc/2021/04/26/437.%20Path%20Sum%20III/</id>
+    <published>2021-04-26T19:51:30.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;path-sum-iii&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/path-sum-iii/&quot;&gt;437. Path Sum III&lt;/a&gt;&lt;/h4&gt;
+&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Tree" scheme="https://leetcode.cinte.cc/tags/Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>208. Implement Trie (Prefix Tree)</title>
+    <link href="https://leetcode.cinte.cc/2021/04/26/208.%20Implement%20Trie%20(Prefix%20Tree)/"/>
+    <id>https://leetcode.cinte.cc/2021/04/26/208.%20Implement%20Trie%20(Prefix%20Tree)/</id>
+    <published>2021-04-26T03:34:42.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;implement-trie-prefix-tree&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/implement-trie-prefix-tree/&quot;&gt;208. Implement Trie (Prefix</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Tree" scheme="https://leetcode.cinte.cc/tags/Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>337. House Robber III</title>
+    <link href="https://leetcode.cinte.cc/2021/04/23/337-House-Robber-III/"/>
+    <id>https://leetcode.cinte.cc/2021/04/23/337-House-Robber-III/</id>
+    <published>2021-04-23T22:57:38.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;house-robber-iii&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/binary-tree-level-order-traversal/&quot;&gt;337. House Robber</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Tree" scheme="https://leetcode.cinte.cc/tags/Tree/"/>
+    
+    <category term="Dynamic Programming" scheme="https://leetcode.cinte.cc/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5. Longest Palindromic Substring</title>
+    <link href="https://leetcode.cinte.cc/2021/04/23/5-Longest-Palindromic-Substring/"/>
+    <id>https://leetcode.cinte.cc/2021/04/23/5-Longest-Palindromic-Substring/</id>
+    <published>2021-04-23T06:23:09.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;longest-palindromic-substring&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/longest-palindromic-substring/&quot;&gt;5. Longest Palindromic</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>236. Lowest Common Ancestor of a Binary Tree</title>
+    <link href="https://leetcode.cinte.cc/2021/04/22/236-Lowest-Common-Ancestor-of-a-Binary-Tree/"/>
+    <id>https://leetcode.cinte.cc/2021/04/22/236-Lowest-Common-Ancestor-of-a-Binary-Tree/</id>
+    <published>2021-04-22T00:56:02.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;lowest-common-ancestor-of-a-binary-tree&quot;&gt;&lt;a href=&quot;2021-04-22%2016:55:59%20+0800&quot;&gt;236. Lowest Common Ancestor of a Binary</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Tree" scheme="https://leetcode.cinte.cc/tags/Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>322. Coin Change</title>
+    <link href="https://leetcode.cinte.cc/2021/04/21/322-Coin-Change/"/>
+    <id>https://leetcode.cinte.cc/2021/04/21/322-Coin-Change/</id>
+    <published>2021-04-21T05:39:13.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;coin-change&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/coin-change/&quot;&gt;322. Coin Change&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;dfs&quot;&gt;DFS&lt;/h5&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Dynamic Programming" scheme="https://leetcode.cinte.cc/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>207. Course Schedule</title>
+    <link href="https://leetcode.cinte.cc/2021/04/21/207-Course-Schedule/"/>
+    <id>https://leetcode.cinte.cc/2021/04/21/207-Course-Schedule/</id>
+    <published>2021-04-21T05:06:25.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;course-schedule&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/course-schedule/&quot;&gt;207. Course Schedule&lt;/a&gt;&lt;/h4&gt;
+&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Graph" scheme="https://leetcode.cinte.cc/tags/Graph/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>240. Search a 2D Matrix II</title>
+    <link href="https://leetcode.cinte.cc/2021/04/20/240-Search%20-a-2D-Matrix-II/"/>
+    <id>https://leetcode.cinte.cc/2021/04/20/240-Search%20-a-2D-Matrix-II/</id>
+    <published>2021-04-20T03:52:40.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;search-a-2d-matrix-ii&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/search-a-2d-matrix-ii/&quot;&gt;240. Search a 2D Matrix II&lt;/a&gt;&lt;/h4&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>221. Maximal Square</title>
+    <link href="https://leetcode.cinte.cc/2021/04/19/221-Maximal-Square/"/>
+    <id>https://leetcode.cinte.cc/2021/04/19/221-Maximal-Square/</id>
+    <published>2021-04-19T19:34:11.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;maximal-square&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/maximal-square/&quot;&gt;221. Maximal Square&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;brute-force&quot;&gt;Brute</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Dynamic Programming" scheme="https://leetcode.cinte.cc/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>230. Kth Smallest Element in a BST</title>
+    <link href="https://leetcode.cinte.cc/2021/04/19/230-Kth-Smallest-Element-in-a-BST/"/>
+    <id>https://leetcode.cinte.cc/2021/04/19/230-Kth-Smallest-Element-in-a-BST/</id>
+    <published>2021-04-19T05:20:28.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;flatten-binary-tree-to-linked-list&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/kth-smallest-element-in-a-bst/&quot;&gt;114. Flatten Binary Tree</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Tree" scheme="https://leetcode.cinte.cc/tags/Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>114. Flatten Binary Tree to Linked List</title>
+    <link href="https://leetcode.cinte.cc/2021/04/18/114-Flatten-Binary-Tree-to-Linked-List/"/>
+    <id>https://leetcode.cinte.cc/2021/04/18/114-Flatten-Binary-Tree-to-Linked-List/</id>
+    <published>2021-04-18T01:41:42.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;flatten-binary-tree-to-linked-list&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/flatten-binary-tree-to-linked-list/&quot;&gt;114. Flatten Binary</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+    <category term="Tree" scheme="https://leetcode.cinte.cc/tags/Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>394. Decode String</title>
+    <link href="https://leetcode.cinte.cc/2021/04/15/394-Decode-String/"/>
+    <id>https://leetcode.cinte.cc/2021/04/15/394-Decode-String/</id>
+    <published>2021-04-15T01:50:34.000Z</published>
+    <updated>2021-04-30T09:08:51.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;decode-string&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/decode-string/&quot;&gt;394. Decode String&lt;/a&gt;&lt;/h4&gt;
+&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>287. Find the Duplicate Number</title>
+    <link href="https://leetcode.cinte.cc/2021/04/14/287-Find-the-Duplicate-Number/"/>
+    <id>https://leetcode.cinte.cc/2021/04/14/287-Find-the-Duplicate-Number/</id>
+    <published>2021-04-14T23:30:41.000Z</published>
+    <updated>2021-04-30T09:08:51.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;find-the-duplicate-number&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/find-the-duplicate-number/&quot;&gt;287. Find the Duplicate</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+</feed>
