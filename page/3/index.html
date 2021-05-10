@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -330,7 +330,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -434,7 +434,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -542,7 +542,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -650,7 +650,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -701,7 +701,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="house-robber-iii"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-level-order-traversal/">337. House Robber III</a></h4>
+          <h4 id="house-robber-iii"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/house-robber-iii/">337. House Robber III</a></h4>
 <p>对于一个节点来说，如果rob这个点，那么他的child就不能rob, 如果不rob，那么他的child可以rob也可以不rob<br> 对于rob这个节点来说，需要计算他的grandchild rob或者不rob的情况，不rob时也需要计算，如果递归则需要重复计算，因此每次的递归函数都计算这一个rob和不rob的情况<br> 用pair保存起来rob和不rob的记过</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> ret = helper(root);</span><br><span class="line">        <span class="keyword">return</span> max(ret.first, ret.second);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    pair&lt;int, int&gt; helper(TreeNode* node)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!node)</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">auto</span> left = helper(node-&gt;left);</span><br><span class="line">        <span class="keyword">auto</span> right = helper(node-&gt;right);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// if rob</span></span><br><span class="line">        <span class="keyword">int</span> rob = node-&gt;val + left.second + right.second;</span><br><span class="line">        <span class="keyword">int</span> notRob = max(left.first, left.second) + max(right.first, right.second);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> &#123;rob, notRob&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h5 id="approach-1-未改进前的算法使用memo优化">approach 1 未改进前的算法使用memo优化</h5>
@@ -759,7 +759,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -868,7 +868,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -977,7 +977,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1081,7 +1081,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1186,7 +1186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-09 21:28:52" itemprop="dateModified" datetime="2021-05-09T21:28:52+08:00">2021-05-09</time>
+                <time title="Modified: 2021-05-10 15:34:31" itemprop="dateModified" datetime="2021-05-10T15:34:31+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
