@@ -6,7 +6,7 @@ tags:
 - Tree
 - Dynamic Programming
 ---
-#### [337. House Robber III](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+#### [337. House Robber III](https://leetcode.com/problems/house-robber-iii/)
 
 对于一个节点来说，如果rob这个点，那么他的child就不能rob, 如果不rob，那么他的child可以rob也可以不rob<br>
 对于rob这个节点来说，需要计算他的grandchild rob或者不rob的情况，不rob时也需要计算，如果递归则需要重复计算，因此每次的递归函数都计算这一个rob和不rob的情况<br>
