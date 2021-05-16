@@ -119,3 +119,70 @@ public:
 };
 ```
 ![](https://image.cinte.cc/2021/02/02/dcab1942c9d21.png)
+
+##### 复习
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        auto pseudoL1 = l1;
+        auto pseudoL2 = l2;
+        int l1Length = 0;
+        int l2Length = 0;
+        while(pseudoL1)
+        {
+            ++l1Length;
+            pseudoL1 = pseudoL1->next;
+        }
+        while(pseudoL2)
+        {
+            ++l2Length;
+            pseudoL2 = pseudoL2->next;
+        }
+        
+        if(l1Length > l2Length)
+            swap(l1, l2);
+        auto ret = l2;
+        auto pre = l2;
+        int c = 0;
+        while(l1)
+        {
+            auto sum = l2->val + l1->val + c;
+            c = sum / 10;
+            l2->val = sum % 10;
+            pre = l2;
+            l1 = l1->next;
+            l2 = l2->next;
+        }
+        while(c)
+        {
+            if(!l2)
+            {
+                pre->next = new ListNode(c);
+                break;
+            }
+            else
+            {
+                auto sum = l2->val + c;
+                l2->val = sum % 10;
+                c = sum / 10;
+                pre = l2;
+                l2 = l2->next;
+            }
+        }
+        return ret;
+    }
+};
+```
+
+![1621148746599.png](https://image.cinte.cc/2021/05/16/7355ecdb33a0c.png)
