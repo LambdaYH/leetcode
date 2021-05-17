@@ -1,4 +1,3 @@
-```
 ---
 title: 4. Median of Two Sorted Arrays
 date: 2021-03-05 21:44:00 +0800
