@@ -865,6 +865,22 @@ t = pM + x \\
       </categories>
   </entry>
   <entry>
+    <title>264. Ugly Number II</title>
+    <url>/2021/05/17/264.%20Ugly%20Number%20II/</url>
+    <content><![CDATA[<h4 id="ugly-number-ii"><a href="https://leetcode.com/problems/ugly-number-ii/">264. Ugly Number II</a></h4>
+<h5 id="dp">dp</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> l1 = <span class="number">0</span>, l2 = <span class="number">0</span>, l3 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> t1 = dp[l1] * <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">auto</span> t2 = dp[l2] * <span class="number">3</span>;</span><br><span class="line">            <span class="keyword">auto</span> t3 = dp[l3] * <span class="number">5</span>;</span><br><span class="line">            dp[i] = min(min(t1, t2), t3);</span><br><span class="line">            <span class="keyword">if</span>(dp[i] == t1)</span><br><span class="line">                ++l1;</span><br><span class="line">            <span class="keyword">if</span>(dp[i] == t2) <span class="comment">// 去重，不能用else if</span></span><br><span class="line">                ++l2;</span><br><span class="line">            <span class="keyword">if</span>(dp[i] == t3)</span><br><span class="line">                ++l3;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>维护三个序列，分别是x2，x3，x5的序列。其中通过l1,l2,l3表示</p>
+<p>之所以可以这样是因为dp已经帮助我们实现排序，因此只需要应用之前的排序结果，取了其中一个序列的一个值后，把他移动到序列的下一个位置，也就是ugly number种刚好比他大的一个数。注意三个数的序列可能会发生重叠。因此需要去重处理。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>279. Perfect Squares</title>
     <url>/2021/04/02/279-Perfect-Squares/</url>
     <content><![CDATA[<h4 id="perfect-squares"><a href="https://leetcode.com/problems/perfect-squares/">279. Perfect Squares</a></h4>
