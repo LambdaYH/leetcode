@@ -1023,6 +1023,24 @@ t = pM + x \\
       </tags>
   </entry>
   <entry>
+    <title>304. Range Sum Query 2D - Immutable</title>
+    <url>/2021/05/18/304.%20Range%20Sum%20Query%202D%20-%20Immutable/</url>
+    <content><![CDATA[<h4 id="range-sum-query-2d---immutable"><a href="https://leetcode.com/problems/range-sum-query-2d-immutable/">304. Range Sum Query 2D - Immutable</a></h4>
+<h5 id="dp">dp</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NumMatrix</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    NumMatrix(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix) : dp(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(matrix.size() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(matrix[<span class="number">0</span>].size() + <span class="number">1</span>, <span class="number">0</span>))), rows(matrix.size()), cols(matrix[<span class="number">0</span>].size()) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; rows + <span class="number">1</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; cols + <span class="number">1</span>; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][j] = matrix[i - <span class="number">1</span>][j - <span class="number">1</span>] + dp[i - <span class="number">1</span>][j] + dp[i][j - <span class="number">1</span>] - dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumRegion</span><span class="params">(<span class="keyword">int</span> row1, <span class="keyword">int</span> col1, <span class="keyword">int</span> row2, <span class="keyword">int</span> col2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dp[row2 + <span class="number">1</span>][col2 + <span class="number">1</span>] - dp[row1][col2 + <span class="number">1</span>]- dp[row2 + <span class="number">1</span>][col1] + dp[row1][col1];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp;</span><br><span class="line">    <span class="keyword">int</span> rows, cols;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your NumMatrix object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * NumMatrix* obj = new NumMatrix(matrix);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;sumRegion(row1,col1,row2,col2);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>大小加一时为了防止下标越界</p>
+<figure>
+<img src="https://image.cinte.cc/2021/05/19/7cd0db20fc189.png" alt="1621411468268.png" /><figcaption aria-hidden="true">1621411468268.png</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>31. Next Permutation</title>
     <url>/2021/05/03/31.%20Next%20Permutation/</url>
     <content><![CDATA[<h4 id="next-permutation"><a href="https://leetcode.com/problems/next-permutation/">31. Next Permutation</a></h4>
