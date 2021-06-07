@@ -113,6 +113,50 @@ private:
 Time complexity: O(NlogK) <br>
 Space complexity: O(1)
 
+##### review
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        for(int step = 1; step < lists.size(); step *= 2)
+        {
+            for(int i = 0; i < lists.size() - step; i += 2 * step)
+                lists[i] = merge(lists[i], lists[i + step]);
+        }
+        return lists.empty() ? nullptr : lists[0];
+    }
+private:
+    ListNode* merge(ListNode* l1, ListNode* l2)
+    {
+        if(!l1)
+            return l2;
+        if(!l2)
+            return l1;
+        
+        if(l1->val > l2->val)
+        {
+            l2->next = merge(l1, l2->next);
+            return l2;
+        }else
+        {
+            l1->next = merge(l1->next, l2);
+            return l1;
+        }
+        return nullptr;
+    }
+};
+```
+
 ##### Solution 2 use priority_queue
 ```c++
 /**
@@ -157,50 +201,6 @@ public:
                 q.push(make_pair(node->val, node));
         }
         return head->next;
-    }
-};
-```
-
-##### review
-```c++
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
-        for(int step = 1; step < lists.size(); step *= 2)
-        {
-            for(int i = 0; i < lists.size() - step; i += 2 * step)
-                lists[i] = merge(lists[i], lists[i + step]);
-        }
-        return lists.empty() ? nullptr : lists[0];
-    }
-private:
-    ListNode* merge(ListNode* l1, ListNode* l2)
-    {
-        if(!l1)
-            return l2;
-        if(!l2)
-            return l1;
-        
-        if(l1->val > l2->val)
-        {
-            l2->next = merge(l1, l2->next);
-            return l2;
-        }else
-        {
-            l1->next = merge(l1->next, l2);
-            return l1;
-        }
-        return nullptr;
     }
 };
 ```
