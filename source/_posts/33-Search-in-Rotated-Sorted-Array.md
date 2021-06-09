@@ -48,3 +48,35 @@ private:
 };
 ```
 O(logN)
+
+##### review
+```c++
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int lo = 0, hi = nums.size() - 1;
+        int sz = nums.size();
+        while(lo < hi)
+        {
+            int mid = (lo + hi) / 2;
+            if(nums[mid] < nums[hi])
+                hi = mid;
+            else
+                lo = mid + 1;
+        }
+        int bias = hi;
+        lo = 0, hi = nums.size();
+        while(lo < hi)
+        {
+            int mid = (lo + hi) / 2;
+            if(nums[(mid + bias) % sz] > target)
+                hi = mid;
+            else if(nums[(mid + bias) % sz] == target)
+                return (mid + bias) % sz;
+            else
+                lo = mid + 1;
+        }
+        return -1;
+    }
+};
+```
