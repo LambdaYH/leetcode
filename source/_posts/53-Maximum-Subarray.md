@@ -23,7 +23,7 @@ public:
 };
 ```
 
-##### 分而知之 D & Q
+##### 分而知之D&Q
 ```c++
 class Solution {
 public:
@@ -37,7 +37,7 @@ private:
         
         int mid = (left + right) / 2;
         int cur = 0;
-        int maxLeft = 0;
+        int maxLeft = 0; // 如果都小于0，那就不采用那边，那么那边的和就是0
         int maxRight = 0;
         
         for(int i = mid - 1; i >= left ; --i)
@@ -62,3 +62,5 @@ private:
     }
 };
 ```
+
+取中点，往左计算和，往右计算和，这时候有三种情况，中点是最长子串之中的元素，最长子串在中点右边，最长子串在中点左边。对于第一种情况，那就是左+右+中，对于后两种，那么再对左右子串进行同样的查找(DQ)
