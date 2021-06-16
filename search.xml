@@ -2274,6 +2274,27 @@ t = pM + x \\
       </categories>
   </entry>
   <entry>
+    <title>剑指 Offer 03. 数组中重复的数字</title>
+    <url>/2021/06/15/%E5%89%91%E6%8C%87%20Offer%2003.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<h4 id="剑指-offer-03.-数组中重复的数字"><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">剑指 Offer 03. 数组中重复的数字</a></h4>
+<h5 id="记录">记录</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">memo</span><span class="params">(nums.size())</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(memo[num])</span><br><span class="line">                <span class="keyword">return</span> num;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                memo[num] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>T(n) : O(n)</p>
+<p>S(n) : O(n)</p>
+<h5 id="排序">排序</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); ++i)</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>T(n) : O(nlogn)</p>
+<p>S(n) : O(1)</p>
+<h5 id="用swap">用swap</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i] != i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] == nums[nums[i]])</span><br><span class="line">                    <span class="keyword">return</span> nums[i];</span><br><span class="line">                swap(nums[i], nums[nums[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>对于当走到i时，如果i处的数字不是i的话，就把这个数字移动到正确的位置nums[nums[i]]，然后对交换过来的数字继续判断是不是==i。</p>
+<p>这样一来所有的数字都会被交换到正确的位置，当碰到重复数字时，那他一定不在正确的位置，这时候想把它交换过去的话，就会发现，唉！交换过去的位置已经有他了，那么就可以判断出来时重复了</p>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
+  <entry>
     <title>剑指 Offer 09. 用两个栈实现队列</title>
     <url>/2021/06/15/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
     <content><![CDATA[<h4 id="剑指-offer-09.-用两个栈实现队列"><a href="https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">剑指 Offer 09. 用两个栈实现队列</a></h4>
