@@ -101,3 +101,22 @@ public:
 T(n) : O(m * n)
 
 S(n) : O(n)
+
+
+##### review
+```c++
+class Solution {
+public:
+    int minPathSum(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        vector<int> dp(n, 0);
+        dp[0] = grid[0][0];
+        for(int i = 1; i < n; ++i)
+            dp[i] = dp[i - 1] + grid[0][i];
+        for(int i = 1; i < m; ++i)
+            for(int j = 0; j < n; ++j)
+                dp[j] = (j > 0 ? min(dp[j], dp[j - 1]) : dp[j]) + grid[i][j];
+        return dp.back();
+    }
+};
+```
