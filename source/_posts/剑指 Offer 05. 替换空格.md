@@ -3,7 +3,7 @@ title: 剑指 Offer 05. 替换空格
 date: 2021-06-17 17:32:40 +0800
 categories: 剑指 Offer
 ---
-#### [剑指 Offer 05. 替换空格](2021-06-17 17:32:37 +0800)
+#### [剑指 Offer 05. 替换空格](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
 
 ##### 遍历替换
 ```c++
