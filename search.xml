@@ -2335,4 +2335,14 @@ t = pM + x \\
         <category>剑指 Offer</category>
       </categories>
   </entry>
+  <entry>
+    <title>剑指 Offer 12. 矩阵中的路径</title>
+    <url>/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2012.%20%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</url>
+    <content><![CDATA[<h4 id="剑指-offer-12.-矩阵中的路径"><a href="https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/">剑指 Offer 12. 矩阵中的路径</a></h4>
+<p>参考<a href="https://leetcode.cinte.cc/2021/04/07/79-Word-Search/">79. Word Search</a></p>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
 </search>
