@@ -1886,7 +1886,7 @@ t = pM + x \\
 <li>当<code>word1[i - 1] == word2[j - 1]</code>, 则<code>dp[i][j] = dp[i - 1][j - 1]</code>。</li>
 <li>当<code>word1[i - 1] != word2[j - 1]</code>, 则需要<code>replace(word1[i - 1], word2[j - 1])</code>，<code>dp[i][j] = dp[i - 1][j - 1] + 1</code>。</li>
 <li>当<code>word1[0...i - 1) == word2[0...j)</code>，则需要<code>delete(word1[i - 1])</code>，<code>dp[i][j] = dp[i - 1][j] + 1</code>。</li>
-<li>当<code>word1[0...i - 1) + word2[j - 1]</code>，则需要<code>insert(word2[j - 1])</code>，<code>dp[i][j] = dp[i][j - 1] + 1</code>。 对于后三种情况，取最小值即可忽略复杂的判断</li>
+<li>当<code>word1[0...i - 1) + word2[j - 1] == wrod[0...j)</code>，则需要<code>insert(word2[j - 1])</code>，<code>dp[i][j] = dp[i][j - 1] + 1</code>。 对于后三种情况，取最小值即可忽略复杂的判断</li>
 </ol>
 <p>base:</p>
 <ol type="1">

@@ -28,7 +28,7 @@
 <meta property="og:description" content="72. Edit Distance  12345678910111213141516171819202122class Solution &amp;#123;public:    int minDistance(string word1, string word2) &amp;#123;        vector&lt;vector&lt;int&gt;&gt; dp(word1.size() + 1, vec">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-05T23:13:29.000Z">
-<meta property="article:modified_time" content="2021-06-16T13:30:13.536Z">
+<meta property="article:modified_time" content="2021-06-17T04:13:48.907Z">
 <meta property="article:author" content="Lambda_YH">
 <meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-16 21:30:13" itemprop="dateModified" datetime="2021-06-16T21:30:13+08:00">2021-06-16</time>
+                <time title="Modified: 2021-06-17 12:13:48" itemprop="dateModified" datetime="2021-06-17T12:13:48+08:00">2021-06-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,7 +291,7 @@
 <li>当<code>word1[i - 1] == word2[j - 1]</code>, 则<code>dp[i][j] = dp[i - 1][j - 1]</code>。</li>
 <li>当<code>word1[i - 1] != word2[j - 1]</code>, 则需要<code>replace(word1[i - 1], word2[j - 1])</code>，<code>dp[i][j] = dp[i - 1][j - 1] + 1</code>。</li>
 <li>当<code>word1[0...i - 1) == word2[0...j)</code>，则需要<code>delete(word1[i - 1])</code>，<code>dp[i][j] = dp[i - 1][j] + 1</code>。</li>
-<li>当<code>word1[0...i - 1) + word2[j - 1]</code>，则需要<code>insert(word2[j - 1])</code>，<code>dp[i][j] = dp[i][j - 1] + 1</code>。 对于后三种情况，取最小值即可忽略复杂的判断</li>
+<li>当<code>word1[0...i - 1) + word2[j - 1] == wrod[0...j)</code>，则需要<code>insert(word2[j - 1])</code>，<code>dp[i][j] = dp[i][j - 1] + 1</code>。 对于后三种情况，取最小值即可忽略复杂的判断</li>
 </ol>
 <p>base:</p>
 <ol type="1">
