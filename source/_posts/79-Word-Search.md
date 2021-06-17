@@ -116,3 +116,37 @@ private:
     }
 };
 ```
+
+##### review
+```c++
+class Solution {
+public:
+    bool exist(vector<vector<char>>& board, string word) {
+        for(int i = 0; i < board.size(); ++i)
+            for(int j = 0; j < board[0].size(); ++j)
+            {
+                if(backTrack(board, i, j, word, 0))
+                    return true;
+            }
+        return false;
+    }
+private:
+    bool backTrack(vector<vector<char>>& board,int i, int j, string& word, int index)
+    {
+        if(board[i][j] < 'A')
+            return false;
+        if(board[i][j] == word[index])
+        {
+            board[i][j] -= 'A';
+            bool ret = (i > 0 && backTrack(board, i - 1, j, word, index + 1))
+                    || (i < board.size() - 1 && backTrack(board, i + 1, j, word, index + 1))
+                    || (j > 0 && backTrack(board, i, j - 1, word, index + 1))
+                    || (j < board[0].size() - 1 && backTrack(board, i, j + 1, word, index + 1))
+                    || (index == word.size() - 1);
+            board[i][j] += 'A';
+            return ret;
+        }else
+            return false;
+    }
+};
+```
