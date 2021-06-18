@@ -6,7 +6,7 @@
   <link href="https://leetcode.cinte.cc/atom.xml" rel="self"/>
   
   <link href="https://leetcode.cinte.cc/"/>
-  <updated>2021-06-18T08:56:10.937Z</updated>
+  <updated>2021-06-18T09:04:42.527Z</updated>
   <id>https://leetcode.cinte.cc/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>剑指 Offer 14- I. 剪绳子</title>
+    <link href="https://leetcode.cinte.cc/2021/06/18/%E5%89%91%E6%8C%87%20Offer%2014-%20I.%20%E5%89%AA%E7%BB%B3%E5%AD%90/"/>
+    <id>https://leetcode.cinte.cc/2021/06/18/%E5%89%91%E6%8C%87%20Offer%2014-%20I.%20%E5%89%AA%E7%BB%B3%E5%AD%90/</id>
+    <published>2021-06-18T00:46:25.000Z</published>
+    <updated>2021-06-18T09:04:42.527Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;剑指-offer-14--i.-剪绳子&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/jian-sheng-zi-lcof/submissions/&quot;&gt;剑指 Offer 14- I. 剪绳子&lt;/a&gt;&lt;/h4&gt;
+&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="剑指 Offer" scheme="https://leetcode.cinte.cc/categories/%E5%89%91%E6%8C%87-Offer/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>剑指 Offer 06. 从尾到头打印链表</title>
     <link href="https://leetcode.cinte.cc/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2006.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/"/>
     <id>https://leetcode.cinte.cc/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2006.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/</id>
     <published>2021-06-17T05:46:23.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -44,7 +68,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2013.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/"/>
     <id>https://leetcode.cinte.cc/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2013.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/</id>
     <published>2021-06-17T05:12:35.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -67,7 +91,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2005.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/"/>
     <id>https://leetcode.cinte.cc/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2005.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</id>
     <published>2021-06-17T01:32:40.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -91,7 +115,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2012.%20%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/"/>
     <id>https://leetcode.cinte.cc/2021/06/17/%E5%89%91%E6%8C%87%20Offer%2012.%20%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</id>
     <published>2021-06-17T01:02:36.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -115,7 +139,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/16/%E5%89%91%E6%8C%87%20Offer%2011.%20%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/"/>
     <id>https://leetcode.cinte.cc/2021/06/16/%E5%89%91%E6%8C%87%20Offer%2011.%20%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</id>
     <published>2021-06-16T05:15:44.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -138,7 +162,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/15/%E5%89%91%E6%8C%87%20Offer%2003.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
     <id>https://leetcode.cinte.cc/2021/06/15/%E5%89%91%E6%8C%87%20Offer%2003.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</id>
     <published>2021-06-15T01:57:41.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -161,7 +185,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/15/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
     <id>https://leetcode.cinte.cc/2021/06/15/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</id>
     <published>2021-06-15T01:49:30.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -185,7 +209,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/15/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
     <id>https://leetcode.cinte.cc/2021/06/15/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
     <published>2021-06-15T01:34:08.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -208,7 +232,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/14/90.%20Subsets%20II/"/>
     <id>https://leetcode.cinte.cc/2021/06/14/90.%20Subsets%20II/</id>
     <published>2021-06-14T23:55:35.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -233,7 +257,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/13/171.%20Excel%20Sheet%20Column%20Number/"/>
     <id>https://leetcode.cinte.cc/2021/06/13/171.%20Excel%20Sheet%20Column%20Number/</id>
     <published>2021-06-13T05:12:46.000Z</published>
-    <updated>2021-06-18T08:56:10.933Z</updated>
+    <updated>2021-06-18T09:04:42.523Z</updated>
     
     
       
@@ -256,7 +280,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/13/130.%20Surrounded%20Regions/"/>
     <id>https://leetcode.cinte.cc/2021/06/13/130.%20Surrounded%20Regions/</id>
     <published>2021-06-13T04:28:06.000Z</published>
-    <updated>2021-06-18T08:56:10.933Z</updated>
+    <updated>2021-06-18T09:04:42.523Z</updated>
     
     
       
@@ -280,7 +304,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/13/99.%20Recover%20Binary%20Search%20Tree/"/>
     <id>https://leetcode.cinte.cc/2021/06/13/99.%20Recover%20Binary%20Search%20Tree/</id>
     <published>2021-06-13T00:59:32.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -303,7 +327,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/11/118.%20Pascal&#39;s%20Triangle/"/>
     <id>https://leetcode.cinte.cc/2021/06/11/118.%20Pascal&#39;s%20Triangle/</id>
     <published>2021-06-11T04:28:04.000Z</published>
-    <updated>2021-06-18T08:56:10.933Z</updated>
+    <updated>2021-06-18T09:04:42.523Z</updated>
     
     
       
@@ -327,7 +351,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/11/116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node/"/>
     <id>https://leetcode.cinte.cc/2021/06/11/116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node/</id>
     <published>2021-06-11T03:31:53.000Z</published>
-    <updated>2021-06-18T08:56:10.933Z</updated>
+    <updated>2021-06-18T09:04:42.523Z</updated>
     
     
       
@@ -352,7 +376,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/11/108.%20Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/"/>
     <id>https://leetcode.cinte.cc/2021/06/11/108.%20Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/</id>
     <published>2021-06-11T01:00:55.000Z</published>
-    <updated>2021-06-18T08:56:10.933Z</updated>
+    <updated>2021-06-18T09:04:42.523Z</updated>
     
     
       
@@ -377,7 +401,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/10/103.%20Binary%20Tree%20Zigzag%20Level%20Order%20Traversal/"/>
     <id>https://leetcode.cinte.cc/2021/06/10/103.%20Binary%20Tree%20Zigzag%20Level%20Order%20Traversal/</id>
     <published>2021-06-10T05:01:03.000Z</published>
-    <updated>2021-06-18T08:56:10.933Z</updated>
+    <updated>2021-06-18T09:04:42.523Z</updated>
     
     
       
@@ -402,7 +426,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/08/88.%20Merge%20Sorted%20Array/"/>
     <id>https://leetcode.cinte.cc/2021/06/08/88.%20Merge%20Sorted%20Array/</id>
     <published>2021-06-08T05:05:57.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -428,7 +452,7 @@
     <link href="https://leetcode.cinte.cc/2021/06/08/91.%20Decode%20Ways/"/>
     <id>https://leetcode.cinte.cc/2021/06/08/91.%20Decode%20Ways/</id>
     <published>2021-06-08T04:19:51.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -455,7 +479,7 @@
     <link href="https://leetcode.cinte.cc/2021/05/19/343.%20Integer%20Break/"/>
     <id>https://leetcode.cinte.cc/2021/05/19/343.%20Integer%20Break/</id>
     <published>2021-05-19T00:42:15.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
+    <updated>2021-06-18T09:04:42.527Z</updated>
     
     
       
@@ -465,31 +489,6 @@
     <summary type="html">&lt;h4 id=&quot;integer-break&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/integer-break/&quot;&gt;343. Integer Break&lt;/a&gt;&lt;/h4&gt;
 &lt;h5 id=&quot;dp&quot;&gt;dp&lt;/h5&gt;
 &lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
-    
-    
-    <category term="Dynamic Programming" scheme="https://leetcode.cinte.cc/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>304. Range Sum Query 2D - Immutable</title>
-    <link href="https://leetcode.cinte.cc/2021/05/18/304.%20Range%20Sum%20Query%202D%20-%20Immutable/"/>
-    <id>https://leetcode.cinte.cc/2021/05/18/304.%20Range%20Sum%20Query%202D%20-%20Immutable/</id>
-    <published>2021-05-18T23:43:14.000Z</published>
-    <updated>2021-06-18T08:56:10.937Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;range-sum-query-2d---immutable&quot;&gt;&lt;a href=&quot;https://leetcode.com/problems/range-sum-query-2d-immutable/&quot;&gt;304. Range Sum Query 2D -</summary>
         
       
     

@@ -2392,4 +2392,17 @@ t = pM + x \\
         <category>剑指 Offer</category>
       </categories>
   </entry>
+  <entry>
+    <title>剑指 Offer 14- I. 剪绳子</title>
+    <url>/2021/06/18/%E5%89%91%E6%8C%87%20Offer%2014-%20I.%20%E5%89%AA%E7%BB%B3%E5%AD%90/</url>
+    <content><![CDATA[<h4 id="剑指-offer-14--i.-剪绳子"><a href="https://leetcode-cn.com/problems/jian-sheng-zi-lcof/submissions/">剑指 Offer 14- I. 剪绳子</a></h4>
+<h5 id="dp">dp</h5>
+<p>参考<a href="https://leetcode.cinte.cc/2021/05/19/343.%20Integer%20Break/">343. Integer Break</a></p>
+<h5 id="数学方法-taifuzale">数学方法 TAIFUZALE</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">cuttingRope</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">3</span>) </span><br><span class="line">            <span class="keyword">return</span> n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> a = n / <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">int</span> b = n % <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(b == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">pow</span>(<span class="number">3</span>, a - <span class="number">1</span>) * <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">if</span>(b == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">pow</span>(<span class="number">3</span>, a);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(<span class="number">3</span>, a) * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
 </search>
