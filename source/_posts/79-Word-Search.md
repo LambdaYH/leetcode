@@ -150,3 +150,33 @@ private:
     }
 };
 ```
+
+##### review again
+```c++
+class Solution {
+public:
+    bool exist(vector<vector<char>>& board, string word) {
+        int m = board.size(), n = board[0].size();
+        for(int i = 0; i < m; ++i)
+            for(int j = 0; j < n; ++j)
+                if(search(board, i, j, m, n, word, 0))
+                    return true;
+        return false;
+    }
+private:
+    bool search(vector<vector<char>>& board,int i, int j, const int& m, const int& n, string& word, int index)
+    {
+        if(index >= word.size())
+            return true;
+        if(i >= m || i < 0 || j >= n || j < 0 || board[i][j] < 'A' || word[index] != board[i][j])
+            return false;
+        board[i][j] -= 'A';
+        auto ret = search(board, i + 1, j, m, n, word, index + 1)
+                || search(board, i - 1, j, m, n, word, index + 1)
+                || search(board, i, j + 1, m, n, word, index + 1)
+                || search(board, i, j - 1, m, n, word, index + 1);
+        board[i][j] += 'A';
+        return ret;
+    }
+};
+```
