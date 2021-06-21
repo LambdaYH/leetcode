@@ -194,6 +194,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/14/57.%20Insert%20Interval/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/14/57.%20Insert%20Interval/" class="post-title-link" itemprop="url">57. Insert Interval</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-14 08:03:50" itemprop="dateCreated datePublished" datetime="2021-05-14T08:03:50+08:00">2021-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/05/14/57.%20Insert%20Interval/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/14/57. Insert Interval/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>688</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="insert-interval"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/insert-interval/">57. Insert Interval</a></h4>
+<p>My vegetable exploded</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; insert(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; intervals, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; newInterval) &#123;</span><br><span class="line">        <span class="keyword">int</span> l = newInterval[<span class="number">0</span>], r = newInterval[<span class="number">1</span>];</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; intervals.size() &amp;&amp; intervals[i][<span class="number">1</span>] &lt; newInterval[<span class="number">0</span>]) <span class="comment">// 添加所有没有交叠的</span></span><br><span class="line">            ret.push_back(intervals[i++]);</span><br><span class="line">        <span class="keyword">while</span>(i &lt; intervals.size() &amp;&amp; intervals[i][<span class="number">0</span>] &lt;= r) <span class="comment">// 合并所有交叠的</span></span><br><span class="line">        &#123;</span><br><span class="line">            l = min(l, intervals[i][<span class="number">0</span>]);</span><br><span class="line">            r = max(r, intervals[i][<span class="number">1</span>]);</span><br><span class="line">            ++i;</span><br><span class="line">        &#125;</span><br><span class="line">        ret.push_back(&#123;l, r&#125;);</span><br><span class="line">        <span class="keyword">while</span>(i &lt; intervals.size()) <span class="comment">// 添加剩下的</span></span><br><span class="line">            ret.push_back(intervals[i++]);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>三步走，先处理交叠前的，在处理正在交叠的，再添加剩下的</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/13/11.%20Container%20With%20Most%20Water/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +330,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -330,7 +435,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -453,7 +558,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -573,7 +678,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -681,7 +786,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -786,7 +891,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -892,7 +997,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1003,7 +1108,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1114,7 +1219,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
+                <time title="Modified: 2021-06-21 15:31:19" itemprop="dateModified" datetime="2021-06-21T15:31:19+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1173,125 +1278,6 @@
 <figure>
 <img src="https://image.cinte.cc/2021/05/06/0bf7c9025d7a9.png" alt="1620305144539.png" /><figcaption aria-hidden="true">1620305144539.png</figcaption>
 </figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/06/128.%20Longest%20Consecutive%20Sequence/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/06/128.%20Longest%20Consecutive%20Sequence/" class="post-title-link" itemprop="url">128. Longest Consecutive Sequence</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-06 08:36:59" itemprop="dateCreated datePublished" datetime="2021-05-06T08:36:59+08:00">2021-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-19 16:20:24" itemprop="dateModified" datetime="2021-06-19T16:20:24+08:00">2021-06-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/05/06/128.%20Longest%20Consecutive%20Sequence/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/06/128. Longest Consecutive Sequence/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="longest-consecutive-sequence"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-consecutive-sequence/">128. Longest Consecutive Sequence</a></h4>
-<h5 id="section"></h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> tmp = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != nums[i - <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] == nums[i - <span class="number">1</span>] + <span class="number">1</span>)</span><br><span class="line">                    ++tmp;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ret = max(ret, tmp);</span><br><span class="line">                    tmp = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max(ret, tmp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>T(n) : O(nlogn) <br> S(n) : O(1)</p>
-<p>排序后，跳过相同的，计算多个子串，如果不相等，就从头开始计算</p>
-<h5 id="hash">hash</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">set</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">set</span>.insert(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">set</span>.find(num - <span class="number">1</span>) == <span class="built_in">set</span>.end())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> curNum = num + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(<span class="built_in">set</span>.find(curNum) != <span class="built_in">set</span>.end())</span><br><span class="line">                &#123;</span><br><span class="line">                    ++curNum;</span><br><span class="line">                    ++tmp;</span><br><span class="line">                &#125;</span><br><span class="line">                ret = max(ret, tmp);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>用哈希记录每个值，然后找，而且仅仅从连续子串的开头开始，跳过所有的中间量</p>
-<p>明明是O(n)为啥比第一个O(nlogn)还慢</p>
-<h5 id="discussion">discussion</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!<span class="built_in">map</span>[num])</span><br><span class="line">                r = max(r, <span class="built_in">map</span>[num] = <span class="built_in">map</span>[num + <span class="built_in">map</span>[num + <span class="number">1</span>]] = <span class="built_in">map</span>[num - <span class="built_in">map</span>[num - <span class="number">1</span>]] = <span class="built_in">map</span>[num - <span class="number">1</span>] + <span class="built_in">map</span>[num + <span class="number">1</span>] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;  </span><br></pre></td></tr></table></figure>
-<p>对于n，几种情况</p>
-<ol type="1">
-<li>有一条到n-1的路径，则总长度为len(n-1)+1</li>
-<li>有一条n+1到后面的路径，则总长度为len(n+1)+1</li>
-<li>都没有，则长度为1</li>
-</ol>
-<p>对于一条路径来说，比如123456，则对于这条路径的开头和结尾来说，他们的最长长度应该是一样的，给他们赋予同样的值，中间的点会走到，然后会更新值，走过的点就不走了</p>
 
       
     </div>
@@ -1378,7 +1364,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-count">150</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1454,12 +1440,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">183k</span>
+    <span title="Symbols count total">184k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:46</span>
+    <span title="Reading time total">2:47</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
