@@ -27,10 +27,12 @@
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
 <meta property="og:description" content="128. Longest Consecutive Sequence  123456789101112131415161718192021222324class Solution &amp;#123;public:    int longestConsecutive(vector&lt;int&gt;&amp; nums) &amp;#123;        if(nums.empty())">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://image.cinte.cc/2021/06/25/a8841a5b364b0.png">
 <meta property="article:published_time" content="2021-05-06T00:36:59.000Z">
-<meta property="article:modified_time" content="2021-06-24T09:26:53.103Z">
+<meta property="article:modified_time" content="2021-06-25T07:21:14.015Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.cinte.cc/2021/06/25/a8841a5b364b0.png">
 
 <link rel="canonical" href="https://leetcode.cinte.cc/2021/05/06/128.%20Longest%20Consecutive%20Sequence/">
 
@@ -229,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-24 17:26:53" itemprop="dateModified" datetime="2021-06-24T17:26:53+08:00">2021-06-24</time>
+                <time title="Modified: 2021-06-25 15:21:14" itemprop="dateModified" datetime="2021-06-25T15:21:14+08:00">2021-06-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,7 +263,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -298,6 +300,10 @@
 <li>都没有，则长度为1</li>
 </ol>
 <p>对于一条路径来说，比如123456，则对于这条路径的开头和结尾来说，他们的最长长度应该是一样的，给他们赋予同样的值，中间的点会走到，然后会更新值，走过的点就不走了</p>
+<p>差不多就是每走到一个点，如果他周围还没有，那就建立一条小路，后面走到中间的后，自然会连接两条小路</p>
+<figure>
+<img src="https://image.cinte.cc/2021/06/25/a8841a5b364b0.png" alt="1624605638438.png" /><figcaption aria-hidden="true">1624605638438.png</figcaption>
+</figure>
 
     </div>
 

@@ -296,6 +296,10 @@
 <li>都没有，则长度为1</li>
 </ol>
 <p>对于一条路径来说，比如123456，则对于这条路径的开头和结尾来说，他们的最长长度应该是一样的，给他们赋予同样的值，中间的点会走到，然后会更新值，走过的点就不走了</p>
+<p>差不多就是每走到一个点，如果他周围还没有，那就建立一条小路，后面走到中间的后，自然会连接两条小路</p>
+<figure>
+<img src="https://image.cinte.cc/2021/06/25/a8841a5b364b0.png" alt="1624605638438.png" /><figcaption aria-hidden="true">1624605638438.png</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>leetcode</category>
