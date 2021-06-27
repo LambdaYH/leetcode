@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="20. Valid Parentheses Solution 太强了 12345678910111213141516171819class Solution &amp;#123;public:    bool isValid(string s) &amp;#123;        unordered_map&lt;char, char&gt; map&amp;#123; &amp;#123;&amp;#x27;(&amp;#x27;, &amp;#x2">
+  <meta name="description" content="剑指 Offer 30. 包含min函数的栈  参考155. Min Stack 自建链表节点，节点中加入min属性 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657class MinStack &amp;#123;public:    &#x2F;**">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20. Valid Parentheses">
-<meta property="og:url" content="https://leetcode.cinte.cc/2021/03/18/20-Valid-Parentheses/index.html">
+<meta property="og:title" content="剑指 Offer 30. 包含min函数的栈">
+<meta property="og:url" content="https://leetcode.cinte.cc/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2030.%20%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
-<meta property="og:description" content="20. Valid Parentheses Solution 太强了 12345678910111213141516171819class Solution &amp;#123;public:    bool isValid(string s) &amp;#123;        unordered_map&lt;char, char&gt; map&amp;#123; &amp;#123;&amp;#x27;(&amp;#x27;, &amp;#x2">
+<meta property="og:description" content="剑指 Offer 30. 包含min函数的栈  参考155. Min Stack 自建链表节点，节点中加入min属性 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657class MinStack &amp;#123;public:    &#x2F;**">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-18T22:19:03.000Z">
-<meta property="article:modified_time" content="2021-06-27T09:35:06.672Z">
+<meta property="article:published_time" content="2021-06-27T01:18:41.000Z">
+<meta property="article:modified_time" content="2021-06-27T09:35:06.676Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leetcode.cinte.cc/2021/03/18/20-Valid-Parentheses/">
+<link rel="canonical" href="https://leetcode.cinte.cc/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2030.%20%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>20. Valid Parentheses | Cinte's Leetcode Record</title>
+  <title>剑指 Offer 30. 包含min函数的栈 | Cinte's Leetcode Record</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163175934-2"></script>
     <script>
@@ -199,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/03/18/20-Valid-Parentheses/">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2030.%20%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -212,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20. Valid Parentheses
+          剑指 Offer 30. 包含min函数的栈
         </h1>
 
         <div class="post-meta">
@@ -221,23 +221,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-03-19 06:19:03" itemprop="dateCreated datePublished" datetime="2021-03-19T06:19:03+08:00">2021-03-19</time>
+              <time title="Created: 2021-06-27 09:18:41 / Modified: 17:35:06" itemprop="dateCreated datePublished" datetime="2021-06-27T09:18:41+08:00">2021-06-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-27 17:35:06" itemprop="dateModified" datetime="2021-06-27T17:35:06+08:00">2021-06-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
                 </span>
             </span>
 
@@ -250,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/03/18/20-Valid-Parentheses/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/18/20-Valid-Parentheses/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2030.%20%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/27/剑指 Offer 30. 包含min函数的栈/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>483</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -280,9 +274,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="valid-parentheses"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-parentheses/">20. Valid Parentheses</a></h4>
-<h5 id="solution-太强了">Solution 太强了</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">char</span>&gt; <span class="built_in">map</span>&#123; &#123;<span class="string">&#x27;(&#x27;</span>, <span class="string">&#x27;)&#x27;</span>&#125;, &#123; <span class="string">&#x27;&#123;&#x27;</span>, <span class="string">&#x27;&#125;&#x27;</span> &#125;, &#123; <span class="string">&#x27;[&#x27;</span>, <span class="string">&#x27;]&#x27;</span> &#125; &#125;;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">if</span> (s.size() % <span class="number">2</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (ch == (st.size() ? <span class="built_in">map</span>[st.top()] : <span class="string">&#x27;#&#x27;</span>))</span><br><span class="line">                st.pop();</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                st.push(ch);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (st.size())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="剑指-offer-30.-包含min函数的栈"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/">剑指 Offer 30. 包含min函数的栈</a></h4>
+<h5 id="section"></h5>
+<p>参考<a href="https://leetcode.cinte.cc/2021/04/09/155-Min-Stack/">155. Min Stack</a></p>
+<p>自建链表节点，节点中加入min属性</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    MinStack() : head(<span class="keyword">new</span> node(<span class="number">0</span>)) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> n = <span class="keyword">new</span> node(x, head-&gt;next);</span><br><span class="line">        <span class="keyword">if</span>((n-&gt;next &amp;&amp; n-&gt;next-&gt;min &gt; x) || !n-&gt;next)</span><br><span class="line">            n-&gt;min = x;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            n-&gt;min = n-&gt;next-&gt;min;</span><br><span class="line">        head-&gt;next = n;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head-&gt;next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> p = head-&gt;next;</span><br><span class="line">            head-&gt;next = head-&gt;next-&gt;next;</span><br><span class="line">            <span class="keyword">delete</span> p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head-&gt;next)</span><br><span class="line">            <span class="keyword">return</span> head-&gt;next-&gt;val;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head-&gt;next)</span><br><span class="line">            <span class="keyword">return</span> head-&gt;next-&gt;min;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">        node* next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        <span class="keyword">int</span> min = <span class="number">0</span>;</span><br><span class="line">        node() = <span class="keyword">default</span>;</span><br><span class="line">        node(<span class="keyword">int</span> val) : val(val) &#123;&#125;</span><br><span class="line">        node(<span class="keyword">int</span> val, node* next) : val(val), next(next) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    node* head;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MinStack* obj = new MinStack();</span></span><br><span class="line"><span class="comment"> * obj-&gt;push(x);</span></span><br><span class="line"><span class="comment"> * obj-&gt;pop();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj-&gt;top();</span></span><br><span class="line"><span class="comment"> * int param_4 = obj-&gt;min();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h5 id="辅助堆">辅助堆</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    MinStack() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        s1.push(x);</span><br><span class="line">        <span class="keyword">if</span>(s2.empty() || s2.top() &gt;= x)</span><br><span class="line">            s2.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s2.top() == s1.top())</span><br><span class="line">            s2.pop();</span><br><span class="line">        s1.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s1.top();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s2.top();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s1;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s2;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MinStack* obj = new MinStack();</span></span><br><span class="line"><span class="comment"> * obj-&gt;push(x);</span></span><br><span class="line"><span class="comment"> * obj-&gt;pop();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj-&gt;top();</span></span><br><span class="line"><span class="comment"> * int param_4 = obj-&gt;min();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -298,13 +296,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/17/16-3Sum-Closest/" rel="prev" title="16. 3Sum Closest">
-      <i class="fa fa-chevron-left"></i> 16. 3Sum Closest
+    <a href="/2021/06/26/%E5%89%91%E6%8C%87%20Offer%2040.%20%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0/" rel="prev" title="剑指 Offer 40. 最小的k个数">
+      <i class="fa fa-chevron-left"></i> 剑指 Offer 40. 最小的k个数
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/19/22-Generate-Parentheses/" rel="next" title="22. Generate Parentheses">
-      22. Generate Parentheses <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -370,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#valid-parentheses"><span class="nav-number">1.</span> <span class="nav-text">20. Valid Parentheses</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#solution-%E5%A4%AA%E5%BC%BA%E4%BA%86"><span class="nav-number">1.1.</span> <span class="nav-text">Solution 太强了</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E6%8C%87-offer-30.-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 30. 包含min函数的栈</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#section"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E5%A0%86"><span class="nav-number">1.2.</span> <span class="nav-text">辅助堆</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -580,9 +575,9 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://leetcode.cinte.cc/2021/03/18/20-Valid-Parentheses/";
-    this.page.identifier = "2021/03/18/20-Valid-Parentheses/";
-    this.page.title = "20. Valid Parentheses";
+    this.page.url = "https://leetcode.cinte.cc/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2030.%20%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/";
+    this.page.identifier = "2021/06/27/剑指 Offer 30. 包含min函数的栈/";
+    this.page.title = "剑指 Offer 30. 包含min函数的栈";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
