@@ -23,7 +23,7 @@ public:
         {
             for(size_t j = 0; j < i; ++j)
             {
-                if(dp[j] && (dict.find(s.substr(j, i - j)) != dict.end()))
+                if(dp[j] && (dict.find(s.substr(j, i - j)) != dict.end())) // 对于后面的i来说，要用到前面的结果，如果某一块前面部分是true的且剩下的也是可分的，那么这一块也是true，就不用重复判断前面部分了
                 {
                     dp[i] = true;
                     break;
