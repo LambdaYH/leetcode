@@ -20,21 +20,19 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="239. Sliding Window Maximum  123456789101112131415161718class Solution &amp;#123;public:    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &amp;#123;        deque&lt;int&gt; dq;">
+  <meta name="description" content="剑指 Offer 42. 连续子数组的最大和 参考53. Maximum Subarray">
 <meta property="og:type" content="article">
-<meta property="og:title" content="239. Sliding Window Maximum">
-<meta property="og:url" content="https://leetcode.cinte.cc/2021/05/06/239.%20Sliding%20Window%20Maximum/index.html">
+<meta property="og:title" content="剑指 Offer 42. 连续子数组的最大和">
+<meta property="og:url" content="https://leetcode.cinte.cc/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2042.%20%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
-<meta property="og:description" content="239. Sliding Window Maximum  123456789101112131415161718class Solution &amp;#123;public:    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &amp;#123;        deque&lt;int&gt; dq;">
+<meta property="og:description" content="剑指 Offer 42. 连续子数组的最大和 参考53. Maximum Subarray">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://image.cinte.cc/2021/05/06/0bf7c9025d7a9.png">
-<meta property="article:published_time" content="2021-05-06T04:30:07.000Z">
-<meta property="article:modified_time" content="2021-06-27T10:46:12.286Z">
+<meta property="article:published_time" content="2021-06-27T02:38:25.000Z">
+<meta property="article:modified_time" content="2021-06-27T10:46:12.290Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://image.cinte.cc/2021/05/06/0bf7c9025d7a9.png">
 
-<link rel="canonical" href="https://leetcode.cinte.cc/2021/05/06/239.%20Sliding%20Window%20Maximum/">
+<link rel="canonical" href="https://leetcode.cinte.cc/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2042.%20%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/">
 
 
 <script id="page-configurations">
@@ -47,7 +45,7 @@
   };
 </script>
 
-  <title>239. Sliding Window Maximum | Cinte's Leetcode Record</title>
+  <title>剑指 Offer 42. 连续子数组的最大和 | Cinte's Leetcode Record</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163175934-2"></script>
     <script>
@@ -201,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/06/239.%20Sliding%20Window%20Maximum/">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2042.%20%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          239. Sliding Window Maximum
+          剑指 Offer 42. 连续子数组的最大和
         </h1>
 
         <div class="post-meta">
@@ -223,23 +221,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-05-06 12:30:07" itemprop="dateCreated datePublished" datetime="2021-05-06T12:30:07+08:00">2021-05-06</time>
+              <time title="Created: 2021-06-27 10:38:25 / Modified: 18:46:12" itemprop="dateCreated datePublished" datetime="2021-06-27T10:38:25+08:00">2021-06-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-27 18:46:12" itemprop="dateModified" datetime="2021-06-27T18:46:12+08:00">2021-06-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
                 </span>
             </span>
 
@@ -252,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/05/06/239.%20Sliding%20Window%20Maximum/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/06/239. Sliding Window Maximum/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2042.%20%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/27/剑指 Offer 42. 连续子数组的最大和/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -263,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>765</span>
+              <span>39</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -282,14 +274,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="sliding-window-maximum"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/sliding-window-maximum/">239. Sliding Window Maximum</a></h4>
-<h5 id="section"></h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; dq;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!dq.empty() &amp;&amp; dq.front() &lt; i - k + <span class="number">1</span>)</span><br><span class="line">                dq.pop_front();</span><br><span class="line">            <span class="keyword">while</span>(!dq.empty() &amp;&amp; nums[dq.back()] &lt; nums[i])</span><br><span class="line">                dq.pop_back();</span><br><span class="line">            dq.push_back(i);</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= k - <span class="number">1</span>)</span><br><span class="line">                ret.push_back(nums[dq.front()]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>使用双向序列，先加入的在序列头，后加入的在序列尾。当序列头中坐标小于i-k+1时，这个元素对于目前的窗口已经没用了，将其舍弃掉。对于其他的元素，从尾部移掉所有小于当前值的元素，因为对于<code>a[x] &lt; a[i] &amp;&amp; x &lt; i</code>，后面的窗口可以使用<code>a[i]</code>而不是<code>a[x]</code>。由此一来序列头永远都是当前窗口最大项。</p>
-<p>为什么从尾部移除小于当前值的元素而不是从头部呢？ &gt; 只需要想清楚要移除的是<code>a[x] &lt; a[i] &amp;&amp; x &lt; i</code>，因此在插入一个元素前把前面的无用项全都丢了再插入，当然是从后面开始往前删。<code>a[x] &gt; a[i] &amp;&amp; x &lt; i</code>的元素对后面是有用的</p>
-<figure>
-<img src="https://image.cinte.cc/2021/05/06/0bf7c9025d7a9.png" alt="1620305144539.png" /><figcaption aria-hidden="true">1620305144539.png</figcaption>
-</figure>
+        <h4 id="剑指-offer-42.-连续子数组的最大和"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/">剑指 Offer 42. 连续子数组的最大和</a></h4>
+<p>参考<a href="https://leetcode.cinte.cc/2021/03/26/53-Maximum-Subarray/">53. Maximum Subarray</a></p>
 
     </div>
 
@@ -305,13 +291,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/06/128.%20Longest%20Consecutive%20Sequence/" rel="prev" title="128. Longest Consecutive Sequence">
-      <i class="fa fa-chevron-left"></i> 128. Longest Consecutive Sequence
+    <a href="/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2041.%20%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="prev" title="剑指 Offer 41. 数据流中的中位数">
+      <i class="fa fa-chevron-left"></i> 剑指 Offer 41. 数据流中的中位数
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/05/07/85.%20Maximal%20Rectangle/" rel="next" title="85. Maximal Rectangle">
-      85. Maximal Rectangle <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -377,7 +360,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#sliding-window-maximum"><span class="nav-number">1.</span> <span class="nav-text">239. Sliding Window Maximum</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#section"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E6%8C%87-offer-42.-%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 42. 连续子数组的最大和</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -587,9 +570,9 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://leetcode.cinte.cc/2021/05/06/239.%20Sliding%20Window%20Maximum/";
-    this.page.identifier = "2021/05/06/239. Sliding Window Maximum/";
-    this.page.title = "239. Sliding Window Maximum";
+    this.page.url = "https://leetcode.cinte.cc/2021/06/27/%E5%89%91%E6%8C%87%20Offer%2042.%20%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/";
+    this.page.identifier = "2021/06/27/剑指 Offer 42. 连续子数组的最大和/";
+    this.page.title = "剑指 Offer 42. 连续子数组的最大和";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
