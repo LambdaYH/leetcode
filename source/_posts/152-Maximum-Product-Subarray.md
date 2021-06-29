@@ -56,5 +56,31 @@ public:
 };
 ```
 
+##### review
+```c++
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int ret = nums[0];
+        int curLR = 1;
+        int curRL = 1;
+        for(int i = 0, j = nums.size() - 1; i < nums.size(); ++i, --j)
+        {
+            ret = max(ret, max(curLR *= nums[i], curRL *= nums[j]));
+            if(nums[i] == 0)
+                curLR = 1;
+            if(nums[j] == 0)
+                curRL = 1;
+        }
+        return ret;
+    }
+};
+```
+
 当负数的个数为偶数时，全乘起来就是最大，为奇数时，需要抛弃一个 <br>
 每次的乘法，最大的乘积受到最后一个负数的限制
+
+review <br>
+当负数个数为偶数且中间没有0，那么无论左到右还是右到左都会遍历到。
+
+抛开此外，可以观察到分界线为0，每一块被0分开的没0区域都表示一个乘积，当这一个区域没有负数或者负数个数为偶数，那么无论左到右还是右到左都会遍历到。当为奇数，那么以其中一个奇数为分界线将分成左右2块为偶的区域，由此需要左到右和右到左遍历。
