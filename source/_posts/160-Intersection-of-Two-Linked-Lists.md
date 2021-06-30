@@ -118,4 +118,6 @@ public:
 
 他们第一次跑会有一个长度的差，短的先跑到终点后，到长的端点。当长的指针跑到终点后，回到短的端点。此时先前一个刚好跑了他们的距离差，这是他们在距离上是处于同一个起点的。
 
+设短的到交点距离x，长的到交点距离y，公共部分距离为z，则如果要求交点，那么让他们走到交点的路程一致即可，则让短的走到头后跳到长，长的走到头后跳到短，最后对于短头来说x+y+z,长头也是x+y+z，刚好在交点相交。
+
 具体见[discussion](https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/49785/Java-solution-without-knowing-the-difference-in-len!)中的评论第一条
