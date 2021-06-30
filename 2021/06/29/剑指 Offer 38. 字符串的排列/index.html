@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="11. Container With Most Water 12345678910111213141516class Solution &amp;#123;public:    int maxArea(vector&lt;int&gt;&amp; height) &amp;#123;        int maxVal &#x3D; 0;        int i &#x3D; 0, j &#x3D; height.size() - 1;">
+  <meta name="description" content="剑指 Offer 38. 字符串的排列 本题的难点是处理中间的重复字符部分。 使用set来记录最终结果，粗暴的处理 12345678910111213141516171819202122232425262728293031class Solution &amp;#123;public:    vector&lt;string&gt; permutation(string s) &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="11. Container With Most Water">
-<meta property="og:url" content="https://leetcode.cinte.cc/2021/05/13/11.%20Container%20With%20Most%20Water/index.html">
+<meta property="og:title" content="剑指 Offer 38. 字符串的排列">
+<meta property="og:url" content="https://leetcode.cinte.cc/2021/06/29/%E5%89%91%E6%8C%87%20Offer%2038.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
-<meta property="og:description" content="11. Container With Most Water 12345678910111213141516class Solution &amp;#123;public:    int maxArea(vector&lt;int&gt;&amp; height) &amp;#123;        int maxVal &#x3D; 0;        int i &#x3D; 0, j &#x3D; height.size() - 1;">
+<meta property="og:description" content="剑指 Offer 38. 字符串的排列 本题的难点是处理中间的重复字符部分。 使用set来记录最终结果，粗暴的处理 12345678910111213141516171819202122232425262728293031class Solution &amp;#123;public:    vector&lt;string&gt; permutation(string s) &amp;#123;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-05-13T22:38:01.000Z">
-<meta property="article:modified_time" content="2021-06-30T08:01:31.757Z">
+<meta property="article:published_time" content="2021-06-29T23:31:14.000Z">
+<meta property="article:modified_time" content="2021-06-30T08:01:31.761Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leetcode.cinte.cc/2021/05/13/11.%20Container%20With%20Most%20Water/">
+<link rel="canonical" href="https://leetcode.cinte.cc/2021/06/29/%E5%89%91%E6%8C%87%20Offer%2038.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>11. Container With Most Water | Cinte's Leetcode Record</title>
+  <title>剑指 Offer 38. 字符串的排列 | Cinte's Leetcode Record</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163175934-2"></script>
     <script>
@@ -199,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/13/11.%20Container%20With%20Most%20Water/">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/29/%E5%89%91%E6%8C%87%20Offer%2038.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -212,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          11. Container With Most Water
+          剑指 Offer 38. 字符串的排列
         </h1>
 
         <div class="post-meta">
@@ -221,23 +221,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-05-14 06:38:01" itemprop="dateCreated datePublished" datetime="2021-05-14T06:38:01+08:00">2021-05-14</time>
+              <time title="Created: 2021-06-30 07:31:14 / Modified: 16:01:31" itemprop="dateCreated datePublished" datetime="2021-06-30T07:31:14+08:00">2021-06-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-30 16:01:31" itemprop="dateModified" datetime="2021-06-30T16:01:31+08:00">2021-06-30</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
                 </span>
             </span>
 
@@ -250,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/05/13/11.%20Container%20With%20Most%20Water/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/13/11. Container With Most Water/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/06/29/%E5%89%91%E6%8C%87%20Offer%2038.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/29/剑指 Offer 38. 字符串的排列/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>490</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -280,10 +274,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="container-with-most-water"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/container-with-most-water/">11. Container With Most Water</a></h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxVal = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = height.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            maxVal = max(maxVal, (j - i) * min(height[i], height[j]));</span><br><span class="line">            <span class="keyword">if</span>(height[i] &lt; height[j])</span><br><span class="line">                ++i;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                --j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>当<code>height[i] &lt; height[j]</code>时，如果不舍弃他而移动右边j，那么结果肯定时小于现在的，所以舍弃i</p>
-<p>假设a2,a6为最大，需要证明当left=a2时，右边会移到a6。 即当left=a2,right=a7的下一位时left=a2,left=a6。而这一步必然时height[a2]&gt;height[a7]，若不然，则最小边界为a2，宽度只会减少，则总值减少，所以必定移动a.</p>
+        <h4 id="剑指-offer-38.-字符串的排列"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/">剑指 Offer 38. 字符串的排列</a></h4>
+<p>本题的难点是处理中间的重复字符部分。</p>
+<h5 id="使用set来记录最终结果粗暴的处理">使用set来记录最终结果，粗暴的处理</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">permutation</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ret;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">path</span><span class="params">(s.size())</span></span>;</span><br><span class="line">        backTrack(s, <span class="string">&quot;&quot;</span>, ret, path);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">unordered_set</span>&lt;<span class="built_in">string</span>&gt; <span class="built_in">set</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backTrack</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="built_in">string</span> tmp, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; ret, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&amp; path)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.size() == tmp.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">set</span>.find(tmp) == <span class="built_in">set</span>.end())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">set</span>.insert(tmp);</span><br><span class="line">                ret.push_back(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(path[i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            path[i] = <span class="literal">true</span>;</span><br><span class="line">            backTrack(s, tmp + s[i], ret, path);</span><br><span class="line">            path[i] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="中心思想是对于每一位保证当前位置出现字符串中的每一种字符并且重复的字符只出现一次">中心思想是，对于每一位，保证当前位置出现字符串中的每一种字符并且重复的字符只出现一次</h5>
+<p>抄的大佬</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">permutation</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        backTrack(s, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ret;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backTrack</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index == s.size() - <span class="number">1</span>) <span class="comment">// 这里之所以用s.size() - 1而不是s.size()是因为当前面所有位置都固定完了后，最后一位已经板上钉钉了，所以可以直接结束。</span></span><br><span class="line">        &#123;</span><br><span class="line">            ret.push_back(s);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">char</span>&gt; <span class="built_in">set</span>;</span><br><span class="line">        <span class="comment">// 这里i如果从0开始的话，就会导致之前的固定结果被改变</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = index; i &lt; s.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">set</span>.find(s[i]) != <span class="built_in">set</span>.end())</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">set</span>.insert(s[i]); <span class="comment">// 防止当前位置上固定重复的字符</span></span><br><span class="line">            swap(s[i], s[index]); <span class="comment">// swap很巧妙，对于第一位来说，意味着后面所有位可以跑到第一位，而同时也意味着第一位可以跑到后面所有位，当index=后面任意一位时，不用担心这一位用不到index之前的，因为前面的已经有机会交换过来了</span></span><br><span class="line">            backTrack(s, index + <span class="number">1</span>);</span><br><span class="line">            swap(s[i], s[index]); <span class="comment">// 恢复回溯操作</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -299,13 +296,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/11/10.%20Regular%20Expression%20Matching/" rel="prev" title="10. Regular Expression Matching">
-      <i class="fa fa-chevron-left"></i> 10. Regular Expression Matching
+    <a href="/2021/06/29/%E5%89%91%E6%8C%87%20Offer%2037.%20%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="prev" title="剑指 Offer 37. 序列化二叉树">
+      <i class="fa fa-chevron-left"></i> 剑指 Offer 37. 序列化二叉树
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/05/14/57.%20Insert%20Interval/" rel="next" title="57. Insert Interval">
-      57. Insert Interval <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -371,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#container-with-most-water"><span class="nav-number">1.</span> <span class="nav-text">11. Container With Most Water</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E6%8C%87-offer-38.-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 38. 字符串的排列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8set%E6%9D%A5%E8%AE%B0%E5%BD%95%E6%9C%80%E7%BB%88%E7%BB%93%E6%9E%9C%E7%B2%97%E6%9A%B4%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">使用set来记录最终结果，粗暴的处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AD%E5%BF%83%E6%80%9D%E6%83%B3%E6%98%AF%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%80%E4%BD%8D%E4%BF%9D%E8%AF%81%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AE%E5%87%BA%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%AF%8F%E4%B8%80%E7%A7%8D%E5%AD%97%E7%AC%A6%E5%B9%B6%E4%B8%94%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%97%E7%AC%A6%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1"><span class="nav-number">1.2.</span> <span class="nav-text">中心思想是，对于每一位，保证当前位置出现字符串中的每一种字符并且重复的字符只出现一次</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -581,9 +575,9 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://leetcode.cinte.cc/2021/05/13/11.%20Container%20With%20Most%20Water/";
-    this.page.identifier = "2021/05/13/11. Container With Most Water/";
-    this.page.title = "11. Container With Most Water";
+    this.page.url = "https://leetcode.cinte.cc/2021/06/29/%E5%89%91%E6%8C%87%20Offer%2038.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/";
+    this.page.identifier = "2021/06/29/剑指 Offer 38. 字符串的排列/";
+    this.page.title = "剑指 Offer 38. 字符串的排列";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
