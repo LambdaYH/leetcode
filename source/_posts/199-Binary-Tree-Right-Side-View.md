@@ -22,36 +22,23 @@ tags:
 class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
-        if(!root) return {};
+        if(!root)
+            return {};
         vector<int> ret;
-        int tmp = root->val;
-        queue<TreeNode*> s;
-        int countPerLayer = 1;
-        s.push(root);
-        while(!s.empty())
+        queue<TreeNode*> q;
+        q.push(root);
+        while(!q.empty())
         {
-            int cT = 0;
-            ret.push_back(tmp);
-            for(int i = 0; i < countPerLayer; ++i)
+            ret.push_back(q.back()->val);
+            for(int i = 0, sz = q.size(); i < sz; ++i)
             {
-                auto t = s.front();
-                s.pop();
-                if(t->left)
-                {
-                    s.push(t->left);
-                    ++cT;
-                }
-                if(t->right)
-                {
-                    tmp = t->right->val;
-                    s.push(t->right);
-                    ++cT;
-                }else if(t->left)
-                {
-                    tmp = t->left->val;
-                }
+                auto p = q.front();
+                q.pop();
+                if(p->left)
+                    q.push(p->left);
+                if(p->right)
+                    q.push(p->right);
             }
-            countPerLayer = cT;
         }
         return ret;
     }
