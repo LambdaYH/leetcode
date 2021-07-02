@@ -45,6 +45,9 @@ public:
 };
 ```
 
+T(n) : O(n)
+S(n) : O(k)(k为每层数)
+
 ##### discussion的方法
 ```c++
 /**
@@ -71,7 +74,7 @@ private:
         if(!node)
             return;
         
-        if(depth == ret.size())
+        if(depth == ret.size()) // 如果当depth != ret.size()时return，则会导致传递的终止，不行，当不等时候，那就继续遍历下去，说不定下面一层又轮到你了
             ret.push_back(node->val);
         
         rightView(ret, node->right, depth + 1);
@@ -79,5 +82,5 @@ private:
     }
 };
 ```
-
+O(logn)
 总体思路是每层只添加一个，然后仅当每层没添加时才会添加进去，而层数通过ret的大小来判定，由于是从右到左遍历，因此每层添加的一定是最右的
