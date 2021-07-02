@@ -194,6 +194,112 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/08/76.%20Minimum%20Window%20Substring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/08/76.%20Minimum%20Window%20Substring/" class="post-title-link" itemprop="url">76. Minimum Window Substring</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-08 13:47:43" itemprop="dateCreated datePublished" datetime="2021-05-08T13:47:43+08:00">2021-05-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/05/08/76.%20Minimum%20Window%20Substring/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/08/76. Minimum Window Substring/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="minimum-window-substring"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-window-substring/">76. Minimum Window Substring</a></h4>
+<h5 id="使用了之前sliding-window的范式">使用了之前sliding window的范式</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; ret&#123;<span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> curMax = s.size() + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : t)</span><br><span class="line">            <span class="built_in">map</span>[ch] += <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="built_in">map</span>.size();</span><br><span class="line">        <span class="keyword">while</span>(end &lt; s.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.find(s[end]) != <span class="built_in">map</span>.end())</span><br><span class="line">            &#123;</span><br><span class="line">                --<span class="built_in">map</span>[s[end]];</span><br><span class="line">                <span class="keyword">if</span>(!<span class="built_in">map</span>[s[end]])</span><br><span class="line">                    --count; </span><br><span class="line">            &#125;</span><br><span class="line">            ++end;</span><br><span class="line">            <span class="keyword">while</span>(!count)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">map</span>.find(s[begin]) != <span class="built_in">map</span>.end())</span><br><span class="line">                &#123;</span><br><span class="line">                    ++<span class="built_in">map</span>[s[begin]];</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">map</span>[s[begin]] &gt; <span class="number">0</span>)</span><br><span class="line">                        ++count;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(end - begin &lt; curMax)</span><br><span class="line">                &#123;</span><br><span class="line">                    curMax = end - begin;</span><br><span class="line">                    ret.first = begin;</span><br><span class="line">                    ret.second = curMax;</span><br><span class="line">                &#125;</span><br><span class="line">                ++begin;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substr(ret.first, ret.second);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="filtered">filtered</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : t)</span><br><span class="line">            <span class="built_in">map</span>[ch] += <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&gt; newS;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.find(s[i]) != <span class="built_in">map</span>.end())</span><br><span class="line">                newS.push_back(<span class="built_in">pair</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&#123;s[i], i&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="built_in">map</span>.size();</span><br><span class="line">        <span class="keyword">int</span> curWindow = s.size();</span><br><span class="line">        <span class="keyword">int</span> ansL = <span class="number">0</span>, ansR = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(end &lt; newS.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(--<span class="built_in">map</span>[newS[end].first] == <span class="number">0</span>)</span><br><span class="line">                --count;</span><br><span class="line">            <span class="keyword">while</span>(!count)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(newS[end].second - newS[begin].second &lt; curWindow)</span><br><span class="line">                &#123;</span><br><span class="line">                    ansL = newS[begin].second;</span><br><span class="line">                    ansR = newS[end].second + <span class="number">1</span>;</span><br><span class="line">                    curWindow = ansR - ansL;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(++<span class="built_in">map</span>[newS[begin].first] &gt; <span class="number">0</span>)</span><br><span class="line">                    ++count;</span><br><span class="line">                ++begin;</span><br><span class="line">            &#125;</span><br><span class="line">            ++end;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substr(ansL, ansR - ansL);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/08/84.%20Largest%20Rectangle%20in%20Histogram/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +331,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -336,7 +442,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -447,7 +553,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -556,7 +662,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -679,7 +785,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -803,7 +909,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -909,7 +1015,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1014,7 +1120,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1121,7 +1227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
+                <time title="Modified: 2021-07-02 17:38:58" itemprop="dateModified" datetime="2021-07-02T17:38:58+08:00">2021-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1178,119 +1284,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> turningPoint = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> justGreater = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; nums[i - <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                turningPoint = i;</span><br><span class="line">                justGreater = i;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(turningPoint &amp;&amp; nums[i] &gt; nums[turningPoint - <span class="number">1</span>])</span><br><span class="line">                justGreater = i;       </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(turningPoint)</span><br><span class="line">            swap(nums[justGreater], nums[turningPoint - <span class="number">1</span>]);</span><br><span class="line">        reverse(nums, turningPoint);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> start)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> end = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(start &lt; end)</span><br><span class="line">            swap(nums[start++], nums[end--]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>要注意到转折点后的序列必然是递减的</p>
 <p>寻找序列中第一个满足<code>a[i] &gt; a[i - 1]</code>且其后序列递减的一部分作为转折点，将<code>a[i - 1]</code>和后面递减序列中刚刚好大于<code>a[i - 1]</code>的数<code>a[j]</code>交换，因为<code>a[j - 1] &gt; a[j]</code>其<code>a[j + 1] &lt; a[j]</code>，而<code>a[i - 1] &lt; a[j] &amp;&amp; a[i - 1] &gt; a[j + 1]</code>，所以交换后后面的递减次序不变，为了实现最小，只需要将交换后的后面再升序排列即可。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/03/42.%20Trapping%20Rain%20Water/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/03/42.%20Trapping%20Rain%20Water/" class="post-title-link" itemprop="url">42. Trapping Rain Water</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-04 06:38:46" itemprop="dateCreated datePublished" datetime="2021-05-04T06:38:46+08:00">2021-05-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-02 11:43:54" itemprop="dateModified" datetime="2021-07-02T11:43:54+08:00">2021-07-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/05/03/42.%20Trapping%20Rain%20Water/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/03/42. Trapping Rain Water/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="trapping-rain-water"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/trapping-rain-water/">42. Trapping Rain Water</a></h4>
-<h5 id="section"></h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(height.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">leftWater</span><span class="params">(height.size() + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> maxNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(height[i] &gt; maxNum)</span><br><span class="line">            &#123;</span><br><span class="line">                maxIndex = i;</span><br><span class="line">                maxNum = height[i];</span><br><span class="line">            &#125;</span><br><span class="line">            leftWater[i + <span class="number">1</span>] = maxNum - height[i] + leftWater[i];</span><br><span class="line">        &#125;</span><br><span class="line">        maxNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = height.size() - <span class="number">1</span>; i &gt; maxIndex; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(height[i] &gt; maxNum)</span><br><span class="line">            &#123;</span><br><span class="line">                maxNum = height[i];</span><br><span class="line">            &#125;</span><br><span class="line">            leftWater[maxIndex + <span class="number">1</span>] += maxNum - height[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> leftWater[maxIndex + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="答案中的dp">答案中的dp</h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(height.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">left</span><span class="params">(height.size())</span></span>;</span><br><span class="line">        left[<span class="number">0</span>] = height[<span class="number">0</span>];</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">right</span><span class="params">(height.size())</span></span>;</span><br><span class="line">        right[height.size() - <span class="number">1</span>] = height.back();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; height.size(); ++i)</span><br><span class="line">            left[i] = max(left[i - <span class="number">1</span>], height[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = height.size() - <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">            right[i] = max(right[i + <span class="number">1</span>], height[i]);</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height.size(); ++i)</span><br><span class="line">            ans += min(left[i], right[i]) - height[i];</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>借图 <img src="https://image.cinte.cc/2021/05/03/486c6df33cd87.png" alt="1620046011104.png" /> 只可意会，左边由两边都是取得最低的量</p>
-<h5 id="使用stack">使用stack</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(height.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; bars;</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur &lt; height.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!bars.empty() &amp;&amp; height[cur] &gt; height[bars.top()])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> top = bars.top();</span><br><span class="line">                bars.pop();</span><br><span class="line">                <span class="keyword">if</span>(bars.empty())</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">int</span> distance = cur - bars.top() - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> heightBounded = min(height[cur], height[bars.top()]) - height[top];</span><br><span class="line">                res += distance * heightBounded;</span><br><span class="line">            &#125;</span><br><span class="line">            bars.push(cur++);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>每碰到一个比之前的障碍高的就计算一次体积，每次计算的是方形，进行填充，由于比较低的在填完后被pop，而他的障碍会被push，因此在填充完毕后，对于后面来看，这就是一条水平线，示意图如下 <img src="https://image.cinte.cc/2021/05/04/a1a5e02ec1c12.png" alt="1620108974861.png" /> 图中红色标号表示填充水块的次序</p>
-<h5 id="two-points">Two Points</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = height.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> leftMax = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> rightMax = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(height[left] &lt; height[right])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(leftMax &lt; height[left])</span><br><span class="line">                    leftMax = height[left];</span><br><span class="line">                res += leftMax - height[left];</span><br><span class="line">                ++left;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(rightMax &lt; height[right])</span><br><span class="line">                    rightMax = height[right];</span><br><span class="line">                res += rightMax - height[right];</span><br><span class="line">                --right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>中间盛的水可以由左右边界来决定，当左边比右边矮的时候，水由左边边界决定，因为条件决定了左边不会比右边高，所以左边的水量又会受左边的最高峰影响，左边最高峰之左，水由边界决定，最高峰之右，由最高峰决定。将其最高峰之左再细分，又会有许多局部最高峰，由此一来，对于每一步更新其最高峰，更新最高峰之前的水由前一个局部边界决定，更新最高峰后的水由最高峰决定，同时这个局部最高峰又成了下一个区域的边界。</p>
 
       
     </div>
@@ -1377,7 +1370,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">174</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1453,7 +1446,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">203k</span>
+    <span title="Symbols count total">204k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
