@@ -1,7 +1,7 @@
 ---
 title: 剑指 Offer 44. 数字序列中某一位的数字
 date: 2021-07-02 17:36:33 +0800
-categories: leetcode
+categories: 剑指 Offer
 mathjax: false
 ---
 #### [剑指 Offer 44. 数字序列中某一位的数字](https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/)
