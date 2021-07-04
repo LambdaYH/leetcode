@@ -31,7 +31,7 @@ private:
         if(todo[index]) // 撞到了 失败了
             return false;
         if(done[index])
-            return true;
+            return true; // 因为如果这条路不能走的话，之前就已经返回false了，所以再次走到肯定是安全的
         
         done[index] = true; // 走了这个点
         todo[index] = true; // 走到了这个点
