@@ -2879,4 +2879,31 @@ t = pM + x \\
         <category>剑指 Offer</category>
       </categories>
   </entry>
+  <entry>
+    <title>剑指 Offer 56 - II. 数组中数字出现的次数 II</title>
+    <url>/2021/07/04/%E5%89%91%E6%8C%87%20Offer%2056%20-%20II.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%20II/</url>
+    <content><![CDATA[<h4 id="剑指-offer-56---ii.-数组中数字出现的次数-ii"><a href="https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/">剑指 Offer 56 - II. 数组中数字出现的次数 II</a></h4>
+<h5 id="hashmap">hashmap</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            <span class="built_in">map</span>[num] += <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; it : <span class="built_in">map</span>)</span><br><span class="line">            <span class="keyword">if</span>(it.second == <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> it.first;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>T(n) : O(n)</p>
+<p>S(n) : O(n)</p>
+<h5 id="位运算">位运算</h5>
+<p>因为其他数都出现三次，只有一个数出现一次，所以将所有数的每一位加起来后对3取余剩下的就是那个只出现一次的数字</p>
+<p>对于每一位构建状态转换图，有三个状态0,1,2 <img src="https://image.cinte.cc/2021/07/05/78efdf2acd2da.png" alt="1625471528006.png" /> 其中三个状态为0,1,2表示除以3后的余数</p>
+<p>求出来后的结果必然是00或01两个状态，因为所有出现三次的数都加完了取余完了，所以只剩下了这2种情况表示那个只出现一次的数的位为0或1，所以最后只需要返回one即可</p>
+<p>对于每一位都是相同的方法，所以可以直接放到一起来用位运算</p>
+<h6 id="根据状态转换图构建卡诺图化简">根据状态转换图，构建卡诺图，化简</h6>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> one = <span class="number">0</span>, two = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> tmp = one;</span><br><span class="line">            one = (one &amp; ~num) | (~two &amp; ~one &amp; num);</span><br><span class="line">            two = (two &amp; ~num) | (tmp &amp; num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> one;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h6 id="根据图观察获得">根据图观察获得</h6>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> one = <span class="number">0</span>, two = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            one = ~two &amp; (one ^ num);</span><br><span class="line">            two = ~one &amp; (two ^ num); <span class="comment">// 注意此处的两个运算并不是同时进行的，所以这里的two需要根据变化后的one的结果来运算。根据计算后的one的结果，见下图（还是卡诺图来的直观）</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> one;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://image.cinte.cc/2021/07/05/b4ff9493e0303.png" alt="1625471719640.png" /><figcaption aria-hidden="true">1625471719640.png</figcaption>
+</figure>
+<p>T(n) : O(n)</p>
+<p>S(n) : O(1)</p>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
 </search>
