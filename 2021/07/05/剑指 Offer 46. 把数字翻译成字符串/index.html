@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="剑指 Offer 24. 反转链表  12345678910111213141516171819202122&#x2F;** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL)">
+  <meta name="description" content="剑指 Offer 46. 把数字翻译成字符串 BackTrack 12345678910111213141516171819202122class Solution &amp;#123;public:    int translateNum(int num) &amp;#123;        string strs &#x3D; to_string(num);        backTrack(strs, 0);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指 Offer 24. 反转链表">
-<meta property="og:url" content="https://leetcode.cinte.cc/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2024.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:title" content="剑指 Offer 46. 把数字翻译成字符串">
+<meta property="og:url" content="https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2046.%20%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
-<meta property="og:description" content="剑指 Offer 24. 反转链表  12345678910111213141516171819202122&#x2F;** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL)">
+<meta property="og:description" content="剑指 Offer 46. 把数字翻译成字符串 BackTrack 12345678910111213141516171819202122class Solution &amp;#123;public:    int translateNum(int num) &amp;#123;        string strs &#x3D; to_string(num);        backTrack(strs, 0);">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-25T00:18:09.000Z">
+<meta property="article:published_time" content="2021-07-05T20:03:44.000Z">
 <meta property="article:modified_time" content="2021-07-06T13:12:32.560Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leetcode.cinte.cc/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2024.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+<link rel="canonical" href="https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2046.%20%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>剑指 Offer 24. 反转链表 | Cinte's Leetcode Record</title>
+  <title>剑指 Offer 46. 把数字翻译成字符串 | Cinte's Leetcode Record</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163175934-2"></script>
     <script>
@@ -199,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2024.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2046.%20%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -212,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          剑指 Offer 24. 反转链表
+          剑指 Offer 46. 把数字翻译成字符串
         </h1>
 
         <div class="post-meta">
@@ -221,16 +221,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-06-25 08:18:09" itemprop="dateCreated datePublished" datetime="2021-06-25T08:18:09+08:00">2021-06-25</time>
+              <time title="Created: 2021-07-06 04:03:44 / Modified: 21:12:32" itemprop="dateCreated datePublished" datetime="2021-07-06T04:03:44+08:00">2021-07-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-06 21:12:32" itemprop="dateModified" datetime="2021-07-06T21:12:32+08:00">2021-07-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2024.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/25/剑指 Offer 24. 反转链表/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2046.%20%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/05/剑指 Offer 46. 把数字翻译成字符串/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>377</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -280,9 +274,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="剑指-offer-24.-反转链表"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/">剑指 Offer 24. 反转链表</a></h4>
-<h5 id="section"></h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> next = head-&gt;next;</span><br><span class="line">            head-&gt;next = pre;</span><br><span class="line">            pre = head;</span><br><span class="line">            head = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="剑指-offer-46.-把数字翻译成字符串"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/">剑指 Offer 46. 把数字翻译成字符串</a></h4>
+<h5 id="backtrack">BackTrack</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> strs = to_string(num);</span><br><span class="line">        backTrack(strs, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backTrack</span><span class="params">(<span class="built_in">string</span>&amp; nums, <span class="keyword">int</span> cur)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(cur &gt;= nums.size() - <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++ret;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        backTrack(nums, cur + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">auto</span> sum = (nums[cur] - <span class="string">&#x27;0&#x27;</span>) * <span class="number">10</span> + nums[cur + <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[cur] != <span class="string">&#x27;0&#x27;</span> &amp;&amp; sum &lt; <span class="number">26</span> &amp;&amp; sum &gt; <span class="number">0</span>)</span><br><span class="line">            backTrack(nums, cur + <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="dp">dp</h5>
+<p>version.1 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> str = to_string(num);</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(str.size())</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; str.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i] += dp[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">auto</span> num = (str[i - <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span>) * <span class="number">10</span> + str[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(num &gt;= <span class="number">10</span> &amp;&amp; num &lt; <span class="number">26</span>)</span><br><span class="line">                dp[i] += (i &gt;= <span class="number">2</span> ? dp[i - <span class="number">2</span>] : <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> version.2</p>
+<p>优化dp的空间，但字符串还是占O(n) <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> str = to_string(num);</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; str.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> num = (str[i - <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span>) * <span class="number">10</span> + str[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            a = (num &gt;= <span class="number">10</span> &amp;&amp; num &lt; <span class="number">26</span>) ? a + b : b;</span><br><span class="line">            swap(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> version.3</p>
+<p>直接使用取余计算数位 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> lastNum = num % <span class="number">10</span>;</span><br><span class="line">        num /= <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">while</span>(num)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> curNum = num % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">auto</span> sum = curNum * <span class="number">10</span> + lastNum;</span><br><span class="line">            a = (sum &gt;= <span class="number">10</span> &amp;&amp; sum &lt; <span class="number">26</span>) ? a + b : b;</span><br><span class="line">            num /= <span class="number">10</span>;</span><br><span class="line">            lastNum = curNum;</span><br><span class="line">            swap(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -298,13 +296,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/06/24/%E5%89%91%E6%8C%87%20Offer%2019.%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/" rel="prev" title="剑指 Offer 19. 正则表达式匹配">
-      <i class="fa fa-chevron-left"></i> 剑指 Offer 19. 正则表达式匹配
+    <a href="/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/" rel="prev" title="剑指 Offer 45. 把数组排成最小的数">
+      <i class="fa fa-chevron-left"></i> 剑指 Offer 45. 把数组排成最小的数
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2018.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/" rel="next" title="剑指 Offer 18. 删除链表的节点">
-      剑指 Offer 18. 删除链表的节点 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -370,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E6%8C%87-offer-24.-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 24. 反转链表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#section"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E6%8C%87-offer-46.-%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 46. 把数字翻译成字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#backtrack"><span class="nav-number">1.1.</span> <span class="nav-text">BackTrack</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dp"><span class="nav-number">1.2.</span> <span class="nav-text">dp</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -580,9 +575,9 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://leetcode.cinte.cc/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2024.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/";
-    this.page.identifier = "2021/06/25/剑指 Offer 24. 反转链表/";
-    this.page.title = "剑指 Offer 24. 反转链表";
+    this.page.url = "https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2046.%20%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/";
+    this.page.identifier = "2021/07/05/剑指 Offer 46. 把数字翻译成字符串/";
+    this.page.title = "剑指 Offer 46. 把数字翻译成字符串";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
