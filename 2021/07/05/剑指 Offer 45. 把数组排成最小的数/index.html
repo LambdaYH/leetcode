@@ -20,20 +20,19 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="56. Merge Intervals 12345678910111213141516171819202122232425262728293031bool mySort(vector&lt;int&gt;&amp; a, vector&lt;int&gt;&amp; b)&amp;#123;    return a[0] &lt; b[0];&amp;#125;class Solution &amp;#123;publi">
+  <meta name="description" content="剑指 Offer 45. 把数组排成最小的数 我可太太太太太菜了 本质上转换为一个排序问题，对于两个数字a1,b1。当str(a1) + str(b1) &lt; str(b1) + str(a1)时，表示a1因当刚在b1左边，反之则表示a1应当放在b1右边。以此为判断条件对数组进行排序，排序后重新组合成字符串就是所需 123456789101112131415161718192021222324">
 <meta property="og:type" content="article">
-<meta property="og:title" content="56. Merge Intervals">
-<meta property="og:url" content="https://leetcode.cinte.cc/2021/04/05/56-Merge-Intervals/index.html">
+<meta property="og:title" content="剑指 Offer 45. 把数组排成最小的数">
+<meta property="og:url" content="https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
-<meta property="og:description" content="56. Merge Intervals 12345678910111213141516171819202122232425262728293031bool mySort(vector&lt;int&gt;&amp; a, vector&lt;int&gt;&amp; b)&amp;#123;    return a[0] &lt; b[0];&amp;#125;class Solution &amp;#123;publi">
+<meta property="og:description" content="剑指 Offer 45. 把数组排成最小的数 我可太太太太太菜了 本质上转换为一个排序问题，对于两个数字a1,b1。当str(a1) + str(b1) &lt; str(b1) + str(a1)时，表示a1因当刚在b1左边，反之则表示a1应当放在b1右边。以此为判断条件对数组进行排序，排序后重新组合成字符串就是所需 123456789101112131415161718192021222324">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-05T19:53:30.000Z">
-<meta property="article:modified_time" content="2021-07-06T03:52:06.730Z">
+<meta property="article:published_time" content="2021-07-05T19:40:35.000Z">
+<meta property="article:modified_time" content="2021-07-06T03:52:06.734Z">
 <meta property="article:author" content="Lambda_YH">
-<meta property="article:tag" content="array">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leetcode.cinte.cc/2021/04/05/56-Merge-Intervals/">
+<link rel="canonical" href="https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -46,7 +45,7 @@
   };
 </script>
 
-  <title>56. Merge Intervals | Cinte's Leetcode Record</title>
+  <title>剑指 Offer 45. 把数组排成最小的数 | Cinte's Leetcode Record</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163175934-2"></script>
     <script>
@@ -200,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/05/56-Merge-Intervals/">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -213,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          56. Merge Intervals
+          剑指 Offer 45. 把数组排成最小的数
         </h1>
 
         <div class="post-meta">
@@ -222,23 +221,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-04-06 03:53:30" itemprop="dateCreated datePublished" datetime="2021-04-06T03:53:30+08:00">2021-04-06</time>
+              <time title="Created: 2021-07-06 03:40:35 / Modified: 11:52:06" itemprop="dateCreated datePublished" datetime="2021-07-06T03:40:35+08:00">2021-07-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-06 11:52:06" itemprop="dateModified" datetime="2021-07-06T11:52:06+08:00">2021-07-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
                 </span>
             </span>
 
@@ -251,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/04/05/56-Merge-Intervals/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/05/56-Merge-Intervals/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/05/剑指 Offer 45. 把数组排成最小的数/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -262,14 +255,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.2k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -281,12 +274,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="merge-intervals"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-intervals/">56. Merge Intervals</a></h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mySort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; merge(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; intervals) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; re;</span><br><span class="line">        sort(intervals.begin(), intervals.end(), mySort);</span><br><span class="line">        re.push_back(intervals[<span class="number">0</span>][<span class="number">0</span>]);</span><br><span class="line">        re.push_back(intervals[<span class="number">0</span>][<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i = intervals.begin() + <span class="number">1</span>; i != intervals.end(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((*i)[<span class="number">0</span>] &lt;= re[index - <span class="number">1</span>])</span><br><span class="line">                re[index - <span class="number">1</span>] = max(re[index - <span class="number">1</span>], (*i)[<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                re.push_back((*i)[<span class="number">0</span>]);</span><br><span class="line">                re.push_back((*i)[<span class="number">1</span>]);</span><br><span class="line">                index += <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; re.size(); i += <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ret.push_back(&#123;re[i], re[i + <span class="number">1</span>]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>T(n) : O(nlogn) <br> S(n) : O(n)</p>
-<h5 id="同样思路的一个solution">同样思路的一个Solution</h5>
-<p>空间和时间占用更少</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; merge(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; intervals) &#123;</span><br><span class="line">        sort(intervals.begin(), intervals.end());</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; interval : intervals)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ret.empty() || interval[<span class="number">0</span>] &gt; ret.back()[<span class="number">1</span>])</span><br><span class="line">                ret.push_back(interval);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ret.back()[<span class="number">1</span>] = max(interval[<span class="number">1</span>], ret.back()[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="剑指-offer-45.-把数组排成最小的数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/">剑指 Offer 45. 把数组排成最小的数</a></h4>
+<h5 id="我可太太太太太菜了">我可太太太太太菜了</h5>
+<p>本质上转换为一个排序问题，对于两个数字a1,b1。当<code>str(a1) + str(b1) &lt; str(b1) + str(a1)</code>时，表示a1因当刚在b1左边，反之则表示a1应当放在b1右边。以此为判断条件对数组进行排序，排序后重新组合成字符串就是所需</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        sort(nums, <span class="number">0</span>, nums.size() - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            ret += to_string(num);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = lo, j = hi + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">string</span> c = to_string(nums[lo]);</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; hi &amp;&amp; to_string(nums[++i]) + c &lt; c + to_string(nums[i])) &#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(j &gt; lo &amp;&amp; to_string(nums[--j]) + c &gt; c + to_string(nums[j])) &#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= j)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            swap(nums[i], nums[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums[j], nums[lo]);</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(lo &gt; hi)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">auto</span> j = partition(nums, lo, hi);</span><br><span class="line">        sort(nums, lo, j - <span class="number">1</span>);</span><br><span class="line">        sort(nums, j + <span class="number">1</span>, hi);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>v2 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; strs;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            strs.push_back(to_string(num));</span><br><span class="line">        sort(strs, <span class="number">0</span>, nums.size() - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; str : strs)</span><br><span class="line">            ret += str;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = lo, j = hi + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">string</span> c = nums[lo];</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; hi &amp;&amp; nums[++i] + c &lt; c + nums[i]) &#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(j &gt; lo &amp;&amp; nums[--j] + c &gt; c + nums[j]) &#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= j)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            swap(nums[i], nums[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums[j], nums[lo]);</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(lo &gt; hi)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">auto</span> j = partition(nums, lo, hi);</span><br><span class="line">        sort(nums, lo, j - <span class="number">1</span>);</span><br><span class="line">        sort(nums, j + <span class="number">1</span>, hi);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> v3 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; strs;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            strs.push_back(to_string(num));</span><br><span class="line">        sort(strs.begin(), strs.end(), [](<span class="built_in">string</span>&amp; str1, <span class="built_in">string</span> str2)&#123; <span class="keyword">return</span> str1 + str2 &lt; str2 + str1; &#125;);</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; str : strs)</span><br><span class="line">            ret.append(str);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -295,9 +287,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/array/" rel="tag"># array</a>
-          </div>
 
         
 
@@ -305,13 +294,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/05/55-Jump-Game/" rel="prev" title="55. Jump Game">
-      <i class="fa fa-chevron-left"></i> 55. Jump Game
+    <a href="/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2057%20-%20II.%20%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/" rel="prev" title="剑指 Offer 57 - II. 和为s的连续正数序列">
+      <i class="fa fa-chevron-left"></i> 剑指 Offer 57 - II. 和为s的连续正数序列
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/05/75-Sort-Colors/" rel="next" title="75. Sort Colors">
-      75. Sort Colors <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -377,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#merge-intervals"><span class="nav-number">1.</span> <span class="nav-text">56. Merge Intervals</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%8C%E6%A0%B7%E6%80%9D%E8%B7%AF%E7%9A%84%E4%B8%80%E4%B8%AAsolution"><span class="nav-number">1.1.</span> <span class="nav-text">同样思路的一个Solution</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E6%8C%87-offer-45.-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 45. 把数组排成最小的数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%88%91%E5%8F%AF%E5%A4%AA%E5%A4%AA%E5%A4%AA%E5%A4%AA%E5%A4%AA%E8%8F%9C%E4%BA%86"><span class="nav-number">1.1.</span> <span class="nav-text">我可太太太太太菜了</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -587,9 +573,9 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://leetcode.cinte.cc/2021/04/05/56-Merge-Intervals/";
-    this.page.identifier = "2021/04/05/56-Merge-Intervals/";
-    this.page.title = "56. Merge Intervals";
+    this.page.url = "https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/";
+    this.page.identifier = "2021/07/05/剑指 Offer 45. 把数组排成最小的数/";
+    this.page.title = "剑指 Offer 45. 把数组排成最小的数";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
