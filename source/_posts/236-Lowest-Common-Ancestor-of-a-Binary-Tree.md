@@ -4,7 +4,7 @@ date: 2021-04-22 16:56:02 +0800
 categories: leetcode
 tags: Tree
 ---
-#### [236. Lowest Common Ancestor of a Binary Tree](2021-04-22 16:55:59 +0800)
+#### [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 
 ##### DFS
 ```c++
