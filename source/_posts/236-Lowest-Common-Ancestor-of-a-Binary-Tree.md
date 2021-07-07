@@ -49,6 +49,12 @@ S(n) : O(n)&nbsp;递归堆栈的大小
 判断每个节点，当某一结点左边和右边或左边和中间或右边和中间包含目标时，返回那个节点
 
 ##### 记录父亲再去遍历
+
+先获取到所有对的父亲，直到p和q的父亲都有了再停止
+
+然后随便挑一个获取到他的所有祖先
+
+另外一个再往回遍历，若有交点，就是解
 ```c++
 /**
  * Definition for a binary tree node.
@@ -66,7 +72,7 @@ public:
         parent[root] = nullptr;
         stack<TreeNode*> s;
         s.push(root);
-        while(parent.find(p) == parent.end() || parent.find(q) == parent.end())
+        while(parent.find(p) == parent.end() || parent.find(q) == parent.end()) // 这里不能用!parent[p] || !parent[q],因为parent[root] = nullptr
         {
             auto tmp = s.top();
             s.pop();
