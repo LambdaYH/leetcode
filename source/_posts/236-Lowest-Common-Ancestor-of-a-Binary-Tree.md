@@ -29,6 +29,7 @@ private:
     {
         if(!node)
             return false;
+        // 设置为1的话就可以隐藏细节，仅仅那个最近的具有最丰富的细节，往上就没了，所以上面就不会再覆盖之前的结果
         int mid = (node == p || node == q) ? 1 : 0;
         int left = backTrack(node->left, p, q, ret) ? 1: 0;
         int right = backTrack(node->right, p, q, ret) ? 1 : 0;
