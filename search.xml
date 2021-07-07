@@ -2863,6 +2863,18 @@ t = pM + x \\
       </categories>
   </entry>
   <entry>
+    <title>剑指 Offer 47. 礼物的最大价值</title>
+    <url>/2021/07/07/%E5%89%91%E6%8C%87%20Offer%2047.%20%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/</url>
+    <content><![CDATA[<h4 id="剑指-offer-47.-礼物的最大价值"><a href="https://leetcode-cn.com/problems/li-wu-de-zui-da-jie-zhi-lcof/">剑指 Offer 47. 礼物的最大价值</a></h4>
+<p>最简单的dp</p>
+<h5 id="section"></h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxValue</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; grid.size(); ++i)</span><br><span class="line">            grid[i][<span class="number">0</span>] += grid[i - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; grid[<span class="number">0</span>].size(); ++i)</span><br><span class="line">            grid[<span class="number">0</span>][i] += grid[<span class="number">0</span>][i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; grid.size(); ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; grid[<span class="number">0</span>].size(); ++j)</span><br><span class="line">                grid[i][j] += max(grid[i - <span class="number">1</span>][j], grid[i][j - <span class="number">1</span>]); </span><br><span class="line">        <span class="keyword">return</span> grid.back().back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
+  <entry>
     <title>剑指 Offer 50. 第一个只出现一次的字符</title>
     <url>/2021/07/03/%E5%89%91%E6%8C%87%20Offer%2050.%20%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/</url>
     <content><![CDATA[<h4 id="剑指-offer-50.-第一个只出现一次的字符"><a href="https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/">剑指 Offer 50. 第一个只出现一次的字符</a></h4>
