@@ -50,7 +50,7 @@ public:
         return cnt[n];
     }
 };
-````
+```
 T(n) : O(nlogn) <br>
 S(n) : O(n)
 
@@ -112,3 +112,5 @@ public:
 一圈一圈地往外找
 
 ##### math，借助[Legendre's three-square theorem](https://en.wikipedia.org/wiki/Legendre%27s_three-square_theorem)
+
+摸了
