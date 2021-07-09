@@ -3086,4 +3086,17 @@ t = pM + x \\
         <category>剑指 Offer</category>
       </categories>
   </entry>
+  <entry>
+    <title>剑指 Offer 65. 不用加减乘除做加法</title>
+    <url>/2021/07/08/%E5%89%91%E6%8C%87%20Offer%2065.%20%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="剑指-offer-65.-不用加减乘除做加法"><a href="https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/submissions/">剑指 Offer 65. 不用加减乘除做加法</a></h4>
+<h5 id="位运算">位运算</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> c;</span><br><span class="line">        <span class="keyword">while</span>(b)</span><br><span class="line">        &#123;</span><br><span class="line">            c = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)(a &amp; b) &lt;&lt; <span class="number">1</span>; <span class="comment">// leetcode的编译环境问题导致这里负数左移会报错，g++中则测试正常c = (a &amp; b) &lt;&lt; 1</span></span><br><span class="line">            a ^= b;</span><br><span class="line">            b = c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>由于使用的是补码可以统一负数和正数运算，所以不用考虑正负数。</p>
+<p>考察位运算，首先可以知道对于加法器，如果不考虑进位，那么值就是<code>a ^ b</code>，而进位为<code>a &amp; b</code>。则将不考虑进位算出来的值加上进位最终就是考虑进位的值，由于当前计算结果的进位是用于下一位的，所以需要将计算所得的进位左移一位，再次加，获得新的进位，知道进位为0，停止计算。</p>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
 </search>
