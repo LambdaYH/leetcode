@@ -2893,6 +2893,16 @@ t = pM + x \\
       </categories>
   </entry>
   <entry>
+    <title>剑指 Offer 49. 丑数</title>
+    <url>/2021/07/08/%E5%89%91%E6%8C%87%20Offer%2049.%20%E4%B8%91%E6%95%B0/</url>
+    <content><![CDATA[<h4 id="剑指-offer-49.-丑数"><a href="https://leetcode-cn.com/problems/chou-shu-lcof/">剑指 Offer 49. 丑数</a></h4>
+<p>参考<a href="https://leetcode.cinte.cc/2021/05/17/264.%20Ugly%20Number%20II/">264. Ugly Number II</a></p>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
+  <entry>
     <title>剑指 Offer 50. 第一个只出现一次的字符</title>
     <url>/2021/07/03/%E5%89%91%E6%8C%87%20Offer%2050.%20%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/</url>
     <content><![CDATA[<h4 id="剑指-offer-50.-第一个只出现一次的字符"><a href="https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/">剑指 Offer 50. 第一个只出现一次的字符</a></h4>
