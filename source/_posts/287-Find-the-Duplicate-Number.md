@@ -35,6 +35,8 @@ S(n) : O(1)
 
 ![image.png](https://image.cinte.cc/2021/04/15/5dfe75d8ed3ce.png)
 
+最后套用[142. Linked List Cycle II](https://leetcode.cinte.cc/2021/04/12/142-Linked-List-Cycle-II/)
+
 ```c++
 class Solution {
 public:
