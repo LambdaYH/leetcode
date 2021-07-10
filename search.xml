@@ -3122,4 +3122,14 @@ t = pM + x \\
         <category>剑指 Offer</category>
       </categories>
   </entry>
+  <entry>
+    <title>剑指 Offer 66. 构建乘积数组</title>
+    <url>/2021/07/10/%E5%89%91%E6%8C%87%20Offer%2066.%20%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h4 id="剑指-offer-66.-构建乘积数组"><a href="https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/">剑指 Offer 66. 构建乘积数组</a></h4>
+<p>参考<a href="https://leetcode.cinte.cc/2021/07/07/238.%20Product%20of%20Array%20Except%20Self/">238. Product of Array Except Self</a></p>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
 </search>
