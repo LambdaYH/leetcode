@@ -3124,6 +3124,24 @@ t = pM + x \\
       </categories>
   </entry>
   <entry>
+    <title>剑指 Offer 61. 扑克牌中的顺子</title>
+    <url>/2021/07/11/%E5%89%91%E6%8C%87%20Offer%2061.%20%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90/</url>
+    <content><![CDATA[<h4 id="剑指-offer-61.-扑克牌中的顺子"><a href="https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof/">剑指 Offer 61. 扑克牌中的顺子</a></h4>
+<h5 id="section"></h5>
+<p>两个条件</p>
+<ol type="1">
+<li><p>最大值减去最小值&lt;5</p></li>
+<li><p>没有重复的数字</p></li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isStraight</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ma = <span class="number">0</span>, mi = <span class="number">14</span>;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">set</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(num == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(!<span class="built_in">set</span>.emplace(num).second)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            ma = max(ma, num);</span><br><span class="line">            mi = min(mi, num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ma - mi &lt; <span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>法2</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isStraight</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> nz = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(nums[nz] == <span class="number">0</span>)</span><br><span class="line">            ++nz;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = nz + <span class="number">1</span>; i &lt; nums.size(); ++i)</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> nums.back() - nums[nz] &lt; <span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>剑指 Offer</category>
+      </categories>
+  </entry>
+  <entry>
     <title>剑指 Offer 65. 不用加减乘除做加法</title>
     <url>/2021/07/08/%E5%89%91%E6%8C%87%20Offer%2065.%20%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</url>
     <content><![CDATA[<h4 id="剑指-offer-65.-不用加减乘除做加法"><a href="https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/submissions/">剑指 Offer 65. 不用加减乘除做加法</a></h4>
