@@ -194,6 +194,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/04/297.%20Serialize%20and%20Deserialize%20Binary%20Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/04/297.%20Serialize%20and%20Deserialize%20Binary%20Tree/" class="post-title-link" itemprop="url">297. Serialize and Deserialize Binary Tree</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-04 08:51:24" itemprop="dateCreated datePublished" datetime="2021-05-04T08:51:24+08:00">2021-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/05/04/297.%20Serialize%20and%20Deserialize%20Binary%20Tree/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/04/297. Serialize and Deserialize Binary Tree/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="serialize-and-deserialize-binary-tree"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/">297. Serialize and Deserialize Binary Tree</a></h4>
+<h5 id="瞎写懒得看别人写法了">瞎写，懒得看别人写法了</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Codec</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Encodes a tree to a single string.</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">serialize</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;[]&quot;</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="built_in">string</span> res = <span class="string">&quot;[&quot;</span>;</span><br><span class="line">        q.push(root);</span><br><span class="line">        <span class="keyword">int</span> nodeNum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty() &amp;&amp; nodeNum)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> p = q.front();</span><br><span class="line">            q.pop();</span><br><span class="line">            <span class="keyword">if</span>(p)</span><br><span class="line">            &#123;</span><br><span class="line">                nodeNum += (p-&gt;left ? <span class="number">1</span> : <span class="number">0</span>) + (p-&gt;right ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">                q.push(p-&gt;left);</span><br><span class="line">                q.push(p-&gt;right);</span><br><span class="line">                --nodeNum;</span><br><span class="line">                res += to_string(p-&gt;val);</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                res += <span class="string">&quot;null&quot;</span>;</span><br><span class="line">            res += <span class="string">&quot;,&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res.back() = <span class="string">&#x27;]&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decodes your encoded data to tree.</span></span><br><span class="line">    <span class="function">TreeNode* <span class="title">deserialize</span><span class="params">(<span class="built_in">string</span> data)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode *&gt; q;</span><br><span class="line">        <span class="keyword">auto</span> nodes = parseString(data);</span><br><span class="line">        TreeNode *root = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">bool</span> leftNotIn = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;node : nodes)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (q.empty())</span><br><span class="line">                q.push(root = <span class="keyword">new</span> TreeNode(*node));</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> curNode = q.front();</span><br><span class="line">                <span class="keyword">if</span> (!curNode-&gt;left &amp;&amp; leftNotIn)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (node)</span><br><span class="line">                        q.push(curNode-&gt;left = <span class="keyword">new</span> TreeNode(*node));</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        curNode-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">                    leftNotIn = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (!curNode-&gt;right)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (node)</span><br><span class="line">                        q.push(curNode-&gt;right = <span class="keyword">new</span> TreeNode(*node));</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        curNode-&gt;right = <span class="literal">nullptr</span>;</span><br><span class="line">                    q.pop();</span><br><span class="line">                    leftNotIn = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isDigitalOrCharacter</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> &amp;ch)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&#x27;0&#x27;</span> &lt;= ch &amp;&amp; <span class="string">&#x27;9&#x27;</span> &gt;= ch) || (<span class="string">&#x27;a&#x27;</span> &lt;= ch &amp;&amp; <span class="string">&#x27;z&#x27;</span> &gt;= ch) || ch == <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSplitCondition</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> &amp;ch)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ch == <span class="string">&#x27;,&#x27;</span> || ch == <span class="string">&#x27;]&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt;&gt; parseString(<span class="built_in">std</span>::<span class="built_in">string</span> &amp;s)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">queue</span>&lt;<span class="keyword">char</span>&gt; cache;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">auto</span> begin = s.begin();</span><br><span class="line">        <span class="keyword">auto</span> end = s.end() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (*begin != <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">            ++begin;</span><br><span class="line">        <span class="keyword">while</span> (*end != <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">            --end;</span><br><span class="line">        ++begin;</span><br><span class="line">        <span class="keyword">for</span> (; begin != end + <span class="number">1</span>; ++begin)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (isSplitCondition(*begin))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> realNum = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">int</span> positive = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (cache.empty())</span><br><span class="line">                    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">                <span class="keyword">if</span> (cache.front() == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    positive = <span class="number">-1</span>;</span><br><span class="line">                    cache.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (!cache.empty())</span><br><span class="line">                &#123;</span><br><span class="line">                    realNum = realNum * <span class="number">10</span> + <span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(cache.front() - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">                    cache.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (realNum == <span class="number">69560</span>) <span class="comment">// null</span></span><br><span class="line">                    res.push_back(<span class="literal">nullptr</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    res.push_back(<span class="built_in">std</span>::make_shared&lt;<span class="keyword">int</span>&gt;(realNum * positive));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (isDigitalOrCharacter(*begin))</span><br><span class="line">            &#123;</span><br><span class="line">                cache.push(*begin);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Your Codec object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment">// Codec ser, deser;</span></span><br><span class="line"><span class="comment">// TreeNode* ans = deser.deserialize(ser.serialize(root));</span></span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://image.cinte.cc/2021/05/04/17e6eafd0bf31.png" alt="1620118342754.png" /><figcaption aria-hidden="true">1620118342754.png</figcaption>
+</figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/03/31.%20Next%20Permutation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +332,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -332,7 +439,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -445,7 +552,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -550,7 +657,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -657,7 +764,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -765,7 +872,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -869,7 +976,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -976,7 +1083,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1090,7 +1197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1151,114 +1258,6 @@
 <p>视频介绍:<br> <video src="https://www.youtube.com/watch?v=22s1xxRvy28 " controls="controls" width="500" height="300">Browser Not Support HTML5!</video></p>
 <p><img src="https://image.cinte.cc/2021/04/29/69ac0fcca1882.png" alt="1619669700668.png" /> 如图，把所有牌分堆，从左开始寻找，一旦找到他比某个牌堆的顶端少，就放过去，以贪婪原则。</p>
 <p>这样分出的排队数量就是里面的最长增长的串，保证这一点可以通过数学归纳法，详情见视频3:43, 直观的理解是因为：<br> <strong>每个排队中的顺序都是依据原数组中顺序递减的，因此，每个牌堆中最多只能取一张牌，因此增长序列长度&lt;=牌堆数</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/28/138.%20Copy%20List%20with%20Random%20Pointer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/28/138.%20Copy%20List%20with%20Random%20Pointer/" class="post-title-link" itemprop="url">138. Copy List with Random Pointer</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-28 12:35:26" itemprop="dateCreated datePublished" datetime="2021-04-28T12:35:26+08:00">2021-04-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 11:57:53" itemprop="dateModified" datetime="2021-07-12T11:57:53+08:00">2021-07-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/28/138.%20Copy%20List%20with%20Random%20Pointer/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/28/138. Copy List with Random Pointer/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="copy-list-with-random-pointer"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/copy-list-with-random-pointer/">138. Copy List with Random Pointer</a></h4>
-<h5 id="hashmap-vector">hashmap &amp;&amp; vector</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    Node* next;</span></span><br><span class="line"><span class="comment">    Node* random;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    Node(int _val) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        next = NULL;</span></span><br><span class="line"><span class="comment">        random = NULL;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">Node* <span class="title">copyRandomList</span><span class="params">(Node* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">auto</span> headTmp = head;</span><br><span class="line">        Node* newHead = <span class="keyword">new</span> Node(<span class="number">0</span>);</span><br><span class="line">        Node* newHeadTmp = newHead;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;Node*, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;Node*&gt; newMap;</span><br><span class="line">        <span class="keyword">while</span>(headTmp)</span><br><span class="line">        &#123;</span><br><span class="line">            Node* nodeTmp = <span class="keyword">new</span> Node(headTmp-&gt;val);</span><br><span class="line">            </span><br><span class="line">            newHeadTmp-&gt;next = nodeTmp;</span><br><span class="line">            newHeadTmp = newHeadTmp-&gt;next;</span><br><span class="line">            </span><br><span class="line">            newMap.push_back(nodeTmp);</span><br><span class="line">            <span class="built_in">map</span>[headTmp] = i++;</span><br><span class="line">            </span><br><span class="line">            headTmp = headTmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        headTmp = head;</span><br><span class="line">        </span><br><span class="line">        newHeadTmp = newHead;</span><br><span class="line">        newHead = newHead-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> newHeadTmp;</span><br><span class="line">        </span><br><span class="line">        i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(headTmp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(headTmp-&gt;random)</span><br><span class="line">                newMap[i]-&gt;random = newMap[<span class="built_in">map</span>[headTmp-&gt;random]];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                newMap[i]-&gt;random = <span class="literal">nullptr</span>;</span><br><span class="line">            ++i;</span><br><span class="line">            headTmp = headTmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newHead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>T(n) : O(n) <br> S(n) : O(n)</p>
-<h5 id="discussion中o1-space-complexity-的方法实际上还是on">discussion中O(1) space Complexity 的方法，实际上还是O(n)</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    Node* next;</span></span><br><span class="line"><span class="comment">    Node* random;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    Node(int _val) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        next = NULL;</span></span><br><span class="line"><span class="comment">        random = NULL;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">Node* <span class="title">copyRandomList</span><span class="params">(Node* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        Node* headTmp = head;</span><br><span class="line">        <span class="keyword">while</span>(headTmp)</span><br><span class="line">        &#123;</span><br><span class="line">            Node* node = <span class="keyword">new</span> Node(headTmp-&gt;val);</span><br><span class="line">            <span class="keyword">auto</span> next = headTmp-&gt;next;</span><br><span class="line">            headTmp-&gt;next = node;</span><br><span class="line">            node-&gt;next = next;</span><br><span class="line">            headTmp = next;</span><br><span class="line">        &#125;</span><br><span class="line">        headTmp = head;</span><br><span class="line">        <span class="keyword">while</span>(headTmp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(headTmp-&gt;random)</span><br><span class="line">                headTmp-&gt;next-&gt;random = headTmp-&gt;random-&gt;next;</span><br><span class="line">            headTmp = headTmp-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        headTmp = head;</span><br><span class="line">        Node* newHead = head-&gt;next;</span><br><span class="line">        Node* newHeadTmp = newHead;</span><br><span class="line">        <span class="keyword">while</span>(newHeadTmp-&gt;next)</span><br><span class="line">        &#123;</span><br><span class="line">            headTmp-&gt;next = headTmp-&gt;next-&gt;next;</span><br><span class="line">            headTmp = headTmp-&gt;next;</span><br><span class="line">            </span><br><span class="line">            newHeadTmp-&gt;next = headTmp-&gt;next;</span><br><span class="line">            newHeadTmp = newHeadTmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        headTmp-&gt;next = headTmp-&gt;next-&gt;next;</span><br><span class="line">        newHeadTmp-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> newHead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>T(n) : O(n) <br> S(n) : O(n)</p>
 
       
     </div>
@@ -1345,7 +1344,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">205</span>
+          <span class="site-state-item-count">206</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
