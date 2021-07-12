@@ -194,6 +194,117 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/28/300.%20Longest%20Increasing%20Subsequence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/28/300.%20Longest%20Increasing%20Subsequence/" class="post-title-link" itemprop="url">300. Longest Increasing Subsequence</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-29 04:10:35" itemprop="dateCreated datePublished" datetime="2021-04-29T04:10:35+08:00">2021-04-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/28/300.%20Longest%20Increasing%20Subsequence/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/28/300. Longest Increasing Subsequence/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="longest-increasing-subsequence"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-increasing-subsequence/">300. Longest Increasing Subsequence</a></h4>
+<h5 id="section"></h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; heap;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> i = <span class="built_in">std</span>::lower_bound(heap.begin(), heap.end(), num);</span><br><span class="line">            <span class="keyword">if</span>(i == heap.end())</span><br><span class="line">                heap.push_back(num);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                *i = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> heap.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="不使用stdlower_bound">不使用std::lower_bound</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; heap;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> i = binarySearch(heap.begin(), heap.end(), num);</span><br><span class="line">            <span class="keyword">if</span>(i == heap.end())</span><br><span class="line">                heap.push_back(num);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                *i = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> heap.size();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::<span class="function">iterator <span class="title">binarySearch</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator begin, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator end, <span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">        <span class="keyword">int</span> count = end - begin;</span><br><span class="line">        <span class="keyword">int</span> step;</span><br><span class="line">        <span class="keyword">while</span>(count &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            it = begin;</span><br><span class="line">            step = count / <span class="number">2</span>;</span><br><span class="line">            it += step;</span><br><span class="line">            <span class="keyword">if</span>(*it &lt; num)</span><br><span class="line">            &#123;</span><br><span class="line">                begin = ++it;</span><br><span class="line">                count -= step + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                count = step;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> begin;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="review">review</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; piles;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> i = binarySearch(piles, <span class="number">0</span>, piles.size(), num);</span><br><span class="line">            <span class="keyword">if</span>(i != piles.size())</span><br><span class="line">                piles[i] = num;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                piles.push_back(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> piles.size();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> target)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (lo + hi) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target)</span><br><span class="line">                lo = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                hi = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>视频介绍:<br> <video src="https://www.youtube.com/watch?v=22s1xxRvy28 " controls="controls" width="500" height="300">Browser Not Support HTML5!</video></p>
+<p><img src="https://image.cinte.cc/2021/04/29/69ac0fcca1882.png" alt="1619669700668.png" /> 如图，把所有牌分堆，从左开始寻找，一旦找到他比某个牌堆的顶端少，就放过去，以贪婪原则。</p>
+<p>这样分出的排队数量就是里面的最长增长的串，保证这一点可以通过数学归纳法，详情见视频3:43, 直观的理解是因为：<br> <strong>每个排队中的顺序都是依据原数组中顺序递减的，因此，每个牌堆中最多只能取一张牌，因此增长序列长度&lt;=牌堆数</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/28/138.%20Copy%20List%20with%20Random%20Pointer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +336,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -333,7 +444,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,7 +548,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -542,7 +653,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -646,7 +757,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -754,7 +865,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -864,7 +975,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -973,7 +1084,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1082,7 +1193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
+                <time title="Modified: 2021-07-12 15:26:39" itemprop="dateModified" datetime="2021-07-12T15:26:39+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1142,110 +1253,6 @@
 <p>先获取到所有对的父亲，直到p和q的父亲都有了再停止</p>
 <p>然后随便挑一个获取到他的所有祖先</p>
 <p>另外一个再往回遍历，若有交点，就是解 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;TreeNode*, TreeNode*&gt; parent;</span><br><span class="line">        parent[root] = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; s;</span><br><span class="line">        s.push(root);</span><br><span class="line">        <span class="keyword">while</span>(parent.find(p) == parent.end() || parent.find(q) == parent.end()) <span class="comment">// 这里不能用!parent[p] || !parent[q],因为parent[root] = nullptr</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> tmp = s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">            <span class="keyword">if</span>(tmp-&gt;right)</span><br><span class="line">            &#123;</span><br><span class="line">                parent[tmp-&gt;right] = tmp;</span><br><span class="line">                s.push(tmp-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(tmp-&gt;left)</span><br><span class="line">            &#123;</span><br><span class="line">                parent[tmp-&gt;left] = tmp;</span><br><span class="line">                s.push(tmp-&gt;left);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;TreeNode*&gt; ancestor;</span><br><span class="line">        <span class="keyword">while</span>(parent.find(p) != parent.end())</span><br><span class="line">        &#123;</span><br><span class="line">            ancestor.insert(p);</span><br><span class="line">            p = parent[p];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(ancestor.find(q) == ancestor.end())</span><br><span class="line">        &#123;</span><br><span class="line">            q = parent[q];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> q;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> T(n) : O(n) <br> S(n) : O(n)</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/21/322-Coin-Change/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/21/322-Coin-Change/" class="post-title-link" itemprop="url">322. Coin Change</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-21 13:39:13" itemprop="dateCreated datePublished" datetime="2021-04-21T13:39:13+08:00">2021-04-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-12 15:10:05" itemprop="dateModified" datetime="2021-07-12T15:10:05+08:00">2021-07-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/21/322-Coin-Change/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/21/322-Coin-Change/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>362</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="coin-change"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/coin-change/">322. Coin Change</a></h4>
-<h5 id="dfs">DFS</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(amount + <span class="number">1</span>, amount + <span class="number">1</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= amount; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; coins.size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(coins[j] &lt;= i)</span><br><span class="line">                    dp[i] = min(dp[i], dp[i - coins[j]] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[amount] == amount + <span class="number">1</span> ? <span class="number">-1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1332,7 +1339,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">206</span>
+          <span class="site-state-item-count">207</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1408,12 +1415,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">231k</span>
+    <span title="Symbols count total">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:30</span>
+    <span title="Reading time total">3:31</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
