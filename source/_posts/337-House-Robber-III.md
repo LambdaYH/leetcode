@@ -12,6 +12,8 @@ tags:
 对于rob这个节点来说，需要计算他的grandchild rob或者不rob的情况，不rob时也需要计算，如果递归则需要重复计算，因此每次的递归函数都计算这一个rob和不rob的情况<br>
 用pair保存起来rob和不rob的记过
 
+于是这种情况下就不会产生重复计算。
+
 ```c++
 /**
  * Definition for a binary tree node.
@@ -49,6 +51,9 @@ private:
 ```
 
 ##### approach 1 未改进前的算法使用memo优化
+
+如果不用memo，则rob和不rob情况会重复计算
+
 ```c++
 /**
  * Definition for a binary tree node.
@@ -102,7 +107,7 @@ private:
 };
 ```
 
-##### dp
+##### dp（复习时候看不懂了
 ```c++
 /**
  * Definition for a binary tree node.
@@ -119,14 +124,16 @@ class Solution {
 public:
     int rob(TreeNode* root) {
         unordered_map<int, vector<int>> pc;
-        vector<int> val;
-        queue<TreeNode*> qNode;
-        queue<int> qIndex;
+        vector<int> val; // vector来存放节点的值
+        queue<TreeNode*> qNode; // 用来遍历
+        queue<int> qIndex; // 用来存放节点所对应的指标
         int index = -1;
         qNode.push(root);
         qIndex.push(index);
+        // 将所有节点的值放入val，每个节点对应index
         while(!qNode.empty())
         {
+            // 层级遍历
             auto node = qNode.front();
             qNode.pop();
             auto fatherI = qIndex.front();
@@ -134,7 +141,7 @@ public:
             if(node)
             {
                 ++index;
-                pc[fatherI].push_back(index);
+                pc[fatherI].push_back(index); // father中放入孩子
                 val.push_back(node->val);
                 qNode.push(node->left);
                 qNode.push(node->right);
@@ -142,22 +149,26 @@ public:
                 qIndex.push(index);
             }
         }
+        
+        // 开始dp
         vector<int> dpRob(index + 1);
         vector<int> dpNoRob(index + 1);
         
+        // 从最后一层开始往上走
         for(int i = index; i >= 0; --i)
         {
-            if(pc[i].empty())
+            if(pc[i].empty()) // 叶子节点的情况
             {
                 dpRob[i] = val[i];
                 dpNoRob[i] = 0;
             }else
             {
                 dpRob[i] = val[i];
+                // 遍历孩子节点
                 for(auto& j : pc[i])
                 {
-                    dpRob[i] += dpNoRob[j];
-                    dpNoRob[i] += max(dpRob[j], dpNoRob[j]);
+                    dpRob[i] += dpNoRob[j]; // 如果rob，那么就加上前面不rob的
+                    dpNoRob[i] += max(dpRob[j], dpNoRob[j]); // 如果不rob，那么前面随便rob还是不rob，取最大值
                 }
             }
         }
