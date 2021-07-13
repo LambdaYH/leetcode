@@ -15,6 +15,7 @@ public:
         {
             int cur = i;
             int count = 0;
+            // 10进制转2进制，每次共32bit
             while(cur)
             {
                 int j = cur % 2;
@@ -52,7 +53,7 @@ public:
         vector<int> ret(num + 1);
         for(int i = 0; i <= num; ++i)
         {
-            ret[i] = ret[i >> 1] + (i & 1);
+            ret[i] = ret[i >> 1] + (i & 1); // 右移相当于取出了除了最后一位的所有值，如果最后一位为1就加一，最后一位为0，那就和右移后的一样
         }
         return ret;
     }
