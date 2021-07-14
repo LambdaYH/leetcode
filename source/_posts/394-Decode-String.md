@@ -6,70 +6,76 @@ categories: leetcode
 #### [394. Decode String](https://leetcode.com/problems/decode-string/)
 
 ##### 我越来越菜了
+
+由于括号是包裹的，后出现的左括号会匹配后面遇到的第一个右括号，所以使用堆栈
+
 ```c++
 class Solution {
 public:
     string decodeString(string s) {
-        int time = 0;
-        string now = "";
-        stack<string> st;
-        stack<int> ist;
+        string ret = "";
+        stack<string> st; // 保存遇到方括号之前的字符串
+        stack<int> num; // 保存方括号前的计数
+        int curNum = 0;
         for(auto& ch : s)
         {
-            if('0' <= ch && ch <= '9')
-                time = time * 10 + ch - '0';
-            else if('a' <= ch && ch <= 'z')
-                now += ch;
-            else if(ch == '[')
+            if(ch == '[')
             {
-                st.push(now);
-                ist.push(time);
-                now = "";
-                time = 0;
+                st.push(ret); // 遇到方括号开端后，先压入当前字符串，当进入方括号过程中中再次遇到，就会压入先前方括号开端到此方括号之间的字符串
+                num.push(curNum); // 计数值同理
+                curNum = 0; // 此方括号计数已经入栈，所以开始下一轮计数
+                ret = ""; // 开始计算方括号中的字符串
             }else if(ch == ']')
             {
-                auto timeTmp = ist.top();
-                ist.pop();
-                auto tmp = st.top();
+                auto p = st.top(); // 遇见结尾，出栈，先把这个方括号之前，上一个方括号之后的字符串出栈
                 st.pop();
-                for(int i = 0; i < timeTmp; ++i)
-                    tmp += now;
-                now = tmp;
-            }
+                auto c = num.top(); // 当前方括号的计数值出栈
+                num.pop();
+                for(int i = 0; i < c; ++i)
+                    p += ret; // 之前的加上当前括号的值，代表了前一个大括号所包含的字符串
+                ret = p;
+            }else if(ch <= '9' && ch >= '0')
+                curNum = curNum * 10 + ch - '0';
+            else
+                ret += ch;
         }
-        return now;
+        return ret;
     }
 };
 ```
 
 ##### 递归
+
+本质上就是将堆栈方法改为了函数递归栈实现，碰到]就返回，碰到[就进去
+
 ```c++
 class Solution {
 public:
     string decodeString(string s) {
-        int i = 0;
-        return help(s, i);
+        int index = 0;
+        return helper(s, index);
     }
 private:
-    string help(string& s, int& i)
+    string helper(string& s, int& index)
     {
         string ret = "";
-        while(i < s.size() && s[i] != ']')
+        int num = 0;
+        while(index < s.size())
         {
-            if(s[i] >= 'a' && s[i] <= 'z')
-                ret += s[i++];
+            if(s[index] == ']')
+                break;
+            if(s[index] >= 'a' && s[index] <= 'z')
+                ret += s[index++];
             else
             {
-                int time = 0;
-                while(s[i] >= '0' &&  s[i] <= '9')
-                    time = time * 10 + s[i++] - '0';
-                
-                ++i;
-                string t = help(s, i);
-                ++i;
-                
-                while(time-- > 0)
+                int num = 0;
+                while(s[index] >= '0' && s[index] <= '9')
+                    num = num * 10 + s[index++] - '0';
+                ++index;
+                auto t = helper(s, index);
+                while(num-- > 0)
                     ret += t;
+                ++index;
             }
         }
         return ret;
