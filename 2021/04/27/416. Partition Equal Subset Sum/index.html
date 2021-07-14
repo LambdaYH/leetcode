@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="416. Partition Equal Subset Sum dp 12345678910111213141516171819202122class Solution &amp;#123;public:    bool canPartition(vector&lt;int&gt;&amp; nums) &amp;#123;        int sum &#x3D; 0;        for(auto&amp; num">
+  <meta name="description" content="416. Partition Equal Subset Sum 若求是否存在两个子序列相等，只需要求序列中是否存在子序列和等于总序列的一半。所以当和为奇数时候就是无效的。 转化为dp dp[i][j]表示0~i的数字能否获得和为j，若能为true，不能为false。 对于一行的dp[i][j]来说  取当前这个nums[i]，则如果0~i-1的数字可以达到j - nums[i]和的话就是true，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="416. Partition Equal Subset Sum">
 <meta property="og:url" content="https://leetcode.cinte.cc/2021/04/27/416.%20Partition%20Equal%20Subset%20Sum/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
-<meta property="og:description" content="416. Partition Equal Subset Sum dp 12345678910111213141516171819202122class Solution &amp;#123;public:    bool canPartition(vector&lt;int&gt;&amp; nums) &amp;#123;        int sum &#x3D; 0;        for(auto&amp; num">
+<meta property="og:description" content="416. Partition Equal Subset Sum 若求是否存在两个子序列相等，只需要求序列中是否存在子序列和等于总序列的一半。所以当和为奇数时候就是无效的。 转化为dp dp[i][j]表示0~i的数字能否获得和为j，若能为true，不能为false。 对于一行的dp[i][j]来说  取当前这个nums[i]，则如果0~i-1的数字可以达到j - nums[i]和的话就是true，">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://image.cinte.cc/2021/07/14/dd813ec6f1dfb.jpg">
 <meta property="article:published_time" content="2021-04-27T04:25:30.000Z">
-<meta property="article:modified_time" content="2021-07-14T03:58:08.650Z">
+<meta property="article:modified_time" content="2021-07-14T07:56:28.500Z">
 <meta property="article:author" content="Lambda_YH">
 <meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.cinte.cc/2021/07/14/dd813ec6f1dfb.jpg">
 
 <link rel="canonical" href="https://leetcode.cinte.cc/2021/04/27/416.%20Partition%20Equal%20Subset%20Sum/">
 
@@ -230,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-14 11:58:08" itemprop="dateModified" datetime="2021-07-14T11:58:08+08:00">2021-07-14</time>
+                <time title="Modified: 2021-07-14 15:56:28" itemprop="dateModified" datetime="2021-07-14T15:56:28+08:00">2021-07-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,7 +264,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>498</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -282,8 +284,20 @@
 
       
         <h4 id="partition-equal-subset-sum"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/partition-equal-subset-sum/">416. Partition Equal Subset Sum</a></h4>
+<p>若求是否存在两个子序列相等，只需要求序列中是否存在子序列和等于总序列的一半。所以当和为奇数时候就是无效的。</p>
+<p>转化为dp</p>
+<p><code>dp[i][j]</code>表示0~i的数字能否获得和为j，若能为true，不能为false。</p>
+<p>对于一行的<code>dp[i][j]</code>来说</p>
+<ol type="1">
+<li>取当前这个<code>nums[i]</code>，则如果0~i-1的数字可以达到<code>j - nums[i]</code>和的话就是true，反之为false。也就是<code>dp[i - 1][j - nums[i]]</code>是否为true</li>
+<li>不取当前这个<code>nums[i - 1]</code>，则如果0~i-1可以达到和为j，也就是<code>dp[i - 1][j]</code>是否为true。</li>
+</ol>
+<p>基础情况是当没有数字时，当且仅当j为0时为true。当和为0时，对于所有数字都是true，因此只需要不取。</p>
+<p><img src="https://image.cinte.cc/2021/07/14/dd813ec6f1dfb.jpg" /></p>
+<h5 id="二维dp">二维dp</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPartition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            sum += num;</span><br><span class="line">        <span class="keyword">if</span>(sum &amp; <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        sum &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(nums.size() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(sum + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sum; ++i)</span><br><span class="line">            dp[<span class="number">0</span>][i] = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= nums.size(); ++i)</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= sum; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][j] = dp[i - <span class="number">1</span>][j] || (j &gt;= nums[i - <span class="number">1</span>] ? dp[i - <span class="number">1</span>][j - nums[i - <span class="number">1</span>]] : <span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back()[sum];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h5 id="dp">dp</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPartition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            sum += num;</span><br><span class="line">        <span class="keyword">if</span>(sum &amp; <span class="number">1</span>) <span class="comment">// 如果sum为奇数，那么必定无法划分</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        sum &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(sum + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="literal">true</span>; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = sum; i &gt; <span class="number">0</span>; --i) <span class="comment">// 注释如下</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt;= num)</span><br><span class="line">                    dp[i] = dp[i] || dp[i - num];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPartition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            sum += num;</span><br><span class="line">        <span class="keyword">if</span>(sum &amp; <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        sum &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">dp</span><span class="params">(sum + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = sum; j &gt; <span class="number">0</span>; --j)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[j] = dp[j] || (j &gt;= nums[i - <span class="number">1</span>] ? dp[j - nums[i - <span class="number">1</span>]] : <span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>此处从sum走是因为，i - num是一个小于 i 的值，可以保证走在后面的时候这个值还是上一行生成的结果，如果从小到大走，走到后面时就会把前面的结果刷新掉了</p>
 
     </div>
@@ -375,7 +389,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#partition-equal-subset-sum"><span class="nav-number">1.</span> <span class="nav-text">416. Partition Equal Subset Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#dp"><span class="nav-number">1.1.</span> <span class="nav-text">dp</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#partition-equal-subset-sum"><span class="nav-number">1.</span> <span class="nav-text">416. Partition Equal Subset Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4dp"><span class="nav-number">1.1.</span> <span class="nav-text">二维dp</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dp"><span class="nav-number">1.2.</span> <span class="nav-text">dp</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -467,12 +481,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">239k</span>
+    <span title="Symbols count total">240k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:37</span>
+    <span title="Reading time total">3:38</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
