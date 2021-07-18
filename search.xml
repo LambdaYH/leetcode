@@ -3570,4 +3570,20 @@ t = pM + x \\
         <category>剑指 Offer</category>
       </categories>
   </entry>
+  <entry>
+    <title>面试题 01.01. 判定字符是否唯一</title>
+    <url>/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.01.%20%E5%88%A4%E5%AE%9A%E5%AD%97%E7%AC%A6%E6%98%AF%E5%90%A6%E5%94%AF%E4%B8%80/</url>
+    <content><![CDATA[<h4 id="面试题-01.01.-判定字符是否唯一"><a href="https://leetcode-cn.com/problems/is-unique-lcci/">面试题 01.01. 判定字符是否唯一</a></h4>
+<h5 id="排序">排序</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isUnique</span><span class="params">(<span class="built_in">string</span> astr)</span> </span>&#123;</span><br><span class="line">        sort(astr.begin(), astr.end());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; astr.size(); ++i)</span><br><span class="line">            <span class="keyword">if</span>(astr[i] == astr[i - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="位运算">位运算</h5>
+<p>由题意，可能这个字符串所有字母是a~z之间，本来想到用一个26大小的数组来记录。但是<strong>可以通过一个26位的二进制中的每个位是否为1来表示这个位对应的字母是否出现过</strong>，由此就可以呃不用其他的数据结构 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isUnique</span><span class="params">(<span class="built_in">string</span> astr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : astr)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> i = ch - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(a &amp; (<span class="number">1</span> &lt;&lt; i)) <span class="comment">// 如果a这个位为1，那么结果为1，表示重复了</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                a |= <span class="number">1</span> &lt;&lt; i; <span class="comment">// 记录这个位</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Bit Manipulation</tag>
+      </tags>
+  </entry>
 </search>
