@@ -3638,4 +3638,18 @@ t = pM + x \\
         <category>leetcode</category>
       </categories>
   </entry>
+  <entry>
+    <title>面试题 01.09. 字符串轮转</title>
+    <url>/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.09.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AE%E8%BD%AC/</url>
+    <content><![CDATA[<h4 id="面试题-01.09.-字符串轮转"><a href="https://leetcode-cn.com/problems/string-rotation-lcci/">面试题 01.09. 字符串轮转</a></h4>
+<h5 id="题解中的大佬">题解中的大佬</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isFlipedString</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s1.size() == s2.size() &amp;&amp; (s1 + s1).find(s2) != <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>把旋转字符串前半部分补充成旋转前的，后半部分也补充成旋转前的。最后就变成了两个旋转前的拼起来，而旋转后的必然存在与其中。find表示未找到s2子串就返回-1。</p>
+<h5 id="普通正常方法模拟">普通正常方法(模拟)</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isFlipedString</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s1.size() != s2.size())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(s1.empty())</span><br><span class="line">            <span class="keyword">return</span> s2.empty();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s2.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s2[i] == s1[<span class="number">0</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(k &lt; s1.size() &amp;&amp; s2[j % s2.size()] == s1[k]) &#123;</span><br><span class="line">                    ++j;</span><br><span class="line">                    ++k;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(k == s1.size())</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
 </search>
