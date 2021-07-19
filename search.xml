@@ -3614,4 +3614,16 @@ t = pM + x \\
         <category>leetcode</category>
       </categories>
   </entry>
+  <entry>
+    <title>面试题 01.03. URL化</title>
+    <url>/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.03.%20URL%E5%8C%96/</url>
+    <content><![CDATA[<h4 id="面试题-01.03.-url化"><a href="https://leetcode-cn.com/problems/string-to-url-lcci/">面试题 01.03. URL化</a></h4>
+<h5 id="section"></h5>
+<p>类似<a href="https://leetcode.cinte.cc/2021/06/17/剑指%20Offer%2005.%20替换空格/">剑指 Offer 05. 替换空格</a></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">replaceSpaces</span><span class="params">(<span class="built_in">string</span> S, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> spaceNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; ++i)</span><br><span class="line">            spaceNum += (S[i] == <span class="string">&#x27; &#x27;</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> realSize = length + <span class="number">2</span> * spaceNum;</span><br><span class="line">        S.resize(realSize); <span class="comment">// 有时候这个字符串会给出额外的空余空间，需要根据实际大小resize一下</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = length - <span class="number">1</span>, j = realSize - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i, --j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(S[i] != <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">                S[j] = S[i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                S[j] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                S[j - <span class="number">1</span>] = <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">                S[j - <span class="number">2</span>] = <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">                j -= <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> S;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
 </search>
