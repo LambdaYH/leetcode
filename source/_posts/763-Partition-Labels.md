@@ -22,8 +22,8 @@ public:
         int last = 0;
         for(int i = 0; i < S.size(); ++i)
         {
-            last = max(last, c[S[i] - 'a']); // 计算当前字母出现的最后位置
-            if(i == last) // 如果当前位置是最后出现的，就计算长度保存结果
+            last = max(last, c[S[i] - 'a']); // 计算之前子串中出现的字母的最后的位置
+            if(i == last) // 如果这个条件成立了，表示当前子串(anchor - i)中的所有字母都只出现过了一次，并且之后不会再出现了，所以开始i计算并保存结果。
             {
                 ret.push_back(last + 1 - anchor);
                 anchor = last + 1;
