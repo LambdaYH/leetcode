@@ -30,9 +30,9 @@ public:
         int imin = 0, imax = m;
             
 
-        while (imin <= imax) // 可以相等，表为0
+        while (imin <= imax) // 相等后进入最后计算一次，然后得出解
         {
-            int i = (imin + imax) / 2, j = (m + n + 1) / 2 - i;
+            int i = (imin + imax) / 2, j = (m + n + 1) / 2 - i; // 推导过程中假设是奇数的情况让左边多一个，则i + j = m + n - i - j，如果是偶数那就相同，此时由于这个除法是向下取整的，所以偶数和奇数情况可以合并
             if (i > 0 && (nums1[i - 1] > nums2[j]))   // 本来是需要i>0 && j < n，但是由于满足n >= m，当i > 0时，j = (m + n + 1) / 2 - i <= (m + n + 1) / 2 <= (m + n + 1) / 2 <= m + 1/2 < m            {
                 imax = i - 1;
             }
@@ -70,7 +70,7 @@ public:
                 }
                 if ((m + n) % 2 == 1)
                 {
-                    return left;
+                    return left; // 假设的是左半边多一个
                 }
                 else
                 {
