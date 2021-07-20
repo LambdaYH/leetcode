@@ -28,6 +28,7 @@ public:
         // 此处循环先j再i 是由于以下j为j - 1 而 i 为 i + 1
         // 如果先i 再 j，则i + 1永远不是i的前一任
         // 先j后i，则可以用i,i+1的base来处理
+        // 也是不断拉长区间
         for(int j = 1; j < s.size(); ++j)
         {
             for(int i = 0; i < j; ++i)
@@ -49,7 +50,41 @@ public:
 T(n) : O(n^2) <br>
 S(n) : O(n^2)
 
-##### approach 4
+dp改
+```c++
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        vector<vector<int>> dp(s.size(), vector<int>(s.size(), 0));
+        int maxLength = 1;
+        int maxVal = 0;
+        for(int i = 0; i < s.size(); ++i)
+            dp[i][i] = 1;
+        for(int i = 0; i < s.size() - 1; ++i)
+            if(s[i] == s[i + 1])
+            {
+                dp[i][i + 1] = 1;
+                maxLength = 2;
+                maxVal = i;
+            }
+        for(int len = 3; len <= s.size(); ++len)
+        {
+            for(int i = 0, j = i + len - 1; j < s.size(); ++i, ++j)
+            {
+                dp[i][j] = dp[i + 1][j - 1] && s[i] == s[j];
+                if(dp[i][j] && j - i + 1 > maxLength)
+                {
+                    maxVal = i;
+                    maxLength = j - i + 1;
+                }
+            }
+        }
+        return s.substr(maxVal, maxLength);
+    }
+};
+```
+
+##### approach 4(很快)
 ```c++
 class Solution {
 public:
