@@ -120,4 +120,8 @@ public:
 
 设短的到交点距离x，长的到交点距离y，公共部分距离为z，则如果要求交点，那么让他们走到交点的路程一致即可，则让短的走到头后跳到长，长的走到头后跳到短，最后对于短头来说x+y+z,长头也是x+y+z，刚好在交点相交。
 
+review
+
+如果没交点，第二轮时候他们肯定一同走到尾巴。长的比短的多出来的步数，由于短的先走到头，然后比长的走到短头会刚好多走这么几步，于是就处于同意起跑线。
+
 具体见[discussion](https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/49785/Java-solution-without-knowing-the-difference-in-len!)中的评论第一条
