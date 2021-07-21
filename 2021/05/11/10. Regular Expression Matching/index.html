@@ -28,7 +28,7 @@
 <meta property="og:description" content="10. Regular Expression Matching 题目: 12345Given an input string (s) and a pattern (p), implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where: &#39;.&#39; Matches any">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-11T00:00:58.000Z">
-<meta property="article:modified_time" content="2021-07-20T11:27:57.526Z">
+<meta property="article:modified_time" content="2021-07-21T02:27:08.043Z">
 <meta property="article:author" content="Lambda_YH">
 <meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-20 19:27:57" itemprop="dateModified" datetime="2021-07-20T19:27:57+08:00">2021-07-20</time>
+                <time title="Modified: 2021-07-21 10:27:08" itemprop="dateModified" datetime="2021-07-21T10:27:08+08:00">2021-07-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,6 +297,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(s.size() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(p.size() + <span class="number">1</span>, <span class="literal">false</span>)); <span class="comment">// +1 表示了空</span></span><br><span class="line">        dp[s.size()][p.size()] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = s.size(); i &gt;= <span class="number">0</span>; --i) <span class="comment">// s从空串开始匹配，因为对于*a,是可以匹配到空串的</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = p.size() - <span class="number">1</span>; j &gt;=<span class="number">0</span>; --j) <span class="comment">// 这里不用，因为当p为空时候，当且仅当s为空才为真，其他为假，而这种情况已经包含在了base中</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">bool</span> firstMatch = i &lt; s.size() &amp;&amp; (p[j] == <span class="string">&#x27;.&#x27;</span> || p[j] == s[i]);</span><br><span class="line">                <span class="keyword">if</span>(j + <span class="number">1</span> &lt; p.size() &amp;&amp; p[j + <span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                    dp[i][j] = dp[i][j + <span class="number">2</span>] || (firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j]);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>base为当两者全为空的时候，匹配结果为true。</p>
 <p>从后面往前走，当<code>i == 0 &amp;&amp; j == 0</code>时，表示匹配了整个字符串和pattern</p>
+<p>如果从前往后，不便于计算下标</p>
 <p>然后分解成小问题，对于当前dp[i][j]来说，从递归的思想引过来</p>
 <ol type="1">
 <li>如果<code>p[j] == '.'</code>或<code>p[j] == s[i]</code>，那么<code>dp[i][j] == dp[i + 1][j + 1]</code>，说明当前匹配可以正常走，结果=除了这个位之后的匹配结果</li>
