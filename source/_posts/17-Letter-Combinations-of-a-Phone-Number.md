@@ -34,6 +34,46 @@ private:
     }
 };
 ```
+review
+```c++
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        if(digits.empty())
+            return {};
+        vector<string> ret;
+        string tmp;
+        backTrack(ret, tmp, digits, 0);
+        return ret;
+    }
+private:
+    unordered_map<int, vector<char>> map{
+        {2, {'a', 'b', 'c'}},
+        {3, {'d', 'e', 'f'}},
+        {4, {'g', 'h', 'i'}},
+        {5, {'j', 'k', 'l'}},
+        {6, {'m', 'n', 'o'}},
+        {7, {'p', 'q', 'r', 's'}},
+        {8, {'t', 'u', 'v'}},
+        {9, {'w', 'x', 'y', 'z'}}
+        };
+    void backTrack(vector<string>& ret, string& tmp, string& digits, int i)
+    {
+        if(i == digits.size())
+        {
+            ret.push_back(tmp);
+            return;
+        }
+        for(auto& ch : map[digits[i] - '0'])
+        {
+            tmp += ch;
+            backTrack(ret, tmp, digits, i + 1);
+            tmp.pop_back();
+        }
+    }
+};
+```
+
 
 还有一种
 
