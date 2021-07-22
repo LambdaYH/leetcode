@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Cinte&#39;s Leetcode Record">
-<meta property="og:url" content="https://leetcode.cinte.cc/tags/Dynamic-Programming/index.html">
+  <meta name="description" content="面试题 04.04. 检查平衡性 bottom-up 12345678910111213141516171819202122232425262728&#x2F;** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNode *right;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题 04.04. 检查平衡性">
+<meta property="og:url" content="https://leetcode.cinte.cc/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.04.%20%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
+<meta property="og:description" content="面试题 04.04. 检查平衡性 bottom-up 12345678910111213141516171819202122232425262728&#x2F;** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNode *right;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-21T19:42:38.000Z">
+<meta property="article:modified_time" content="2021-07-22T03:44:58.915Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leetcode.cinte.cc/tags/Dynamic-Programming/">
+<link rel="canonical" href="https://leetcode.cinte.cc/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.04.%20%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/">
 
 
 <script id="page-configurations">
@@ -36,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: Dynamic Programming | Cinte's Leetcode Record</title>
+  <title>面试题 04.04. 检查平衡性 | Cinte's Leetcode Record</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163175934-2"></script>
     <script>
@@ -188,240 +192,129 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.04.%20%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          面试题 04.04. 检查平衡性
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-07-22 03:42:38 / Modified: 11:44:58" itemprop="dateCreated datePublished" datetime="2021-07-22T03:42:38+08:00">2021-07-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Dynamic Programming
-          <small>Tag</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.04.%20%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/21/面试题 04.04. 检查平衡性/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>525</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-19T02:46:34+08:00"
-              content="2021-07-19">
-          07-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/18/647.%20Palindromic%20Substrings/" itemprop="url">
-            <span itemprop="name">647. Palindromic Substrings</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-15T03:31:08+08:00"
-              content="2021-07-15">
-          07-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/14/309.%20%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F/" itemprop="url">
-            <span itemprop="name">309. 最佳买卖股票时机含冷冻期</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-08T13:05:57+08:00"
-              content="2021-06-08">
-          06-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/08/88.%20Merge%20Sorted%20Array/" itemprop="url">
-            <span itemprop="name">88. Merge Sorted Array</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-08T12:19:51+08:00"
-              content="2021-06-08">
-          06-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/08/91.%20Decode%20Ways/" itemprop="url">
-            <span itemprop="name">91. Decode Ways</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-19T08:42:15+08:00"
-              content="2021-05-19">
-          05-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/19/343.%20Integer%20Break/" itemprop="url">
-            <span itemprop="name">343. Integer Break</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-19T07:43:14+08:00"
-              content="2021-05-19">
-          05-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/18/304.%20Range%20Sum%20Query%202D%20-%20Immutable/" itemprop="url">
-            <span itemprop="name">304. Range Sum Query 2D - Immutable</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-17T12:02:48+08:00"
-              content="2021-05-17">
-          05-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/17/264.%20Ugly%20Number%20II/" itemprop="url">
-            <span itemprop="name">264. Ugly Number II</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-17T02:58:03+08:00"
-              content="2021-05-17">
-          05-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/16/97.%20Interleaving%20String/" itemprop="url">
-            <span itemprop="name">97. Interleaving String</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-16T08:50:32+08:00"
-              content="2021-05-16">
-          05-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/16/213.%20House%20Robber%20II/" itemprop="url">
-            <span itemprop="name">213. House Robber II</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-11T08:00:58+08:00"
-              content="2021-05-11">
-          05-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/11/10.%20Regular%20Expression%20Matching/" itemprop="url">
-            <span itemprop="name">10. Regular Expression Matching</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <h4 id="面试题-04.04.-检查平衡性"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/check-balance-lcci/">面试题 04.04. 检查平衡性</a></h4>
+<p>bottom-up</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isBalanced</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        check(root);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">bool</span> ret = <span class="literal">true</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(TreeNode* root)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root || !ret)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">auto</span> left = check(root-&gt;left);</span><br><span class="line">        <span class="keyword">auto</span> right = check(root-&gt;right);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">abs</span>(left -right) &gt; <span class="number">1</span>)</span><br><span class="line">            ret = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> max(left, right) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.03.%20%E7%89%B9%E5%AE%9A%E6%B7%B1%E5%BA%A6%E8%8A%82%E7%82%B9%E9%93%BE%E8%A1%A8/" rel="prev" title="面试题 04.03. 特定深度节点链表">
+      <i class="fa fa-chevron-left"></i> 面试题 04.03. 特定深度节点链表
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/Dynamic-Programming/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/tags/Dynamic-Programming/page/4/">4</a><a class="extend next" rel="next" href="/tags/Dynamic-Programming/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
+  
+  
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -468,6 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-04.04.-%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">面试题 04.04. 检查平衡性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -674,6 +568,26 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://leetcode.cinte.cc/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.04.%20%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/";
+    this.page.identifier = "2021/07/21/面试题 04.04. 检查平衡性/";
+    this.page.title = "面试题 04.04. 检查平衡性";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://cinte.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
   

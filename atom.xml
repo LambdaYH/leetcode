@@ -6,7 +6,7 @@
   <link href="https://leetcode.cinte.cc/atom.xml" rel="self"/>
   
   <link href="https://leetcode.cinte.cc/"/>
-  <updated>2021-07-22T03:39:30.539Z</updated>
+  <updated>2021-07-22T03:44:58.915Z</updated>
   <id>https://leetcode.cinte.cc/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>面试题 04.04. 检查平衡性</title>
+    <link href="https://leetcode.cinte.cc/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.04.%20%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/"/>
+    <id>https://leetcode.cinte.cc/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.04.%20%E6%A3%80%E6%9F%A5%E5%B9%B3%E8%A1%A1%E6%80%A7/</id>
+    <published>2021-07-21T19:42:38.000Z</published>
+    <updated>2021-07-22T03:44:58.915Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;面试题-04.04.-检查平衡性&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/check-balance-lcci/&quot;&gt;面试题 04.04. 检查平衡性&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;bottom-up&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>面试题 04.03. 特定深度节点链表</title>
     <link href="https://leetcode.cinte.cc/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.03.%20%E7%89%B9%E5%AE%9A%E6%B7%B1%E5%BA%A6%E8%8A%82%E7%82%B9%E9%93%BE%E8%A1%A8/"/>
     <id>https://leetcode.cinte.cc/2021/07/21/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.03.%20%E7%89%B9%E5%AE%9A%E6%B7%B1%E5%BA%A6%E8%8A%82%E7%82%B9%E9%93%BE%E8%A1%A8/</id>
     <published>2021-07-21T19:37:27.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -45,7 +70,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.05.%20%E6%A0%88%E6%8E%92%E5%BA%8F/"/>
     <id>https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.05.%20%E6%A0%88%E6%8E%92%E5%BA%8F/</id>
     <published>2021-07-20T19:51:30.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -70,7 +95,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.02.%20%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/"/>
     <id>https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.02.%20%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/</id>
     <published>2021-07-20T19:51:30.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -93,7 +118,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.01.%20%E4%B8%89%E5%90%88%E4%B8%80/"/>
     <id>https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.01.%20%E4%B8%89%E5%90%88%E4%B8%80/</id>
     <published>2021-07-20T19:45:49.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -117,7 +142,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.01.%20%E8%8A%82%E7%82%B9%E9%97%B4%E9%80%9A%E8%B7%AF/"/>
     <id>https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.01.%20%E8%8A%82%E7%82%B9%E9%97%B4%E9%80%9A%E8%B7%AF/</id>
     <published>2021-07-20T18:47:16.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -141,7 +166,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2002.01.%20%E7%A7%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9/"/>
     <id>https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2002.01.%20%E7%A7%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9/</id>
     <published>2021-07-20T03:17:11.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -165,7 +190,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2002.06.%20%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/"/>
     <id>https://leetcode.cinte.cc/2021/07/20/%E9%9D%A2%E8%AF%95%E9%A2%98%2002.06.%20%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</id>
     <published>2021-07-20T03:15:13.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -189,7 +214,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.09.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AE%E8%BD%AC/"/>
     <id>https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.09.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AE%E8%BD%AC/</id>
     <published>2021-07-18T23:03:19.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -213,7 +238,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.06.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/"/>
     <id>https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.06.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/</id>
     <published>2021-07-18T22:51:25.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -237,7 +262,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.03.%20URL%E5%8C%96/"/>
     <id>https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.03.%20URL%E5%8C%96/</id>
     <published>2021-07-18T22:40:06.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -261,7 +286,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.02.%20%E5%88%A4%E5%AE%9A%E6%98%AF%E5%90%A6%E4%BA%92%E4%B8%BA%E5%AD%97%E7%AC%A6%E9%87%8D%E6%8E%92/"/>
     <id>https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.02.%20%E5%88%A4%E5%AE%9A%E6%98%AF%E5%90%A6%E4%BA%92%E4%B8%BA%E5%AD%97%E7%AC%A6%E9%87%8D%E6%8E%92/</id>
     <published>2021-07-18T19:45:22.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -285,7 +310,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/18/647.%20Palindromic%20Substrings/"/>
     <id>https://leetcode.cinte.cc/2021/07/18/647.%20Palindromic%20Substrings/</id>
     <published>2021-07-18T18:46:34.000Z</published>
-    <updated>2021-07-22T03:39:30.531Z</updated>
+    <updated>2021-07-22T03:44:58.911Z</updated>
     
     
       
@@ -310,7 +335,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.01.%20%E5%88%A4%E5%AE%9A%E5%AD%97%E7%AC%A6%E6%98%AF%E5%90%A6%E5%94%AF%E4%B8%80/"/>
     <id>https://leetcode.cinte.cc/2021/07/18/%E9%9D%A2%E8%AF%95%E9%A2%98%2001.01.%20%E5%88%A4%E5%AE%9A%E5%AD%97%E7%AC%A6%E6%98%AF%E5%90%A6%E5%94%AF%E4%B8%80/</id>
     <published>2021-07-18T03:36:11.000Z</published>
-    <updated>2021-07-22T03:39:30.539Z</updated>
+    <updated>2021-07-22T03:44:58.915Z</updated>
     
     
       
@@ -336,7 +361,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/18/621.%20Task%20Scheduler/"/>
     <id>https://leetcode.cinte.cc/2021/07/18/621.%20Task%20Scheduler/</id>
     <published>2021-07-18T00:14:47.000Z</published>
-    <updated>2021-07-22T03:39:30.531Z</updated>
+    <updated>2021-07-22T03:44:58.911Z</updated>
     
     
       
@@ -360,7 +385,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/18/617.%20Merge%20Two%20Binary%20Trees/"/>
     <id>https://leetcode.cinte.cc/2021/07/18/617.%20Merge%20Two%20Binary%20Trees/</id>
     <published>2021-07-18T00:05:53.000Z</published>
-    <updated>2021-07-22T03:39:30.531Z</updated>
+    <updated>2021-07-22T03:44:58.911Z</updated>
     
     
       
@@ -384,7 +409,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/17/312.%20%E6%88%B3%E6%B0%94%E7%90%83/"/>
     <id>https://leetcode.cinte.cc/2021/07/17/312.%20%E6%88%B3%E6%B0%94%E7%90%83/</id>
     <published>2021-07-17T05:16:02.000Z</published>
-    <updated>2021-07-22T03:39:30.531Z</updated>
+    <updated>2021-07-22T03:44:58.907Z</updated>
     
     
       
@@ -408,7 +433,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/17/301.%20%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/"/>
     <id>https://leetcode.cinte.cc/2021/07/17/301.%20%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</id>
     <published>2021-07-17T03:45:13.000Z</published>
-    <updated>2021-07-22T03:39:30.531Z</updated>
+    <updated>2021-07-22T03:44:58.907Z</updated>
     
     
       
@@ -432,7 +457,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/14/145.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/"/>
     <id>https://leetcode.cinte.cc/2021/07/14/145.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</id>
     <published>2021-07-14T23:37:32.000Z</published>
-    <updated>2021-07-22T03:39:30.527Z</updated>
+    <updated>2021-07-22T03:44:58.907Z</updated>
     
     
       
@@ -459,7 +484,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/14/144.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/"/>
     <id>https://leetcode.cinte.cc/2021/07/14/144.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/</id>
     <published>2021-07-14T23:09:27.000Z</published>
-    <updated>2021-07-22T03:39:30.527Z</updated>
+    <updated>2021-07-22T03:44:58.907Z</updated>
     
     
       
@@ -478,33 +503,6 @@
     
     
     <category term="Tree" scheme="https://leetcode.cinte.cc/tags/Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>309. 最佳买卖股票时机含冷冻期</title>
-    <link href="https://leetcode.cinte.cc/2021/07/14/309.%20%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F/"/>
-    <id>https://leetcode.cinte.cc/2021/07/14/309.%20%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F/</id>
-    <published>2021-07-14T19:31:08.000Z</published>
-    <updated>2021-07-22T03:39:30.531Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;最佳买卖股票时机含冷冻期&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/&quot;&gt;309.</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
-    
-    
-    <category term="Dynamic Programming" scheme="https://leetcode.cinte.cc/tags/Dynamic-Programming/"/>
-    
-    <category term="leetcode favorite" scheme="https://leetcode.cinte.cc/tags/leetcode-favorite/"/>
     
   </entry>
   
