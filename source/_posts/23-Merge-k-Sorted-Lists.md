@@ -157,6 +157,55 @@ private:
 };
 ```
 
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if(lists.empty())
+            return nullptr;
+        int n = lists.size();
+        for(int stride = 1; stride < n; stride *= 2)
+        {
+            for(int i = 0; i < n - stride; i += stride * 2) // 注意这个n-stride十分重要，因为最后一步中i的位置是位于n-sride-1,所以需要让i停下来
+                lists[i] = merge(lists[i], lists[i + stride]);
+        }
+        return lists[0];
+    }
+private:
+    ListNode* merge(ListNode* l1, ListNode* l2)
+    {
+        ListNode ret;
+        ListNode* pseudoHead = &ret;
+        while(l2 && l1)
+        {
+            if(l1->val < l2->val)
+            {
+                pseudoHead->next = l1;
+                l1 = l1->next;
+            }
+            else
+            {
+                pseudoHead->next = l2;
+                l2 = l2->next;
+            }
+            pseudoHead = pseudoHead->next;
+        }
+        pseudoHead->next = l1 ? l1 : l2;
+        return ret.next;
+    }
+};
+```
+
 ##### Solution 2 use priority_queue
 ```c++
 /**
