@@ -20,20 +20,19 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="160. Intersection of Two Linked Lists 最直接法 123456789101112131415161718192021222324252627&#x2F;** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int val; *     ListNode *next; *     Lis">
+  <meta name="description" content="面试题 08.01. 三步问题 简单的dp 123456789101112131415class Solution &amp;#123;public:    int waysToStep(int n) &amp;#123;        if(n &lt;&#x3D; 2)            return n;        long a &#x3D; 1, b &#x3D; 1, c &#x3D; 2;        for(int i &#x3D; 3;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="160. Intersection of Two Linked Lists">
-<meta property="og:url" content="https://leetcode.cinte.cc/2021/04/12/160-Intersection-of-Two-Linked-Lists/index.html">
+<meta property="og:title" content="面试题 08.01. 三步问题">
+<meta property="og:url" content="https://leetcode.cinte.cc/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.01.%20%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
-<meta property="og:description" content="160. Intersection of Two Linked Lists 最直接法 123456789101112131415161718192021222324252627&#x2F;** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int val; *     ListNode *next; *     Lis">
+<meta property="og:description" content="面试题 08.01. 三步问题 简单的dp 123456789101112131415class Solution &amp;#123;public:    int waysToStep(int n) &amp;#123;        if(n &lt;&#x3D; 2)            return n;        long a &#x3D; 1, b &#x3D; 1, c &#x3D; 2;        for(int i &#x3D; 3;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-12T04:05:29.000Z">
-<meta property="article:modified_time" content="2021-07-28T10:55:26.249Z">
+<meta property="article:published_time" content="2021-07-28T02:54:23.000Z">
+<meta property="article:modified_time" content="2021-07-28T10:55:26.253Z">
 <meta property="article:author" content="Lambda_YH">
-<meta property="article:tag" content="Linked List">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leetcode.cinte.cc/2021/04/12/160-Intersection-of-Two-Linked-Lists/">
+<link rel="canonical" href="https://leetcode.cinte.cc/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.01.%20%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98/">
 
 
 <script id="page-configurations">
@@ -46,7 +45,7 @@
   };
 </script>
 
-  <title>160. Intersection of Two Linked Lists | Cinte's Leetcode Record</title>
+  <title>面试题 08.01. 三步问题 | Cinte's Leetcode Record</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163175934-2"></script>
     <script>
@@ -200,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/12/160-Intersection-of-Two-Linked-Lists/">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.01.%20%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -213,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          160. Intersection of Two Linked Lists
+          面试题 08.01. 三步问题
         </h1>
 
         <div class="post-meta">
@@ -222,16 +221,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-04-12 12:05:29" itemprop="dateCreated datePublished" datetime="2021-04-12T12:05:29+08:00">2021-04-12</time>
+              <time title="Created: 2021-07-28 10:54:23 / Modified: 18:55:26" itemprop="dateCreated datePublished" datetime="2021-07-28T10:54:23+08:00">2021-07-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-28 18:55:26" itemprop="dateModified" datetime="2021-07-28T18:55:26+08:00">2021-07-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -251,8 +244,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/04/12/160-Intersection-of-Two-Linked-Lists/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/12/160-Intersection-of-Two-Linked-Lists/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.01.%20%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/28/面试题 08.01. 三步问题/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -262,14 +255,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2k</span>
+              <span>222</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -281,18 +274,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="intersection-of-two-linked-lists"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/intersection-of-two-linked-lists/">160. Intersection of Two Linked Lists</a></h4>
-<h5 id="最直接法">最直接法</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;ListNode*&gt; <span class="built_in">set</span>;</span><br><span class="line">        <span class="keyword">while</span>(headA)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">set</span>.insert(headA);</span><br><span class="line">            headA = headA-&gt;next;   </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(headB)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">set</span>.find(headB) != <span class="built_in">set</span>.end())</span><br><span class="line">                <span class="keyword">return</span> headB;</span><br><span class="line">            headB = headB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="预先求差">预先求差</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lenA&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> lenB&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        </span><br><span class="line">        ListNode* a = headA;</span><br><span class="line">        ListNode* b = headB;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(a)</span><br><span class="line">        &#123;</span><br><span class="line">            ++lenA;</span><br><span class="line">            a = a-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(b)</span><br><span class="line">        &#123;</span><br><span class="line">            ++lenB;</span><br><span class="line">            b = b-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lenA &lt; lenB)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lenB - lenA; ++i)</span><br><span class="line">                headB = headB-&gt;next;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lenA - lenB; ++i)</span><br><span class="line">                headA = headA-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(headA &amp;&amp; headB)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(headA == headB)</span><br><span class="line">                <span class="keyword">return</span> headA;</span><br><span class="line">            headA = headA-&gt;next;</span><br><span class="line">            headB = headB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="次迭代">2次迭代</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode *a = headA;</span><br><span class="line">        ListNode *b = headB;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(a != b)</span><br><span class="line">        &#123;</span><br><span class="line">            a = a == <span class="literal">nullptr</span> ? headB : a-&gt;next;</span><br><span class="line">            b = b == <span class="literal">nullptr</span> ? headA : b-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>他们第一次跑会有一个长度的差，短的先跑到终点后，到长的端点。当长的指针跑到终点后，回到短的端点。此时先前一个刚好跑了他们的距离差，这是他们在距离上是处于同一个起点的。</p>
-<p>设短的到交点距离x，长的到交点距离y，公共部分距离为z，则如果要求交点，那么让他们走到交点的路程一致即可，则让短的走到头后跳到长，长的走到头后跳到短，最后对于短头来说x+y+z,长头也是x+y+z，刚好在交点相交。</p>
-<p>review</p>
-<p>如果没交点，第二轮时候他们肯定一同走到尾巴。长的比短的多出来的步数，由于短的先走到头，然后比长的走到短头会刚好多走这么几步，于是就处于同意起跑线。</p>
-<p>具体见<a target="_blank" rel="noopener" href="https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/49785/Java-solution-without-knowing-the-difference-in-len!">discussion</a>中的评论第一条</p>
+        <h4 id="面试题-08.01.-三步问题"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/three-steps-problem-lcci/">面试题 08.01. 三步问题</a></h4>
+<p>简单的dp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">waysToStep</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">long</span> a = <span class="number">1</span>, b = <span class="number">1</span>, c = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            a = (c + b + a) % <span class="number">1000000007</span>;</span><br><span class="line">            swap(a, c);</span><br><span class="line">            swap(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -301,9 +285,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Linked-List/" rel="tag"># Linked List</a>
-          </div>
 
         
 
@@ -311,13 +292,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/12/142-Linked-List-Cycle-II/" rel="prev" title="142. Linked List Cycle II">
-      <i class="fa fa-chevron-left"></i> 142. Linked List Cycle II
+    <a href="/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.08.%20%E7%BB%98%E5%88%B6%E7%9B%B4%E7%BA%BF/" rel="prev" title="面试题 05.08. 绘制直线">
+      <i class="fa fa-chevron-left"></i> 面试题 05.08. 绘制直线
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/12/448-Find-All-Numbers-Disappeared-in-an-Array/" rel="next" title="448. Find All Numbers Disappeared in an Array">
-      448. Find All Numbers Disappeared in an Array <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -383,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#intersection-of-two-linked-lists"><span class="nav-number">1.</span> <span class="nav-text">160. Intersection of Two Linked Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E7%9B%B4%E6%8E%A5%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">最直接法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A2%84%E5%85%88%E6%B1%82%E5%B7%AE"><span class="nav-number">1.2.</span> <span class="nav-text">预先求差</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AC%A1%E8%BF%AD%E4%BB%A3"><span class="nav-number">1.3.</span> <span class="nav-text">2次迭代</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-08.01.-%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">面试题 08.01. 三步问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -593,9 +571,9 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://leetcode.cinte.cc/2021/04/12/160-Intersection-of-Two-Linked-Lists/";
-    this.page.identifier = "2021/04/12/160-Intersection-of-Two-Linked-Lists/";
-    this.page.title = "160. Intersection of Two Linked Lists";
+    this.page.url = "https://leetcode.cinte.cc/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.01.%20%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98/";
+    this.page.identifier = "2021/07/28/面试题 08.01. 三步问题/";
+    this.page.title = "面试题 08.01. 三步问题";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
