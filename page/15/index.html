@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,14 +257,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.6k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -286,7 +286,7 @@
 <p>用哈希记录每个值，然后找，而且仅仅从连续子串的开头开始，跳过所有的中间量</p>
 <p>明明是O(n)为啥比第一个O(nlogn)还慢</p>
 <h5 id="discussion">discussion</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!<span class="built_in">map</span>[num]) <span class="comment">// 仅仅对于没建立过路径的数字来建立，因为如果重复建立，会导致结果重复累加</span></span><br><span class="line">                r = max(r, <span class="built_in">map</span>[num] = <span class="built_in">map</span>[num + <span class="built_in">map</span>[num + <span class="number">1</span>]] = <span class="built_in">map</span>[num - <span class="built_in">map</span>[num - <span class="number">1</span>]] = <span class="built_in">map</span>[num - <span class="number">1</span>] + <span class="built_in">map</span>[num + <span class="number">1</span>] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;  </span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!<span class="built_in">map</span>[num]) <span class="comment">// 仅仅对于没建立过路径的数字来建立，因为如果重复建立，会导致结果重复累加</span></span><br><span class="line">            <span class="comment">// 这里的num如果是中间的点的话，更新他不会有什么影响，因为这表示他周围的点已经计算完他们本身为起点或终点的最大长度了，不会重复计算</span></span><br><span class="line">            <span class="comment">// 如果是端点，那也可以更新，总之就是让他不为0。</span></span><br><span class="line">            <span class="comment">// 事实上，这里的map[num]赋值仅仅是为了标记他已经走过，赋任何值都可以</span></span><br><span class="line">                r = max(r, <span class="built_in">map</span>[num] = <span class="built_in">map</span>[num + <span class="built_in">map</span>[num + <span class="number">1</span>]] = <span class="built_in">map</span>[num - <span class="built_in">map</span>[num - <span class="number">1</span>]] = <span class="built_in">map</span>[num - <span class="number">1</span>] + <span class="built_in">map</span>[num + <span class="number">1</span>] + <span class="number">1</span>); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;  </span><br></pre></td></tr></table></figure>
 <p>对于n，几种情况</p>
 <ol type="1">
 <li>有一条到n-1的路径，则总长度为len(n-1)+1</li>
@@ -349,7 +349,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -473,7 +473,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -579,7 +579,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -684,7 +684,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -791,7 +791,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -898,7 +898,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1011,7 +1011,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1116,7 +1116,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1223,7 +1223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 16:54:08" itemprop="dateModified" datetime="2021-07-31T16:54:08+08:00">2021-07-31</time>
+                <time title="Modified: 2021-07-31 17:00:15" itemprop="dateModified" datetime="2021-07-31T17:00:15+08:00">2021-07-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
