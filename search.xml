@@ -3999,6 +3999,97 @@ t = pM + x \\
       </categories>
   </entry>
   <entry>
+    <title>面试题 08.11. 硬币</title>
+    <url>/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.11.%20%E7%A1%AC%E5%B8%81/</url>
+    <content><![CDATA[<h4 id="面试题-08.11.-硬币"><a href="https://leetcode-cn.com/problems/coin-lcci/">面试题 08.11. 硬币</a></h4>
+<p>设<code>F(i, v)</code>为前<code>i</code>种面值硬币构成面额为<code>v</code>的方案数。</p>
+<p>(题中<code>i</code>为4，且面额为<code>[1, 5, 10, 25]</code>)</p>
+<p>将第<code>i</code>个面额记为<code>c_i</code></p>
+<p>则转移方程 <span class="math display">\[
+F(i, v) = F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
+\]</span></p>
+<p>这是一个纵轴为采用的硬币种类，横轴为面额，内部值为方案数的表格</p>
+<p><img src="https://image.cinte.cc/2021/08/02/7610cb05b7f9d.jpg" width="304" height="228"></p>
+<p>以上的原始版本的代码实现</p>
+<details>
+<summary>
+以上的原始版本的代码实现
+</summary>
+<pre><code>
+class Solution &#123;
+public:
+    int waysToChange(int n) &#123;
+        int coins[4]&#123;1, 5, 10, 25&#125;;
+        vector<vector<int>> dp(5, vector<int>(n + 1, 0));
+        dp[0][0] = 1;
+        for(int i = 1; i <= 4; ++i)
+        &#123;
+            dp[i][0] = 1;
+            auto coin = coins[i - 1];
+            for(int j = 1; j <= n; ++j)
+            &#123;
+                dp[i][j] = dp[i - 1][j];
+                for(int k = 1; k <= j / coin; ++k)
+                &#123;
+                    dp[i][j] += dp[i - 1][j - k * coin];
+                    dp[i][j] %= 1000000007;
+                &#125;
+            &#125;
+        &#125;
+        return dp.back().back();
+    &#125;
+&#125;;
+</code></pre>
+</details>
+<p>但是<strong>超时了</strong></p>
+<strong>进行对时间的优化</strong> <span class="math display">\[
+F(i, v) = F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
+\]</span> 图中标红的公式与 <span class="math display">\[
+F(i, v - c_i) = F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
+\]</span> 进行比较，发现相同，所以 <span class="math display">\[
+F(i, v) = F(i - 1, v - 1 * c_i) + F(i, v - c_i)
+\]</span> 于是就可以减少一层循环
+<details>
+<summary>
+以上的优化时间版本的代码实现
+</summary>
+<pre><code>
+class Solution &#123;
+public:
+    int waysToChange(int n) &#123;
+        int coins[4]&#123;1, 5, 10, 25&#125;;
+        vector<vector<int>> dp(5, vector<int>(n + 1, 0));
+        dp[0][0] = 1;
+        for(int i = 1; i <= 4; ++i)
+        &#123;
+            dp[i][0] = 1;
+            auto coin = coins[i - 1];
+            for(int j = 1; j <= n; ++j)
+            &#123;
+                dp[i][j] = dp[i - 1][j];
+                if(j >= coin)
+                    dp[i][j] += dp[i][j - coin];
+                dp[i][j] %= 1000000007;
+            &#125;
+        &#125;
+        return dp.back().back();
+    &#125;
+&#125;;
+</code></pre>
+</details>
+<p><strong>对空间优化</strong></p>
+<p>发现每次循环仅仅使用到了上一层的数据，因此可以将空间使用从二维减少到一维，就用常规的方式即可</p>
+<p>最终版本的代码</p>
+<p>T(n) : O(n)</p>
+<p>S(n) : O(n)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">waysToChange</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> coins[<span class="number">4</span>]&#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>&#125;;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> coin = coins[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = coin; j &lt;= n; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[j] = dp[j] + dp[j - coin];</span><br><span class="line">                dp[j] %= <span class="number">1000000007</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>还有数学方法，抄累了</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>面试题 08.13. 堆箱子</title>
     <url>/2021/07/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.13.%20%E5%A0%86%E7%AE%B1%E5%AD%90/</url>
     <content><![CDATA[<h4 id="面试题-08.13.-堆箱子"><a href="https://leetcode-cn.com/problems/pile-box-lcci/">面试题 08.13. 堆箱子</a></h4>
