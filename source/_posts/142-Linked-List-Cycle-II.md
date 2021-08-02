@@ -81,3 +81,14 @@ public:
 
 ![image.png](https://image.cinte.cc/2021/04/12/fe23f299564ba.png)
 即当一个点从第一次遇见的点开始，走r-m步，走到环的起始点时，另一个点刚好从起点走到环的起始点
+
+针对最后取为1的修订
+```
+Smart solution. But replacing all "wake" to "walk" in your words makes me feel better :) Another minor point is you can't just "here we takes n = 1" even it doesn't affect the last result. It still should read as s=nr-m. That means the 1st pointer starts from beginning of the list while the 2nd pointer starts from meet point, they will meet in the cycle point but the 2nd pointer walked n times of the cycle.
+```
+
+第二次循环时候，runner是走了`r2-2r1`(设为n)圈，这个数字为正即可，因为不管他多走几圈都影响不了结果。而r2是runner走的圈数，r1是walker走的圈数。
+
+k为步数，s为起点到环起点的距离，m为圈长
+`r2 = (2k - s) / m`，而`r1 = (k - s) / m`，则`r2 / r1 = 2 + s/k+s`，所以`r2 - 2r1 =  s / k + s`必定为正数
+
