@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://image.cinte.cc/2021/04/12/fe23f299564ba.png">
 <meta property="article:published_time" content="2021-04-12T03:48:59.000Z">
-<meta property="article:modified_time" content="2021-07-31T10:43:28.486Z">
+<meta property="article:modified_time" content="2021-08-02T03:04:24.611Z">
 <meta property="article:author" content="Lambda_YH">
 <meta property="article:tag" content="Linked List">
 <meta name="twitter:card" content="summary">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-31 18:43:28" itemprop="dateModified" datetime="2021-07-31T18:43:28+08:00">2021-07-31</time>
+                <time title="Modified: 2021-08-02 11:04:24" itemprop="dateModified" datetime="2021-08-02T11:04:24+08:00">2021-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,14 +264,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.2k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -289,6 +289,8 @@
 <h5 id="使用linked-cycle中的two-point-方法">使用linked cycle中的two point 方法</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">detectCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* walker = head;</span><br><span class="line">        ListNode* runner = head;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">bool</span> isMeet = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(runner-&gt;next &amp;&amp; runner-&gt;next-&gt;next)</span><br><span class="line">        &#123;</span><br><span class="line">            walker = walker-&gt;next;</span><br><span class="line">            runner = runner-&gt;next-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(walker == runner)</span><br><span class="line">            &#123;</span><br><span class="line">                isMeet = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(isMeet)</span><br><span class="line">        &#123;</span><br><span class="line">            walker = head;</span><br><span class="line">            <span class="keyword">while</span>(walker != runner)</span><br><span class="line">            &#123;</span><br><span class="line">                walker = walker-&gt;next;</span><br><span class="line">                runner = runner-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> runner;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><img src="https://image.cinte.cc/2021/04/12/fe23f299564ba.png" alt="image.png" /> 即当一个点从第一次遇见的点开始，走r-m步，走到环的起始点时，另一个点刚好从起点走到环的起始点</p>
+<p>针对最后取为1的修订 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Smart solution. But replacing all &quot;wake&quot; to &quot;walk&quot; in your words makes me feel better :) Another minor point is you can&#39;t just &quot;here we takes n &#x3D; 1&quot; even it doesn&#39;t affect the last result. It still should read as s&#x3D;nr-m. That means the 1st pointer starts from beginning of the list while the 2nd pointer starts from meet point, they will meet in the cycle point but the 2nd pointer walked n times of the cycle.</span><br></pre></td></tr></table></figure> 第二次循环时候，runner是走了<code>r2-2r1</code>(设为n)圈，这个数字为正即可，因为不管他多走几圈都影响不了结果。而r2是runner走的圈数，r1是walker走的圈数。</p>
+<p>k为步数，s为起点到环起点的距离，m为圈长 <code>r2 = (2k - s) / m</code>，而<code>r1 = (k - s) / m</code>，则<code>r2 / r1 = 2 + s/k+s</code>，所以<code>r2 - 2r1 =  s / k + s</code>必定为正数</p>
 
     </div>
 
