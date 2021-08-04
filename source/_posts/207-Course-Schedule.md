@@ -16,7 +16,7 @@ public:
         vector<bool> todo(numCourses, false); // 记录在走路过程中走过的点，如果走路过程中撞到了，表明有环，那么必定返回false
         for(auto& course : prerequisites)
         {
-            map[course[1]].push_back(course[0]); // 建立有向图,注意方向
+            map[course[1]].push_back(course[0]); // 建立有向图,注意方向  review : 其实主要是判断环路，方向无所谓啦
         }
         for(int i = 0; i < numCourses; ++i)
         {
@@ -49,3 +49,38 @@ private:
 ```
 
 对于每个点都是一条路走到黑，所以是DFS
+
+##### review
+```c++
+class Solution {
+public:
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<int> visited(numCourses, 0);
+        vector<int> checked(numCourses, 0); // 0 : unknown, 1 : ok
+        vector<vector<int>> graph(numCourses);
+        for(auto& c : prerequisites)
+            graph[c[0]].push_back(c[1]);
+        for(int i = 0; i < numCourses; ++i)
+            if(!check(graph, visited, checked, i))
+                return false;
+        return true;
+    }
+private:
+    bool check(vector<vector<int>>& graph, vector<int>& visited, vector<int>& checked, int course)
+    {
+        if(checked[course] == 1)
+            return true;
+        if(visited[course])
+            return false;
+        visited[course] = 1;
+        for(auto& c : graph[course])
+        {
+            if(!check(graph, visited, checked, c))
+                return false;
+        }
+        visited[course] = 0;
+        checked[course] = 1;
+        return true;
+    }
+};
+```
