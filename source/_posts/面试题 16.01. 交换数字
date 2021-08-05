@@ -1,0 +1,41 @@
+---
+title: 面试题 16.01. 交换数字
+date: 2021-08-05 16:44:55 +0800
+categories: leetcode
+mathjax: false
+
+---
+
+#### [面试题 16.01. 交换数字](https://leetcode-cn.com/problems/swap-numbers-lcci/)
+
+##### 最沙雕的方式
+
+```c++
+class Solution {
+public:
+    vector<int> swapNumbers(vector<int>& numbers) {
+        return {numbers[1], numbers[0]};
+    }
+};
+```
+
+##### 正经方式
+
+
+
+我是傻逼
+
+```c++
+class Solution {
+public:
+    vector<int> swapNumbers(vector<int>& numbers) {
+        numbers[0] ^= numbers[1];
+        numbers[1] ^= numbers[0];
+        numbers[0] ^= numbers[1];
+        return numbers;
+    }
+};
+```
+
+
+
