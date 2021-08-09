@@ -2,10 +2,13 @@
 title: 287. Find the Duplicate Number
 date: 2021-04-15 15:30:41 +0800
 categories: leetcode
+
 ---
+
 #### [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 
-#####
+很绕，由于不能改数组，这种情况废弃
+
 ```c++
 class Solution {
 public:
@@ -15,7 +18,7 @@ public:
         while(lo < hi)
         {
             int mid = (lo + hi) / 2;
-            if(mid + 1 <= nums[mid])
+            if(mid + 1 <= nums[mid]) // 这里不能用不等号，因为只如果全是正确排列的话，这个一定是等号，如果mid左边出现了重复，那么mid的数会不等于mid+1，但是nums[mid] < mid + 1的情况当且仅当重复数出现在左边或本身就是重复数时才会发生。因此这种情况必然是hi=mid。而nums[mid] >= mid + 1时，如果自身是重复数，那么其余的重复数必然出现在他的右边，因为如果在左边的话，那肯定就小于了。如果自身不是，那就是nums[mid] == mid + 1的情况，也肯定在右边。
                 lo = mid + 1;
             else if(mid + 1 > nums[mid])
                 hi = mid;
@@ -24,16 +27,55 @@ public:
     }
 };
 ```
+
 T(N) : O(nlogn)
 
 S(n) : O(1)
 
+##### 另一种使用二分
 
-还有种方法可以使用哈希表
+设cnt为数组中**小于等于**当前元素的元素的个数，设重复数为target
+
+将重复的数字看作是插入到了数组中，当插入到了比target小的数中，那么设`i < target`，cnt[i]必然<i，当插入到了比target大的数中，设`j > target`，cnt[j]必然>j，因为多了一个比他小的cnt。
+
+如果都正常的话，在`1~target-1`区间中的数cnt[i]==i，`target~n`中的数必然>j
+
+由此，在1~n区间内进行二分
+
+```c++
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int cnt = 0;
+        int lo = 1, hi = nums.size() - 1;
+        while(lo < hi)
+        {
+            int mid = lo + (hi - lo) / 2;
+            cnt = 0;
+            for(auto& num : nums)
+                cnt += num <= mid ? 1 : 0;
+            if(cnt <= mid)
+                lo = mid + 1;
+            else
+                hi = mid;
+        }
+        return hi;
+    }
+};
+```
+
+
+
+
+
+
 
 ##### 使用cycle，有点静态链表的思想，其中的链表组成如图
 
 ![image.png](https://image.cinte.cc/2021/04/15/5dfe75d8ed3ce.png)
+
+由于位于0处的数字不可能是0，所以他不可能原地跳不出去。
+如果碰到一个原地跳不出去的，那就说明已经是环了
 
 最后套用[142. Linked List Cycle II](https://leetcode.cinte.cc/2021/04/12/142-Linked-List-Cycle-II/)
 
