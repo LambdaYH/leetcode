@@ -83,3 +83,39 @@ private:
 };
 ```
 处理一个框框中的数据，框框里遇到框框就再递归
+
+review
+```c++
+class Solution {
+public:
+    string decodeString(string s) {
+        int i = 0;
+        return helper(s, i, s.size());
+    }
+private:
+    string helper(string& s, int& i, int sz)
+    {
+        int curTime = 0;
+        string r;
+        for(i; i < sz; ++i)
+        {
+            auto ch = s[i];
+            if(ch >= '0' && ch <= '9')
+                curTime = curTime * 10 + ch - '0';
+            else if(ch == '[')
+            {
+                auto tmp = helper(s, ++i, sz);
+                if(curTime == 0)
+                    curTime = 1;
+                for(int j = 0; j < curTime; ++j)
+                    r.append(tmp);
+                curTime = 0;
+            }else if(ch == ']')
+                return r;
+            else
+                r += ch;
+        }
+        return r;
+    }
+};
+```
