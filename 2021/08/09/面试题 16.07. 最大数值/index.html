@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"leetcode.cinte.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="171. Excel Sheet Column Number  1234567891011class Solution &amp;#123;public:    int titleToNumber(string columnTitle) &amp;#123;        int len &#x3D; columnTitle.size();        int sum &#x3D; columnTitle.back() - &amp;#x">
+  <meta name="description" content="面试题 16.07. 最大数值 解法1 \[ max(a, b) &#x3D; (a + b + abs(a - b)) &#x2F; 2; \] 其中绝对值使用位运算代替，假设a, b为32位，则 \[ abs(a) &#x3D; ((a &gt;&gt; 31) \^{} a) - (a &gt;&gt; 31) \] c++中对有符号数的右移是算数右移 当a &gt; 0，a &gt;&gt; 31 &#x3D; 0x0000，则">
 <meta property="og:type" content="article">
-<meta property="og:title" content="171. Excel Sheet Column Number">
-<meta property="og:url" content="https://leetcode.cinte.cc/2021/06/13/171.%20Excel%20Sheet%20Column%20Number/index.html">
+<meta property="og:title" content="面试题 16.07. 最大数值">
+<meta property="og:url" content="https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/index.html">
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
-<meta property="og:description" content="171. Excel Sheet Column Number  1234567891011class Solution &amp;#123;public:    int titleToNumber(string columnTitle) &amp;#123;        int len &#x3D; columnTitle.size();        int sum &#x3D; columnTitle.back() - &amp;#x">
+<meta property="og:description" content="面试题 16.07. 最大数值 解法1 \[ max(a, b) &#x3D; (a + b + abs(a - b)) &#x2F; 2; \] 其中绝对值使用位运算代替，假设a, b为32位，则 \[ abs(a) &#x3D; ((a &gt;&gt; 31) \^{} a) - (a &gt;&gt; 31) \] c++中对有符号数的右移是算数右移 当a &gt; 0，a &gt;&gt; 31 &#x3D; 0x0000，则">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-13T05:12:46.000Z">
-<meta property="article:modified_time" content="2021-08-11T07:16:18.694Z">
+<meta property="article:published_time" content="2021-08-09T00:40:39.000Z">
+<meta property="article:modified_time" content="2021-08-11T07:16:18.698Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leetcode.cinte.cc/2021/06/13/171.%20Excel%20Sheet%20Column%20Number/">
+<link rel="canonical" href="https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>171. Excel Sheet Column Number | Cinte's Leetcode Record</title>
+  <title>面试题 16.07. 最大数值 | Cinte's Leetcode Record</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163175934-2"></script>
     <script>
@@ -199,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/13/171.%20Excel%20Sheet%20Column%20Number/">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -212,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          171. Excel Sheet Column Number
+          面试题 16.07. 最大数值
         </h1>
 
         <div class="post-meta">
@@ -222,7 +222,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-06-13 13:12:46" itemprop="dateCreated datePublished" datetime="2021-06-13T13:12:46+08:00">2021-06-13</time>
+              <time title="Created: 2021-08-09 08:40:39" itemprop="dateCreated datePublished" datetime="2021-08-09T08:40:39+08:00">2021-08-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -250,8 +250,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/06/13/171.%20Excel%20Sheet%20Column%20Number/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/13/171. Excel Sheet Column Number/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/09/面试题 16.07. 最大数值/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,7 +261,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>514</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -280,12 +280,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="excel-sheet-column-number"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/excel-sheet-column-number/">171. Excel Sheet Column Number</a></h4>
-<h5 id="section"></h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(<span class="built_in">string</span> columnTitle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = columnTitle.size();</span><br><span class="line">        <span class="keyword">int</span> sum = columnTitle.back() - <span class="string">&#x27;A&#x27;</span> + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> tmp = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">            sum += (columnTitle[i] - <span class="string">&#x27;A&#x27;</span> + <span class="number">1</span>) * (tmp *= <span class="number">26</span>);</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>26进制转为10进制，就n转10差不多</p>
-<h5 id="但我还是算的更麻烦了">但我还是算的更麻烦了</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(<span class="built_in">string</span> columnTitle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = columnTitle.size();</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</span><br><span class="line">            sum = (columnTitle[i] - <span class="string">&#x27;A&#x27;</span> + <span class="number">1</span>) + sum * <span class="number">26</span>;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="面试题-16.07.-最大数值"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-lcci/">面试题 16.07. 最大数值</a></h4>
+<h5 id="解法1">解法1</h5>
+<p><span class="math display">\[
+max(a, b) = (a + b + abs(a - b)) / 2;
+\]</span></p>
+<p>其中绝对值使用位运算代替，假设<code>a, b</code>为32位，则 <span class="math display">\[
+abs(a) = ((a &gt;&gt; 31) \^{} a) - (a &gt;&gt; 31)
+\]</span> c++中对有符号数的右移是算数右移</p>
+<p>当<code>a &gt; 0</code>，<code>a &gt;&gt; 31 = 0x0000</code>，则<code>a &gt;&gt; 31 ^ a</code>就等于<code>a</code>，再减去<code>0x0000</code>还是a</p>
+<p>当<code>a &lt; 0</code>，<code>a &gt;&gt; 31 = 0xFFFF</code>，则<code>a &gt;&gt; 31 ^ a</code>就等于<code>~a</code>，由于<code>0 - 0xFFFF = 1</code> ，所以最后是<code>~a + 1 = -a</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> la = a, lb = b;</span><br><span class="line">        <span class="keyword">return</span> ((la + lb) + (((la - lb) &gt;&gt; <span class="number">63</span>) ^ (la - lb)) - ((la - lb) &gt;&gt; <span class="number">63</span>)) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="解法2">解法2</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> d = (<span class="keyword">long</span>)a - (<span class="keyword">long</span>)b; <span class="comment">// 求出差</span></span><br><span class="line">        <span class="keyword">int</span> k = d &gt;&gt; <span class="number">63</span>; <span class="comment">// 注意是有符号数右移，所以如果a&gt;b,k=0,如果a&lt;b,k=-1</span></span><br><span class="line">        <span class="comment">// k = 0时，= a</span></span><br><span class="line">        <span class="comment">// k = -1时，=-1 * -1 * b = b</span></span><br><span class="line">        <span class="keyword">return</span> (k + <span class="number">1</span>) * a - k * b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="解法3">解法3</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> aSign = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)a &gt;&gt; <span class="number">31</span>; <span class="comment">// 只判断符号位，需要转为逻辑右移，否则移完会出现1</span></span><br><span class="line">       <span class="keyword">int</span> bSign = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)b &gt;&gt; <span class="number">31</span>;</span><br><span class="line">       <span class="keyword">int</span> diff = aSign ^ bSign; <span class="comment">// 相同为0，相异为1</span></span><br><span class="line">       <span class="comment">// 如果diff为1，异号，当k=0取a，反之取1，此时短路运算符||不会导致后面的溢出发生</span></span><br><span class="line">       <span class="comment">// diff为0，同号，运算时不会产生运算溢出，所以直接减然后取符号位，因为这里是逻辑与，所以无所谓算术右移逻辑右移</span></span><br><span class="line">       <span class="keyword">int</span> k = diff &amp;&amp; aSign || ((diff ^ <span class="number">1</span>) &amp;&amp; ((a - b) &gt;&gt; <span class="number">31</span>));</span><br><span class="line">       <span class="keyword">return</span> (k ^ <span class="number">1</span>) * a + k * b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -301,12 +310,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/06/13/130.%20Surrounded%20Regions/" rel="prev" title="130. Surrounded Regions">
-      <i class="fa fa-chevron-left"></i> 130. Surrounded Regions
+    <a href="/2021/08/09/313.%20%E8%B6%85%E7%BA%A7%E4%B8%91%E6%95%B0/" rel="prev" title="313. 超级丑数">
+      <i class="fa fa-chevron-left"></i> 313. 超级丑数
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/06/14/90.%20Subsets%20II/" rel="next" title="90. Subsets II">
-      90. Subsets II <i class="fa fa-chevron-right"></i>
+    <a href="/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.08.%20%E6%9C%89%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88.md%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" rel="next" title="面试题 08.08. 有重复字符串的排列组合">
+      面试题 08.08. 有重复字符串的排列组合 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -373,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#excel-sheet-column-number"><span class="nav-number">1.</span> <span class="nav-text">171. Excel Sheet Column Number</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#section"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%86%E6%88%91%E8%BF%98%E6%98%AF%E7%AE%97%E7%9A%84%E6%9B%B4%E9%BA%BB%E7%83%A6%E4%BA%86"><span class="nav-number">1.2.</span> <span class="nav-text">但我还是算的更麻烦了</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-16.07.-%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">面试题 16.07. 最大数值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E6%B3%951"><span class="nav-number">1.1.</span> <span class="nav-text">解法1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E6%B3%952"><span class="nav-number">1.2.</span> <span class="nav-text">解法2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E6%B3%953"><span class="nav-number">1.3.</span> <span class="nav-text">解法3</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -568,6 +577,61 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
@@ -583,9 +647,9 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://leetcode.cinte.cc/2021/06/13/171.%20Excel%20Sheet%20Column%20Number/";
-    this.page.identifier = "2021/06/13/171. Excel Sheet Column Number/";
-    this.page.title = "171. Excel Sheet Column Number";
+    this.page.url = "https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/";
+    this.page.identifier = "2021/08/09/面试题 16.07. 最大数值/";
+    this.page.title = "面试题 16.07. 最大数值";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
