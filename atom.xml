@@ -6,7 +6,7 @@
   <link href="https://leetcode.cinte.cc/atom.xml" rel="self"/>
   
   <link href="https://leetcode.cinte.cc/"/>
-  <updated>2021-08-12T08:27:59.486Z</updated>
+  <updated>2021-08-12T08:28:13.889Z</updated>
   <id>https://leetcode.cinte.cc/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/11/109.%20%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     <id>https://leetcode.cinte.cc/2021/08/11/109.%20%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</id>
     <published>2021-08-11T23:54:50.000Z</published>
-    <updated>2021-08-12T08:27:59.486Z</updated>
+    <updated>2021-08-12T08:28:13.889Z</updated>
     
     
       
@@ -44,7 +44,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/11/107.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%20II/"/>
     <id>https://leetcode.cinte.cc/2021/08/11/107.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%20II/</id>
     <published>2021-08-11T00:36:44.000Z</published>
-    <updated>2021-08-12T08:27:59.486Z</updated>
+    <updated>2021-08-12T08:28:13.889Z</updated>
     
     
       
@@ -67,7 +67,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/11/106.%20%E4%BB%8E%E4%B8%AD%E5%BA%8F%E4%B8%8E%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>https://leetcode.cinte.cc/2021/08/11/106.%20%E4%BB%8E%E4%B8%AD%E5%BA%8F%E4%B8%8E%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
     <published>2021-08-11T00:19:21.000Z</published>
-    <updated>2021-08-12T08:27:59.486Z</updated>
+    <updated>2021-08-12T08:28:13.889Z</updated>
     
     
       
@@ -90,7 +90,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/10/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.10.%20%E7%94%9F%E5%AD%98%E4%BA%BA%E6%95%B0/"/>
     <id>https://leetcode.cinte.cc/2021/08/10/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.10.%20%E7%94%9F%E5%AD%98%E4%BA%BA%E6%95%B0/</id>
     <published>2021-08-10T23:49:45.000Z</published>
-    <updated>2021-08-12T08:27:59.498Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -114,7 +114,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.08.%20%E6%9C%89%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88.md%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/"/>
     <id>https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.08.%20%E6%9C%89%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88.md%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/</id>
     <published>2021-08-09T00:40:39.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -134,11 +134,36 @@
   </entry>
   
   <entry>
+    <title>面试题 16.06. 最小差</title>
+    <link href="https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.06.%20%E6%9C%80%E5%B0%8F%E5%B7%AE/"/>
+    <id>https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.06.%20%E6%9C%80%E5%B0%8F%E5%B7%AE/</id>
+    <published>2021-08-09T00:40:39.000Z</published>
+    <updated>2021-08-12T08:28:13.901Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;面试题-16.06.-最小差&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/smallest-difference-lcci/&quot;&gt;面试题 16.06. 最小差&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;我菜炸了&lt;/p&gt;
+&lt;h5</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>面试题 16.07. 最大数值</title>
     <link href="https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/"/>
     <id>https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/</id>
     <published>2021-08-09T00:40:39.000Z</published>
-    <updated>2021-08-12T08:27:59.498Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -163,7 +188,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/09/313.%20%E8%B6%85%E7%BA%A7%E4%B8%91%E6%95%B0/"/>
     <id>https://leetcode.cinte.cc/2021/08/09/313.%20%E8%B6%85%E7%BA%A7%E4%B8%91%E6%95%B0/</id>
     <published>2021-08-09T00:03:29.000Z</published>
-    <updated>2021-08-12T08:27:59.490Z</updated>
+    <updated>2021-08-12T08:28:13.893Z</updated>
     
     
       
@@ -187,7 +212,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/06/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.04.%20%E4%BA%95%E5%AD%97%E6%B8%B8%E6%88%8F/"/>
     <id>https://leetcode.cinte.cc/2021/08/06/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.04.%20%E4%BA%95%E5%AD%97%E6%B8%B8%E6%88%8F/</id>
     <published>2021-08-06T04:52:17.000Z</published>
-    <updated>2021-08-12T08:27:59.498Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -210,7 +235,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/05/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.02.%20%E5%8D%95%E8%AF%8D%E9%A2%91%E7%8E%87/"/>
     <id>https://leetcode.cinte.cc/2021/08/05/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.02.%20%E5%8D%95%E8%AF%8D%E9%A2%91%E7%8E%87/</id>
     <published>2021-08-05T02:53:21.000Z</published>
-    <updated>2021-08-12T08:27:59.498Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -234,7 +259,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/04/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.12.%20%E5%85%AB%E7%9A%87%E5%90%8E/"/>
     <id>https://leetcode.cinte.cc/2021/08/04/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.12.%20%E5%85%AB%E7%9A%87%E5%90%8E/</id>
     <published>2021-08-04T01:29:18.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -258,7 +283,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/04/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.07.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/"/>
     <id>https://leetcode.cinte.cc/2021/08/04/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.07.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/</id>
     <published>2021-08-04T00:45:34.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -282,7 +307,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/04/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.03.%20%E9%AD%94%E6%9C%AF%E7%B4%A2%E5%BC%95/"/>
     <id>https://leetcode.cinte.cc/2021/08/04/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.03.%20%E9%AD%94%E6%9C%AF%E7%B4%A2%E5%BC%95/</id>
     <published>2021-08-04T00:22:21.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -305,7 +330,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/02/%E9%9D%A2%E8%AF%95%E9%A2%98%2010.03.%20%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/"/>
     <id>https://leetcode.cinte.cc/2021/08/02/%E9%9D%A2%E8%AF%95%E9%A2%98%2010.03.%20%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/</id>
     <published>2021-08-02T23:50:28.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -329,7 +354,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.11.%20%E7%A1%AC%E5%B8%81/"/>
     <id>https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.11.%20%E7%A1%AC%E5%B8%81/</id>
     <published>2021-08-01T23:44:07.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -353,7 +378,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.03.%20%E7%BF%BB%E8%BD%AC%E6%95%B0%E4%BD%8D/"/>
     <id>https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.03.%20%E7%BF%BB%E8%BD%AC%E6%95%B0%E4%BD%8D/</id>
     <published>2021-08-01T19:48:29.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -376,7 +401,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.10.%20%E6%A3%80%E6%9F%A5%E5%AD%90%E6%A0%91/"/>
     <id>https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.10.%20%E6%A3%80%E6%9F%A5%E5%AD%90%E6%A0%91/</id>
     <published>2021-08-01T19:12:04.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -400,7 +425,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.06.%20%E5%8A%A8%E7%89%A9%E6%94%B6%E5%AE%B9%E6%89%80/"/>
     <id>https://leetcode.cinte.cc/2021/07/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.06.%20%E5%8A%A8%E7%89%A9%E6%94%B6%E5%AE%B9%E6%89%80/</id>
     <published>2021-07-31T02:42:10.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.897Z</updated>
     
     
       
@@ -424,7 +449,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.02.%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>https://leetcode.cinte.cc/2021/07/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.02.%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
     <published>2021-07-31T01:56:35.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -448,7 +473,7 @@
     <link href="https://leetcode.cinte.cc/2021/07/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.13.%20%E5%A0%86%E7%AE%B1%E5%AD%90/"/>
     <id>https://leetcode.cinte.cc/2021/07/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.13.%20%E5%A0%86%E7%AE%B1%E5%AD%90/</id>
     <published>2021-07-31T01:56:35.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
+    <updated>2021-08-12T08:28:13.901Z</updated>
     
     
       
@@ -466,29 +491,6 @@
     
     
     <category term="Dynamic Programming" scheme="https://leetcode.cinte.cc/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试题 08.10. 颜色填充</title>
-    <link href="https://leetcode.cinte.cc/2021/07/30/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.10.%20%E9%A2%9C%E8%89%B2%E5%A1%AB%E5%85%85/"/>
-    <id>https://leetcode.cinte.cc/2021/07/30/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.10.%20%E9%A2%9C%E8%89%B2%E5%A1%AB%E5%85%85/</id>
-    <published>2021-07-30T03:04:28.000Z</published>
-    <updated>2021-08-12T08:27:59.494Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;面试题-08.10.-颜色填充---力扣leetcode-leetcode-cn.com&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/color-fill-lcci/&quot;&gt;面试题 08.10. 颜色填充 -</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
-    
     
   </entry>
   

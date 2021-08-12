@@ -4296,6 +4296,18 @@ public:
       </categories>
   </entry>
   <entry>
+    <title>面试题 16.06. 最小差</title>
+    <url>/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.06.%20%E6%9C%80%E5%B0%8F%E5%B7%AE/</url>
+    <content><![CDATA[<h4 id="面试题-16.06.-最小差"><a href="https://leetcode-cn.com/problems/smallest-difference-lcci/">面试题 16.06. 最小差</a></h4>
+<p>我菜炸了</p>
+<h5 id="双指针">双指针</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">smallestDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = a.size(), n = b.size();</span><br><span class="line">        sort(a.begin(), a.end());</span><br><span class="line">        sort(b.begin(), b.end());</span><br><span class="line">        <span class="keyword">int</span> pa = <span class="number">0</span>, pb = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> ret = LONG_MAX;</span><br><span class="line">        <span class="keyword">while</span>(pa &lt; m &amp;&amp; pb &lt; n)</span><br><span class="line">        &#123;</span><br><span class="line">            ret = min(ret, <span class="built_in">abs</span>((<span class="keyword">long</span>)a[pa] - (<span class="keyword">long</span>)b[pb])); <span class="comment">// 注意int的溢出</span></span><br><span class="line">            <span class="keyword">if</span>(a[pa] &lt; b[pb]) <span class="comment">// 当这种情况时，如果要寻求一个更小的差，需要将a[pa]变大。变大后会出现新的a[pa] &gt; b[pb]或者a[pa] &lt; b[pb]的情况。因为如果此时变大b[pb]时，只会导致他们的差距yue&#x27;lai&#x27;yue</span></span><br><span class="line">                ++pa;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ++pb;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>面试题 16.07. 最大数值</title>
     <url>/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/</url>
     <content><![CDATA[<h4 id="面试题-16.07.-最大数值"><a href="https://leetcode-cn.com/problems/maximum-lcci/">面试题 16.07. 最大数值</a></h4>
