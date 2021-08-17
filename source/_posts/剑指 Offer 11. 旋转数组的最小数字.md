@@ -14,9 +14,9 @@ public:
         while(lo < hi)
         {
             int mid = (lo + hi) / 2;
-            if(numbers[mid] > numbers[hi])
+            if(numbers[mid] > numbers[hi]) // 之所以和hi判断，是因为当numbers[mid] > numbers[lo] 时候，具有多种情况，而和hi判断只有一种。
                 lo = mid + 1;
-            else if(numbers[mid] < numbers[hi])
+            else if(numbers[mid] < numbers[hi]) // 因为numbers[mid] < numbers[hi] 所以mid这个位置可能会最小，所以hi=mid
                 hi = mid;
             else
                 --hi;   // 主要难点是这种情况，当相等时，无法判断最小点是在左半边还是右半边。此时--hi，当旋转点<hi时，易得--hi后旋转点依旧存在，当旋转点==hi时，因为中点值=旋转点值，因此即便删除了，和旋转点相等的值依旧流了下来，以后用得到。   ps: 碰到这种情况也可以直接遍历了
