@@ -1360,6 +1360,29 @@ t = pM + x \\
       </categories>
   </entry>
   <entry>
+    <title>316. 去除重复字母</title>
+    <url>/2021/08/19/316.%20%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/</url>
+    <content><![CDATA[<h4 id="去除重复字母"><a href="https://leetcode-cn.com/problems/remove-duplicate-letters/">316. 去除重复字母</a></h4>
+<p><strong>前置知识：</strong></p>
+<p>​ 对于一个字符串，如果要从中去除一个字符使得字符串的字典序最小。那么需要去除的是最靠左边的一个<code>s[i] &gt; s[i + 1]</code>的字符串，因为最前面的最字典序影响最大。这个<code>s[i]</code>称为关键字符。</p>
+<p>本题不能打乱原来的顺序，且每个字母只出现一次，因为所需的是从头开始遍历，处理遍历到的所有的关键字符。</p>
+<p>维护一个栈</p>
+<ol type="1">
+<li>当栈顶&gt;当前字符时候，删除栈顶。但是因为每个字母都要出现一次，因此当后面这个栈顶字母不再出现时，就不能删除。</li>
+<li>当栈顶&lt;当前字符时候，压入栈，但由于不能重复，所以如果栈中已有同个字符，就不压入。</li>
+<li>当相等时，不能压入，因为不能重复。</li>
+</ol>
+<p><strong>为什么要用栈呢</strong></p>
+<blockquote>
+<p>为了维护字符间以及字符删除后的相邻关系以及字符删除后继续维持原来的顺序，栈是一个非常适合的数据结构。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">removeDuplicateLetters</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> visited[<span class="number">26</span>]&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> num[<span class="number">26</span>]&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> sz = s.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">            ++num[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited[ch - <span class="string">&#x27;a&#x27;</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(!st.empty() &amp;&amp; st.top() &gt; ch &amp;&amp; num[st.top() - <span class="string">&#x27;a&#x27;</span>] != <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    --num[st.top() - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">                    visited[st.top() - <span class="string">&#x27;a&#x27;</span>] = <span class="number">0</span>;</span><br><span class="line">                    st.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                st.push(ch);</span><br><span class="line">                visited[ch - <span class="string">&#x27;a&#x27;</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                --num[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="built_in">string</span> <span class="title">ret</span><span class="params">(st.size(), <span class="string">&#x27; &#x27;</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> index = st.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!st.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            ret[index--] = st.top();</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>32. Longest Valid Parentheses</title>
     <url>/2021/05/10/32.%20Longest%20Valid%20Parentheses/</url>
     <content><![CDATA[<h4 id="longest-valid-parentheses"><a href="https://leetcode.com/problems/longest-valid-parentheses/">32. Longest Valid Parentheses</a></h4>
