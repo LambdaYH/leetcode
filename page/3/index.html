@@ -194,6 +194,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.03.%20%E7%BF%BB%E8%BD%AC%E6%95%B0%E4%BD%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.03.%20%E7%BF%BB%E8%BD%AC%E6%95%B0%E4%BD%8D/" class="post-title-link" itemprop="url">面试题 05.03. 翻转数位</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-08-02 03:48:29" itemprop="dateCreated datePublished" datetime="2021-08-02T03:48:29+08:00">2021-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.03.%20%E7%BF%BB%E8%BD%AC%E6%95%B0%E4%BD%8D/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/01/面试题 05.03. 翻转数位/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>542</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="面试题-05.03.-翻转数位"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-bits-lcci/">面试题 05.03. 翻转数位</a></h4>
+<p>一个dp问题(我又菜起来了)</p>
+<p>curSum记录当前遇到的连续的1。 curSumF记录翻转过后最长的连续1。</p>
+<p>遇到0</p>
+<p>​ curSum置0。</p>
+<p>​ curSumF置为curSum+1，表示连接了前面一段。</p>
+<p>遇到1</p>
+<p>​ curSum和curSumF都加1。</p>
+<p>因为curSum始终记录这前面一段连续1，所以设置为curSum+1后，如果后面还连续，就会自动更新连接这两段，如果后面为1，那就会清空为仅翻转当前位。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverseBits</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> curSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> curSumF = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i++ &lt; <span class="number">32</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(num &amp; <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ++curSum;</span><br><span class="line">                ++curSumF;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                curSumF = curSum + <span class="number">1</span>;</span><br><span class="line">                curSum = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            num &gt;&gt;= <span class="number">1</span>; <span class="comment">// 这里用右移，例如2147483647左移不让移</span></span><br><span class="line">            ret = max(ret, curSumF);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>类似滑动窗口</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2004.10.%20%E6%A3%80%E6%9F%A5%E5%AD%90%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +337,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +443,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -434,7 +546,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -537,7 +649,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -643,7 +755,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -751,7 +863,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -859,7 +971,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -971,7 +1083,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1075,7 +1187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
+                <time title="Modified: 2021-08-19 20:16:51" itemprop="dateModified" datetime="2021-08-19T20:16:51+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1134,113 +1246,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">drawLine</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> w, <span class="keyword">int</span> x1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> h = length * <span class="number">32</span> / <span class="number">96</span>;</span><br><span class="line">        <span class="keyword">int</span> sh = w / <span class="number">32</span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ret</span><span class="params">(length, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> startLine = x1 / <span class="number">32</span> + y * sh;</span><br><span class="line">        <span class="keyword">int</span> endLine = x2 / <span class="number">32</span> + y * sh;</span><br><span class="line">        x1 %= <span class="number">32</span>;</span><br><span class="line">        x2 %= <span class="number">32</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = startLine + <span class="number">1</span>; i &lt; endLine; ++i)</span><br><span class="line">            ret[i] = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(startLine == endLine)</span><br><span class="line">        &#123;</span><br><span class="line">            ret[startLine] += <span class="keyword">static_cast</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">int</span>&gt;(<span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x1)) - <span class="number">1</span> - ((<span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x2)) - <span class="number">1</span>);</span><br><span class="line">            ret[startLine] |= <span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x1);</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ret[startLine] |= <span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x1);</span><br><span class="line">            ret[startLine] += <span class="keyword">static_cast</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">int</span>&gt;(<span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x1)) - <span class="number">1</span>;</span><br><span class="line">            ret[endLine] = ~((<span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x2)) - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>稍微优化一下</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">drawLine</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> w, <span class="keyword">int</span> x1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sh = w / <span class="number">32</span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ret</span><span class="params">(length, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> startLine = x1 / <span class="number">32</span> + y * sh;</span><br><span class="line">        <span class="keyword">int</span> endLine = x2 / <span class="number">32</span> + y * sh;</span><br><span class="line">        x1 %= <span class="number">32</span>;</span><br><span class="line">        x2 %= <span class="number">32</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = startLine + <span class="number">1</span>; i &lt;= endLine; ++i)</span><br><span class="line">            ret[i] = <span class="number">-1</span>;</span><br><span class="line">        ret[startLine] |= <span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x1);</span><br><span class="line">        ret[startLine] += <span class="keyword">static_cast</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">int</span>&gt;(<span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x1)) - <span class="number">1</span>;</span><br><span class="line">        ret[endLine] &amp;= ~((<span class="number">1</span> &lt;&lt; (<span class="number">31</span> - x2)) - <span class="number">1</span>); <span class="comment">// 这样子就可以不管startLine == endLine的情况了</span></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.03.%20%E5%A0%86%E7%9B%98%E5%AD%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.03.%20%E5%A0%86%E7%9B%98%E5%AD%90/" class="post-title-link" itemprop="url">面试题 03.03. 堆盘子</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-28 07:35:36" itemprop="dateCreated datePublished" datetime="2021-07-28T07:35:36+08:00">2021-07-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-19 19:33:55" itemprop="dateModified" datetime="2021-08-19T19:33:55+08:00">2021-08-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%2003.03.%20%E5%A0%86%E7%9B%98%E5%AD%90/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/27/面试题 03.03. 堆盘子/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="面试题-03.03.-堆盘子"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/stack-of-plates-lcci/">面试题 03.03. 堆盘子</a></h4>
-<h5 id="双向链表">双向链表</h5>
-<p>用双向链表来维护堆栈之间的顺序，用cur指针来指向当前的堆栈。每次通过顺序遍历来获取到第index个栈。通过删除节点来作为删除栈。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackOfPlates</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    StackOfPlates(<span class="keyword">int</span> cap) : head(<span class="keyword">new</span> Node()), tail(<span class="keyword">new</span> Node()), cap(cap)&#123;</span><br><span class="line">        head-&gt;next = tail;</span><br><span class="line">        tail-&gt;prev = head;</span><br><span class="line">        cur = head;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// O(1)</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(cap == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(isFull(cur))</span><br><span class="line">        &#123;</span><br><span class="line">            cur-&gt;next = <span class="keyword">new</span> Node(cur, cur-&gt;next);</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur-&gt;s.push(val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// O(1)</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(cur == head)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">auto</span> ret = cur-&gt;s.top();</span><br><span class="line">        cur-&gt;s.pop();</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;s.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> tmp = cur;</span><br><span class="line">            cur = cur-&gt;prev;</span><br><span class="line">            deleteNode(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// O(index)</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">popAt</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        Node* tmp = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= index; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(tmp == tail)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> ret = tmp-&gt;s.top();</span><br><span class="line">        tmp-&gt;s.pop();</span><br><span class="line">        <span class="keyword">if</span>(tmp-&gt;s.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(cur == tmp)</span><br><span class="line">                cur = tmp-&gt;prev;</span><br><span class="line">            deleteNode(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> </span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        Node* prev;</span><br><span class="line">        Node* next;</span><br><span class="line">        Node() = <span class="keyword">default</span>;</span><br><span class="line">        Node(Node* prev, Node* next) : prev(prev), next(next) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node *head, *tail;</span><br><span class="line">    Node *cur;</span><br><span class="line">    <span class="keyword">int</span> cap;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isFull</span><span class="params">(Node* node)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(node == head)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> node-&gt;s.size() == cap;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(Node* node)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        node-&gt;prev-&gt;next = node-&gt;next;</span><br><span class="line">        node-&gt;next-&gt;prev = node-&gt;prev;</span><br><span class="line">        <span class="keyword">delete</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your StackOfPlates object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * StackOfPlates* obj = new StackOfPlates(cap);</span></span><br><span class="line"><span class="comment"> * obj-&gt;push(val);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj-&gt;pop();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj-&gt;popAt(index);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-<h5 id="使用vector来存储stack">使用vector来存储stack</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StackOfPlates</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    StackOfPlates(<span class="keyword">int</span> cap) : cap(cap) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// O(1)</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(cap == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(stacks.empty() || stacks.back().size() == cap)</span><br><span class="line">            stacks.push_back(<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt;());</span><br><span class="line">        stacks.back().push(val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// o(1)</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stacks.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">auto</span> ret = stacks.back().top();</span><br><span class="line">        stacks.back().pop();</span><br><span class="line">        <span class="keyword">if</span>(stacks.back().empty())</span><br><span class="line">            stacks.pop_back();</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// o(1), 最坏情况o(n)</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">popAt</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index &gt;= stacks.size())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">auto</span> ret = stacks[index].top();</span><br><span class="line">        stacks[index].pop();</span><br><span class="line">        <span class="keyword">if</span>(stacks[index].empty())</span><br><span class="line">            stacks.erase(stacks.begin() + index);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt;&gt; stacks;</span><br><span class="line">    <span class="keyword">int</span> cap;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your StackOfPlates object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * StackOfPlates* obj = new StackOfPlates(cap);</span></span><br><span class="line"><span class="comment"> * obj-&gt;push(val);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj-&gt;pop();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj-&gt;popAt(index);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1327,7 +1332,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">274</span>
+          <span class="site-state-item-count">275</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1403,12 +1408,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">315k</span>
+    <span title="Symbols count total">316k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">4:46</span>
+    <span title="Reading time total">4:47</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
