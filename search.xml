@@ -612,6 +612,26 @@ t = pM + x \\
       </tags>
   </entry>
   <entry>
+    <title>1545. 找出第 N 个二进制字符串中的第 K 位</title>
+    <url>/2021/08/23/1545.%20%E6%89%BE%E5%87%BA%E7%AC%AC%20N%20%E4%B8%AA%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%AC%AC%20K%20%E4%BD%8D/</url>
+    <content><![CDATA[<h4 id="找出第-n-个二进制字符串中的第-k-位"><a href="https://leetcode-cn.com/problems/find-kth-bit-in-nth-binary-string/">1545. 找出第 N 个二进制字符串中的第 K 位</a></h4>
+<p><span class="math display">\[
+len_n = len_{n-1} * 2 + 1 \\
+= (len_{n - 2} * 2 + 1) * 2 + 1 \\
+= ... \\
+= ((len_1 * 2 + 1) * 2 + 1) * 2... \\
+= 2^{n - 1} + 1 + 2 * 1 + 2 * 2 * 1 + ... 2^{n - 2} \\
+= 2^{n - 1} + \frac{1*(1 - 2^{n - 1})}{1 - 2} \\
+= 2^{n - 1} + 2^{n - 1} - 1 \\
+= 2^n - 1
+\]</span></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// S_n的长度为2^n - 1，因此S_n是由2^(n - 1) - 1 + 1 + 2^(n - 1) - 1构成的。所以中间放&#x27;1&#x27;的地方是2^(n-1)</span></span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">findKthBit</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当k为1时，恒为0，如果没有这一行，当n = 1,k = 1时会判定为1</span></span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="comment">// 中间值，是当前字符串放&#x27;1&#x27;的位置</span></span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">1</span> &lt;&lt; (n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(mid == k)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 如果k&lt;mid，在前半字符串中递归搜索</span></span><br><span class="line">            <span class="keyword">if</span>(k &lt; mid)</span><br><span class="line">                <span class="keyword">return</span> findKthBit(n - <span class="number">1</span>, k);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="comment">// 如果k &gt; mid，在前半字符串的反转中搜索，等效为将k变换后搜索新的k</span></span><br><span class="line">                <span class="keyword">return</span> invert(findKthBit(n - <span class="number">1</span>, mid * <span class="number">2</span> - k));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">invert</span><span class="params">(<span class="keyword">char</span> ch)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">char</span>)(<span class="string">&#x27;1&#x27;</span> - ch + <span class="string">&#x27;0&#x27;</span>); <span class="comment">// 虽然条件传送可以避免后续步骤中的分支预测错误惩罚，但当前分支依旧会有惩罚，因此使用算数运算可以避免这种分支预测错误带来的惩罚。</span></span><br><span class="line">        <span class="comment">// return ch == &#x27;0&#x27; ? &#x27;1&#x27; : &#x27;0&#x27;;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>155. Min Stack</title>
     <url>/2021/04/09/155-Min-Stack/</url>
     <content><![CDATA[<h4 id="min-stack"><a href="https://leetcode.com/problems/min-stack/">155. Min Stack</a></h4>
