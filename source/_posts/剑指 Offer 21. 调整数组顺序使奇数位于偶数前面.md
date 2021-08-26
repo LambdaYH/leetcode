@@ -45,6 +45,7 @@ public:
 class Solution {
 public:
     vector<int> exchange(vector<int>& nums) {
+        // 慢指针用来记录可以放奇数的位置，快指针用来搜索后面的所有奇数，如果是奇数，就把他换到前面去
         int walker = 0, runner = 0;
         while(runner < nums.size())
         {
