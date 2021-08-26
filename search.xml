@@ -1253,6 +1253,19 @@ len_n = len_{n-1} * 2 + 1 \\
       </categories>
   </entry>
   <entry>
+    <title>292. Nim 游戏</title>
+    <url>/2021/08/26/292.%20Nim%20%E6%B8%B8%E6%88%8F/</url>
+    <content><![CDATA[<h4 id="nim-游戏"><a href="https://leetcode-cn.com/problems/nim-game/">292. Nim 游戏</a></h4>
+<h5 id="我是弱智">我是弱智</h5>
+<p>观察规律发现，只要最后给对手剩下4个，我一定赢。反之，对手给你剩下4个时候你一定输</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canWinNim</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> !(n % <span class="number">4</span> == <span class="number">0</span>);      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">推理</span><br><span class="line"></span><br><span class="line">让我们考虑一些小例子。显而易见的是，如果石头堆中只有一块、两块、或是三块石头，那么在你的回合，你就可以把全部石子拿走，从而在游戏中取胜。而如果就像题目描述那样，堆中恰好有四块石头，你就会失败。因为在这种情况下不管你取走多少石头，总会为你的对手留下几块，使得他可以在游戏中打败你。因此，要想获胜，在你的回合中，必须避免石头堆中的石子数为 4 的情况。</span><br><span class="line"></span><br><span class="line">同样地，如果有五块、六块、或是七块石头，你可以控制自己拿取的石头数，总是恰好给你的对手留下四块石头，使他输掉这场比赛。但是如果石头堆里有八块石头，你就不可避免地会输掉，因为不管你从一堆石头中挑出一块、两块还是三块，你的对手都可以选择三块、两块或一块，以确保在再一次轮到你的时候，你会面对四块石头。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>295. Find Median from Data Stream</title>
     <url>/2021/05/04/295.%20Find%20Median%20from%20Data%20Stream/</url>
     <content><![CDATA[<h4 id="find-median-from-data-stream295.-find-median-from-data-stream"><a href="https://leetcode.com/problems/find-median-from-data-stream/">295. Find Median from Data Stream295. Find Median from Data Stream</a></h4>
