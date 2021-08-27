@@ -6,7 +6,7 @@
   <link href="https://leetcode.cinte.cc/atom.xml" rel="self"/>
   
   <link href="https://leetcode.cinte.cc/"/>
-  <updated>2021-08-27T12:08:24.997Z</updated>
+  <updated>2021-08-27T13:21:50.914Z</updated>
   <id>https://leetcode.cinte.cc/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>225. 用队列实现栈</title>
+    <link href="https://leetcode.cinte.cc/2021/08/27/225.%20%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88/"/>
+    <id>https://leetcode.cinte.cc/2021/08/27/225.%20%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88/</id>
+    <published>2021-08-27T05:13:10.000Z</published>
+    <updated>2021-08-27T13:21:50.914Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;用队列实现栈&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/implement-stack-using-queues/&quot;&gt;225. 用队列实现栈&lt;/a&gt;&lt;/h4&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>83. 删除排序链表中的重复元素</title>
     <link href="https://leetcode.cinte.cc/2021/08/26/83.%20%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/"/>
     <id>https://leetcode.cinte.cc/2021/08/26/83.%20%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</id>
     <published>2021-08-26T04:35:20.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -45,7 +69,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/26/292.%20Nim%20%E6%B8%B8%E6%88%8F/"/>
     <id>https://leetcode.cinte.cc/2021/08/26/292.%20Nim%20%E6%B8%B8%E6%88%8F/</id>
     <published>2021-08-26T01:01:59.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -69,7 +93,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/26/821.%20%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB/"/>
     <id>https://leetcode.cinte.cc/2021/08/26/821.%20%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB/</id>
     <published>2021-08-26T01:01:59.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -93,7 +117,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/25/38.%20%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/"/>
     <id>https://leetcode.cinte.cc/2021/08/25/38.%20%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/</id>
     <published>2021-08-25T05:23:24.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -118,7 +142,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/25/797.%20%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E8%B7%AF%E5%BE%84/"/>
     <id>https://leetcode.cinte.cc/2021/08/25/797.%20%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E8%B7%AF%E5%BE%84/</id>
     <published>2021-08-25T04:37:38.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -142,7 +166,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/23/1646.%20%E8%8E%B7%E5%8F%96%E7%94%9F%E6%88%90%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/"/>
     <id>https://leetcode.cinte.cc/2021/08/23/1646.%20%E8%8E%B7%E5%8F%96%E7%94%9F%E6%88%90%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</id>
     <published>2021-08-23T03:26:35.000Z</published>
-    <updated>2021-08-27T12:08:24.993Z</updated>
+    <updated>2021-08-27T13:21:50.914Z</updated>
     
     
       
@@ -166,7 +190,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/23/1545.%20%E6%89%BE%E5%87%BA%E7%AC%AC%20N%20%E4%B8%AA%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%AC%AC%20K%20%E4%BD%8D/"/>
     <id>https://leetcode.cinte.cc/2021/08/23/1545.%20%E6%89%BE%E5%87%BA%E7%AC%AC%20N%20%E4%B8%AA%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%AC%AC%20K%20%E4%BD%8D/</id>
     <published>2021-08-23T00:56:24.000Z</published>
-    <updated>2021-08-27T12:08:24.993Z</updated>
+    <updated>2021-08-27T13:21:50.914Z</updated>
     
     
       
@@ -189,7 +213,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/23/881.%20%E6%95%91%E7%94%9F%E8%89%87/"/>
     <id>https://leetcode.cinte.cc/2021/08/23/881.%20%E6%95%91%E7%94%9F%E8%89%87/</id>
     <published>2021-08-23T00:29:02.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -212,7 +236,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/20/231.%202%20%E7%9A%84%E5%B9%82/"/>
     <id>https://leetcode.cinte.cc/2021/08/20/231.%202%20%E7%9A%84%E5%B9%82/</id>
     <published>2021-08-20T00:48:29.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.914Z</updated>
     
     
       
@@ -235,7 +259,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/19/122.%20%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%20II/"/>
     <id>https://leetcode.cinte.cc/2021/08/19/122.%20%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%20II/</id>
     <published>2021-08-19T05:02:58.000Z</published>
-    <updated>2021-08-27T12:08:24.993Z</updated>
+    <updated>2021-08-27T13:21:50.914Z</updated>
     
     
       
@@ -258,7 +282,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/19/89.%20%E6%A0%BC%E9%9B%B7%E7%BC%96%E7%A0%81/"/>
     <id>https://leetcode.cinte.cc/2021/08/19/89.%20%E6%A0%BC%E9%9B%B7%E7%BC%96%E7%A0%81/</id>
     <published>2021-08-19T03:54:15.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -283,7 +307,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/19/61.%20%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
     <id>https://leetcode.cinte.cc/2021/08/19/61.%20%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</id>
     <published>2021-08-19T03:22:34.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -307,7 +331,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/19/316.%20%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/"/>
     <id>https://leetcode.cinte.cc/2021/08/19/316.%20%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/</id>
     <published>2021-08-19T00:47:20.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -330,7 +354,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/17/43.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/"/>
     <id>https://leetcode.cinte.cc/2021/08/17/43.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/</id>
     <published>2021-08-17T05:13:51.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -354,7 +378,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/17/415.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/"/>
     <id>https://leetcode.cinte.cc/2021/08/17/415.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</id>
     <published>2021-08-17T04:46:02.000Z</published>
-    <updated>2021-08-27T12:08:24.997Z</updated>
+    <updated>2021-08-27T13:21:50.918Z</updated>
     
     
       
@@ -379,7 +403,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/11/109.%20%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     <id>https://leetcode.cinte.cc/2021/08/11/109.%20%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</id>
     <published>2021-08-11T23:54:50.000Z</published>
-    <updated>2021-08-27T12:08:24.993Z</updated>
+    <updated>2021-08-27T13:21:50.914Z</updated>
     
     
       
@@ -402,7 +426,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/11/107.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%20II/"/>
     <id>https://leetcode.cinte.cc/2021/08/11/107.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%20II/</id>
     <published>2021-08-11T00:36:44.000Z</published>
-    <updated>2021-08-27T12:08:24.993Z</updated>
+    <updated>2021-08-27T13:21:50.914Z</updated>
     
     
       
@@ -425,7 +449,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/11/106.%20%E4%BB%8E%E4%B8%AD%E5%BA%8F%E4%B8%8E%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>https://leetcode.cinte.cc/2021/08/11/106.%20%E4%BB%8E%E4%B8%AD%E5%BA%8F%E4%B8%8E%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
     <published>2021-08-11T00:19:21.000Z</published>
-    <updated>2021-08-27T12:08:24.993Z</updated>
+    <updated>2021-08-27T13:21:50.914Z</updated>
     
     
       
@@ -448,7 +472,7 @@
     <link href="https://leetcode.cinte.cc/2021/08/10/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.10.%20%E7%94%9F%E5%AD%98%E4%BA%BA%E6%95%B0/"/>
     <id>https://leetcode.cinte.cc/2021/08/10/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.10.%20%E7%94%9F%E5%AD%98%E4%BA%BA%E6%95%B0/</id>
     <published>2021-08-10T23:49:45.000Z</published>
-    <updated>2021-08-27T12:08:25.001Z</updated>
+    <updated>2021-08-27T13:21:50.926Z</updated>
     
     
       
@@ -457,30 +481,6 @@
         
     <summary type="html">&lt;h4 id=&quot;面试题-16.10.-生存人数&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/living-people-lcci/&quot;&gt;面试题 16.10. 生存人数&lt;/a&gt;&lt;/h4&gt;
 &lt;h5</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="https://leetcode.cinte.cc/categories/leetcode/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>面试题 08.08. 有重复字符串的排列组合</title>
-    <link href="https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.08.%20%E6%9C%89%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88.md%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/"/>
-    <id>https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.08.%20%E6%9C%89%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88.md%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/</id>
-    <published>2021-08-09T00:40:39.000Z</published>
-    <updated>2021-08-27T12:08:25.001Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;面试题-08.08.-有重复字符串的排列组合&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutation-ii-lcci/&quot;&gt;面试题 08.08. 有重复字符串的排列组合&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;参考&lt;a</summary>
         
       
     

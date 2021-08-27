@@ -194,6 +194,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/10/41.%20First%20Missing%20Positive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/10/41.%20First%20Missing%20Positive/" class="post-title-link" itemprop="url">41. First Missing Positive</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-10 10:55:55" itemprop="dateCreated datePublished" datetime="2021-05-10T10:55:55+08:00">2021-05-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/05/10/41.%20First%20Missing%20Positive/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/10/41. First Missing Positive/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="first-missing-positive"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/first-missing-positive/">41. First Missing Positive</a></h4>
+<h5 id="section"></h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstMissingPositive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sz = nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sz; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i] &gt; <span class="number">0</span> &amp;&amp; nums[i] &lt;= sz &amp;&amp; nums[i] != nums[nums[i] - <span class="number">1</span>]) <span class="comment">// 这里之所以使用nums[i] != nums[nums[i] - 1]而不是nums[i] != i + 1, 是为了防止2个相同的数出现在这两处。这里是让当前的数字搬到正确的地方去，而不是让当前地方具有正确的数字。因为如果当前地方的数字缺失，那么永远也出不了循环。</span></span><br><span class="line">                swap(nums[i], nums[nums[i] - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sz; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != i + <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sz + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>一个长度为n的数列中，如果所有正数都没缺失，那么必然是1,2,3,4...排列，且一个数a的正确位置必定是在a-1处，因此如果<code>A[i]</code>不处在<code>A[A[i] - 1]</code>，那么交换<code>A[i]</code>和<code>A[A[i] - 1]</code>让他去正确位置，由此直到所有该到正确位置的到正确位置，其中&lt;=0和&gt;n的数没有正确位置，所以终止。 排好位置后再遍历</p>
+<h5 id="手动hash">手动hash？</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstMissingPositive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        nums.push_back(<span class="number">0</span>); <span class="comment">// 使得每个处于i位置的数对应为i，所以需要多加一个</span></span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(num &lt; <span class="number">0</span> || num &gt;= n) <span class="comment">// 此处需要 &gt;= n 而不是 &gt; n 是因为原数组为n-1长度，那么最大正数为n-1，现在因为加了一个，但是n是不合法的</span></span><br><span class="line">                num = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[num % n] += n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] / n == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>引用一段解释<span class="citation" data-cites="triton11">[@triton11]</span>(https://leetcode.com/triton11/) <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">So consider an array like [1,4,3,3,3]. The length is 5, so n &#x3D; 5. For each item, we are basically overwriting the spot at the index of the item with 5 + spot. So, at index 0 we have a 1, and 1%5 is 1, so we replace the item at index 1 with 5 + that item. Now our array is [1,9,3,3,3]. Next, at index 1 we have a 9, and 9%5 is 4 (notice how adding 5 didn&#39;t change the fact that we can still find the original value with % 5), so we replace the item at index 4 with 5 + that item. Our array is now [1, 9, 3, 3, 8]. Continuing, we get [1, 9, 3, 8, 8] then [1, 9, 3, 13, 8] and finally [1, 9, 3, 18, 8]. When we iterate through to find the values at the end, starting at index 1, we find that 9&#x2F;5 is greater than 1, 3&#x2F;5 is not greater than 1, 13&#x2F;5 and 8&#x2F;5 are greater than 1. Thus, since 3&#x2F;5 is the first not greater than 5, we know index 2 was never used or added to, so 2 is the missing number. Feel free to comment if you have Qs or if I made any mistakes.</span><br></pre></td></tr></table></figure> 一个数加上一个模值后可以通过取余保留其原来的信息，也可以通过其大小显示出频率，如果一个位置的数没被加到，那他就小于模，就是missing的数</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/09/124.%20Binary%20Tree%20Maximum%20Path%20Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +333,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -330,7 +438,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -436,7 +544,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -547,7 +655,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -658,7 +766,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -767,7 +875,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -891,7 +999,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1015,7 +1123,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1121,7 +1229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
+                <time title="Modified: 2021-08-27 21:21:50" itemprop="dateModified" datetime="2021-08-27T21:21:50+08:00">2021-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1176,113 +1284,6 @@
 <h5 id="section"></h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MedianFinder</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    MedianFinder() &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(even)</span><br><span class="line">        &#123;</span><br><span class="line">            large.push(num);</span><br><span class="line">            small.push(large.top());</span><br><span class="line">            large.pop();</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            small.push(num);</span><br><span class="line">            large.push(small.top());</span><br><span class="line">            small.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        even = !even;     </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(even)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;((small.top() + large.top())) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> small.top();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>&gt; small;</span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, <span class="built_in">std</span>::greater&lt;<span class="keyword">int</span>&gt;&gt; large;</span><br><span class="line">    <span class="keyword">bool</span> even = <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MedianFinder object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MedianFinder* obj = new MedianFinder();</span></span><br><span class="line"><span class="comment"> * obj-&gt;addNum(num);</span></span><br><span class="line"><span class="comment"> * double param_2 = obj-&gt;findMedian();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 <p>small存放小的一半，large存放大的一半，保证small的大小永远等于<code>large.size()</code>或<code>large.size() + 1</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/04/297.%20Serialize%20and%20Deserialize%20Binary%20Tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/04/297.%20Serialize%20and%20Deserialize%20Binary%20Tree/" class="post-title-link" itemprop="url">297. Serialize and Deserialize Binary Tree</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-04 08:51:24" itemprop="dateCreated datePublished" datetime="2021-05-04T08:51:24+08:00">2021-05-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-27 20:08:24" itemprop="dateModified" datetime="2021-08-27T20:08:24+08:00">2021-08-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/05/04/297.%20Serialize%20and%20Deserialize%20Binary%20Tree/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/04/297. Serialize and Deserialize Binary Tree/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="serialize-and-deserialize-binary-tree"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/">297. Serialize and Deserialize Binary Tree</a></h4>
-<h5 id="瞎写懒得看别人写法了">瞎写，懒得看别人写法了</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Codec</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Encodes a tree to a single string.</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">serialize</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;[]&quot;</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="built_in">string</span> res = <span class="string">&quot;[&quot;</span>;</span><br><span class="line">        q.push(root);</span><br><span class="line">        <span class="keyword">int</span> nodeNum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty() &amp;&amp; nodeNum)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> p = q.front();</span><br><span class="line">            q.pop();</span><br><span class="line">            <span class="keyword">if</span>(p)</span><br><span class="line">            &#123;</span><br><span class="line">                nodeNum += (p-&gt;left ? <span class="number">1</span> : <span class="number">0</span>) + (p-&gt;right ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">                q.push(p-&gt;left);</span><br><span class="line">                q.push(p-&gt;right);</span><br><span class="line">                --nodeNum;</span><br><span class="line">                res += to_string(p-&gt;val);</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                res += <span class="string">&quot;null&quot;</span>;</span><br><span class="line">            res += <span class="string">&quot;,&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res.back() = <span class="string">&#x27;]&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decodes your encoded data to tree.</span></span><br><span class="line">    <span class="function">TreeNode* <span class="title">deserialize</span><span class="params">(<span class="built_in">string</span> data)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode *&gt; q;</span><br><span class="line">        <span class="keyword">auto</span> nodes = parseString(data);</span><br><span class="line">        TreeNode *root = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">bool</span> leftNotIn = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;node : nodes)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (q.empty())</span><br><span class="line">                q.push(root = <span class="keyword">new</span> TreeNode(*node));</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> curNode = q.front();</span><br><span class="line">                <span class="keyword">if</span> (!curNode-&gt;left &amp;&amp; leftNotIn)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (node)</span><br><span class="line">                        q.push(curNode-&gt;left = <span class="keyword">new</span> TreeNode(*node));</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        curNode-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">                    leftNotIn = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (!curNode-&gt;right)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (node)</span><br><span class="line">                        q.push(curNode-&gt;right = <span class="keyword">new</span> TreeNode(*node));</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        curNode-&gt;right = <span class="literal">nullptr</span>;</span><br><span class="line">                    q.pop();</span><br><span class="line">                    leftNotIn = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isDigitalOrCharacter</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> &amp;ch)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&#x27;0&#x27;</span> &lt;= ch &amp;&amp; <span class="string">&#x27;9&#x27;</span> &gt;= ch) || (<span class="string">&#x27;a&#x27;</span> &lt;= ch &amp;&amp; <span class="string">&#x27;z&#x27;</span> &gt;= ch) || ch == <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSplitCondition</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> &amp;ch)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ch == <span class="string">&#x27;,&#x27;</span> || ch == <span class="string">&#x27;]&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt;&gt; parseString(<span class="built_in">std</span>::<span class="built_in">string</span> &amp;s)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">queue</span>&lt;<span class="keyword">char</span>&gt; cache;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">auto</span> begin = s.begin();</span><br><span class="line">        <span class="keyword">auto</span> end = s.end() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (*begin != <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">            ++begin;</span><br><span class="line">        <span class="keyword">while</span> (*end != <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">            --end;</span><br><span class="line">        ++begin;</span><br><span class="line">        <span class="keyword">for</span> (; begin != end + <span class="number">1</span>; ++begin)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (isSplitCondition(*begin))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> realNum = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">int</span> positive = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (cache.empty())</span><br><span class="line">                    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">                <span class="keyword">if</span> (cache.front() == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    positive = <span class="number">-1</span>;</span><br><span class="line">                    cache.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (!cache.empty())</span><br><span class="line">                &#123;</span><br><span class="line">                    realNum = realNum * <span class="number">10</span> + <span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(cache.front() - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">                    cache.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (realNum == <span class="number">69560</span>) <span class="comment">// null</span></span><br><span class="line">                    res.push_back(<span class="literal">nullptr</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    res.push_back(<span class="built_in">std</span>::make_shared&lt;<span class="keyword">int</span>&gt;(realNum * positive));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (isDigitalOrCharacter(*begin))</span><br><span class="line">            &#123;</span><br><span class="line">                cache.push(*begin);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Your Codec object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment">// Codec ser, deser;</span></span><br><span class="line"><span class="comment">// TreeNode* ans = deser.deserialize(ser.serialize(root));</span></span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://image.cinte.cc/2021/05/04/17e6eafd0bf31.png" alt="1620118342754.png" /><figcaption aria-hidden="true">1620118342754.png</figcaption>
-</figure>
 
       
     </div>
@@ -1369,7 +1370,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">285</span>
+          <span class="site-state-item-count">286</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1445,12 +1446,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">324k</span>
+    <span title="Symbols count total">326k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">4:54</span>
+    <span title="Reading time total">4:56</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
