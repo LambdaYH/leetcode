@@ -45,3 +45,34 @@ S(n) : O(n)
 
 
 还有一种思路是把走过的路都设为障碍，每次要撞过去了就改变方向。不管如何，就是直接撞过去，撞到就变向，四个方向依次变
+```c++
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        if(matrix.empty())
+            return {};
+        int n = matrix.size(), m = matrix[0].size();
+        vector<vector<int>> visisted(n, vector<int>(m, 0));
+        int d[4][4]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int dr = 0;
+        vector<int> ret;
+        int i = 0, j = 0;
+        while(1)
+        {
+            int nexti = i + d[dr][0];
+            int nextj = j + d[dr][1];
+            if(nexti < 0 || nextj < 0 || nexti >= n || nextj >= m || visisted[nexti][nextj])
+                dr = (dr + 1) % 4;
+            ret.push_back(matrix[i][j]);
+            visisted[i][j] = 1;
+            i += d[dr][0];
+            j += d[dr][1];
+            if(ret.size() == m * n)
+                break;
+        }
+        return ret;
+    }
+};
+```
+T(n) : O(n) <br>
+S(n) : O(n * m)
