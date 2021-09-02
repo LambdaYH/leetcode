@@ -36,9 +36,7 @@ class Solution {
 public:
     vector<int> getLeastNumbers(vector<int>& arr, int k) {
         sort(arr.begin(), arr.end());
-        vector<int> ret;
-        for(int i = 0; i < k; ++i)
-            ret.push_back(arr[i]);
+        vector<int> ret(arr.begin(), arr.begin() + k); // 可以避免空间多次分配带来的开销
         return ret;
     }
 };
