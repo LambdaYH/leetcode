@@ -57,7 +57,7 @@ private:
         }
         
         int bestCombined = nums[mid] + maxLeft + maxRight;
-        int leftHalf = find(left, mid - 1, nums);
+        int leftHalf = find(left, mid - 1, nums); // 这里不用考虑为什么不把mid包含进来，因为如果包含的mid是属于最大的子序列，且只有单边，那么maxRight = 0的情况就已经将其包括了
         int rightHalf = find(mid + 1, right, nums);
         
         return max(bestCombined, max(leftHalf, rightHalf));
