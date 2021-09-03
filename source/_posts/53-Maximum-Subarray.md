@@ -7,6 +7,8 @@ tags: Dynamic Programming
 #### [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 ##### [Kadane算法](https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm)
 > Whenever you see a question that asks for the maximum or minimum of something, consider Dynamic Programming as a possibility
+
+
 ```c++
 class Solution {
 public:
