@@ -50,9 +50,16 @@ public:
             cur = s.top();
             s.pop();
             cur->left = pre;
+            /*
             if(pre)
                 pre->right = cur;
             if(!head)
+                head = cur;
+            */
+            // 把2个判断变成一个，减少条件分支预测错误的惩罚？
+            if(pre)
+                pre->right = cur;
+            else
                 head = cur;
             pre = cur;
             cur = cur->right;
