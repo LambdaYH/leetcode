@@ -30,6 +30,7 @@ public:
 
 ##### 用dp超内存了
 
+
 ##### 数学方法
 
 （企及不到的境界）（又称为数位dp)
@@ -41,7 +42,7 @@ public:
         int ret = 0;
         int high = n / 10, cur = n % 10, low = 0;
         long digit = 1;
-        while(high || cur)
+        while(high || cur) // 注意这里是cur和high，当high非0时，表示还没到最高位，当high为0时，如果cur为0，则这一位不可能为1，如果cur不为0，那么下一个循环cur为0，都可以终止
         {
             if(cur == 0)
                 ret += high * digit;
