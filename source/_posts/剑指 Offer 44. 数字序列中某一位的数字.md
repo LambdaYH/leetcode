@@ -19,6 +19,7 @@ public:
             ++digit;
             count = 9 * digit * start;
         }
+        // 0的时候直接计算出来是0，不会影响结果
         int num = (n - 1) / digit + start;
         return to_string(num)[(n - 1) % digit] - '0';
     }
