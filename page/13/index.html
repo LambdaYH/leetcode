@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,7 +257,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -278,7 +278,7 @@
       
           <h4 id="剑指-offer-33.-二叉搜索树的后序遍历序列"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/">剑指 Offer 33. 二叉搜索树的后序遍历序列</a></h4>
 <h5 id="dq">D&amp;Q</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">verifyPostorder</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> verify(postorder, <span class="number">0</span>, postorder.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">verify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt;= j)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">int</span> p = i;</span><br><span class="line">        <span class="keyword">while</span>(nums[p] &lt; nums[j]) ++p;</span><br><span class="line">        <span class="keyword">int</span> m = p;</span><br><span class="line">        <span class="keyword">while</span>(nums[p] &gt; nums[j]) ++p;</span><br><span class="line">        <span class="keyword">return</span> p == j &amp;&amp; (verify(nums, i, m - <span class="number">1</span>) &amp;&amp; verify(nums, m, j - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">verifyPostorder</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> verify(postorder, <span class="number">0</span>, postorder.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">verify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt;= j)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">int</span> p = i;</span><br><span class="line">        <span class="comment">// 此处无需p&lt;j这个条件，因为nums[j]==nums[j]，所以必定不会导致越界</span></span><br><span class="line">        <span class="keyword">while</span>(nums[p] &lt; nums[j]) ++p;</span><br><span class="line">        <span class="keyword">int</span> m = p;</span><br><span class="line">        <span class="keyword">while</span>(nums[p] &gt; nums[j]) ++p;</span><br><span class="line">        <span class="keyword">return</span> p == j &amp;&amp; (verify(nums, i, m - <span class="number">1</span>) &amp;&amp; verify(nums, m, j - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>对于一个序列，根在最右边，然后左边的左半边是左子树，右半边是右子树，他们的分界就是左子树全小于根，右子树全大于根，所以只需要通过一个个判断，就可以判断出其中的左子树和右子树，再对子树递归就可以判断了</p>
 <h5 id="单调栈倒序">单调栈+倒序</h5>
 <p>真的难，还是没想透为什么不管升序要管降序</p>
@@ -334,7 +334,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -440,7 +440,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -545,7 +545,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -649,7 +649,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -753,7 +753,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -856,7 +856,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -970,7 +970,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1078,7 +1078,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1182,7 +1182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 16:41:59" itemprop="dateModified" datetime="2021-09-10T16:41:59+08:00">2021-09-10</time>
+                <time title="Modified: 2021-09-13 11:11:16" itemprop="dateModified" datetime="2021-09-13T11:11:16+08:00">2021-09-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
