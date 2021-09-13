@@ -19,6 +19,7 @@ private:
         if(i >= j)
             return true;
         int p = i;
+        // 此处无需p<j这个条件，因为nums[j]==nums[j]，所以必定不会导致越界
         while(nums[p] < nums[j]) ++p;
         int m = p;
         while(nums[p] > nums[j]) ++p;
