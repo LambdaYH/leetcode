@@ -48,7 +48,12 @@ public:
                 parent = s.top();
                 s.pop();
             }
-            if(postorder[i] > parent)  // 注意这个parent只有在遇到递减数列时候才会赋值，那么有几种情况。1、parent是某个左子节点的父亲，那么他必定大于节点 2、往回走，栈逐渐压入，那么parent成为当前节点所在树的某个祖先节点，并且由后序遍历的顺序，这个树肯定在parent的左边。
+            if(postorder[i] > parent)  
+            // 注意这个parent只有在遇到递减数列时候才会赋值，那么有几种情况。
+            1. 当当前节点是左子节点，那么parent是这个左子节点的父亲，由上面栈的关系必定可以保证。
+            2. 当当前节点是右子节点，那么parent具有几种情况(在倒序情况下是根-左-右)
+                1、parent是某个左子节点的父亲，那么他必定大于节点 
+                2、往回走，栈逐渐压入，那么parent成为当前节点所在树的某个祖先节点，并且由后序遍历的顺序，这个树肯定在parent的左边。依旧必定大于节点
                 return false;
             s.push(postorder[i]);
         }
@@ -59,3 +64,25 @@ public:
 
 [题解](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/solution/di-gui-he-zhan-liang-chong-fang-shi-jie-jue-zui-ha/)
 
+```c++
+class Solution {
+public:
+    bool verifyPostorder(vector<int>& postorder) {
+        stack<int> s;
+        s.push(INT_MIN);
+        int parent = INT_MAX;
+        for(int i = postorder.size() - 1; i >= 0; --i)
+        {
+            while(postorder[i] < s.top())
+            {
+                parent = s.top();
+                s.pop();
+            }
+            if(postorder[i] > parent)
+                return false;
+            s.push(postorder[i]);
+        }
+        return true;
+    }
+};
+```
