@@ -43,3 +43,42 @@ private:
 };
 ```
 
+
+##### review
+```c++
+class Solution {
+public:
+    int reversePairs(vector<int>& nums) {
+        aux = vector<int>(nums.size());
+        sort(nums, 0, nums.size() - 1);
+        return ret;
+    }
+private:
+    vector<int> aux;
+    int ret = 0;
+    void sort(vector<int>& nums, int lo, int hi)
+    {
+        if(lo >= hi)
+            return;
+        int mid = lo + (hi - lo) / 2;
+        sort(nums, lo, mid);
+        sort(nums, mid + 1, hi);
+        copy(nums.begin() + lo, nums.begin() + hi + 1, aux.begin() + lo); 
+        int i = lo, j = mid + 1;
+        for(int k = lo; k <= hi; ++k)
+        {
+            if(i > mid)
+                nums[k] = aux[j++];
+            else if(j > hi)
+                nums[k] = aux[i++];
+            else if(aux[i] <= aux[j]) // nums会在排序过程中改变，所以要用aux来比较
+                nums[k] = aux[i++];
+            else
+            {
+                nums[k] = aux[j++];
+                ret += mid - i + 1;
+            }
+        }
+    }
+};
+```
