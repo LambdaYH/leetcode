@@ -194,6 +194,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/30/%E5%89%91%E6%8C%87%20Offer%2043.%201%EF%BD%9En%20%E6%95%B4%E6%95%B0%E4%B8%AD%201%20%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/30/%E5%89%91%E6%8C%87%20Offer%2043.%201%EF%BD%9En%20%E6%95%B4%E6%95%B0%E4%B8%AD%201%20%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" class="post-title-link" itemprop="url">剑指 Offer 43. 1～n 整数中 1 出现的次数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-30 08:12:37" itemprop="dateCreated datePublished" datetime="2021-06-30T08:12:37+08:00">2021-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/06/30/%E5%89%91%E6%8C%87%20Offer%2043.%201%EF%BD%9En%20%E6%95%B4%E6%95%B0%E4%B8%AD%201%20%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/30/剑指 Offer 43. 1～n 整数中 1 出现的次数/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="剑指-offer-43.-1n-整数中-1-出现的次数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/">剑指 Offer 43. 1～n 整数中 1 出现的次数</a></h4>
+<h5 id="brute-force">brute force</h5>
+<p>但是超时了 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countDigitOne</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = i;</span><br><span class="line">            <span class="keyword">while</span>(tmp)</span><br><span class="line">            &#123;</span><br><span class="line">                ret += (tmp % <span class="number">10</span> == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">                tmp /= <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> ##### 用dp超内存了</p>
+<h5 id="数学方法">数学方法</h5>
+<p>（企及不到的境界）（又称为数位dp)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int countDigitOne(int n) &#123;</span><br><span class="line">        int ret &#x3D; 0;</span><br><span class="line">        int high &#x3D; n &#x2F; 10, cur &#x3D; n % 10, low &#x3D; 0;</span><br><span class="line">        long digit &#x3D; 1;</span><br><span class="line">        while(high || cur) &#x2F;&#x2F; 注意这里是cur和high，当high非0时，表示还没到最高位，当high为0时，如果cur为0，则这一位不可能为1，如果cur不为0，那么下一个循环cur为0，都可以终止</span><br><span class="line">        &#123;</span><br><span class="line">            if(cur &#x3D;&#x3D; 0)</span><br><span class="line">                ret +&#x3D; high * digit;</span><br><span class="line">            else if(cur &#x3D;&#x3D; 1)</span><br><span class="line">                ret +&#x3D; high * digit + 1 + low;</span><br><span class="line">            else</span><br><span class="line">                ret +&#x3D; (high + 1) * digit;</span><br><span class="line">            low +&#x3D; cur * digit;</span><br><span class="line">            cur &#x3D; high % 10;</span><br><span class="line">            high &#x2F;&#x3D; 10;</span><br><span class="line">            digit *&#x3D; 10;</span><br><span class="line">        &#125;</span><br><span class="line">        return ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>所求的是每一位1出现的次数，所有位加起来那就是总和了。</p>
+<p>将当前位想象成密码锁</p>
+<ol type="1">
+<li>当前位为0，那么将这一位固定为1后，掰动其他位所能生成的组合的数量将会是<code>高位*数位</code>，例如，<code>2402</code>中的第三位为0，将这一位固定为1后，由于生成的数必须小于<code>2402</code>，所以上限将等于<code>2319</code>，可以发现高位是减了1的，则总数就是<code>0010~2319</code>，其他数有<code>000~239</code>种变化。</li>
+<li>当前位为1，那么这一位固定为1后，可以为所欲为，例如，<code>2412</code>，对于第三位范围就是<code>0000~2412</code>范围就是<code>000~242</code>，也就是<code>高位*数位+低位+1</code></li>
+<li>当前位为其他，那么把这一位固定为1后，范围就是这一位被压制为1后的值，例如<code>2432</code>，其范围就是<code>0000~2419</code>，最后范围就是<code>000~249</code>，也就是<code>(高位+1) * 数位</code>。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/29/%E5%89%91%E6%8C%87%20Offer%2038.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +339,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -333,7 +447,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,7 +551,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -543,7 +657,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -647,7 +761,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -750,7 +864,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -856,7 +970,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -964,7 +1078,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1072,7 +1186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
+                <time title="Modified: 2021-09-14 16:54:32" itemprop="dateModified" datetime="2021-09-14T16:54:32+08:00">2021-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1131,110 +1245,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    Node* next;</span></span><br><span class="line"><span class="comment">    Node* random;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    Node(int _val) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        next = NULL;</span></span><br><span class="line"><span class="comment">        random = NULL;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">Node* <span class="title">copyRandomList</span><span class="params">(Node* head)</span> </span>&#123;</span><br><span class="line">        Node* cur = head;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;Node*, Node*&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">map</span>[cur] = <span class="keyword">new</span> Node(cur-&gt;val);</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">map</span>[cur]-&gt;next = <span class="built_in">map</span>[cur-&gt;next];</span><br><span class="line">            <span class="built_in">map</span>[cur]-&gt;random = <span class="built_in">map</span>[cur-&gt;random];</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">map</span>[head];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h5 id="拼拆">拼+拆</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    Node* next;</span></span><br><span class="line"><span class="comment">    Node* random;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    Node(int _val) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        next = NULL;</span></span><br><span class="line"><span class="comment">        random = NULL;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">Node* <span class="title">copyRandomList</span><span class="params">(Node* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">auto</span> cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> next = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = <span class="keyword">new</span> Node(cur-&gt;val);</span><br><span class="line">            cur-&gt;next-&gt;next = next;</span><br><span class="line">            cur = next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(cur-&gt;random)</span><br><span class="line">                cur-&gt;next-&gt;random = cur-&gt;random-&gt;next;</span><br><span class="line">            cur = cur-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur = head;</span><br><span class="line">        <span class="keyword">auto</span> newL = head-&gt;next;</span><br><span class="line">        <span class="keyword">auto</span> ret = newL;</span><br><span class="line">        <span class="keyword">while</span>(newL-&gt;next)</span><br><span class="line">        &#123;</span><br><span class="line">            cur-&gt;next = cur-&gt;next-&gt;next;</span><br><span class="line">            newL-&gt;next = newL-&gt;next-&gt;next;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">            newL = newL-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2018.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2018.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/" class="post-title-link" itemprop="url">剑指 Offer 18. 删除链表的节点</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-06-25 08:21:47" itemprop="dateCreated datePublished" datetime="2021-06-25T08:21:47+08:00">2021-06-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 16:44:28" itemprop="dateModified" datetime="2021-09-14T16:44:28+08:00">2021-09-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/06/25/%E5%89%91%E6%8C%87%20Offer%2018.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/25/剑指 Offer 18. 删除链表的节点/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>493</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="剑指-offer-18.-删除链表的节点"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/submissions/">剑指 Offer 18. 删除链表的节点</a></h4>
-<h5 id="section"></h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteNode</span><span class="params">(ListNode* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode* pre = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode* ret = pre;</span><br><span class="line">        pre-&gt;next = head;</span><br><span class="line">        <span class="keyword">while</span>(head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(head-&gt;val == val)</span><br><span class="line">            &#123;</span><br><span class="line">                pre-&gt;next = head-&gt;next;</span><br><span class="line">                <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            pre = head;</span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1321,7 +1331,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">299</span>
+          <span class="site-state-item-count">300</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1397,12 +1407,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">344k</span>
+    <span title="Symbols count total">345k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">5:13</span>
+    <span title="Reading time total">5:14</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
