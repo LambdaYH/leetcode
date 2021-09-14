@@ -69,6 +69,8 @@ private:
     bool check(vector<vector<int>>& graph, vector<int>& visited, vector<int>& checked, int course)
     {
         // checked表示这些课的所有先决条件都满足
+        // checked过的点是某些点的先决条件
+        // 一门课可能有多个先决课，没门先决课都得学，而不是多个课选一个学
         if(checked[course])
             return true;
         // 如果这些课不在checked的列表中，那么这节课往回走的时候，注定遇上了环路。
