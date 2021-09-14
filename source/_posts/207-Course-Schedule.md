@@ -68,8 +68,10 @@ public:
 private:
     bool check(vector<vector<int>>& graph, vector<int>& visited, vector<int>& checked, int course)
     {
-        if(checked[course] == 1)
+        // checked表示这些课的所有先决条件都满足
+        if(checked[course])
             return true;
+        // 如果这些课不在checked的列表中，那么这节课往回走的时候，注定遇上了环路。
         if(visited[course])
             return false;
         visited[course] = 1;
