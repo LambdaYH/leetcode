@@ -104,3 +104,27 @@ public:
     }
 };
 ```
+
+v4
+```c++
+class Solution {
+public:
+    string minNumber(vector<int>& nums) {
+        sort(nums.begin(), nums.end(), [](int a, int b)
+        {
+            long sa = 10;
+            long sb = 10;
+            while(sa <= a)
+                sa *= 10;
+            while(sb <= b)
+                sb *= 10;
+            return sb * a + b < sa * b + a;
+        });
+        string ret;
+        for(auto& num : nums)
+            ret += to_string(num);
+        return ret;
+    }
+};
+```
+
