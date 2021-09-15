@@ -6,6 +6,8 @@ mathjax: false
 ---
 #### [剑指 Offer 45. 把数组排成最小的数](https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/)
 
+类似[179. 最大数](https://leetcode-cn.com/problems/largest-number/)
+
 ##### 我可太太太太太菜了
 
 本质上转换为一个排序问题，对于两个数字a1,b1。当`str(a1) + str(b1) < str(b1) + str(a1)`时，表示a1因当刚在b1左边，反之则表示a1应当放在b1右边。以此为判断条件对数组进行排序，排序后重新组合成字符串就是所需
