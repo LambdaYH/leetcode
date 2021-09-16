@@ -96,3 +96,22 @@ public:
     }
 };
 ```
+
+递归
+```c++
+class Solution {
+public:
+    int translateNum(int num) {
+        if(num < 10)
+            return 1;
+        int ret = 0;
+        int a = num % 10;
+        num /= 10;
+        int b = num % 10;
+        if(b != 0 && b * 10 + a < 26)
+            ret += translateNum(num / 10);
+        ret += translateNum(num);
+        return ret;
+    }
+};
+```
