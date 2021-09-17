@@ -119,7 +119,7 @@ public:
             else
                 hi = mid - 1;
         }
-        // 最后是lo == target 而 hi不等于，hi在lo后面一位
+        // lo是右边界
         return lo - left - 1;
     }
 };
