@@ -28,7 +28,7 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
-        int lo = 0, hi = n;
+        int lo = 0, hi = n; // 这里hi不能是n-1，当所有数字全在范围内时，hi不会改变，这样一来lo会像hi靠近，这样返回的hi还是n，符合结果
         while(lo < hi)
         {
             int mid = lo + ((hi - lo) >> 1);
