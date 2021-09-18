@@ -194,6 +194,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/15/394-Decode-String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/15/394-Decode-String/" class="post-title-link" itemprop="url">394. Decode String</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-15 09:50:34" itemprop="dateCreated datePublished" datetime="2021-04-15T09:50:34+08:00">2021-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/15/394-Decode-String/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/15/394-Decode-String/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="decode-string"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/decode-string/">394. Decode String</a></h4>
+<h5 id="我越来越菜了">我越来越菜了</h5>
+<p>由于括号是包裹的，后出现的左括号会匹配后面遇到的第一个右括号，所以使用堆栈</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">decodeString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; st; <span class="comment">// 保存遇到方括号之前的字符串</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; num; <span class="comment">// 保存方括号前的计数</span></span><br><span class="line">        <span class="keyword">int</span> curNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ch == <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                st.push(ret); <span class="comment">// 遇到方括号开端后，先压入当前字符串，当进入方括号过程中中再次遇到，就会压入先前方括号开端到此方括号之间的字符串</span></span><br><span class="line">                num.push(curNum); <span class="comment">// 计数值同理</span></span><br><span class="line">                curNum = <span class="number">0</span>; <span class="comment">// 此方括号计数已经入栈，所以开始下一轮计数</span></span><br><span class="line">                ret = <span class="string">&quot;&quot;</span>; <span class="comment">// 开始计算方括号中的字符串</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ch == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> p = st.top(); <span class="comment">// 遇见结尾，出栈，先把这个方括号之前，上一个方括号之后的字符串出栈</span></span><br><span class="line">                st.pop();</span><br><span class="line">                <span class="keyword">auto</span> c = num.top(); <span class="comment">// 当前方括号的计数值出栈</span></span><br><span class="line">                num.pop();</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; c; ++i)</span><br><span class="line">                    p += ret; <span class="comment">// 之前的加上当前括号的值，代表了前一个大括号所包含的字符串</span></span><br><span class="line">                ret = p;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ch &lt;= <span class="string">&#x27;9&#x27;</span> &amp;&amp; ch &gt;= <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">                curNum = curNum * <span class="number">10</span> + ch - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ret += ch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="递归">递归</h5>
+<p>本质上就是将堆栈方法改为了函数递归栈实现，碰到]就返回，碰到[就进去</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">decodeString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(s, index);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">helper</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="keyword">int</span>&amp; index)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(index &lt; s.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[index] == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(s[index] &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; s[index] &lt;= <span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">                ret += s[index++];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span>(s[index] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[index] &lt;= <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">                    num = num * <span class="number">10</span> + s[index++] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                ++index;</span><br><span class="line">                <span class="keyword">auto</span> t = helper(s, index);</span><br><span class="line">                <span class="keyword">while</span>(num-- &gt; <span class="number">0</span>)</span><br><span class="line">                    ret += t;</span><br><span class="line">                ++index;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>处理一个框框中的数据，框框里遇到框框就再递归</p>
+<p>review <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">decodeString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(s, i, s.size());</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">helper</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="keyword">int</span>&amp; i, <span class="keyword">int</span> sz)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> curTime = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">string</span> r;</span><br><span class="line">        <span class="keyword">for</span>(i; i &lt; sz; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> ch = s[i];</span><br><span class="line">            <span class="keyword">if</span>(ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">                curTime = curTime * <span class="number">10</span> + ch - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ch == <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> tmp = helper(s, ++i, sz);</span><br><span class="line">                <span class="keyword">if</span>(curTime == <span class="number">0</span>)</span><br><span class="line">                    curTime = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; curTime; ++j)</span><br><span class="line">                    r.append(tmp);</span><br><span class="line">                curTime = <span class="number">0</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ch == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">                <span class="keyword">return</span> r;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r += ch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/14/287-Find-the-Duplicate-Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +335,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -344,7 +454,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -454,7 +564,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -562,7 +672,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -671,7 +781,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -776,7 +886,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -898,7 +1008,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1005,7 +1115,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1111,7 +1221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-18 21:00:41" itemprop="dateModified" datetime="2021-09-18T21:00:41+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1190,120 +1300,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/12/200-Number-of-Islands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/12/200-Number-of-Islands/" class="post-title-link" itemprop="url">200. Number of Islands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-13 06:26:01" itemprop="dateCreated datePublished" datetime="2021-04-13T06:26:01+08:00">2021-04-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 15:32:18" itemprop="dateModified" datetime="2021-09-18T15:32:18+08:00">2021-09-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/12/200-Number-of-Islands/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/12/200-Number-of-Islands/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="number-of-islands"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-islands/">200. Number of Islands</a></h4>
-<h5 id="dfs">DFS</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; grid[<span class="number">0</span>].size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    dfs(grid, i, j);</span><br><span class="line">                    ++count;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; grid, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= grid.size() || j &gt;= grid[<span class="number">0</span>].size() || grid[i][j] != <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        grid[i][j] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">        dfs(grid, i + <span class="number">1</span>, j);</span><br><span class="line">        dfs(grid, i, j + <span class="number">1</span>);</span><br><span class="line">        dfs(grid, i - <span class="number">1</span>, j);</span><br><span class="line">        dfs(grid, i, j - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>深度优先遍历，当遇到一块陆地后，向周围遍历，遍历过的土地做上标记防止重复遍历，当遍历完一整块岛后，返回，计数加一</p>
-<h5 id="使用并查集">使用<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B9%B6%E6%9F%A5%E9%9B%86">并查集</a></h5>
-<p>对discuss中的代码加以批注</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] distance = &#123;&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">0</span>,-<span class="number">1</span>&#125;&#125;; <span class="comment">// 4个方向</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="keyword">char</span>[][] grid)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">if</span> (grid == <span class="keyword">null</span> || grid.length == <span class="number">0</span> || grid[<span class="number">0</span>].length == <span class="number">0</span>)  &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">    &#125;</span><br><span class="line">    UnionFind uf = <span class="keyword">new</span> UnionFind(grid);  </span><br><span class="line">    <span class="keyword">int</span> rows = grid.length;  </span><br><span class="line">    <span class="keyword">int</span> cols = grid[<span class="number">0</span>].length;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++) &#123;  </span><br><span class="line">            <span class="keyword">if</span> (grid[i][j] == <span class="string">&#x27;1&#x27;</span>) &#123;  <span class="comment">// 当遇上陆地</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span>[] d : distance) &#123; <span class="comment">// 陆地的4个方向进行遍历</span></span><br><span class="line">                    <span class="keyword">int</span> x = i + d[<span class="number">0</span>]; </span><br><span class="line">                    <span class="keyword">int</span> y = j + d[<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; rows &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; cols &amp;&amp; grid[x][y] == <span class="string">&#x27;1&#x27;</span>) &#123; <span class="comment">// 当且仅当是陆地时进入循环</span></span><br><span class="line">                        <span class="keyword">int</span> id1 = i*cols+j; <span class="comment">// 当前陆地的id ，展开成1维表示</span></span><br><span class="line">                        <span class="keyword">int</span> id2 = x*cols+y; <span class="comment">// 周围陆地的id，同样是展开成一维</span></span><br><span class="line">                        uf.union(id1, id2); <span class="comment">// 进行并查，具体见UnionFind CLASS</span></span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> uf.count;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Union Find:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnionFind</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] father;  </span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    UnionFind(<span class="keyword">char</span>[][] grid) &#123;  </span><br><span class="line">        m = grid.length;  </span><br><span class="line">        n = grid[<span class="number">0</span>].length;  </span><br><span class="line">        father = <span class="keyword">new</span> <span class="keyword">int</span>[m*n];  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;  </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;  </span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> id = i * n + j;</span><br><span class="line">                    father[id] = id; <span class="comment">// 对每一个陆地初始化，初始化后，每个陆地都各自分为一类</span></span><br><span class="line">                    count++; <span class="comment">// 在归并之前，总数</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> node1, <span class="keyword">int</span> node2)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> find1 = find(node1); <span class="comment">// 查找node 1 和 node 2属于哪一类</span></span><br><span class="line">        <span class="keyword">int</span> find2 = find(node2);</span><br><span class="line">        <span class="keyword">if</span>(find1 != find2) &#123;</span><br><span class="line">            father[find1] = find2; <span class="comment">// 由于二者是邻接的陆地，因此当二者属于的类不同时，将其合并</span></span><br><span class="line">            count--; <span class="comment">// 2块陆地合并，计数减一</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 递归查找所属的类，直到查找到其所属的最顶端类</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span> <span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (father[node] == node) &#123;  </span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">        father[node] = find(father[node]);  </span><br><span class="line">        <span class="keyword">return</span> father[node];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1371,7 +1371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">300</span>
+          <span class="site-state-item-count">301</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1447,7 +1447,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">346k</span>
+    <span title="Symbols count total">347k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
