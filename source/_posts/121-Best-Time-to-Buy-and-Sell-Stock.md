@@ -34,10 +34,27 @@ public:
         int maxSoFar = 0;
         for(auto i = prices.begin() + 1; i != prices.end(); ++i )
         {
-            maxCur = max(0, (*i - *(i-1)) + maxCur);
+            maxCur = max(0, (*i - *(i-1)) + maxCur); // 当0 > 后面那个时候，肯定是负的了，而不买必定为0，所以利润至少为0
             maxSoFar = max(maxCur, maxSoFar);
         }
         return maxSoFar;
+    }
+};
+```
+
+##### 另一种思路
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int buy = INT_MIN;
+        int sell = 0;
+        for(auto price : prices)
+        {
+            buy = max(buy, -price); // 使得购入的成本尽可能小，也就是负数尽可能大
+            sell = max(sell, buy + price); // 使得卖出后的利润尽可能大
+        }
+        return sell;
     }
 };
 ```
