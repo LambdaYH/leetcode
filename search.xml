@@ -1047,6 +1047,25 @@ len_n = len_{n-1} * 2 + 1 \\
       </tags>
   </entry>
   <entry>
+    <title>204. 计数质数</title>
+    <url>/2021/09/25/204.%20%E8%AE%A1%E6%95%B0%E8%B4%A8%E6%95%B0/</url>
+    <content><![CDATA[<h4 id="计数质数"><a href="https://leetcode-cn.com/problems/count-primes/">204. 计数质数</a></h4>
+<p>暴力法(超时)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countPrimes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ret += isPrime(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= x; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(x % i == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="埃氏筛">埃氏筛</h5>
+<p><a href="https://leetcode-cn.com/problems/count-primes/solution/ji-shu-zhi-shu-by-leetcode-solution/">计数质数 - 计数质数 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<blockquote>
+<p>如果 xx 是质数，那么大于 xx 的 xx 的倍数 2x,3x,2x,3x,… 一定不是质数，因此我们可以从这里入手。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countPrimes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">memo</span><span class="params">(n, <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(memo[i])</span><br><span class="line">            &#123;</span><br><span class="line">                ++ret;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">long</span> j = <span class="keyword">long</span>(i) * i; j &lt; n; j += i) <span class="comment">// 因为小于x的x倍，比如2x，3x，(x-1)x在前面遍历2,3,x-1时候已经标记了，所以这里只需要从x倍开始</span></span><br><span class="line">                &#123;</span><br><span class="line">                    memo[j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="线性筛">线性筛</h5>
+<p>保留</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>207. Course Schedule</title>
     <url>/2021/04/21/207-Course-Schedule/</url>
     <content><![CDATA[<h4 id="course-schedule"><a href="https://leetcode.com/problems/course-schedule/">207. Course Schedule</a></h4>
