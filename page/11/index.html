@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -328,7 +328,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,7 +360,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>352</span>
+              <span>460</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -382,6 +382,8 @@
           <h4 id="剑指-offer-64.-求12n"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/qiu-12n-lcof/">剑指 Offer 64. 求1+2+…+n</a></h4>
 <h5 id="shuai">shuai</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">bool</span> x = n &gt; <span class="number">1</span> &amp;&amp; sumNums(n - <span class="number">1</span>); <span class="comment">// n == 1时候终止递归，递归栈返回，从ret从n=1开始加上去。 此处使用逻辑符短路，代替了原本if(n &lt;= 1) return 1;</span></span><br><span class="line">        ret += n;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>写法二</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        n &amp;&amp; (n += sumNums(n - <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>如果没题目限制使用递归</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        n += sumNums(n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -434,7 +436,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -543,7 +545,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -646,7 +648,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -752,7 +754,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -863,7 +865,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -968,7 +970,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1075,7 +1077,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1178,7 +1180,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-26 13:11:08" itemprop="dateModified" datetime="2021-09-26T13:11:08+08:00">2021-09-26</time>
+                <time title="Modified: 2021-09-27 17:03:00" itemprop="dateModified" datetime="2021-09-27T17:03:00+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
