@@ -20,6 +20,18 @@ private:
 };
 ```
 
+写法二
+
+```c++
+class Solution {
+public:
+    int sumNums(int n) {
+        n && (n += sumNums(n - 1));
+        return n;
+    }
+};
+```
+
 如果没题目限制使用递归
 
 ```c++
