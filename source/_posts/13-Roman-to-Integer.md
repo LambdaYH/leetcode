@@ -37,3 +37,36 @@ public:
     }
 };
 ```
+
+##### review
+```c++
+class Solution {
+public:
+    int romanToInt(string s) {
+        string roman[]{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
+        int nums[]{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+        int ret = 0;
+        int index = 12, length = s.size();
+        for(int i = 0; i < length; ++i)
+        {
+            string si = s.substr(i, 1);
+            string d = i < length - 1 ? s.substr(i, 2) : "";
+            while(index >= 0)
+            {
+                if(roman[index] == d)
+                {
+                    ret += nums[index];
+                    ++i;
+                    break;
+                }else if(roman[index] == si)
+                {
+                    ret += nums[index];
+                    break;
+                }else
+                    --index;
+            }
+        }
+        return ret;
+    }
+};
+```
