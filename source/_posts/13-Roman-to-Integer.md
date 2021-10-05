@@ -70,3 +70,32 @@ public:
     }
 };
 ```
+
+##### solution
+```c++
+class Solution {
+public:
+    int romanToInt(string s) {
+        int ret = 0;
+        for(int i = 0, sz = s.size(); i < sz; ++i)
+        {
+            int num = symbolValues[s[i]];
+            if(i < sz - 1 && num < symbolValues[s[i + 1]])
+                ret -= num;
+            else
+                ret += num;
+        }
+        return ret;
+    }
+private:
+    unordered_map<char, int> symbolValues = {
+        {'I', 1},
+        {'V', 5},
+        {'X', 10},
+        {'L', 50},
+        {'C', 100},
+        {'D', 500},
+        {'M', 1000},
+    };
+};
+```
