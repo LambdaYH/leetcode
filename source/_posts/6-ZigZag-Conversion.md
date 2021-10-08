@@ -69,27 +69,34 @@ public:
 };
 ```
 
+##### Solution中的两种方法
+
+##### 按行排列
+
 ```c++
 class Solution {
 public:
     string convert(string s, int numRows) {
-        if(numRows == 1) return s;
-        vector<string> rows(min(numRows, int(s.size())));
+        if(numRows == 1)
+            return s;
+        vector<string> r(min(numRows, (int)(s.size())));
+        int curRow = 0;
         bool goDown = true;
-        int row = 0;
-        for(char& ch : s)
+        for(auto ch : s)
         {
-            rows[row] += ch;
-            row += goDown ? 1 : -1;
-            if(row==0||row == numRows-1)
+            r[curRow] += ch;
+            curRow += goDown ? 1 : -1;
+            if(curRow == 0 || curRow == numRows - 1)
                 goDown = !goDown;
         }
-        string result;
-        for(auto& row:rows)
-        {
-            result += row;
-        }
-        return result;
+        string ret;
+        for(auto& str : r)
+            ret += str;
+        return ret;
     }
 };
 ```
+
+##### 按行访问
+
+找到每行的字母在s中字母位置和他行数之间的关系
