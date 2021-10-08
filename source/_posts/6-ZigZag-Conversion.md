@@ -68,3 +68,28 @@ public:
     }
 };
 ```
+
+```c++
+class Solution {
+public:
+    string convert(string s, int numRows) {
+        if(numRows == 1) return s;
+        vector<string> rows(min(numRows, int(s.size())));
+        bool goDown = true;
+        int row = 0;
+        for(char& ch : s)
+        {
+            rows[row] += ch;
+            row += goDown ? 1 : -1;
+            if(row==0||row == numRows-1)
+                goDown = !goDown;
+        }
+        string result;
+        for(auto& row:rows)
+        {
+            result += row;
+        }
+        return result;
+    }
+};
+```
