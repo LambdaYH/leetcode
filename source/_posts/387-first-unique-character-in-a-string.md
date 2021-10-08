@@ -96,7 +96,8 @@ public:
 ```
 
 ##### 用队列，避免了第二次遍历
-> 思路与算法
+```
+思路与算法
 
 我们也可以借助队列找到第一个不重复的字符。队列具有「先进先出」的性质，因此很适合用来找出第一个满足某个条件的元素。
 
@@ -112,7 +113,7 @@ public:
 链接：https://leetcode-cn.com/problems/first-unique-character-in-a-string/solution/zi-fu-chuan-zhong-de-di-yi-ge-wei-yi-zi-x9rok/
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
+```
 
 ```c++
 class Solution {
