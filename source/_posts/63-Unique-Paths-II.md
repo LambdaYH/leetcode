@@ -42,3 +42,25 @@ T(n) : O(m * n)
 S(n) : O(1)
 
 动态规划问题可以归结为网格，此处网格中元素为每个块对路径的贡献度，当本块为障碍时则贡献为0，当本块无障碍，则上方和左方的方块可以走过来，贡献的路径就是上和左相加
+
+##### review
+```c++
+class Solution {
+public:
+    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+        if(obstacleGrid[0][0] == 1 || obstacleGrid.back().back() == 1)
+            return 0;
+        int nx = obstacleGrid.size(), ny = obstacleGrid[0].size();
+        obstacleGrid[0][0] = 1;
+        for(int i = 1; i < ny; ++i)
+            obstacleGrid[0][i] = obstacleGrid[0][i] ? 0 : obstacleGrid[0][i - 1];
+        for(int i = 1; i < nx; ++i)
+        {
+            obstacleGrid[i][0] = obstacleGrid[i][0] ? 0 : obstacleGrid[i - 1][0]; // 放到这里而不是像上面那种首先遍历，是考虑到空间局部性
+            for(int j = 1; j < ny; ++j)
+                obstacleGrid[i][j] = obstacleGrid[i][j] ? 0 : obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
+        }
+        return obstacleGrid.back().back();
+    }
+};
+```
