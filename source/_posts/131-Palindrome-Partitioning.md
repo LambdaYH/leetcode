@@ -59,3 +59,42 @@ private:
     }
 };
 ```
+
+##### review
+```c++
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        vector<string> tmp;
+        backTrack(s, s.size(), 0, tmp);
+        return ret;
+    }
+private:
+    vector<vector<string>> ret;
+    void backTrack(string& s, int length, int index, vector<string>& tmp)
+    {
+        if(index == length)
+        {
+            ret.emplace_back(tmp);
+            return;
+        }
+        for(int i = index; i < length; ++i)
+        {
+            if(isPalindorm(s, index, i))
+            {
+                tmp.push_back(s.substr(index, i - index + 1));
+                backTrack(s, length, i + 1, tmp);
+                tmp.pop_back();
+            }
+        }
+    }
+    inline bool isPalindorm(string& s, int i, int j)
+    {
+        while(i < j) {
+            if(s[i++] != s[j--])
+                return false;
+        }
+        return true;
+    }
+};
+```
