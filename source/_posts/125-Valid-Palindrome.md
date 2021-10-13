@@ -44,3 +44,30 @@ private:
 T(n): O(n)
 
 S(n): O(1)
+
+##### review
+```c++
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int left = 0, right = s.size() - 1;
+        while(left < right)
+        {
+            while(left < right && !isValid(s[left]))
+                ++left;
+            while(left < right && !isValid(s[right]))
+                --right;
+            if(left >= right)
+                break;
+            if(tolower(s[left++]) != tolower(s[right--]))
+                return false;
+        }
+        return true;
+    }
+private:
+    inline bool isValid(char ch)
+    {
+        return (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z');
+    }
+};
+```
