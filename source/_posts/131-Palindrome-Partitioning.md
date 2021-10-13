@@ -98,3 +98,84 @@ private:
     }
 };
 ```
+
+但是可以发现，回溯过程中会出现许多的重复的判断回文子串，所以有2种优化策略，一是预先判断回文子串，而是在回溯过程中进行记忆。
+
+预先判断回文子串
+```c++
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        vector<string> tmp;
+        memo.assign(s.size(), vector<int>(s.size(), 1));
+        int n = s.size();
+        for(int i = n - 1; i >= 0; --i)
+            for(int j = i + 1; j < n; ++j)
+                memo[i][j] = s[i] == s[j] && memo[i + 1][j - 1];
+        backTrack(s, s.size(), 0, tmp);
+        return ret;
+    }
+private:
+    vector<vector<string>> ret;
+    vector<vector<int>> memo;
+    void backTrack(string& s, int length, int index, vector<string>& tmp)
+    {
+        if(index == length)
+        {
+            ret.emplace_back(tmp);
+            return;
+        }
+        for(int i = index; i < length; ++i)
+        {
+            if(memo[index][i])
+            {
+                tmp.push_back(s.substr(index, i - index + 1));
+                backTrack(s, length, i + 1, tmp);
+                tmp.pop_back();
+            }
+        }
+    }
+};
+```
+
+在回溯过程中记忆
+```c++
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        vector<string> tmp;
+        memo.assign(s.size(), vector<int>(s.size()));
+        backTrack(s, s.size(), 0, tmp);
+        return ret;
+    }
+private:
+    vector<vector<string>> ret;
+    vector<vector<int>> memo;
+    void backTrack(string& s, int length, int index, vector<string>& tmp)
+    {
+        if(index == length)
+        {
+            ret.emplace_back(tmp);
+            return;
+        }
+        for(int i = index; i < length; ++i)
+        {
+            if(isPalindorm(s, index, i) == 1)
+            {
+                tmp.push_back(s.substr(index, i - index + 1));
+                backTrack(s, length, i + 1, tmp);
+                tmp.pop_back();
+            }
+        }
+    }
+    // memo[i][j] == 0为未搜索，1为是回文子串，-1为不是
+    inline int isPalindorm(string& s, int i, int j)
+    {
+        if(memo[i][j])
+            return memo[i][j];
+        if(i >= j)
+            return memo[i][j] = 1;
+        return s[i] == s[j] ? isPalindorm(s, i + 1, j - 1) : -1;
+    }
+};
+```
