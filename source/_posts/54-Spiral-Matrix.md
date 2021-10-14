@@ -76,3 +76,29 @@ public:
 ```
 T(n) : O(n) <br>
 S(n) : O(n * m)
+
+```c++
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int dirs[][2]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int d = 0;
+        int m = matrix.size(), n = matrix[0].size();
+        int i = 0, j = 0;
+        vector<int> ret;
+        ret.reserve(m * n);
+        while(ret.size() < m * n)
+        {
+            ret.push_back(matrix[i][j]);
+            matrix[i][j] = 101;
+            int nextI = i + dirs[d][0];
+            int nextJ = j + dirs[d][1];
+            if(nextI < 0 || nextI >= m || nextJ < 0 || nextJ >= n || matrix[nextI][nextJ] == 101)
+                d = (d + 1) % 4;
+            i += dirs[d][0];
+            j += dirs[d][1];
+        }
+        return ret;
+    }
+};
+```
