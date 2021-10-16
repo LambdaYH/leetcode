@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -335,7 +335,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -454,7 +454,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -564,7 +564,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -596,7 +596,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -621,6 +621,12 @@
 <p>先插入最高的人，最高的人组成的子序列所排列的顺序一定是由其K所决定的，当插入第二大的序列后，他不会影响第一大的序列，且仅仅由其本身和比他的序列影响，由其相对位置插入，可知，当为0时，就插到比他大的0前面，为1时，就插到比他大的1前面，比他大的那个往后移一位</p>
 <p>结合<a target="_blank" rel="noopener" href="https://leetcode.com/problems/queue-reconstruction-by-height/discuss/89359/Explanation-of-the-neat-Sort%2BInsert-solution">explaination</a> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">People are only counting (in their k-value) taller or equal-height others standing in front of them. </span><br><span class="line">So a smallest person is completely irrelevant for all taller ones. And of all smallest people, the one </span><br><span class="line">standing most in the back is even completely irrelevant for everybody </span><br><span class="line">else. Nobody is counting that person. So we can first arrange everybody else, </span><br><span class="line">ignoring that one person. And then just insert that person appropriately.</span><br><span class="line">Now note that while this person is irrelevant for everybody else, </span><br><span class="line">everybody else is relevant for this person - this person counts exactly everybody in front of them. So their count-value tells you exactly the index they must be standing.</span><br><span class="line"></span><br><span class="line">So you can first solve the sub-problem with all but that one person and then just insert that person appropriately. </span><br><span class="line">And you can solve that sub-problem the same way, first solving the sub-sub-problem with all but the last-smallest person of the subproblem. </span><br><span class="line">And so on. The base case is when you have the sub-...-sub-problem of zero people. You&#39;re then inserting the people in the reverse order, i.e., </span><br><span class="line">that overall last-smallest person in the very end and thus the first-tallest person in the very beginning. That&#39;s what the above solution does, Sorting the people from the first-tallest to the last-smallest, and inserting them one by one as appropriate.</span><br></pre></td></tr></table></figure> 最后一个人的位置不会影响前面的人，但前面人的位置将影响到最后一个人，因此最后一个人的k必定表示其绝对位置，将其划分为一堆的子问题，每个子问题在解决时都先忽略子问题中最小的的那个数，那个数在所有其他数排列完后再插入那个绝对的位置。 依此，则从最大数开始排起，后面插入的数对于先前的序列来说必定是插入其的K位置，不断扩大子问题，往复，直到整个序列往复。最小的数插入到其的K位置。</p>
 <p>中心思想：最小的数的k必定表示其在结果中的绝对位置，抛开这个最小的数，生成一个子问题。再抛开子问题中最小的数，生成一个子-子问题......</p>
+<p>针对<code>[[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]</code>问题</p>
+<ol type="1">
+<li>先解决最后一个子问题，也就是只有<code>[7,0],[7,1]</code>的问题，此时他们的k表示他们的绝对位置，由此排列即可。</li>
+<li>往上走，当问题变成<code>[7,0],[7,1],[6,1]</code>时，很显然<code>[6,1]</code>对<code>[7,0],[7,1]</code>不会有任何干扰，但<code>[7,0],[7,1]</code>对他具有干扰， 因为此时他最小，所以所有人和他相关，最小的数字的k必然表示他的绝对位置，前面有一个比他大，所以插到第一个的后面，也就是第二个的前面。所以直接把他插入到1的位置上，这时候序列就是<code>[7,0],[6,1],    [7,1]</code></li>
+<li>继续，根据上面的逻辑，每一步都把这个数直接插到当前子问题的他所对应的绝对位置上。由此得解。</li>
+</ol>
 
       
     </div>
@@ -671,7 +677,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -780,7 +786,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -885,7 +891,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1007,7 +1013,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1114,7 +1120,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1220,7 +1226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:34:38" itemprop="dateModified" datetime="2021-10-16T21:34:38+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
