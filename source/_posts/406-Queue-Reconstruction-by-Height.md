@@ -29,11 +29,17 @@ public:
 结合[explaination](https://leetcode.com/problems/queue-reconstruction-by-height/discuss/89359/Explanation-of-the-neat-Sort%2BInsert-solution)
 ```
 People are only counting (in their k-value) taller or equal-height others standing in front of them. 
-So a smallest person is completely irrelevant for all taller ones. And of all smallest people, the one standing most in the back is even completely irrelevant for everybody 
-else. 
-Nobody is counting that person. So we can first arrange everybody else, ignoring that one person. And then just insert that person appropriately. Now note that while this person is irrelevant for everybody else, everybody else is relevant for this person - this person counts exactly everybody in front of them. So their count-value tells you exactly the index they must be standing.
+So a smallest person is completely irrelevant for all taller ones. And of all smallest people, the one 
+standing most in the back is even completely irrelevant for everybody 
+else. Nobody is counting that person. So we can first arrange everybody else, 
+ignoring that one person. And then just insert that person appropriately.
+Now note that while this person is irrelevant for everybody else, 
+everybody else is relevant for this person - this person counts exactly everybody in front of them. So their count-value tells you exactly the index they must be standing.
 
-So you can first solve the sub-problem with all but that one person and then just insert that person appropriately. And you can solve that sub-problem the same way, first solving the sub-sub-problem with all but the last-smallest person of the subproblem. And so on. The base case is when you have the sub-...-sub-problem of zero people. You're then inserting the people in the reverse order, i.e., that overall last-smallest person in the very end and thus the first-tallest person in the very beginning. That's what the above solution does, Sorting the people from the first-tallest to the last-smallest, and inserting them one by one as appropriate.
+So you can first solve the sub-problem with all but that one person and then just insert that person appropriately. 
+And you can solve that sub-problem the same way, first solving the sub-sub-problem with all but the last-smallest person of the subproblem. 
+And so on. The base case is when you have the sub-...-sub-problem of zero people. You're then inserting the people in the reverse order, i.e., 
+that overall last-smallest person in the very end and thus the first-tallest person in the very beginning. That's what the above solution does, Sorting the people from the first-tallest to the last-smallest, and inserting them one by one as appropriate.
 ```
 
 最后一个人的位置不会影响前面的人，但前面人的位置将影响到最后一个人，因此最后一个人的k必定表示其绝对位置，将其划分为一堆的子问题，每个子问题在解决时都先忽略子问题中最小的的那个数，那个数在所有其他数排列完后再插入那个绝对的位置。
