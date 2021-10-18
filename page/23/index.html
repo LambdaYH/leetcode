@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -333,7 +333,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,7 +437,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -544,7 +544,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -596,11 +596,12 @@
 
       
           <h4 id="shortest-unsorted-continuous-subarray"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/shortest-unsorted-continuous-subarray/">581. Shortest Unsorted Continuous Subarray</a></h4>
-<h5 id="brute-force">Brute Force</h5>
+<h5 id="brute-force超时">Brute Force(超时)</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = nums.size();</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j] &lt; nums[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    r = max(r, j);</span><br><span class="line">                    l = min(l, i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l == nums.size() ? <span class="number">0</span> : r - l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>每次遍历过程中，当<code>nums[j] &lt; nums[i]</code>，意味着2者都不在其正确位置，若要得到正确排序，需要进行位置的交换，但此处不要求交换，因此将i标记为<code>Unsorted Array</code>的最底端，j标记为<code>Unsorted Array</code>的最顶端</p>
+<p>o(n^2) 每次遍历过程中，当<code>nums[j] &lt; nums[i]</code>，意味着2者都不在其正确位置，若要得到正确排序，需要进行位置的交换，但此处不要求交换，因此将i标记为<code>Unsorted Array</code>的最底端，j标记为<code>Unsorted Array</code>的最顶端</p>
 <h5 id="sort">sort</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">numsCopy</span><span class="params">(nums.begin(), nums.end())</span></span>;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> l = nums.size();</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != numsCopy[i])</span><br><span class="line">            &#123;</span><br><span class="line">                l = min(i, l);</span><br><span class="line">                r = max(i, r);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l == nums.size() ? <span class="number">0</span> : r - l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>O(nlogn)</p>
 <p>排序后比较不同处的两个端点</p>
 <h5 id="stack">stack</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">int</span> l = nums.size();</span><br><span class="line">        <span class="keyword">int</span> r = l;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s.empty() &amp;&amp; num &lt; s.top())</span><br><span class="line">            &#123;</span><br><span class="line">                s.pop();</span><br><span class="line">                l = min(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(s.size()), l);</span><br><span class="line">            &#125;</span><br><span class="line">            s.push(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s1;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i = nums.end() - <span class="number">1</span>; i &gt;= nums.begin(); --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s1.empty() &amp;&amp; *i &gt; s1.top())</span><br><span class="line">            &#123;</span><br><span class="line">                s1.pop();</span><br><span class="line">                r = min(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(s1.size()), r);</span><br><span class="line">            &#125;</span><br><span class="line">            s1.push(*i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l == nums.size() ? <span class="number">0</span> : nums.size() - r - l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -658,7 +659,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -769,7 +770,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -877,7 +878,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -981,7 +982,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1098,7 +1099,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1205,7 +1206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-16 21:48:07" itemprop="dateModified" datetime="2021-10-16T21:48:07+08:00">2021-10-16</time>
+                <time title="Modified: 2021-10-18 21:29:50" itemprop="dateModified" datetime="2021-10-18T21:29:50+08:00">2021-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
