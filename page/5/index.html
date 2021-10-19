@@ -194,6 +194,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/25/38.%20%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/25/38.%20%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/" class="post-title-link" itemprop="url">38. 外观数列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-08-25 13:23:24" itemprop="dateCreated datePublished" datetime="2021-08-25T13:23:24+08:00">2021-08-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/08/25/38.%20%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/25/38. 外观数列/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>416</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="外观数列"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-and-say/">38. 外观数列</a></h4>
+<h5 id="模拟">模拟</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">countAndSay</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;1&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">char</span> pre = ret[<span class="number">0</span>];</span><br><span class="line">            <span class="built_in">string</span> tmp;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>, sz = ret.size(); j &lt; sz; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ret[j] != pre)</span><br><span class="line">                &#123;</span><br><span class="line">                    tmp += (<span class="keyword">char</span>)(num + <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">                    tmp += pre;</span><br><span class="line">                    pre = ret[j];</span><br><span class="line">                    num = <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span></span><br><span class="line">                    ++num;</span><br><span class="line">            &#125;</span><br><span class="line">            tmp += (<span class="keyword">char</span>)(num + <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            tmp += pre;</span><br><span class="line">            ret = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/25/797.%20%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E8%B7%AF%E5%BE%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +329,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +435,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,7 +541,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -550,7 +654,7 @@ len_n = len_{n-1} * 2 + 1 \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -657,7 +761,7 @@ len_n = len_{n-1} * 2 + 1 \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -762,7 +866,7 @@ len_n = len_{n-1} * 2 + 1 \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -870,7 +974,7 @@ len_n = len_{n-1} * 2 + 1 \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -984,7 +1088,7 @@ len_n = len_{n-1} * 2 + 1 \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1087,7 +1191,7 @@ len_n = len_{n-1} * 2 + 1 \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
+                <time title="Modified: 2021-10-19 11:43:36" itemprop="dateModified" datetime="2021-10-19T11:43:36+08:00">2021-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1153,112 +1257,6 @@ len_n = len_{n-1} * 2 + 1 \\
 <p>为了维护字符间以及字符删除后的相邻关系以及字符删除后继续维持原来的顺序，栈是一个非常适合的数据结构。</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">removeDuplicateLetters</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> visited[<span class="number">26</span>]&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> num[<span class="number">26</span>]&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> sz = s.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">            ++num[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited[ch - <span class="string">&#x27;a&#x27;</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(!st.empty() &amp;&amp; st.top() &gt; ch &amp;&amp; num[st.top() - <span class="string">&#x27;a&#x27;</span>] != <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    --num[st.top() - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">                    visited[st.top() - <span class="string">&#x27;a&#x27;</span>] = <span class="number">0</span>;</span><br><span class="line">                    st.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                st.push(ch);</span><br><span class="line">                visited[ch - <span class="string">&#x27;a&#x27;</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                --num[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="built_in">string</span> <span class="title">ret</span><span class="params">(st.size(), <span class="string">&#x27; &#x27;</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> index = st.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!st.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            ret[index--] = st.top();</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/17/43.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/17/43.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/" class="post-title-link" itemprop="url">43. 字符串相乘</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-17 13:13:51" itemprop="dateCreated datePublished" datetime="2021-08-17T13:13:51+08:00">2021-08-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-19 11:29:17" itemprop="dateModified" datetime="2021-10-19T11:29:17+08:00">2021-10-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/08/17/43.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/17/43. 字符串相乘/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="字符串相乘"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/multiply-strings/">43. 字符串相乘</a></h4>
-<h5 id="字符串加法模拟出字符串乘法">字符串加法模拟出字符串乘法</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">multiply</span><span class="params">(<span class="built_in">string</span> num1, <span class="built_in">string</span> num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(num1.size() &gt; num2.size())</span><br><span class="line">            swap(num1, num2);</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = num1.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> x = num1[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="built_in">string</span> tmp;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> b = num2.size() - <span class="number">1</span>; b &gt;= <span class="number">0</span>; --b)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> t = (num2[b] - <span class="string">&#x27;0&#x27;</span>) * x + c;</span><br><span class="line">                tmp += <span class="keyword">char</span>(t % <span class="number">10</span> + <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">                c = t / <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(c != <span class="number">0</span>)</span><br><span class="line">                tmp += <span class="keyword">char</span>(c + <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="keyword">while</span>(tmp.size() &gt; <span class="number">1</span> &amp;&amp; tmp.back() == <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">                tmp.pop_back();</span><br><span class="line">            reverse(tmp.begin(), tmp.end());</span><br><span class="line">            num2 += <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            ret = add(ret, tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">add</span><span class="params">(<span class="built_in">string</span>&amp; num1, <span class="built_in">string</span>&amp; num2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> a = num1.size() - <span class="number">1</span>, b = num2.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">string</span> ret;</span><br><span class="line">        <span class="keyword">while</span> (a &gt;= <span class="number">0</span> || b &gt;= <span class="number">0</span> || c)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(a &gt;= <span class="number">0</span>)</span><br><span class="line">                i += num1[a--] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(b &gt;= <span class="number">0</span>)</span><br><span class="line">                i += num2[b--] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            i += c;</span><br><span class="line">            c = i / <span class="number">10</span>;</span><br><span class="line">            i %= <span class="number">10</span>;</span><br><span class="line">            ret += <span class="keyword">char</span>(i + <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(ret.begin(), ret.end());</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="转成数组存储每一位的计算结果最后把数组转成字符串">转成数组存储每一位的计算结果，最后把数组转成字符串</h5>
-<p>c++中字符串可以直接当作数组 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">multiply</span><span class="params">(<span class="built_in">string</span> num1, <span class="built_in">string</span> num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(num1 == <span class="string">&quot;0&quot;</span> || num2 == <span class="string">&quot;0&quot;</span>) <span class="comment">// 如果有0，返回0</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        <span class="keyword">int</span> m = num1.size(), n = num2.size();</span><br><span class="line">        <span class="function"><span class="built_in">string</span> <span class="title">ret</span><span class="params">(m + n, <span class="string">&#x27;0&#x27;</span>)</span></span>; <span class="comment">// 乘积大小不会大于m+n位，具体看题解的证明</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = n - <span class="number">1</span>; j &gt;= <span class="number">0</span>; --j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = (num1[i] - <span class="string">&#x27;0&#x27;</span>) * (num2[j] - <span class="string">&#x27;0&#x27;</span>) + ret[i + j + <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                ret[i + j + <span class="number">1</span>] = tmp % <span class="number">10</span> + <span class="string">&#x27;0&#x27;</span>; <span class="comment">// 第i位和第j位的两个字符串乘法结果到第i+j+1位上</span></span><br><span class="line">                ret[i + j] = (ret[i + j] - <span class="string">&#x27;0&#x27;</span> + tmp / <span class="number">10</span>) + <span class="string">&#x27;0&#x27;</span>; <span class="comment">// 进位存在前一位，由于是从大到小处理，所以不用担心溢出，后续会处理。</span></span><br><span class="line">            &#125;</span><br><span class="line">        <span class="comment">// 去掉开头0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + n; ++i)</span><br><span class="line">            <span class="keyword">if</span>(ret[i] != <span class="string">&#x27;0&#x27;</span>) </span><br><span class="line">                <span class="keyword">return</span> ret.substr(i, m + n - i);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -1345,7 +1343,7 @@ len_n = len_{n-1} * 2 + 1 \\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">321</span>
+          <span class="site-state-item-count">322</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1421,12 +1419,12 @@ len_n = len_{n-1} * 2 + 1 \\
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">385k</span>
+    <span title="Symbols count total">386k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">5:50</span>
+    <span title="Reading time total">5:51</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
