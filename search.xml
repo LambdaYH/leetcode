@@ -1907,6 +1907,22 @@ len_n = len_{n-1} * 2 + 1 \\
       </categories>
   </entry>
   <entry>
+    <title>326. 3的幂</title>
+    <url>/2021/10/19/326.%203%E7%9A%84%E5%B9%82/</url>
+    <content><![CDATA[<h4 id="的幂"><a href="https://leetcode-cn.com/problems/power-of-three/">326. 3的幂</a></h4>
+<h5 id="递归">递归</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">return</span> n == <span class="number">1</span>;    </span><br><span class="line">        <span class="keyword">return</span> n % <span class="number">3</span> == <span class="number">0</span> ? isPowerOfThree(n / <span class="number">3</span>) : <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="循环">循环</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(n &amp;&amp; n % <span class="number">3</span> == <span class="number">0</span>)</span><br><span class="line">            n /= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">return</span> n == <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="数学">数学</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> n &gt; <span class="number">0</span> &amp;&amp; <span class="number">1162261467</span> % n == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在int范围内，3的幂的最大数是1162261467，且1162261467的所有约数都是3的幂，且包含所有情况，所以只需要判断n是不是1162261467的约束就可以</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>328. 奇偶链表</title>
     <url>/2021/10/14/328.%20%E5%A5%87%E5%81%B6%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h4 id="奇偶链表"><a href="https://leetcode-cn.com/problems/odd-even-linked-list/">328. 奇偶链表</a></h4>
