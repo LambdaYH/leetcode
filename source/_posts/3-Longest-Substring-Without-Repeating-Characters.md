@@ -42,3 +42,46 @@ public:
 };
 ```
 ![](https://image.cinte.cc/2021/02/02/b303f008647ee.png)
+
+##### review
+
+sliding window
+```c+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int> memo;
+        int begin = 0, end = 0, sz = s.size();
+        int ret = 0;
+        while(end < sz)
+        {
+            char ch = s[end++];
+            ++memo[ch];
+            while(memo[ch] > 1)
+                --memo[s[begin++]];
+            ret = max(ret, end - begin);
+        }
+        return ret;
+    }
+};
+```
+
+```c++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_set<char> memo;
+        int begin = 0, end = 0, sz = s.size();
+        int ret = 0;
+        while(end < sz)
+        {
+            char ch = s[end++];
+            while(memo.count(ch))
+                memo.erase(s[begin++]);
+            memo.emplace(ch);
+            ret = max(ret, end - begin);
+        }
+        return ret;
+    }
+};
+```
