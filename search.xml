@@ -1555,6 +1555,19 @@ len_n = len_{n-1} * 2 + 1 \\
       </tags>
   </entry>
   <entry>
+    <title>28. 实现 strStr()</title>
+    <url>/2021/10/20/28.%20%E5%AE%9E%E7%8E%B0%20strStr()/</url>
+    <content><![CDATA[<h4 id="实现-strstr"><a href="https://leetcode-cn.com/problems/implement-strstr/">28. 实现 strStr()</a></h4>
+<h5 id="很暴力的匹配">很暴力的匹配</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">strStr</span><span class="params">(<span class="built_in">string</span> haystack, <span class="built_in">string</span> needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(needle.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = haystack.size();</span><br><span class="line">        <span class="keyword">int</span> m = needle.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(haystack[i] == needle[<span class="number">0</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span>(; k &lt; m &amp;&amp; i + k &lt; n &amp;&amp; haystack[i + k] == needle[k]; ++k) &#123;&#125;</span><br><span class="line">                <span class="keyword">if</span>(k == m)</span><br><span class="line">                    <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="kmp">kmp</h5>
+<p>回头看</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>283. Move Zeroes</title>
     <url>/2021/04/14/283-Move-Zeroes/</url>
     <content><![CDATA[<h4 id="move-zeroes"><a href="https://leetcode.com/problems/move-zeroes/">283. Move Zeroes</a></h4>
