@@ -114,9 +114,8 @@ public:
         int sz = s.size();
         for(; end < sz; ++end)
         {
-            if(memo.count(s[end])) // map中默认的初始化为0，所以只有判断重复了才更新begin，否则无法更新到开头的情况
-                begin = max(begin, memo[s[end]] + 1);
-            memo[s[end]] = end;
+            begin = max(begin, memo[s[end]]);
+            memo[s[end]] = end + 1; // map中默认初始化为0，所以这里加以改变
             ret = max(ret, end - begin + 1);
         }
         return ret;
