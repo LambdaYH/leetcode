@@ -85,3 +85,41 @@ public:
     }
 };
 ```
+
+但是如果出现重复的字符的话，begin不需要一个一个递增然后判断，只需要移到重复字符的前一个位置即可，于是可以进行优化
+```c++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        vector<int> memo(256, -1);
+        int begin = -1, end = 0, ret = 0;
+        int sz = s.size();
+        for(; end < sz; ++end)
+        {
+            begin = max(begin, memo[s[end]]); // 如果当前的字符在[begin, end]区域重复了，就把begin移动到前一个s[end]出现的地方，跳跃
+            memo[s[end]] = end; // 更新当前字符最后出现的坐标
+            ret = max(ret, end - begin);
+        }
+        return ret;
+    }
+};
+```
+使用hash map
+```c++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int> memo;
+        int begin = 0, end = 0, ret = 0;
+        int sz = s.size();
+        for(; end < sz; ++end)
+        {
+            if(memo.count(s[end])) // map中默认的初始化为0，所以只有判断重复了才更新begin，否则无法更新到开头的情况
+                begin = max(begin, memo[s[end]] + 1);
+            memo[s[end]] = end;
+            ret = max(ret, end - begin + 1);
+        }
+        return ret;
+    }
+};
+```
