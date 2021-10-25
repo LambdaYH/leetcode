@@ -2138,6 +2138,17 @@ len_n = len_{n-1} * 2 + 1 \\
       </tags>
   </entry>
   <entry>
+    <title>371. 两整数之和</title>
+    <url>/2021/10/24/371.%20%E4%B8%A4%E6%95%B4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    <content><![CDATA[<h4 id="两数之和"><a href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h4>
+<p>同<a href="https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/submissions/">剑指 Offer 65. 不用加减乘除做加法 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(b)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> c = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)(a &amp; b) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            a ^= b;</span><br><span class="line">            b = c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>378. Kth Smallest Element in a Sorted Matrix</title>
     <url>/2021/07/12/378.%20Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix/</url>
     <content><![CDATA[<h4 id="kth-smallest-element-in-a-sorted-matrix"><a href="%5B(1)%20Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix%20-%20LeetCode%5D(https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/)">378. Kth Smallest Element in a Sorted Matrix</a></h4>
