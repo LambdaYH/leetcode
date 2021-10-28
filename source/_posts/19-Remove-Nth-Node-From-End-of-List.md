@@ -89,22 +89,18 @@ public:
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        auto pseudoHead = new ListNode();
-        pseudoHead->next = head;
-        auto walker = pseudoHead;
-        auto runner = pseudoHead;
-        int i = 0;
-        while(i++ <= n)
+        ListNode ret;
+        ret.next = head;
+        ListNode* runner = &ret, *walker = &ret;
+        while(n--)
             runner = runner->next;
-        while(runner)
+        while(runner->next)
         {
-            runner = runner->next;
             walker = walker->next;
+            runner = runner->next;
         }
-        auto p = walker->next;
-        walker->next = p->next;
-        delete p;
-        return pseudoHead->next;
+        walker->next = walker->next->next;
+        return ret.next;
     }
 };
 ```
