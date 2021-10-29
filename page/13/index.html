@@ -194,6 +194,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/12/347.%20Top%20K%20Frequent%20Elements/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/12/347.%20Top%20K%20Frequent%20Elements/" class="post-title-link" itemprop="url">347. Top K Frequent Elements</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-13 02:53:04" itemprop="dateCreated datePublished" datetime="2021-07-13T02:53:04+08:00">2021-07-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/07/12/347.%20Top%20K%20Frequent%20Elements/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/12/347. Top K Frequent Elements/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="top-k-frequent-elements"><a href="%5B(1)%20Top%20K%20Frequent%20Elements%20-%20LeetCode%5D(https://leetcode.com/problems/top-k-frequent-elements/)">347. Top K Frequent Elements</a></h4>
+<h5 id="quick-select">Quick Select</h5>
+<p>快速排序，每次只排一半</p>
+<p>T(n) : <a target="_blank" rel="noopener" href="https://leetcode.com/explore/learn/card/recursion-ii/470/divide-and-conquer/2871/">(1) Explore - LeetCode</a></p>
+<p>b = 2, d=1,a=1</p>
+<p>T(n) = T(n/2) + f(n)=T(n/2)+T(n)</p>
+<figure>
+<img src="https://image.cinte.cc/2021/07/13/1743ba8b9de75.png" alt="1626147961860.png" /><figcaption aria-hidden="true">1626147961860.png</figcaption>
+</figure>
+<p>那么T(n) 为 O(n)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">topKFrequent</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            <span class="built_in">map</span>[num] += <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; it : <span class="built_in">map</span>)</span><br><span class="line">            unique.push_back(it.first);</span><br><span class="line">        sort(<span class="number">0</span>, unique.size() - <span class="number">1</span>, unique.size() - k);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</span><br><span class="line">        <span class="comment">// for(int i = unique.size() - 1; i &gt;= unique.size() - k; --i) // 注意这种情况是错误的，当unique.siez() - k为0时，因为unique.size()是无符号数，而i是有符号数，i与unique.size() - k比较时将会自动转换为无符号数比较，这时的i是一个极大的无符号数，将导致i为负数时仍旧成立，解决方法可以先将unique.size()转为int</span></span><br><span class="line">        <span class="comment">//     ret.push_back(unique[i]);</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i = unique.end() - <span class="number">1</span>; i != unique.end() - <span class="number">1</span> - k; --i)</span><br><span class="line">            ret.push_back(*i);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; unique;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">patition</span><span class="params">(<span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> pivot)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        swap(unique[pivot], unique[lo]);</span><br><span class="line">        <span class="keyword">int</span> i = lo, j = hi + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> c = <span class="built_in">map</span>[unique[lo]];</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; hi &amp;&amp; <span class="built_in">map</span>[unique[++i]] &lt; c) &#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(j &gt; lo &amp;&amp; <span class="built_in">map</span>[unique[--j]] &gt; c) &#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= j)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            swap(unique[i], unique[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        swap(unique[j], unique[lo]);</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">const</span> <span class="keyword">int</span>&amp; k)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(lo &gt;= hi)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">auto</span> pivot = lo + (rand() % (hi - lo + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">auto</span> j = patition(lo, hi, pivot);</span><br><span class="line">        <span class="keyword">if</span>(j == k)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j &gt; k)</span><br><span class="line">            sort(lo, j - <span class="number">1</span>, k);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            sort(j + <span class="number">1</span>, hi, k);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/12/275.%20H%20%E6%8C%87%E6%95%B0%20II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +337,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -329,7 +441,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -447,7 +559,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -550,7 +662,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -658,7 +770,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -767,7 +879,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -870,7 +982,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -976,7 +1088,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1087,7 +1199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 16:06:18" itemprop="dateModified" datetime="2021-10-29T16:06:18+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1142,113 +1254,6 @@
 <h5 id="section"></h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">strToInt</span><span class="params">(<span class="built_in">string</span> str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(str[start] == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            ++start;</span><br><span class="line">        <span class="keyword">bool</span> positive = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(str[start] == <span class="string">&#x27;+&#x27;</span> || str[start] == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">            positive = str[start++] == <span class="string">&#x27;+&#x27;</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; str.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> num = str[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(isValid(str[i]))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(positive)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(ret &gt; INT_MAX / <span class="number">10</span> || (ret == INT_MAX / <span class="number">10</span> &amp;&amp; num &gt;= INT_MAX % <span class="number">10</span>))</span><br><span class="line">                        <span class="keyword">return</span> INT_MAX;</span><br><span class="line">                &#125;<span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(-ret &lt; INT_MIN / <span class="number">10</span> || (-ret == INT_MIN / <span class="number">10</span> &amp;&amp; -num &lt;= INT_MIN % <span class="number">10</span>))</span><br><span class="line">                        <span class="keyword">return</span> INT_MIN;</span><br><span class="line">                &#125;</span><br><span class="line">                ret = ret * <span class="number">10</span> + num;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> positive ? ret : -ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="keyword">char</span> ch)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>稍微优化一下 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">strToInt</span><span class="params">(<span class="built_in">string</span> str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(str[start] == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            ++start;</span><br><span class="line">        <span class="keyword">bool</span> positive = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(str[start] == <span class="string">&#x27;+&#x27;</span> || str[start] == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">            positive = str[start++] == <span class="string">&#x27;+&#x27;</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; str.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> num = str[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(isValid(str[i]))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ret &gt; <span class="number">214748364</span> || (ret == <span class="number">214748364</span> &amp;&amp; num &gt; <span class="number">7</span>)) <span class="comment">// 即使当num == 8时,如果是负数，虽然没越界，但是假设他越界了，依旧可以返回正确的值</span></span><br><span class="line">                    <span class="keyword">return</span> positive ? INT_MAX : INT_MIN;</span><br><span class="line">                ret = ret * <span class="number">10</span> + num;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> positive ? ret : -ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="keyword">char</span> ch)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/11/%E5%89%91%E6%8C%87%20Offer%2060.%20n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/11/%E5%89%91%E6%8C%87%20Offer%2060.%20n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/" class="post-title-link" itemprop="url">剑指 Offer 60. n个骰子的点数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-11 08:00:33" itemprop="dateCreated datePublished" datetime="2021-07-11T08:00:33+08:00">2021-07-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:00:13" itemprop="dateModified" datetime="2021-10-29T16:00:13+08:00">2021-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/07/11/%E5%89%91%E6%8C%87%20Offer%2060.%20n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/11/剑指 Offer 60. n个骰子的点数/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>746</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="剑指-offer-60.-n个骰子的点数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof/">剑指 Offer 60. n个骰子的点数</a></h4>
-<h5 id="dp真的妙">dp(真的妙)</h5>
-<p>对于n个骰子来说，他们值的和最小值是所有骰子都是1，最大值是所有骰子都是6，所以他们和的范围是<code>[n, 6n]</code>，所以总共有<code>6n - n + ! = 5n + 1</code>种情况。</p>
-<p>对于n个骰子的值x来说，设n-1个骰子值x的概率是<code>f(n - 1, x)</code>，则<code>f(n, x) = f(n - 1, x - 1) * 1 / 6 + f(n - 1, x - 2) * 1 / 6 ... f(n - 1, x - 6) * 1 / 6</code>，这个式子表示当第n个骰子取值为y时，概率就是前n个骰子取值为<code>x - y</code>乘上当前骰子取y的概率，这样子就形成了递推公式。</p>
-<p>但是<code>x - y</code>会产生越界问题，由此转变思想，当n-1个骰子取值为x时，n个骰子的取值只能是<code>x+1 ~ x+6</code>。由此不用考虑越界。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; <span class="title">dicesProbability</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; <span class="title">pre</span><span class="params">(<span class="number">6</span>, <span class="number">1</span> / <span class="number">6.0</span>)</span></span>; <span class="comment">// 初始化一个骰子的情况</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) <span class="comment">// 从第二个骰子开始</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; <span class="title">tmp</span><span class="params">(<span class="number">5</span> * i + <span class="number">1</span>, <span class="number">0</span>)</span></span>; <span class="comment">// i个骰子可能的情况共有5n+1种</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; pre.size(); ++j) <span class="comment">// 对i-1个骰子情况中可能的取值进行遍历，表示递推式中的x</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">6</span>; ++k) <span class="comment">// 对i-1个骰子可能的取值加上1到6，就是i个骰子情况，由于前面取值加上1到6可能会有重复情况，而把这些重复情况概率加起来就是最终概率。</span></span><br><span class="line">                    tmp[k + j] += pre[j] * <span class="number">1</span> / <span class="number">6.0</span>;</span><br><span class="line">            pre = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1335,7 +1340,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">333</span>
+          <span class="site-state-item-count">334</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1411,12 +1416,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">398k</span>
+    <span title="Symbols count total">399k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:02</span>
+    <span title="Reading time total">6:03</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
