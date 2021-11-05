@@ -3160,9 +3160,9 @@ len_n = len_{n-1} * 2 + 1 \\
 <p>设<code>dp[i][j]</code>代表从<code>word1[0...i)</code>转到<code>word2[0...j)</code>所需的最小次数。假设已知<code>dp[i - 1][j - 1]</code>，即<code>word1[0...i - 1)</code>转到<code>word2[0...j - 1)</code>所需的最小步数，此时可保证，将面临一些几种情况，此时可保证<code>word1[0...i - 1) == word2[0...j - 1)</code>。</p>
 <ol type="1">
 <li>当<code>word1[i - 1] == word2[j - 1]</code>, 则<code>dp[i][j] = dp[i - 1][j - 1]</code>。</li>
-<li>当<code>word1[i - 1] != word2[j - 1]</code>, 则需要<code>replace(word1[i - 1], word2[j - 1])</code>，<code>dp[i][j] = dp[i - 1][j - 1] + 1</code>。</li>
-<li>当<code>word1[0...i - 1) == word2[0...j)</code>，则需要<code>delete(word1[i - 1])</code>，<code>dp[i][j] = dp[i - 1][j] + 1</code>。</li>
-<li>当<code>word1[0...i - 1) + word2[j - 1] == word2[0...j)</code>，则需要<code>insert(word2[j - 1])</code>，<code>dp[i][j] = dp[i][j - 1] + 1</code>。 对于后三种情况，取最小值即可忽略复杂的判断(考虑replace，insert，delete)三种操作</li>
+<li>当<code>word1[i - 1] != word2[j - 1]</code>, 则可以<code>replace(word1[i - 1], word2[j - 1])</code>，<code>dp[i][j] = dp[i - 1][j - 1] + 1</code>。</li>
+<li>当<code>word1[0...i - 1) == word2[0...j)</code>，则可以<code>delete(word1[i - 1])</code>，<code>dp[i][j] = dp[i - 1][j] + 1</code>。</li>
+<li>当<code>word1[0...i - 1) + word2[j - 1] == word2[0...j)</code>，则可以<code>insert(word2[j - 1])</code>，<code>dp[i][j] = dp[i][j - 1] + 1</code>。 对于后三种情况，需要获得最小的步数，因此取最小值即可忽略复杂的判断(考虑replace，insert，delete)三种操作</li>
 </ol>
 <p>base:</p>
 <ol type="1">

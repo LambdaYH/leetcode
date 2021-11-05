@@ -28,7 +28,7 @@
 <meta property="og:description" content="72. Edit Distance  12345678910111213141516171819202122class Solution &amp;#123;public:    int minDistance(string word1, string word2) &amp;#123;        vector&lt;vector&lt;int&gt;&gt; dp(word1.size() + 1, vec">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-05T23:13:29.000Z">
-<meta property="article:modified_time" content="2021-11-05T02:05:53.402Z">
+<meta property="article:modified_time" content="2021-11-05T09:12:53.621Z">
 <meta property="article:author" content="Lambda_YH">
 <meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-05 10:05:53" itemprop="dateModified" datetime="2021-11-05T10:05:53+08:00">2021-11-05</time>
+                <time title="Modified: 2021-11-05 17:12:53" itemprop="dateModified" datetime="2021-11-05T17:12:53+08:00">2021-11-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,9 +289,9 @@
 <p>设<code>dp[i][j]</code>代表从<code>word1[0...i)</code>转到<code>word2[0...j)</code>所需的最小次数。假设已知<code>dp[i - 1][j - 1]</code>，即<code>word1[0...i - 1)</code>转到<code>word2[0...j - 1)</code>所需的最小步数，此时可保证，将面临一些几种情况，此时可保证<code>word1[0...i - 1) == word2[0...j - 1)</code>。</p>
 <ol type="1">
 <li>当<code>word1[i - 1] == word2[j - 1]</code>, 则<code>dp[i][j] = dp[i - 1][j - 1]</code>。</li>
-<li>当<code>word1[i - 1] != word2[j - 1]</code>, 则需要<code>replace(word1[i - 1], word2[j - 1])</code>，<code>dp[i][j] = dp[i - 1][j - 1] + 1</code>。</li>
-<li>当<code>word1[0...i - 1) == word2[0...j)</code>，则需要<code>delete(word1[i - 1])</code>，<code>dp[i][j] = dp[i - 1][j] + 1</code>。</li>
-<li>当<code>word1[0...i - 1) + word2[j - 1] == word2[0...j)</code>，则需要<code>insert(word2[j - 1])</code>，<code>dp[i][j] = dp[i][j - 1] + 1</code>。 对于后三种情况，取最小值即可忽略复杂的判断(考虑replace，insert，delete)三种操作</li>
+<li>当<code>word1[i - 1] != word2[j - 1]</code>, 则可以<code>replace(word1[i - 1], word2[j - 1])</code>，<code>dp[i][j] = dp[i - 1][j - 1] + 1</code>。</li>
+<li>当<code>word1[0...i - 1) == word2[0...j)</code>，则可以<code>delete(word1[i - 1])</code>，<code>dp[i][j] = dp[i - 1][j] + 1</code>。</li>
+<li>当<code>word1[0...i - 1) + word2[j - 1] == word2[0...j)</code>，则可以<code>insert(word2[j - 1])</code>，<code>dp[i][j] = dp[i][j - 1] + 1</code>。 对于后三种情况，需要获得最小的步数，因此取最小值即可忽略复杂的判断(考虑replace，insert，delete)三种操作</li>
 </ol>
 <p>base:</p>
 <ol type="1">
