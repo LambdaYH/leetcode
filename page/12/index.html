@@ -194,6 +194,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/18/621.%20Task%20Scheduler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/18/621.%20Task%20Scheduler/" class="post-title-link" itemprop="url">621. Task Scheduler</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-18 08:14:47" itemprop="dateCreated datePublished" datetime="2021-07-18T08:14:47+08:00">2021-07-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/07/18/621.%20Task%20Scheduler/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/18/621. Task Scheduler/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="task-scheduler"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/task-scheduler">621. Task Scheduler</a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">leastInterval</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&amp; tasks, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxFreqNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxVal = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> taskCount[<span class="number">26</span>]&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; task : tasks)</span><br><span class="line">        &#123;</span><br><span class="line">            ++taskCount[task - <span class="string">&#x27;A&#x27;</span>];</span><br><span class="line">            <span class="keyword">if</span>(maxVal == taskCount[task - <span class="string">&#x27;A&#x27;</span>])</span><br><span class="line">                ++maxFreqNum;</span><br><span class="line">            <span class="keyword">if</span>(taskCount[task - <span class="string">&#x27;A&#x27;</span>] &gt; maxVal)</span><br><span class="line">            &#123;</span><br><span class="line">                maxFreqNum = <span class="number">1</span>;</span><br><span class="line">                maxVal = taskCount[task - <span class="string">&#x27;A&#x27;</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> leftSpace = (maxVal - <span class="number">1</span>) * (n - maxFreqNum + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> leftTasks = tasks.size() - maxFreqNum * maxVal;</span><br><span class="line">        <span class="keyword">int</span> idle = max(<span class="number">0</span>, leftSpace - leftTasks);</span><br><span class="line">        <span class="keyword">return</span> idle + tasks.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>首先对于AAABBCC的情况，先获得出现最多的任务</p>
+<p>然后假设n=2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A??A??A</span><br></pre></td></tr></table></figure>
+<p>先放A，然后把中间空余的用其他的来填满，因为其他的如果有多个，那么只需要依次填入到每个间隔中去就可以了，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AB?AB?A</span><br></pre></td></tr></table></figure>
+<p>依旧可以保证他们的间隔符合要求。</p>
+<p>如果有多个出现最多次数的任务，比如AAABBBC，n=2那就</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A??A??A-&gt;AB?AB?AB</span><br></pre></td></tr></table></figure>
+<p>把AB视为一个整体X</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X?X?X</span><br></pre></td></tr></table></figure>
+<p>此时就转化为一个XXXC,n=1的问题</p>
+<p>由此我们可以先计算出出现最多的任务的出现次数<code>maxVal</code>，和出现最多的任务同时有几个<code>maxFreqNum</code>。</p>
+<p>可以计算得到把这些任务放置后，空余的空间就是</p>
+<p><code>leftSpace = (maxVal - 1) * (n - maxFreqNum + 1)</code></p>
+<p>剩余的任务就是<code>leftTasks = tasks.size() - maxFreqNum * maxVal</code></p>
+<p>然后把其他的元素排放进空余的空间中去，如果空余的空间足够。那么需要填充idle空间就是</p>
+<p><code>leftSpace - leftTasks</code>，如果空余的空间不够了,那么上面算式结果是负，那么idle的空间是0，然后将剩余的任务填充进入之前每个分块的末尾即可。所以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max(0, leftSpace - leftTasks)</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<p>AAABBBCC,n=1。放完最高频率后是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ABABAB</span><br></pre></td></tr></table></figure>
+<p>那么下一步只需要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ABCABCAB</span><br></pre></td></tr></table></figure>
+<p>如果<code>maxFreqNum &gt; n</code></p>
+<p>例如AAABBBCCCDD,n = 1</p>
+<p>只需要这样排</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ABCABCABC-&gt;ABCDABCDABC</span><br></pre></td></tr></table></figure>
+<p>因为<code>maxFreqNum &gt; n</code>可以保证符合要求</p>
+<p>排列后由于<code>n - maxFreqNum + 1</code>是负数，所以剩余空间是负数，最终idle还是0，所以结果不变。</p>
+<p>所有情况下的结果都是任务数和需要填充的idle数</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/18/617.%20Merge%20Two%20Binary%20Trees/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +358,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +464,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -440,7 +573,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -549,7 +682,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -655,7 +788,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -761,7 +894,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -882,7 +1015,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -987,7 +1120,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1091,7 +1224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
+                <time title="Modified: 2021-11-06 21:58:52" itemprop="dateModified" datetime="2021-11-06T21:58:52+08:00">2021-11-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1150,114 +1283,6 @@
 <p>我好傻</p>
 <p>简单的思考方法:</p>
 <p><strong>中序单增</strong>，于是反中序为单减，对于每个节点加上他左边的和就行</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/13/461.%20%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/13/461.%20%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/" class="post-title-link" itemprop="url">461. 汉明距离</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-13 10:34:39" itemprop="dateCreated datePublished" datetime="2021-07-13T10:34:39+08:00">2021-07-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-06 15:26:00" itemprop="dateModified" datetime="2021-11-06T15:26:00+08:00">2021-11-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/07/13/461.%20%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/13/461. 汉明距离/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>414</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="汉明距离"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/hamming-distance/">461. 汉明距离</a></h4>
-<h5 id="直接移位">直接移位</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingDistance</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        x ^= y;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)</span><br><span class="line">        &#123;</span><br><span class="line">            ret += x &amp; <span class="number">1</span>;</span><br><span class="line">            x &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="只遍历1">只遍历1</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingDistance</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        x ^= y;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)</span><br><span class="line">        &#123;</span><br><span class="line">            x &amp;= x - <span class="number">1</span>;</span><br><span class="line">            ++ret;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>x-1会将x中最近的一个1变成0，而这个1左边的全变成1。</p>
-<p>所以<code>x&amp;x-1</code>会使得这个最近的1及其右边全都变成0，而左边保持不变，则每次都如此操作，循环次数就是1的个数</p>
 
       
     </div>
@@ -1344,7 +1369,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">335</span>
+          <span class="site-state-item-count">336</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1420,12 +1445,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">409k</span>
+    <span title="Symbols count total">411k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:12</span>
+    <span title="Reading time total">6:14</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
