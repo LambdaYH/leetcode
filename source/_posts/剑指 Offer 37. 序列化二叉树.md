@@ -121,3 +121,94 @@ public:
 // Codec codec;
 // codec.deserialize(codec.serialize(root));
 ```
+
+review
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if(!root)
+            return "";
+        string ret;
+        queue<TreeNode*> q;
+        q.push(root);
+        while(!q.empty())
+        {
+            auto p = q.front();
+            q.pop();
+            if(p)
+            {
+                q.push(p->left);
+                q.push(p->right);
+                ret += to_string(p->val);
+            }
+            else
+                ret += "n";
+            ret += ",";
+        }
+        return ret;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        if(data.empty())
+            return nullptr;
+        TreeNode* root = nullptr;
+        TreeNode* ret;
+        int start = 0, end = 0;
+        int n = data.size();
+        bool left = false;
+        queue<TreeNode*> q;
+        while(end < n)
+        {
+            if(data[end] == ',')
+            {
+                auto str = data.substr(start, end - start);
+                TreeNode* node = nullptr;
+                if(str != "n")
+                {
+                    node = new TreeNode(stoi(str));
+                    q.push(node);
+                }
+                if(!root)
+                {
+                    root = node;
+                    ret = root;
+                }else
+                {
+                    if(!left)
+                    {
+                        root->left = node;
+                        left = true;
+                    }
+                    else
+                    {
+                        root->right = node;
+                        left = false;
+                        q.pop();
+                        root = q.front();
+                    }
+                }
+                start = end + 1;
+            }
+            ++end;
+        }
+        return ret;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
+// codec.deserialize(codec.serialize(root));
+```
