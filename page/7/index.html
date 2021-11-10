@@ -194,6 +194,122 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/19/316.%20%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/19/316.%20%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/" class="post-title-link" itemprop="url">316. 去除重复字母</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-08-19 08:47:20" itemprop="dateCreated datePublished" datetime="2021-08-19T08:47:20+08:00">2021-08-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/08/19/316.%20%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/19/316. 去除重复字母/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="去除重复字母"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicate-letters/">316. 去除重复字母</a></h4>
+<p><strong>前置知识：</strong></p>
+<p>​ 对于一个字符串，如果要从中去除一个字符使得字符串的字典序最小。那么需要去除的是最靠左边的一个<code>s[i] &gt; s[i + 1]</code>的字符串，因为最前面的最字典序影响最大。这个<code>s[i]</code>称为关键字符。</p>
+<p>本题不能打乱原来的顺序，且每个字母只出现一次，因为所需的是从头开始遍历，处理遍历到的所有的关键字符。</p>
+<p>维护一个栈</p>
+<ol type="1">
+<li>当栈顶&gt;当前字符时候，删除栈顶。但是因为每个字母都要出现一次，因此当后面这个栈顶字母不再出现时，就不能删除。</li>
+<li>当栈顶&lt;当前字符时候，压入栈，但由于不能重复，所以如果栈中已有同个字符，就不压入。</li>
+<li>当相等时，不能压入，因为不能重复。</li>
+</ol>
+<p><strong>为什么要用栈呢</strong></p>
+<blockquote>
+<p>为了维护字符间以及字符删除后的相邻关系以及字符删除后继续维持原来的顺序，栈是一个非常适合的数据结构。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">removeDuplicateLetters</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> visited[<span class="number">26</span>]&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> num[<span class="number">26</span>]&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">int</span> sz = s.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">            ++num[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited[ch - <span class="string">&#x27;a&#x27;</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(!st.empty() &amp;&amp; st.top() &gt; ch &amp;&amp; num[st.top() - <span class="string">&#x27;a&#x27;</span>] != <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    --num[st.top() - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">                    visited[st.top() - <span class="string">&#x27;a&#x27;</span>] = <span class="number">0</span>;</span><br><span class="line">                    st.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                st.push(ch);</span><br><span class="line">                visited[ch - <span class="string">&#x27;a&#x27;</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                --num[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="built_in">string</span> <span class="title">ret</span><span class="params">(st.size(), <span class="string">&#x27; &#x27;</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> index = st.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!st.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            ret[index--] = st.top();</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/17/43.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +341,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +447,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,7 +553,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -549,7 +665,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -653,7 +769,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -757,7 +873,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -866,7 +982,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -969,7 +1085,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1074,7 +1190,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
+                <time title="Modified: 2021-11-10 20:14:19" itemprop="dateModified" datetime="2021-11-10T20:14:19+08:00">2021-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1140,110 +1256,6 @@ abs(a) = ((a &gt;&gt; 31) \^{} a) - (a &gt;&gt; 31)
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> d = (<span class="keyword">long</span>)a - (<span class="keyword">long</span>)b; <span class="comment">// 求出差</span></span><br><span class="line">        <span class="keyword">int</span> k = d &gt;&gt; <span class="number">63</span>; <span class="comment">// 注意是有符号数右移，所以如果a&gt;b,k=0,如果a&lt;b,k=-1</span></span><br><span class="line">        <span class="comment">// k = 0时，= a</span></span><br><span class="line">        <span class="comment">// k = -1时，=-1 * -1 * b = b</span></span><br><span class="line">        <span class="keyword">return</span> (k + <span class="number">1</span>) * a - k * b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h5 id="解法3">解法3</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> aSign = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)a &gt;&gt; <span class="number">31</span>; <span class="comment">// 只判断符号位，需要转为逻辑右移，否则移完会出现1</span></span><br><span class="line">       <span class="keyword">int</span> bSign = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)b &gt;&gt; <span class="number">31</span>;</span><br><span class="line">       <span class="keyword">int</span> diff = aSign ^ bSign; <span class="comment">// 相同为0，相异为1</span></span><br><span class="line">       <span class="comment">// 如果diff为1，异号，当k=0取a，反之取1，此时短路运算符||不会导致后面的溢出发生</span></span><br><span class="line">       <span class="comment">// diff为0，同号，运算时不会产生运算溢出，所以直接减然后取符号位，因为这里是逻辑与，所以无所谓算术右移逻辑右移</span></span><br><span class="line">       <span class="keyword">int</span> k = diff &amp;&amp; aSign || ((diff ^ <span class="number">1</span>) &amp;&amp; ((a - b) &gt;&gt; <span class="number">31</span>));</span><br><span class="line">       <span class="keyword">return</span> (k ^ <span class="number">1</span>) * a + k * b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/09/313.%20%E8%B6%85%E7%BA%A7%E4%B8%91%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/09/313.%20%E8%B6%85%E7%BA%A7%E4%B8%91%E6%95%B0/" class="post-title-link" itemprop="url">313. 超级丑数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-09 08:03:29" itemprop="dateCreated datePublished" datetime="2021-08-09T08:03:29+08:00">2021-08-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-10 11:26:06" itemprop="dateModified" datetime="2021-11-10T11:26:06+08:00">2021-11-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/08/09/313.%20%E8%B6%85%E7%BA%A7%E4%B8%91%E6%95%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/09/313. 超级丑数/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>504</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="超级丑数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/super-ugly-number/">313. 超级丑数</a></h4>
-<p>类似<a href="https://leetcode.cinte.cc/2021/05/17/264.%20Ugly%20Number%20II/">264. Ugly Number II | Cinte's Leetcode Record</a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">nthSuperUglyNumber</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; primes)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">point</span><span class="params">(primes.size(), <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> m = primes.size();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ret</span><span class="params">(n)</span></span>;</span><br><span class="line">        ret[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> minVal = INT_MAX;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                minVal = min(ret[point[j]] * primes[j], minVal);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; ++j)</span><br><span class="line">                <span class="keyword">if</span>(minVal == ret[point[j]] * primes[j])</span><br><span class="line">                    ++point[j];</span><br><span class="line">            ret[i] = minVal;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1330,7 +1342,7 @@ abs(a) = ((a &gt;&gt; 31) \^{} a) - (a &gt;&gt; 31)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">336</span>
+          <span class="site-state-item-count">337</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1411,7 +1423,7 @@ abs(a) = ((a &gt;&gt; 31) \^{} a) - (a &gt;&gt; 31)
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:17</span>
+    <span title="Reading time total">6:18</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
