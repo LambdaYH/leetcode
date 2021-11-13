@@ -194,6 +194,127 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/30/528.%20%E6%8C%89%E6%9D%83%E9%87%8D%E9%9A%8F%E6%9C%BA%E9%80%89%E6%8B%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/30/528.%20%E6%8C%89%E6%9D%83%E9%87%8D%E9%9A%8F%E6%9C%BA%E9%80%89%E6%8B%A9/" class="post-title-link" itemprop="url">528. 按权重随机选择</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-08-31 02:59:45" itemprop="dateCreated datePublished" datetime="2021-08-31T02:59:45+08:00">2021-08-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/08/30/528.%20%E6%8C%89%E6%9D%83%E9%87%8D%E9%9A%8F%E6%9C%BA%E9%80%89%E6%8B%A9/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/30/528. 按权重随机选择/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="按权重随机选择"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/random-pick-with-weight/">528. 按权重随机选择</a></h4>
+<p>把权重分成长度</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Solution(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; w) : ww(w), total(<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> end = <span class="number">0</span>;</span><br><span class="line">        sz = w.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : ww)</span><br><span class="line">        &#123;</span><br><span class="line">            total += num;</span><br><span class="line">            num = end;</span><br><span class="line">            end = total;</span><br><span class="line">        &#125;</span><br><span class="line">        u = uniform_int_distribution&lt;<span class="keyword">int</span>&gt;(<span class="number">0</span>, total - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pickIndex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pick = u(e);</span><br><span class="line">        <span class="keyword">int</span> lo = <span class="number">0</span>, hi = sz - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt; hi)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(ww[mid] &gt; pick)</span><br><span class="line">                hi = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                lo = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hi;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ww;</span><br><span class="line">    <span class="keyword">int</span> sz;</span><br><span class="line">    <span class="keyword">int</span> total;</span><br><span class="line">    mt19937 e;</span><br><span class="line">    <span class="comment">// default_random_engine e;</span></span><br><span class="line">    uniform_int_distribution&lt;<span class="keyword">int</span>&gt; u;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Solution object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Solution* obj = new Solution(w);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;pickIndex();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h5 id="使用stl的版本">使用STL的版本</h5>
+<p>右开左闭</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Solution(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; w) : e(random_device&#123;&#125;()), u(<span class="number">0</span>, accumulate(w.begin(), w.end(), <span class="number">0</span>) - <span class="number">1</span>) &#123;</span><br><span class="line">        partial_sum(w.begin(), w.end(), back_inserter(pre));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pickIndex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = u(e);</span><br><span class="line">        <span class="keyword">return</span> upper_bound(pre.begin(), pre.end(), x) - pre.begin();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    mt19937 e;</span><br><span class="line">    uniform_int_distribution&lt;<span class="keyword">int</span>&gt; u;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Solution object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Solution* obj = new Solution(w);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;pickIndex();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<p>右闭左开</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Solution(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; w) : e(random_device&#123;&#125;()), u(<span class="number">1</span>, accumulate(w.begin(), w.end(), <span class="number">0</span>)) &#123;</span><br><span class="line">        partial_sum(w.begin(), w.end(), back_inserter(pre));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pickIndex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = u(e);</span><br><span class="line">        <span class="keyword">return</span> lower_bound(pre.begin(), pre.end(), x) - pre.begin();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    mt19937 e;</span><br><span class="line">    uniform_int_distribution&lt;<span class="keyword">int</span>&gt; u;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Solution object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Solution* obj = new Solution(w);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;pickIndex();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>C++STL说明：</p>
+<ol type="1">
+<li>mt19937头文件是<random> 是伪随机数产生器，用于产生高性能的随机数</li>
+<li>uniform_int_distribution 头文件在<random>中，是一个随机数分布类，参数为生成随机数的类型，构造函数接受两个值表示区间段</li>
+<li>accumulate 头文件在<numeric>中，求特定范围内所有元素的和。</li>
+<li>spartial_sum函数的头文件在<numeric>，对(first, last)内的元素逐个求累计和，放在result容器内</li>
+<li>back_inserter函数头文件<iterator>，用于在末尾插入元素。</li>
+<li>lower_bound头文件在<algorithm>，用于找出范围内不大于num的第一个元素</li>
+<li>upper_bound头文件在<algorithm>，用于找出范围内大于num的第一个元素</li>
+<li>random_device头文件再<random>，是非确定性随机数生成器，生成均匀分布的无符号数。生成器可能会依靠非确定源（比如硬件设备）生成真随机数，不过在环境受限时生成伪随机数。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/30/%E5%89%91%E6%8C%87%20Offer%2017.%20%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +346,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -340,7 +461,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -445,7 +566,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -550,7 +671,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -656,7 +777,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -760,7 +881,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -864,7 +985,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -970,7 +1091,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1076,7 +1197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1139,113 +1260,6 @@ len_n = len_{n-1} * 2 + 1 \\
 = 2^n - 1
 \]</span></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// S_n的长度为2^n - 1，因此S_n是由2^(n - 1) - 1 + 1 + 2^(n - 1) - 1构成的。所以中间放&#x27;1&#x27;的地方是2^(n-1)</span></span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">findKthBit</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当k为1时，恒为0，如果没有这一行，当n = 1,k = 1时会判定为1</span></span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="comment">// 中间值，是当前字符串放&#x27;1&#x27;的位置</span></span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">1</span> &lt;&lt; (n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(mid == k)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 如果k&lt;mid，在前半字符串中递归搜索</span></span><br><span class="line">            <span class="keyword">if</span>(k &lt; mid)</span><br><span class="line">                <span class="keyword">return</span> findKthBit(n - <span class="number">1</span>, k);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="comment">// 如果k &gt; mid，在前半字符串的反转中搜索，等效为将k变换后搜索新的k</span></span><br><span class="line">                <span class="keyword">return</span> invert(findKthBit(n - <span class="number">1</span>, mid * <span class="number">2</span> - k));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">invert</span><span class="params">(<span class="keyword">char</span> ch)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">char</span>)(<span class="string">&#x27;1&#x27;</span> - ch + <span class="string">&#x27;0&#x27;</span>); <span class="comment">// 虽然条件传送可以避免后续步骤中的分支预测错误惩罚，但当前分支依旧会有惩罚，因此使用算数运算可以避免这种分支预测错误带来的惩罚。</span></span><br><span class="line">        <span class="comment">// return ch == &#x27;0&#x27; ? &#x27;1&#x27; : &#x27;0&#x27;;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/23/881.%20%E6%95%91%E7%94%9F%E8%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/23/881.%20%E6%95%91%E7%94%9F%E8%89%87/" class="post-title-link" itemprop="url">881. 救生艇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-23 08:29:02" itemprop="dateCreated datePublished" datetime="2021-08-23T08:29:02+08:00">2021-08-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/08/23/881.%20%E6%95%91%E7%94%9F%E8%89%87/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/23/881. 救生艇/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>608</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="救生艇"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/boats-to-save-people/">881. 救生艇</a></h4>
-<p>如果最轻的人可以和任何人配对，那么它也可以和最重的人配对。而如果不行，那最重的人无论如何都只能一个人做了。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numRescueBoats</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; people, <span class="keyword">int</span> limit)</span> </span>&#123;</span><br><span class="line">        sort(people.begin(), people.end());</span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>, end = people.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(begin &lt;= end) <span class="comment">// 当相等时表示最后只有1个人了，无论什么情况都需要再加一艘船。</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(people[begin] + people[end] &lt;= limit)</span><br><span class="line">                ++begin;</span><br><span class="line">            --end;</span><br><span class="line">            ++ret;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>最重的走的时候，如果能带，一定要带个人走，这才是合理的，否则，例如【1,3】，limit = 4，这种，3先自己坐船走，1只能再乘一条船。显然不合理。 那最终的走的时候，带谁走呢，显然是最轻的（当然他也可能能够次轻的同乘一条船），反证下，如果因为它带了最轻的，导致次轻的无法跟其他人同船，那么次轻的也一定无法跟最重的乘船。如果次轻的可以跟其他人同船，则反正同船了，跟谁效果都一样。所以 不会因为最重的选择了最轻的同船，导致后面的配对结果更坏。</p>
-</blockquote>
 
       
     </div>
@@ -1332,7 +1346,7 @@ len_n = len_{n-1} * 2 + 1 \\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">341</span>
+          <span class="site-state-item-count">342</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

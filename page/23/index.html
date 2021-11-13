@@ -194,6 +194,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/14/59.%20Spiral%20Matrix%20II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/14/59.%20Spiral%20Matrix%20II/" class="post-title-link" itemprop="url">59. Spiral Matrix II</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-14 08:50:43" itemprop="dateCreated datePublished" datetime="2021-05-14T08:50:43+08:00">2021-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/05/14/59.%20Spiral%20Matrix%20II/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/14/59. Spiral Matrix II/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="spiral-matrix-ii"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/spiral-matrix-ii/">59. Spiral Matrix II</a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; generateMatrix(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n));</span><br><span class="line">        <span class="keyword">int</span> top = <span class="number">0</span>, bottom = n - <span class="number">1</span>, left = <span class="number">0</span>, right = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(num &lt;= n * n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = left; i &lt;= right; ++i)</span><br><span class="line">                ret[top][i] = num++;</span><br><span class="line">            ++top;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = top; i &lt;= bottom; ++i)</span><br><span class="line">                ret[i][right] = num++;</span><br><span class="line">            --right;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = right; i &gt;= left; --i)</span><br><span class="line">                ret[bottom][i] = num++;</span><br><span class="line">            --bottom;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = bottom; i &gt;= top; --i)</span><br><span class="line">                ret[i][left] = num++;</span><br><span class="line">            ++left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="section">2</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; generateMatrix(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">int</span> dir[][<span class="number">2</span>]&#123;&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> d = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>, k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n * n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ret[m][k] = i;</span><br><span class="line">            <span class="keyword">int</span> nextm = m + dir[d][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> nextk = k + dir[d][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(nextm &lt; <span class="number">0</span> || nextm &gt;= n || nextk &lt; <span class="number">0</span> || nextk &gt;= n || ret[nextm][nextk] &gt; <span class="number">0</span>)</span><br><span class="line">                d = (d + <span class="number">1</span>) % <span class="number">4</span>;</span><br><span class="line">            m += dir[d][<span class="number">0</span>];</span><br><span class="line">            k += dir[d][<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/14/57.%20Insert%20Interval/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +330,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -332,7 +437,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,7 +542,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -561,7 +666,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -684,7 +789,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -792,7 +897,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -897,7 +1002,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1005,7 +1110,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1116,7 +1221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
+                <time title="Modified: 2021-11-13 17:05:13" itemprop="dateModified" datetime="2021-11-13T17:05:13+08:00">2021-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1177,115 +1282,6 @@
 <img src="https://image.cinte.cc/2021/05/08/c53ef4b66adbe.png" alt="1620472343565.png" /><figcaption aria-hidden="true">1620472343565.png</figcaption>
 </figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 0 1 0 0</span><br><span class="line">1 0 1 1 1</span><br><span class="line">1 1 1 1 1</span><br><span class="line">1 0 0 1 0</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/06/239.%20Sliding%20Window%20Maximum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/06/239.%20Sliding%20Window%20Maximum/" class="post-title-link" itemprop="url">239. Sliding Window Maximum</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-06 12:30:07" itemprop="dateCreated datePublished" datetime="2021-05-06T12:30:07+08:00">2021-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-13 15:37:43" itemprop="dateModified" datetime="2021-11-13T15:37:43+08:00">2021-11-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/05/06/239.%20Sliding%20Window%20Maximum/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/06/239. Sliding Window Maximum/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>765</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="sliding-window-maximum"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/sliding-window-maximum/">239. Sliding Window Maximum</a></h4>
-<h5 id="section"></h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; dq;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!dq.empty() &amp;&amp; dq.front() &lt; i - k + <span class="number">1</span>)</span><br><span class="line">                dq.pop_front();</span><br><span class="line">            <span class="keyword">while</span>(!dq.empty() &amp;&amp; nums[dq.back()] &lt; nums[i])</span><br><span class="line">                dq.pop_back();</span><br><span class="line">            dq.push_back(i);</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= k - <span class="number">1</span>)</span><br><span class="line">                ret.push_back(nums[dq.front()]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>使用双向序列，先加入的在序列头，后加入的在序列尾。当序列头中坐标小于i-k+1时，这个元素对于目前的窗口已经没用了，将其舍弃掉。对于其他的元素，从尾部移掉所有小于当前值的元素，因为对于<code>a[x] &lt; a[i] &amp;&amp; x &lt; i</code>，后面的窗口可以使用<code>a[i]</code>而不是<code>a[x]</code>。由此一来序列头永远都是当前窗口最大项。</p>
-<p>为什么从尾部移除小于当前值的元素而不是从头部呢？ &gt; 只需要想清楚要移除的是<code>a[x] &lt; a[i] &amp;&amp; x &lt; i</code>，因此在插入一个元素前把前面的无用项全都丢了再插入，当然是从后面开始往前删。<code>a[x] &gt; a[i] &amp;&amp; x &lt; i</code>的元素对后面是有用的</p>
-<figure>
-<img src="https://image.cinte.cc/2021/05/06/0bf7c9025d7a9.png" alt="1620305144539.png" /><figcaption aria-hidden="true">1620305144539.png</figcaption>
-</figure>
 
       
     </div>
@@ -1372,7 +1368,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">341</span>
+          <span class="site-state-item-count">342</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

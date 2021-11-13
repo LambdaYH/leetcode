@@ -2215,6 +2215,21 @@ len_n = len_{n-1} * 2 + 1 \\
       </categories>
   </entry>
   <entry>
+    <title>357. 计算各个位数不同的数字个数</title>
+    <url>/2021/11/13/357.%20%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0/</url>
+    <content><![CDATA[<h4 id="计算各个位数不同的数字个数"><a href="https://leetcode-cn.com/problems/count-numbers-with-unique-digits/">357. 计算各个位数不同的数字个数</a></h4>
+<p>数学方法</p>
+<p>第一位如果取0，那结果就是n=n-1时候的结果</p>
+<p>第一位如果取1~9，第二位可以取0，所以有9种取法，第三位有8种，依此类推。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(n &gt; <span class="number">10</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>, pre = <span class="number">9</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">            a += pre *= (<span class="number">11</span> - i);</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode-cn.com/problems/count-numbers-with-unique-digits/solution/cdong-tai-gui-hua-xiang-jie-by-xiaohu952-9qbt/">dp</a></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countNumbersWithUniqueDigits</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>, sum = <span class="number">1</span>, tmp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            a = a * <span class="number">10</span> + (<span class="number">9</span> * sum - a) * (i - <span class="number">1</span>); <span class="comment">// 每一种不重复的数字剩下有i-1位，这i-1种可能性</span></span><br><span class="line">            sum *= <span class="number">10</span>;</span><br><span class="line">            tmp += a;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum * <span class="number">10</span> - tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>36. Valid Sudoku</title>
     <url>/2021/03/22/36.%20Valid%20Sudoku/</url>
     <content><![CDATA[<h4 id="valid-sudoku"><a href="https://leetcode.com/problems/valid-sudoku/">36. Valid Sudoku</a></h4>
