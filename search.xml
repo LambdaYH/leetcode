@@ -2258,6 +2258,16 @@ len_n = len_{n-1} * 2 + 1 \\
       </categories>
   </entry>
   <entry>
+    <title>375. 猜数字大小 II</title>
+    <url>/2021/11/12/375.%20%E7%8C%9C%E6%95%B0%E5%AD%97%E5%A4%A7%E5%B0%8F%20II/</url>
+    <content><![CDATA[<h4 id="猜数字大小-ii"><a href="https://leetcode-cn.com/problems/guess-number-higher-or-lower-ii/">375. 猜数字大小 II</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getMoneyAmount</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][i] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> minNum = INT_MAX;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = i; k &lt; j; ++k)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// 注意方向，这里用到了i到k-1和k+1到j的数据，很显然都是i之后的数据，所以i的遍历需要从后面开始遍历</span></span><br><span class="line">                    dp[i][j] = min(dp[i][j], max(dp[i][k - <span class="number">1</span>], dp[k + <span class="number">1</span>][j]) + k);</span><br><span class="line">                &#125;</span><br><span class="line">                dp[i][j] = minNum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">1</span>][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>378. Kth Smallest Element in a Sorted Matrix</title>
     <url>/2021/07/12/378.%20Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix/</url>
     <content><![CDATA[<h4 id="kth-smallest-element-in-a-sorted-matrix"><a href="%5B(1)%20Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix%20-%20LeetCode%5D(https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/)">378. Kth Smallest Element in a Sorted Matrix</a></h4>
