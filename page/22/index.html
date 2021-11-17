@@ -194,6 +194,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/11/116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/11/116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node/" class="post-title-link" itemprop="url">116. Populating Next Right Pointers in Each Node</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-11 11:31:53" itemprop="dateCreated datePublished" datetime="2021-06-11T11:31:53+08:00">2021-06-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/06/11/116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/06/11/116. Populating Next Right Pointers in Each Node/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="populating-next-right-pointers-in-each-node"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node/">116. Populating Next Right Pointers in Each Node</a></h4>
+<h5 id="on-space">O(n) space</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    Node* left;</span></span><br><span class="line"><span class="comment">    Node* right;</span></span><br><span class="line"><span class="comment">    Node* next;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node() : val(0), left(NULL), right(NULL), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val, Node* _left, Node* _right, Node* _next)</span></span><br><span class="line"><span class="comment">        : val(_val), left(_left), right(_right), next(_next) &#123;&#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">Node* <span class="title">connect</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;Node*&gt; s;</span><br><span class="line">        s.push(root);</span><br><span class="line">        <span class="keyword">while</span>(!s.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> i = s.size();</span><br><span class="line">            <span class="keyword">while</span>(i-- &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> p = s.front();</span><br><span class="line">                s.pop();</span><br><span class="line">                <span class="keyword">if</span>(i == <span class="number">0</span>)</span><br><span class="line">                    p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    p-&gt;next = s.front();</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;left)</span><br><span class="line">                    s.push(p-&gt;left);</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;right)</span><br><span class="line">                    s.push(p-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="o1-space">o(1) space</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    Node* left;</span></span><br><span class="line"><span class="comment">    Node* right;</span></span><br><span class="line"><span class="comment">    Node* next;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node() : val(0), left(NULL), right(NULL), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val, Node* _left, Node* _right, Node* _next)</span></span><br><span class="line"><span class="comment">        : val(_val), left(_left), right(_right), next(_next) &#123;&#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">Node* <span class="title">connect</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        Node* father = root;</span><br><span class="line">        Node* cur = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(father-&gt;left)</span><br><span class="line">        &#123;</span><br><span class="line">            cur = father;</span><br><span class="line">            <span class="keyword">while</span>(cur)</span><br><span class="line">            &#123;</span><br><span class="line">                cur-&gt;left-&gt;next = cur-&gt;right;</span><br><span class="line">                <span class="keyword">if</span>(cur-&gt;next)</span><br><span class="line">                    cur-&gt;right-&gt;next = cur-&gt;next-&gt;left;</span><br><span class="line">                cur = cur-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            father = father-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>每层遍历下去，每层从最左边开始，然后操作他的儿子们，当一层没儿子就停止</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/06/11/108.%20Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +332,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -329,7 +436,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -435,7 +542,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -542,7 +649,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -652,7 +759,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -761,7 +868,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -870,7 +977,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -978,7 +1085,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1085,7 +1192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
+                <time title="Modified: 2021-11-17 12:12:37" itemprop="dateModified" datetime="2021-11-17T12:12:37+08:00">2021-11-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1138,134 +1245,6 @@
       
           <h4 id="最大连续-1-的个数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/max-consecutive-ones/">485. 最大连续 1 的个数</a></h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMaxConsecutiveOnes</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxSofar = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxCur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(num == <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ++maxCur;</span><br><span class="line">                maxSofar = max(maxCur, maxSofar);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                maxCur = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxSofar;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/16/97.%20Interleaving%20String/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/16/97.%20Interleaving%20String/" class="post-title-link" itemprop="url">97. Interleaving String</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-17 02:58:03" itemprop="dateCreated datePublished" datetime="2021-05-17T02:58:03+08:00">2021-05-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-17 11:17:38" itemprop="dateModified" datetime="2021-11-17T11:17:38+08:00">2021-11-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/05/16/97.%20Interleaving%20String/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/16/97. Interleaving String/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="interleaving-string"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/interleaving-string/">97. Interleaving String</a></h4>
-<p>因为如果可以实现交替，就必然满足<code>|n - m| &lt;= 1</code>这个条件，所以这个条件可以不用考虑</p>
-<p>dp:</p>
-<ol type="1">
-<li>递归</li>
-<li>带memory的递归top-down</li>
-<li>bottom-up</li>
-</ol>
-<h5 id="递归">递归</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isInterleave</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2, <span class="built_in">string</span> s3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(s1, s2, s3, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(<span class="built_in">string</span>&amp; s1, <span class="built_in">string</span>&amp; s2, <span class="built_in">string</span>&amp; s3, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt;= s1.size())</span><br><span class="line">            <span class="keyword">return</span> isEquel(s2, s3, j, k);</span><br><span class="line">        <span class="keyword">if</span>(j &gt;= s2.size())</span><br><span class="line">            <span class="keyword">return</span> isEquel(s1, s3, i, k);</span><br><span class="line">        <span class="keyword">return</span> (s1[i] == s3[k] &amp;&amp; helper(s1, s2, s3, i + <span class="number">1</span>, j, k + <span class="number">1</span>)) || (s2[j] == s3[k] &amp;&amp; helper(s1, s2, s3, i, j + <span class="number">1</span>, k + <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isEquel</span><span class="params">(<span class="built_in">string</span>&amp; s1, <span class="built_in">string</span>&amp; s2, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s1.size() - i != s2.size() - j)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; s1.size() &amp;&amp; j &lt; s2.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s1[i++] != s2[j++])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>但是在递归过程中，如果有些部分有几个重复的连续串，那么就会产生运算的交叠，所以使用memo来规避已经计算过的内容</p>
-<p>sample: <img src="https://image.cinte.cc/2021/05/17/64527a37943ab.png" alt="1621222087208.png" /></p>
-<h5 id="top-down">top-down</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isInterleave</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2, <span class="built_in">string</span> s3)</span> </span>&#123;</span><br><span class="line">        dp = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(s1.size(), <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(s2.size(), - <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">if</span>(s1.size() + s2.size() != s3.size())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(s1, s2, s3, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(<span class="built_in">string</span>&amp; s1, <span class="built_in">string</span>&amp; s2, <span class="built_in">string</span>&amp; s3, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt;= s1.size())</span><br><span class="line">            <span class="keyword">return</span> isEquel(s2, s3, j, k);</span><br><span class="line">        <span class="keyword">if</span>(j &gt;= s2.size())</span><br><span class="line">            <span class="keyword">return</span> isEquel(s1, s3, i, k);</span><br><span class="line">        <span class="keyword">if</span>(dp[i][j] &gt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> dp[i][j] == <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">bool</span> ans = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>((s1[i] == s3[k] &amp;&amp; helper(s1, s2, s3, i + <span class="number">1</span>, j, k + <span class="number">1</span>)) || (s2[j] == s3[k] &amp;&amp; helper(s1, s2, s3, i, j + <span class="number">1</span>, k + <span class="number">1</span>)))</span><br><span class="line">            ans = <span class="literal">true</span>;</span><br><span class="line">        dp[i][j] = ans ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isEquel</span><span class="params">(<span class="built_in">string</span>&amp; s1, <span class="built_in">string</span>&amp; s2, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s1.size() - i != s2.size() - j)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; s1.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s1[i++] != s2[j++])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="bottom-up">bottom-up</h5>
-<p>dp[i][j]表示(0..i)的s1子串和(0..j)的s2子串，如果他们可以交错成一个(0...i+j+1)的s3子串，那么就是true</p>
-<p>2种情况</p>
-<ol type="1">
-<li>当<code>s1[i]!=s3[i+j+1] &amp;&amp; s2[j]!=s3[i+j+1]</code>，那么绝对为false，因为某尾匹配不了</li>
-<li>当<code>s1[i]==s3[i+j+1]</code>时，那么结果等同于<code>dp[i-1][j]</code>，最后一位把s1[i]匹配走了，那么如果之前都匹配成功，就是true了，当<code>s2[j]==s3[i+j+1]</code>时同理</li>
-</ol>
-<p>base: <br> 当一个子串为空串时候的匹配结果</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isInterleave</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2, <span class="built_in">string</span> s3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s1.size() + s2.size() != s3.size())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(s1.size() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(s2.size() + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= s1.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= s2.size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>)</span><br><span class="line">                    dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i == <span class="number">0</span>)</span><br><span class="line">                    dp[i][j] = dp[i][j - <span class="number">1</span>] &amp;&amp; s2[j - <span class="number">1</span>] == s3[j - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(j == <span class="number">0</span>)</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j] &amp;&amp; s1[i - <span class="number">1</span>] == s3[i - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = (s1[i - <span class="number">1</span>] == s3[i + j - <span class="number">1</span>] &amp;&amp; dp[i - <span class="number">1</span>][j]) || (s2[j - <span class="number">1</span>] == s3[i + j - <span class="number">1</span>] &amp;&amp; dp[i][j - <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back().back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>优化空间</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isInterleave</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2, <span class="built_in">string</span> s3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s1.size() + s2.size() != s3.size())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">dp</span><span class="params">(s2.size() + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= s1.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= s2.size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>)</span><br><span class="line">                    dp[j] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i == <span class="number">0</span>)</span><br><span class="line">                    dp[j] = dp[j - <span class="number">1</span>] &amp;&amp; s2[j - <span class="number">1</span>] == s3[j - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(j == <span class="number">0</span>)</span><br><span class="line">                    dp[j] = dp[j] &amp;&amp; s1[i - <span class="number">1</span>] == s3[i - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[j] = (s1[i - <span class="number">1</span>] == s3[i + j - <span class="number">1</span>] &amp;&amp; dp[j]) || (s2[j - <span class="number">1</span>] == s3[i + j - <span class="number">1</span>] &amp;&amp; dp[j - <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>review</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isInterleave</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2, <span class="built_in">string</span> s3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = s1.size(), n = s2.size();</span><br><span class="line">        <span class="keyword">if</span>(s3.size() != m + n)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> s2 == s3;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> s1 == s3;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] &amp;&amp; s2[i - <span class="number">1</span>] == s3[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[<span class="number">0</span>] = dp[<span class="number">0</span>] &amp;&amp; s1[i - <span class="number">1</span>] == s3[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">                dp[j] = (s1[i - <span class="number">1</span>] == s3[i + j - <span class="number">1</span>] &amp;&amp; dp[j]) || (s2[j - <span class="number">1</span>] == s3[i + j - <span class="number">1</span>] &amp;&amp; dp[j - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1352,7 +1331,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">344</span>
+          <span class="site-state-item-count">345</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1428,12 +1407,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">420k</span>
+    <span title="Symbols count total">421k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:22</span>
+    <span title="Reading time total">6:23</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
