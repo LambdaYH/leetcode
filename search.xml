@@ -2466,6 +2466,22 @@ len_n = len_{n-1} * 2 + 1 \\
       </categories>
   </entry>
   <entry>
+    <title>397. 整数替换</title>
+    <url>/2021/11/19/397.%20%E6%95%B4%E6%95%B0%E6%9B%BF%E6%8D%A2/</url>
+    <content><![CDATA[<h4 id="整数替换"><a href="https://leetcode-cn.com/problems/integer-replacement/">397. 整数替换</a></h4>
+<p>记忆化搜索（不知道为什么map改成vector会超时）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">integerReplacement</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(memo[n])</span><br><span class="line">            <span class="keyword">return</span> memo[n];</span><br><span class="line">        <span class="keyword">int</span> tmp;</span><br><span class="line">        <span class="keyword">if</span>(n &amp; <span class="number">1</span>)</span><br><span class="line">            tmp = min(integerReplacement(n / <span class="number">2</span>), integerReplacement(n / <span class="number">2</span> + <span class="number">1</span>)) + <span class="number">2</span>; <span class="comment">// 重点，看解释</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            tmp = integerReplacement(n / <span class="number">2</span>) + <span class="number">1</span>;</span><br><span class="line">        memo[n] = tmp;</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; memo;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度：O(logn) 空间复杂度: O(logn)</p>
+<p>原因在于这里每一步都会将原数/2</p>
+<p>上述重点语句。对于n为奇数来说，n-1和n+1都必然会带来一个偶数，如果是偶数就不是1而且只能除以2，所以把这个操作合并为一次完成就是(n-1)/2或(n+1)/2。</p>
+<p>但是考虑到溢出的问题，由于(n-1)/2就是n/2向下取整，而(n+1)/2就是n/2向上取整，因此他们可以表示为n/2和n/2+1。</p>
+<p>dp超内存，空间复杂度是O(N)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>399. 除法求值</title>
     <url>/2021/07/14/399.%20%E9%99%A4%E6%B3%95%E6%B1%82%E5%80%BC/</url>
     <content><![CDATA[<h4 id="除法求值"><a href="%5B399.%20除法求值%20-%20力扣（LeetCode）%20(leetcode-cn.com)%5D(https://leetcode-cn.com/problems/evaluate-division/)">399. 除法求值</a></h4>
