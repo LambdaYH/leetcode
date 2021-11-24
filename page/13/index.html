@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -329,7 +329,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -435,7 +435,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -541,7 +541,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -674,7 +674,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -780,7 +780,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -838,7 +838,7 @@
 <p>然后寻找这个区间添加后值最大的气球，对左右两边继续进行添加，对于每个区间，都会遍历每个值，然后对左右两边进行递归，从而求出</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxCoins</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">val</span><span class="params">(nums.size() + <span class="number">2</span>, <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; memo(nums.size() + <span class="number">2</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(nums.size() + <span class="number">2</span>, <span class="number">-1</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">            val[i + <span class="number">1</span>] = nums[i];</span><br><span class="line">        <span class="keyword">return</span> helper(<span class="number">0</span>, nums.size() + <span class="number">1</span>, memo, val);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; memo, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; val)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(lo &gt;= hi - <span class="number">1</span>) <span class="comment">// 注意这个，由于是开区间，所以当left和right相差1时，内部已经没有元素了，所以返回</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(memo[lo][hi] != <span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> memo[lo][hi];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = lo + <span class="number">1</span>; i &lt; hi; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> pro = val[lo] * val[i] * val[hi];</span><br><span class="line">            pro += helper(lo, i, memo, val) + helper(i, hi, memo, val);</span><br><span class="line">            memo[lo][hi] = max(memo[lo][hi], pro);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> memo[lo][hi];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h5 id="自下而上">自下而上</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxCoins</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">val</span><span class="params">(nums.size() + <span class="number">2</span>, <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; memo(nums.size() + <span class="number">2</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(nums.size() + <span class="number">2</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">            val[i + <span class="number">1</span>] = nums[i];</span><br><span class="line">        <span class="comment">// 从后面往前，小区间逐渐计算到大区间，之所以要从后往前，是因为如果从前往后的话，那就从大到校了</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = nums.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 从i + 2，开始，因为i和j间必须存在一个元素</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">2</span>; j &lt; nums.size() + <span class="number">2</span>; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 遍历</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = i + <span class="number">1</span>; k &lt; j; ++k)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">auto</span> pro = val[i] * val[k] * val[j];</span><br><span class="line">                    <span class="comment">// 由于k&lt;j,所以memo[k]已经可以从之前的i，j遍历结果出来了，当没有元素时候就是0，是base，而k&gt;i，所以memo[k][j]也可以从之前的结果出来了</span></span><br><span class="line">                    pro += memo[i][k] + memo[k][j];</span><br><span class="line">                    memo[i][j] = max(memo[i][j], pro);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> memo[<span class="number">0</span>][nums.size() + <span class="number">1</span>]; <span class="comment">// 返回最大区间的解</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxCoins</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">val</span><span class="params">(nums.size() + <span class="number">2</span>, <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; memo(nums.size() + <span class="number">2</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(nums.size() + <span class="number">2</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">            val[i + <span class="number">1</span>] = nums[i];</span><br><span class="line">        <span class="comment">// 从后面往前，小区间逐渐计算到大区间，之所以要从后往前，是因为如果从前往后的话，那就从大到校了</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = nums.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 从i + 2，开始，因为i和j间必须存在一个元素</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">2</span>; j &lt; nums.size() + <span class="number">2</span>; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 遍历</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = i + <span class="number">1</span>; k &lt; j; ++k)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">auto</span> pro = val[i] * val[k] * val[j];</span><br><span class="line">                    <span class="comment">// i ~ k 和 k ~ j都是在已经遍历过的区间内</span></span><br><span class="line">                    <span class="comment">// 由于k&lt;j,所以memo[k]已经可以从之前的i，j遍历结果出来了，当没有元素时候就是0，是base，而k&gt;i，所以memo[k][j]也可以从之前的结果出来了</span></span><br><span class="line">                    pro += memo[i][k] + memo[k][j];</span><br><span class="line">                    memo[i][j] = max(memo[i][j], pro);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> memo[<span class="number">0</span>][nums.size() + <span class="number">1</span>]; <span class="comment">// 返回最大区间的解</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -889,7 +889,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -998,7 +998,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1104,7 +1104,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1210,7 +1210,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-23 16:06:03" itemprop="dateModified" datetime="2021-11-23T16:06:03+08:00">2021-11-23</time>
+                <time title="Modified: 2021-11-24 15:42:24" itemprop="dateModified" datetime="2021-11-24T15:42:24+08:00">2021-11-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
