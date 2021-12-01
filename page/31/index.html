@@ -194,6 +194,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/05/56.%20Merge%20Intervals/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/05/56.%20Merge%20Intervals/" class="post-title-link" itemprop="url">56. Merge Intervals</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-06 03:53:30" itemprop="dateCreated datePublished" datetime="2021-04-06T03:53:30+08:00">2021-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/05/56.%20Merge%20Intervals/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/05/56. Merge Intervals/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="merge-intervals"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-intervals/">56. Merge Intervals</a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mySort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; merge(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; intervals) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; re;</span><br><span class="line">        sort(intervals.begin(), intervals.end(), mySort);</span><br><span class="line">        re.push_back(intervals[<span class="number">0</span>][<span class="number">0</span>]);</span><br><span class="line">        re.push_back(intervals[<span class="number">0</span>][<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i = intervals.begin() + <span class="number">1</span>; i != intervals.end(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((*i)[<span class="number">0</span>] &lt;= re[index - <span class="number">1</span>])</span><br><span class="line">                re[index - <span class="number">1</span>] = max(re[index - <span class="number">1</span>], (*i)[<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                re.push_back((*i)[<span class="number">0</span>]);</span><br><span class="line">                re.push_back((*i)[<span class="number">1</span>]);</span><br><span class="line">                index += <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; re.size(); i += <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ret.push_back(&#123;re[i], re[i + <span class="number">1</span>]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>T(n) : O(nlogn) <br> S(n) : O(n)</p>
+<h5 id="同样思路的一个solution">同样思路的一个Solution</h5>
+<p>空间和时间占用更少</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; merge(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; intervals) &#123;</span><br><span class="line">        sort(intervals.begin(), intervals.end());</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        sort(intervals.begin(), intervals.end(), [](vector&lt;int&gt;&amp; i1, vector&lt;int&gt;&amp; i2)</span></span><br><span class="line"><span class="comment">        &#123;</span></span><br><span class="line"><span class="comment">            return i1[0] &lt; i2[0];</span></span><br><span class="line"><span class="comment">        &#125;);</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; interval : intervals)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ret.empty() || interval[<span class="number">0</span>] &gt; ret.back()[<span class="number">1</span>])</span><br><span class="line">                ret.push_back(interval);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ret.back()[<span class="number">1</span>] = max(interval[<span class="number">1</span>], ret.back()[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/05/55.%20Jump%20Game/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +332,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -343,7 +450,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -457,7 +564,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -566,7 +673,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -677,7 +784,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -807,7 +914,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -920,7 +1027,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1027,7 +1134,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1134,7 +1241,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
+                <time title="Modified: 2021-12-01 17:30:13" itemprop="dateModified" datetime="2021-12-01T17:30:13+08:00">2021-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1194,113 +1301,6 @@ t = pM + x \\
 <p>IAMSVEG</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sz = triangle.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; sz; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            triangle[i].front() += triangle[i - <span class="number">1</span>].front();</span><br><span class="line">            triangle[i].back() += triangle[i - <span class="number">1</span>].back();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>, l = triangle[i].size(); j &lt; l - <span class="number">1</span>; ++j)</span><br><span class="line">                triangle[i][j] += min(triangle[i - <span class="number">1</span>][j], triangle[i - <span class="number">1</span>][j - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> *min_element(triangle.back().begin(), triangle.back().end());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>不修改原数组的O(n)空间复杂度的解法 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sz = triangle.size();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(sz)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = triangle[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; sz; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i] = dp[i - <span class="number">1</span>] + triangle[i][i]; <span class="comment">// 第i行有i+1个元素，所以dp[i]就表示最后一个，这里需要上面一行的前一个元素加上当前元素</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt; <span class="number">0</span>; --j)</span><br><span class="line">                dp[j] = min(dp[j], dp[j - <span class="number">1</span>]) + triangle[i][j];</span><br><span class="line">            dp[<span class="number">0</span>] += triangle[i][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> *min_element(dp.begin(), dp.end());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 从下往上走 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sz = triangle.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp;</span><br><span class="line">        copy(triangle.back().begin(), triangle.back().end(), back_inserter(dp));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = sz - <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; ++j)</span><br><span class="line">                dp[j] = min(dp[j], dp[j + <span class="number">1</span>]) + triangle[i][j];</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/03/31/48.%20Rotate%20Image/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/31/48.%20Rotate%20Image/" class="post-title-link" itemprop="url">48. Rotate Image</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-31 12:41:40" itemprop="dateCreated datePublished" datetime="2021-03-31T12:41:40+08:00">2021-03-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-01 11:37:00" itemprop="dateModified" datetime="2021-12-01T11:37:00+08:00">2021-12-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/03/31/48.%20Rotate%20Image/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/31/48. Rotate Image/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>725</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="rotate-image"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/rotate-image/">48. Rotate Image</a></h4>
-<h5 id="动态规划">动态规划</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; (n + <span class="number">1</span>) / <span class="number">2</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">size_t</span> j = <span class="number">0</span>; j &lt; n / <span class="number">2</span>; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = matrix[n - <span class="number">1</span> - j][i];</span><br><span class="line">                matrix[n - <span class="number">1</span> - j][i] = matrix[n - <span class="number">1</span> - i][n - <span class="number">1</span> - j];</span><br><span class="line">                matrix[n - <span class="number">1</span> - i][n - <span class="number">1</span> - j] = matrix[j][n - <span class="number">1</span> - i];</span><br><span class="line">                matrix[j][n - <span class="number">1</span> - i] = matrix[i][j];</span><br><span class="line">                matrix[i][j] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>抄de</p>
-<h5 id="转置-翻转">转置 + 翻转</h5>
-<p>transpose and reflect in linear algebra <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; n; ++j)</span><br><span class="line">                swap(matrix[i][j], matrix[j][i]);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n / <span class="number">2</span>; ++j)</span><br><span class="line">                swap(matrix[i][j], matrix[i][n - j - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -1387,7 +1387,7 @@ t = pM + x \\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">351</span>
+          <span class="site-state-item-count">352</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
