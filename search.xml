@@ -2441,6 +2441,16 @@ len_n = len_{n-1} * 2 + 1 \\
       </categories>
   </entry>
   <entry>
+    <title>383. 赎金信</title>
+    <url>/2021/12/04/383.%20%E8%B5%8E%E9%87%91%E4%BF%A1/</url>
+    <content><![CDATA[<h4 id="赎金信"><a href="https://leetcode-cn.com/problems/ransom-note/">383. 赎金信</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canConstruct</span><span class="params">(<span class="built_in">string</span> ransomNote, <span class="built_in">string</span> magazine)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">26</span>]&#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : magazine)</span><br><span class="line">            ++<span class="built_in">map</span>[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : ransomNote)</span><br><span class="line">            --<span class="built_in">map</span>[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>[i] &lt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>384. 打乱数组</title>
     <url>/2021/10/28/384.%20%E6%89%93%E4%B9%B1%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h4 id="打乱数组"><a href="https://leetcode-cn.com/problems/shuffle-an-array/">384. 打乱数组</a></h4>
