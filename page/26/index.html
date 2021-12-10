@@ -194,6 +194,112 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/05/98.%20Validate%20Binary%20Search%20Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/05/98.%20Validate%20Binary%20Search%20Tree/" class="post-title-link" itemprop="url">98. Validate Binary Search Tree</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-06 02:59:56" itemprop="dateCreated datePublished" datetime="2021-05-06T02:59:56+08:00">2021-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/05/05/98.%20Validate%20Binary%20Search%20Tree/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/05/98. Validate Binary Search Tree/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="validate-binary-search-tree"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/validate-binary-search-tree/">98. Validate Binary Search Tree</a></h4>
+<h5 id="中序遍历bst是元素从小到达排列的因此如果未严格单调递增就是无效的bst">中序遍历BST是元素从小到达排列的，因此如果未严格单调递增，就是无效的BST</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValidBST</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; s;</span><br><span class="line">        TreeNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(!s.empty() || root)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(root)</span><br><span class="line">            &#123;</span><br><span class="line">                s.push(root);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">auto</span> p = s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">            <span class="keyword">if</span>(pre &amp;&amp; pre-&gt;val &gt;= p-&gt;val)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            pre = p;</span><br><span class="line">            root = p-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="每个左点的上界为父节点下界则沿用上一节点右点的下界为父节点上界则沿用上衣节点这样可以保证界限是由上面传递下来的">每个左点的上界为父节点，下界则沿用上一节点，右点的下界为父节点，上界则沿用上衣节点，这样可以保证界限是由上面传递下来的</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValidBST</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(root, LONG_MAX, LONG_MIN);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(TreeNode* node, <span class="keyword">long</span> max, <span class="keyword">long</span> min)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!node)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(node-&gt;val &gt;= max || node-&gt;val &lt;= min)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> helper(node-&gt;left, node-&gt;val, min) &amp;&amp; helper(node-&gt;right, max, node-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/04/295.%20Find%20Median%20from%20Data%20Stream/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +331,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -330,7 +436,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,7 +543,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -545,7 +651,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -658,7 +764,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -763,7 +869,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -870,7 +976,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -978,7 +1084,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1082,7 +1188,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1139,126 +1245,6 @@
 <p>视为<a target="_blank" rel="noopener" href="https://leetcode.com/problems/jump-game-ii/discuss/18028/O(n)-BFS-solution">BFS问题</a></p>
 <p>每个区域里都可以走到下一层的任何一个点，实在走不到了，只能换层了</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> level = <span class="number">0</span>, maxReachFurther = <span class="number">0</span>, maxReachEnd = <span class="number">0</span>; <span class="comment">// #defind jumptime level，这样解释比较合理</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() - <span class="number">1</span>; ++i)  <span class="comment">// 这里用nums.size() - 1而不是nums.size() 是因为如果走到了最后一个，但是最后一个，那么已经不用考虑换层了，例如[0]，如果到达0，再换层，那就扰乱了结果。因为假设的是一定可以到达终点，而最后一次起跳就表示了一定可以到达终点。这里面对最后一跳超越终点也无所谓，因为已经记录了这一跳了。</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxReachFurther = max(maxReachFurther, nums[i] + i); <span class="comment">// 目前层能达到的最远</span></span><br><span class="line">            <span class="comment">// 首先先从0开始起跳，跳跃次数加一。然后每次碰到这次的结尾，跳跃次数加一。</span></span><br><span class="line">            <span class="keyword">if</span>(maxReachEnd == i)</span><br><span class="line">            &#123;</span><br><span class="line">                maxReachEnd = maxReachFurther;  <span class="comment">// 对于下一层来说  记录上一层能达到的最远，如果遇见，那么这一层就结束了</span></span><br><span class="line">                ++level; <span class="comment">// level代表着需要重新起跳，跳到下一层了，记录的不是层数而跳跃的次数。</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> level;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/28/581.%20Shortest%20Unsorted%20Continuous%20Subarray/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/28/581.%20Shortest%20Unsorted%20Continuous%20Subarray/" class="post-title-link" itemprop="url">581. Shortest Unsorted Continuous Subarray</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-29 07:53:33" itemprop="dateCreated datePublished" datetime="2021-04-29T07:53:33+08:00">2021-04-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/28/581.%20Shortest%20Unsorted%20Continuous%20Subarray/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/28/581. Shortest Unsorted Continuous Subarray/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="shortest-unsorted-continuous-subarray"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/shortest-unsorted-continuous-subarray/">581. Shortest Unsorted Continuous Subarray</a></h4>
-<h5 id="brute-force超时">Brute Force(超时)</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = nums.size();</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j] &lt; nums[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    r = max(r, j);</span><br><span class="line">                    l = min(l, i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l == nums.size() ? <span class="number">0</span> : r - l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>o(n^2) 每次遍历过程中，当<code>nums[j] &lt; nums[i]</code>，意味着2者都不在其正确位置，若要得到正确排序，需要进行位置的交换，但此处不要求交换，因此将i标记为<code>Unsorted Array</code>的最底端，j标记为<code>Unsorted Array</code>的最顶端</p>
-<h5 id="sort">sort</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">numsCopy</span><span class="params">(nums.begin(), nums.end())</span></span>;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> l = nums.size();</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != numsCopy[i])</span><br><span class="line">            &#123;</span><br><span class="line">                l = min(i, l);</span><br><span class="line">                r = max(i, r);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l == nums.size() ? <span class="number">0</span> : r - l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>O(nlogn)</p>
-<p>排序后比较不同处的两个端点</p>
-<h5 id="stack">stack</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">int</span> l = nums.size();</span><br><span class="line">        <span class="keyword">int</span> r = l;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s.empty() &amp;&amp; num &lt; s.top())</span><br><span class="line">            &#123;</span><br><span class="line">                s.pop();</span><br><span class="line">                l = min(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(s.size()), l);</span><br><span class="line">            &#125;</span><br><span class="line">            s.push(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s1;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i = nums.end() - <span class="number">1</span>; i &gt;= nums.begin(); --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s1.empty() &amp;&amp; *i &gt; s1.top())</span><br><span class="line">            &#123;</span><br><span class="line">                s1.pop();</span><br><span class="line">                r = min(<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(s1.size()), r);</span><br><span class="line">            &#125;</span><br><span class="line">            s1.push(*i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l == nums.size() ? <span class="number">0</span> : nums.size() - r - l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="tnon-sno1">T(n):O(n) S(n):O(1)</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = nums.size(), r = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span>(j &gt; <span class="number">0</span> &amp;&amp; nums[i] &lt; nums[j - <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                --j;</span><br><span class="line">                l = min(j, l);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = nums.size() - <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; nums.size() - <span class="number">1</span> &amp;&amp; nums[i] &gt; nums[j + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                ++j;</span><br><span class="line">                r = max(j, r);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l == nums.size() ? <span class="number">0</span> : r - l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="tnon-sno1-1">T(n):O(n) S(n):O(1)</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> minNum = INT_MAX, maxNum = INT_MIN;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i = nums.begin() + <span class="number">1</span>; i != nums.end(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(*i &lt; *(i - <span class="number">1</span>))</span><br><span class="line">                minNum = min(minNum, *i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i = nums.end() - <span class="number">2</span>; i &gt;= nums.begin(); --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(*i &gt; *(i + <span class="number">1</span>))</span><br><span class="line">                maxNum = max(maxNum, *i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> l, r;</span><br><span class="line">        <span class="keyword">for</span>(l = <span class="number">0</span>; l &lt; nums.size(); ++l)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[l] &gt; minNum)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(r = nums.size() - <span class="number">1</span>; r &gt;= <span class="number">0</span>; --r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[r] &lt; maxNum)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minNum == INT_MAX ? <span class="number">0</span> : r - l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="review">review</h5>
-<p>将数组分为三部分NumsA, NumsB, NumsC</p>
-<p>其中NumsA和NumsC是有序的，而NumsB是无序的</p>
-<p>他们具有如下的规律，NumsA中的所有数字小于NumsB中的最小数字，而NumsC中的所有数字都大于NumsB中的最大数字</p>
-<p>转换条件就是NumsB和NumsC中的最小值大于NumsA中的最大值，NumsA和NumsB中的最大值小于NumsC中的最小值 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findUnsortedSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">-1</span>, left = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> maxn = INT_MIN, minn = INT_MAX;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="comment">// maxn记录NumsA和NumsB中的最大值，如果这个最大值比后面这个nums[i]大的话，说明不满足NumsA和NumsB中的最大值小于NumsC中的最小值</span></span><br><span class="line">        <span class="comment">// 因此需要更新right为i，表示至少这个i是肯定不满足顺序的</span></span><br><span class="line">        <span class="comment">// 如果都满足，就不断更新maxn为当前最大值，如果后面都是升序，那么right就不会变</span></span><br><span class="line">        <span class="comment">// 因为需要获取左边部分的最大值，所以需要从左向右遍历</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(maxn &gt; nums[i])</span><br><span class="line">                right = i;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                maxn = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// minn记录NumsB和NumsC中的最小值，如果这个最小值比前面这个nums[i]小的话，说明不满足NumsB和NumsC中的最小值大于NumsA中的最大值</span></span><br><span class="line">        <span class="comment">// 因此需要更新left为i，表示至少这个i是肯定不满足顺序的</span></span><br><span class="line">        <span class="comment">// 如果都满足，就不断更新minn为当前最小值，如果后面都是降序，那么left就不会变</span></span><br><span class="line">        <span class="comment">// 因为需要获取右边部分的最小值，所以需要从右向左遍历</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(minn &lt; nums[i])</span><br><span class="line">                left = i;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                minn = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> right == <span class="number">-1</span> ? <span class="number">0</span> : right - left + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -1345,7 +1331,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">358</span>
+          <span class="site-state-item-count">359</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1421,12 +1407,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">435k</span>
+    <span title="Symbols count total">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:36</span>
+    <span title="Reading time total">6:37</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>

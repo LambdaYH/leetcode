@@ -194,6 +194,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/19/343.%20Integer%20Break/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/19/343.%20Integer%20Break/" class="post-title-link" itemprop="url">343. Integer Break</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-19 08:42:15" itemprop="dateCreated datePublished" datetime="2021-05-19T08:42:15+08:00">2021-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/05/19/343.%20Integer%20Break/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/19/343. Integer Break/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="integer-break"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/integer-break/">343. Integer Break</a></h4>
+<h5 id="dp">dp</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">integerBreak</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; ++j)</span><br><span class="line">                dp[i] = max(dp[i], max(j, dp[j]) * max(i - j, dp[i - j]));</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>对于一个数，截成两段，挨个尝试，每一段由于那个数字在运算时候是不计算他本身的，所以后面用时候需要比较他自己和他break后谁打，所以要有这么多max</p>
+<h5 id="数学方法优化">数学方法优化</h5>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/integer-break/discuss/80721/Why-factor-2-or-3-The-math-behind-this-problem.">discussion</a> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">You&#39;re making it pretty complicated.</span><br><span class="line"></span><br><span class="line">If an optimal product contains a factor f &gt;&#x3D; 4, then you can replace it with factors 2 and f-2 without losing optimality, as 2*(f-2) &#x3D; 2f-4 &gt;&#x3D; f. So you never need a factor greater than or equal to 4, meaning you only need factors 1, 2 and 3 (and 1 is of course wasteful and you&#39;d only use it for n&#x3D;2 and n&#x3D;3, where it&#39;s needed).</span><br><span class="line"></span><br><span class="line">For the rest I agree, 3*3 is simply better than 2*2*2, so you&#39;d never use 2 more than twice.</span><br><span class="line"></span><br><span class="line">6 &#x3D; 2 + 2 + 2 &#x3D; 3 + 3. But 2 * 2 * 2 &lt; 3 * 3.</span><br><span class="line">Therefore, if there are three 2&#39;s in the decomposition, we can replace them by two 3&#39;s to gain a larger product.</span><br></pre></td></tr></table></figure> 存在大于4的因子时候，他永远可以被拆到小于4，因此只需要1，2，3</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">integerBreak</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        dp[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; ++i)</span><br><span class="line">            dp[i] = max(<span class="number">3</span> * max(i - <span class="number">3</span>, dp[i - <span class="number">3</span>]) ,max(dp[i - <span class="number">1</span>], <span class="number">2</span> * max(i - <span class="number">2</span>, dp[i - <span class="number">2</span>]))); <span class="comment">// 此处dp[i - 1]而不是max(dp[i - 1], i - 1)是因为i&gt;3时，2 * (i - 2) &gt; 1 * (i - 1)</span></span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>空间优化 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">integerBreak</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            a = max(max(dp[i - <span class="number">1</span>], max(i - <span class="number">2</span>, dp[i - <span class="number">2</span>]) * <span class="number">2</span>), max(a, i - <span class="number">3</span>) * <span class="number">3</span>);</span><br><span class="line">            swap(a, b);</span><br><span class="line">            swap(b, c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> ##### 纯数学 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">integerBreak</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">return</span> n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> a = n / <span class="number">3</span>, b = n % <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(b == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">pow</span>(<span class="number">3</span>, a - <span class="number">1</span>) * <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">if</span>(b == <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">pow</span>(<span class="number">3</span>, a) * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(<span class="number">3</span>, a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/18/304.%20Range%20Sum%20Query%202D%20-%20Immutable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +334,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -333,7 +442,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -440,7 +549,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -543,7 +652,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -671,7 +780,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -777,7 +886,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -886,7 +995,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -991,7 +1100,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1098,7 +1207,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+                <time title="Modified: 2021-12-10 20:06:39" itemprop="dateModified" datetime="2021-12-10T20:06:39+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1153,130 +1262,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxVal = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = height.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            maxVal = max(maxVal, (j - i) * min(height[i], height[j]));</span><br><span class="line">            <span class="keyword">if</span>(height[i] &lt; height[j])</span><br><span class="line">                ++i;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                --j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>当<code>height[i] &lt; height[j]</code>时，如果不舍弃他而移动右边j，那么结果肯定时小于现在的，所以舍弃i</p>
 <p>假设a2,a6为最大，需要证明当left=a2时，右边会移到a6。 即当left=a2,right=a7的下一位时left=a2,left=a6。而这一步必然时height[a2]&gt;height[a7]，若不然，则最小边界为a2，宽度只会减少，则总值减少，所以必定移动a.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/05/11/10.%20Regular%20Expression%20Matching/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/11/10.%20Regular%20Expression%20Matching/" class="post-title-link" itemprop="url">10. Regular Expression Matching</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-11 08:00:58" itemprop="dateCreated datePublished" datetime="2021-05-11T08:00:58+08:00">2021-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/05/11/10.%20Regular%20Expression%20Matching/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/05/11/10. Regular Expression Matching/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="regular-expression-matching"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/regular-expression-matching/">10. Regular Expression Matching</a></h4>
-<p>题目: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given an input string (s) and a pattern (p), implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where: </span><br><span class="line"></span><br><span class="line">&#39;.&#39; Matches any single character.​​​​</span><br><span class="line">&#39;*&#39; Matches zero or more of the preceding element.</span><br><span class="line">The matching should cover the entire input string (not partial).</span><br></pre></td></tr></table></figure> 这里的'*'表达有些含糊，改为Matches zero or more of the preceding character.较好</p>
-<h5 id="递归">递归</h5>
-<p>思路：</p>
-<p><code>.</code>可以匹配任何字符，因此当遇到了<code>.</code>那就是直接匹配成功，其余状况就是比较字符是否相等即可。<code>*</code>可以匹配之前的元素，0次或多次，当匹配0次的时候，那么就将原text和pattern除去这一匹配0次的模式后的部分再次进行匹配，当匹配一次或多次的时候，就在text中删去匹配成功的部分继续把剩下的和pattern匹配，由于每一都会有这2种抉择，所以采用递归，二者状况其一匹配成功即可。</p>
-<p>当pattern为空时，当且仅到s为空才会匹配成功</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(s, p, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="built_in">string</span>&amp; p, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 这里if和return的顺序不能对换，因为当且仅当p走完，才表示匹配结束，此时如果也是空串，那么就是匹配成功。</span></span><br><span class="line">        <span class="comment">// 如果对换，当s走完时候，如果p还没走完，但是p后面又可以表示匹配0个，就会导致错误的结果</span></span><br><span class="line">        <span class="keyword">if</span>(j &gt;= p.size())</span><br><span class="line">            <span class="keyword">return</span> i &gt;= s.size();</span><br><span class="line">        <span class="keyword">bool</span> firstMatch = i &lt; s.size() &amp;&amp; (s[i] == p[j] || p[j] == <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span>(j &lt;= p.size() - <span class="number">2</span> &amp;&amp; p[j + <span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> helper(s, p, i, j + <span class="number">2</span>) || (firstMatch &amp;&amp; helper(s, p, i + <span class="number">1</span>, j));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> firstMatch &amp;&amp; helper(s, p, i + <span class="number">1</span>, j + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="top-down-dp">top-down dp</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">status</span> &#123;</span></span><br><span class="line">    UNKNOWN,</span><br><span class="line">    TRUE,</span><br><span class="line">    FALSE</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        dp = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;status&gt;&gt;(s.size() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;status&gt;(p.size() + <span class="number">1</span>, UNKNOWN));</span><br><span class="line">        <span class="keyword">return</span> helper(<span class="number">0</span>, <span class="number">0</span>, s, p);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;status&gt;&gt; dp;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">const</span> <span class="built_in">string</span>&amp; s, <span class="keyword">const</span>  <span class="built_in">string</span>&amp; p)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(dp[i][j] != UNKNOWN)</span><br><span class="line">            <span class="keyword">return</span> dp[i][j] == TRUE;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(j &gt;= p.size())</span><br><span class="line">                <span class="keyword">return</span> i &gt;= s.size();</span><br><span class="line">            <span class="keyword">bool</span> firstMatch = i &lt; s.size() &amp;&amp; (p[j] == s[i] || p[j] == <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">            <span class="keyword">bool</span> ret;</span><br><span class="line">            <span class="keyword">if</span>(j &lt;= p.size() - <span class="number">2</span> &amp;&amp; p[j + <span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                ret = helper(i, j + <span class="number">2</span>, s, p) || (firstMatch &amp;&amp; helper(i + <span class="number">1</span>, j, s, p));</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ret = firstMatch &amp;&amp; helper(i + <span class="number">1</span>, j + <span class="number">1</span>, s, p);</span><br><span class="line">            dp[i][j] = ret ? TRUE : FALSE;</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>由于递归检索过程中会出现许多的交叠，因此自然而然想到避免这种重复，所以通过dp保存起来以供后续读取，其中vector的size全都+1是防止溢出。</p>
-<p>而且将substr的工作转为有i,j表示，避免了多次创建string</p>
-<p><strong>但是这种仅仅可以避免交叠，top-down，顾名思义，从大往下走，分为一个个小问题从而解决，转而使用bottom-up，一个个小问题进行组合合成大问题</strong></p>
-<h5 id="bottom-up-dp">bottom-up dp</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(s.size() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(p.size() + <span class="number">1</span>, <span class="literal">false</span>)); <span class="comment">// +1 表示了空</span></span><br><span class="line">        dp[s.size()][p.size()] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = s.size(); i &gt;= <span class="number">0</span>; --i) <span class="comment">// s从空串开始匹配，因为对于*a,是可以匹配到空串的</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = p.size() - <span class="number">1</span>; j &gt;=<span class="number">0</span>; --j) <span class="comment">// 这里不用，因为当p为空时候，当且仅当s为空才为真，其他为假，而这种情况已经包含在了base中</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">bool</span> firstMatch = i &lt; s.size() &amp;&amp; (p[j] == <span class="string">&#x27;.&#x27;</span> || p[j] == s[i]);</span><br><span class="line">                <span class="keyword">if</span>(j + <span class="number">1</span> &lt; p.size() &amp;&amp; p[j + <span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                    dp[i][j] = dp[i][j + <span class="number">2</span>] || (firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j]);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>base为当两者全为空的时候，匹配结果为true。</p>
-<p>从后面往前走，当<code>i == 0 &amp;&amp; j == 0</code>时，表示匹配了整个字符串和pattern</p>
-<p>如果从前往后，不便于计算下标</p>
-<p>然后分解成小问题，对于当前dp[i][j]来说，从递归的思想引过来</p>
-<ol type="1">
-<li>如果<code>p[j] == '.'</code>或<code>p[j] == s[i]</code>，那么<code>dp[i][j] == dp[i + 1][j + 1]</code>，说明当前匹配可以正常走，结果=除了这个位之后的匹配结果</li>
-<li>如果<code>p[j + 1] == '*'</code>，那么`dp[i][j] == dp[i][j + 2] || s[i] == p[j] || p[j] == '.' &amp;&amp;dp[i + 1][j]，这是可以匹配s[i]的0个或多个，当0个时候，这匹配没有生效，所以取后两位继续匹配的结果，当匹配多个，那么p[j]被使用了，结果就是当p[j]匹配成功后，结合后面串的匹配结果得出当前的结果。</li>
-<li>当2个长度都只有1个时候，直接比对当前的字母再结合之前的匹配结果。</li>
-</ol>
 
       
     </div>
@@ -1363,7 +1348,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">358</span>
+          <span class="site-state-item-count">359</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1439,12 +1424,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">435k</span>
+    <span title="Symbols count total">436k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:36</span>
+    <span title="Reading time total">6:37</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
