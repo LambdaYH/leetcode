@@ -194,6 +194,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/08/%E5%89%91%E6%8C%87%20Offer%2054.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/08/%E5%89%91%E6%8C%87%20Offer%2054.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9/" class="post-title-link" itemprop="url">剑指 Offer 54. 二叉搜索树的第k大节点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-08 12:59:27" itemprop="dateCreated datePublished" datetime="2021-07-08T12:59:27+08:00">2021-07-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/07/08/%E5%89%91%E6%8C%87%20Offer%2054.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/08/剑指 Offer 54. 二叉搜索树的第k大节点/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>507</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="剑指-offer-54.-二叉搜索树的第k大节点"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/">剑指 Offer 54. 二叉搜索树的第k大节点</a></h4>
+<h5 id="左右反着来中序">左右反着来中序</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">kthLargest</span><span class="params">(TreeNode* root, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty() || root)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(root)</span><br><span class="line">            &#123;</span><br><span class="line">                q.push(root);</span><br><span class="line">                root = root-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">            root = q.top();</span><br><span class="line">            q.pop();</span><br><span class="line">            <span class="keyword">if</span>(--k == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">            root = root-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/08/%E5%89%91%E6%8C%87%20Offer%2048.%20%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +329,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +435,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -438,7 +542,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -544,7 +648,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -649,7 +753,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -758,7 +862,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -864,7 +968,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -969,7 +1073,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1072,7 +1176,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-10 16:05:08" itemprop="dateModified" datetime="2021-12-10T16:05:08+08:00">2021-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1130,113 +1234,6 @@
 <p>version.1 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> str = to_string(num);</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(str.size())</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; str.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i] += dp[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">auto</span> num = (str[i - <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span>) * <span class="number">10</span> + str[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(num &gt;= <span class="number">10</span> &amp;&amp; num &lt; <span class="number">26</span>)</span><br><span class="line">                dp[i] += (i &gt;= <span class="number">2</span> ? dp[i - <span class="number">2</span>] : <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> version.2</p>
 <p>优化dp的空间，但字符串还是占O(n) <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> str = to_string(num);</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; str.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> num = (str[i - <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span>) * <span class="number">10</span> + str[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            a = (num &gt;= <span class="number">10</span> &amp;&amp; num &lt; <span class="number">26</span>) ? a + b : b;</span><br><span class="line">            swap(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> version.3</p>
 <p>直接使用取余计算数位 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> lastNum = num % <span class="number">10</span>;</span><br><span class="line">        num /= <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">while</span>(num)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> curNum = num % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">auto</span> sum = curNum * <span class="number">10</span> + lastNum;</span><br><span class="line">            a = (sum &gt;= <span class="number">10</span> &amp;&amp; sum &lt; <span class="number">26</span>) ? a + b : b;</span><br><span class="line">            num /= <span class="number">10</span>;</span><br><span class="line">            lastNum = curNum;</span><br><span class="line">            swap(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 递归 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">translateNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(num &lt; <span class="number">10</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> a = num % <span class="number">10</span>;</span><br><span class="line">        num /= <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> b = num % <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">if</span>(b != <span class="number">0</span> &amp;&amp; b * <span class="number">10</span> + a &lt; <span class="number">26</span>)</span><br><span class="line">            ret += translateNum(num / <span class="number">10</span>);</span><br><span class="line">        ret += translateNum(num);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/" class="post-title-link" itemprop="url">剑指 Offer 45. 把数组排成最小的数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-06 03:40:35" itemprop="dateCreated datePublished" datetime="2021-07-06T03:40:35+08:00">2021-07-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 16:35:37" itemprop="dateModified" datetime="2021-12-09T16:35:37+08:00">2021-12-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/07/05/%E5%89%91%E6%8C%87%20Offer%2045.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/05/剑指 Offer 45. 把数组排成最小的数/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="剑指-offer-45.-把数组排成最小的数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/">剑指 Offer 45. 把数组排成最小的数</a></h4>
-<p>类似<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-number/">179. 最大数</a></p>
-<h5 id="我可太太太太太菜了">我可太太太太太菜了</h5>
-<p>本质上转换为一个排序问题，对于两个数字a1,b1。当<code>str(a1) + str(b1) &lt; str(b1) + str(a1)</code>时，表示a1因当刚在b1左边，反之则表示a1应当放在b1右边。以此为判断条件对数组进行排序，排序后重新组合成字符串就是所需</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        sort(nums, <span class="number">0</span>, nums.size() - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            ret += to_string(num);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = lo, j = hi + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">string</span> c = to_string(nums[lo]);</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; hi &amp;&amp; to_string(nums[++i]) + c &lt; c + to_string(nums[i])) &#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(j &gt; lo &amp;&amp; to_string(nums[--j]) + c &gt; c + to_string(nums[j])) &#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= j)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            swap(nums[i], nums[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums[j], nums[lo]);</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(lo &gt; hi)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">auto</span> j = partition(nums, lo, hi);</span><br><span class="line">        sort(nums, lo, j - <span class="number">1</span>);</span><br><span class="line">        sort(nums, j + <span class="number">1</span>, hi);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>v2 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; strs;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            strs.push_back(to_string(num));</span><br><span class="line">        sort(strs, <span class="number">0</span>, nums.size() - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; str : strs)</span><br><span class="line">            ret += str;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = lo, j = hi + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">string</span> c = nums[lo];</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; hi &amp;&amp; nums[++i] + c &lt; c + nums[i]) &#123;&#125;</span><br><span class="line">            <span class="keyword">while</span>(j &gt; lo &amp;&amp; nums[--j] + c &gt; c + nums[j]) &#123;&#125;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= j)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            swap(nums[i], nums[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums[j], nums[lo]);</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; nums, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(lo &gt; hi)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">auto</span> j = partition(nums, lo, hi);</span><br><span class="line">        sort(nums, lo, j - <span class="number">1</span>);</span><br><span class="line">        sort(nums, j + <span class="number">1</span>, hi);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> v3 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; strs;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            strs.push_back(to_string(num));</span><br><span class="line">        sort(strs.begin(), strs.end(), [](<span class="built_in">string</span>&amp; str1, <span class="built_in">string</span> str2)&#123; <span class="keyword">return</span> str1 + str2 &lt; str2 + str1; &#125;);</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; str : strs)</span><br><span class="line">            ret.append(str);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> v4 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end(), [](<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">long</span> sa = <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">long</span> sb = <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">while</span>(sa &lt;= a)</span><br><span class="line">                sa *= <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">while</span>(sb &lt;= b)</span><br><span class="line">                sb *= <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">return</span> sb * a + b &lt; sa * b + a;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="built_in">string</span> ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            ret += to_string(num);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -1323,7 +1320,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">357</span>
+          <span class="site-state-item-count">358</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
