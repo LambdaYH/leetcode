@@ -3445,6 +3445,16 @@ len_n = len_{n-1} * 2 + 1 \\
       </categories>
   </entry>
   <entry>
+    <title>680. 验证回文字符串 Ⅱ</title>
+    <url>/2021/12/11/680.%20%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2%20%E2%85%A1/</url>
+    <content><![CDATA[<h4 id="验证回文字符串-ⅱ"><a href="https://leetcode-cn.com/problems/valid-palindrome-ii/">680. 验证回文字符串 Ⅱ</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">validPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = s.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[l] != s[r])</span><br><span class="line">                <span class="keyword">return</span> check(s, l + <span class="number">1</span>, r) || check(s, l, r - <span class="number">1</span>); <span class="comment">// 删掉后分别检查是不是回文串</span></span><br><span class="line">            ++l;</span><br><span class="line">            --r;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r &amp;&amp; s[l] == s[r]) </span><br><span class="line">        &#123;</span><br><span class="line">            ++l;</span><br><span class="line">            --r;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l &gt;= r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>69. Sqrt(x)</title>
     <url>/2021/05/02/69.%20Sqrt(x)/</url>
     <content><![CDATA[<h4 id="sqrtx"><a href="https://leetcode.cinte.cc/index.html">69. Sqrt(x)</a></h4>
