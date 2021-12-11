@@ -3329,6 +3329,17 @@ len_n = len_{n-1} * 2 + 1 \\
       </tags>
   </entry>
   <entry>
+    <title>633. 平方数之和</title>
+    <url>/2021/12/11/633.%20%E5%B9%B3%E6%96%B9%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    <content><![CDATA[<h4 id="平方数之和"><a href="https://leetcode-cn.com/problems/sum-of-square-numbers/">633. 平方数之和</a></h4>
+<p>是一个排序<a href="https://leetcode.cinte.cc/2020/06/23/1.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">Two sum</a>的变种，范围是<code>0~sqrt(c)</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">judgeSquareSum</span><span class="params">(<span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> l = <span class="number">0</span>, r = <span class="built_in">sqrt</span>(c);</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> sum = l * l + r * r;</span><br><span class="line">            <span class="keyword">if</span>(sum &gt; c)</span><br><span class="line">                --r;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(sum &lt; c)</span><br><span class="line">                ++l;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>64. Minimum Path Sum</title>
     <url>/2021/03/29/64.%20Minimum%20Path%20Sum/</url>
     <content><![CDATA[<h4 id="minimum-path-sum"><a href="https://leetcode.com/problems/minimum-path-sum/">64. Minimum Path Sum</a></h4>
