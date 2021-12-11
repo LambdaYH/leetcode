@@ -219,7 +219,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-12-11 11:48:59 / Modified: 20:33:53" itemprop="dateCreated datePublished" datetime="2021-12-11T11:48:59+08:00">2021-12-11</time>
+              <time title="Created: 2021-12-11 11:48:59 / Modified: 20:34:22" itemprop="dateCreated datePublished" datetime="2021-12-11T11:48:59+08:00">2021-12-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +276,7 @@
 <p><img src="https://image.cinte.cc/2021/12/11/f9b4d9dc8a4f2.jpg" alt="1639223566766.jpg" /> 这种情况下把nums[i-1]改成比nums[i-2]和nums[i]之前的值即可</p>
 <p><img src="https://image.cinte.cc/2021/12/11/9ad94243ea80a.jpg" alt="1639223632869.jpg" /> 这种情况下把nums[i]改成nums[i-1]和nums[i+1]之间的值即可</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkPossibility</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="keyword">bool</span> isCorrect = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt; nums[i - <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(isCorrect)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(i == <span class="number">1</span> || ( i &gt;= <span class="number">2</span> &amp;&amp; nums[i] &gt;= nums[i - <span class="number">2</span>]))</span><br><span class="line">                    isCorrect = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i == n - <span class="number">1</span> || (i &lt; n - <span class="number">1</span> &amp;&amp; nums[i + <span class="number">1</span>] &gt;= nums[i - <span class="number">1</span>]))</span><br><span class="line">                    isCorrect = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>答案的方法，对原数组进行修改</p>
+<h5 id="答案的方法对原数组进行修改">答案的方法，对原数组进行修改</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkPossibility</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">bool</span> isC = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, n = nums.size(); i &lt; n - <span class="number">1</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; nums[i + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(isC)</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">// 当nums[i+1]&gt;=nums[i-1]的时候，只需要让nums[i]=nums[i+1]或者nums[i+1]=nums[i],则无论如何都能成立,所以这里不动的话对后面没有影响</span></span><br><span class="line">                <span class="comment">// 但是nums[i+1]&lt;nums[i-1],如果令nums[i]=nums[i+1],必然不成立，所以需要让nums[i+1]=nums[i]</span></span><br><span class="line">                <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; nums[i + <span class="number">1</span>] &lt; nums[i - <span class="number">1</span>])</span><br><span class="line">                    nums[i + <span class="number">1</span>] = nums[i];</span><br><span class="line">                isC = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
@@ -322,7 +322,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-12-11 08:55:19 / Modified: 20:33:53" itemprop="dateCreated datePublished" datetime="2021-12-11T08:55:19+08:00">2021-12-11</time>
+              <time title="Created: 2021-12-11 08:55:19 / Modified: 20:34:22" itemprop="dateCreated datePublished" datetime="2021-12-11T08:55:19+08:00">2021-12-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -426,7 +426,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:34:22" itemprop="dateModified" datetime="2021-12-11T20:34:22+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -531,7 +531,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:34:22" itemprop="dateModified" datetime="2021-12-11T20:34:22+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -634,7 +634,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:34:22" itemprop="dateModified" datetime="2021-12-11T20:34:22+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -737,7 +737,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:34:22" itemprop="dateModified" datetime="2021-12-11T20:34:22+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -843,7 +843,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:34:22" itemprop="dateModified" datetime="2021-12-11T20:34:22+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -953,7 +953,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:34:22" itemprop="dateModified" datetime="2021-12-11T20:34:22+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1056,7 +1056,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:34:22" itemprop="dateModified" datetime="2021-12-11T20:34:22+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1160,7 +1160,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:34:22" itemprop="dateModified" datetime="2021-12-11T20:34:22+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
