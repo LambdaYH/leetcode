@@ -194,6 +194,124 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/11/%E5%89%91%E6%8C%87%20Offer%2068%20-%20I.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/11/%E5%89%91%E6%8C%87%20Offer%2068%20-%20I.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="post-title-link" itemprop="url">剑指 Offer 68 - I. 二叉搜索树的最近公共祖先</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-12 07:49:54" itemprop="dateCreated datePublished" datetime="2021-07-12T07:49:54+08:00">2021-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/07/11/%E5%89%91%E6%8C%87%20Offer%2068%20-%20I.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/11/剑指 Offer 68 - I. 二叉搜索树的最近公共祖先/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="剑指-offer-68---i.-二叉搜索树的最近公共祖先"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/">剑指 Offer 68 - I. 二叉搜索树的最近公共祖先</a></h4>
+<p>参考<a href="https://leetcode.cinte.cc/2021/04/22/236-Lowest-Common-Ancestor-of-a-Binary-Tree/">236. Lowest Common Ancestor of a Binary Tree</a></p>
+<p>但因为这题是BST，所以有别的方法</p>
+<p>以下情况:</p>
+<ol type="1">
+<li>当p，q都在root左侧，那么p，q都在root左子树。</li>
+<li>当p，q都在root右侧，那么p，q都在root右子树。</li>
+<li>当第一次产生没在同一个子树时，这时候的root就是解
+<ol type="1">
+<li>p或q为root，剩下的在一边的树</li>
+<li>p，q在root两侧</li>
+</ol></li>
+</ol>
+<h5 id="迭代">迭代</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(root)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(root-&gt;val &gt; p-&gt;val &amp;&amp; root-&gt;val &gt; q-&gt;val)</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(root-&gt;val &lt; p-&gt;val &amp;&amp; root-&gt;val &lt; q-&gt;val)</span><br><span class="line">                root = root-&gt;right;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="递归">递归</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(root-&gt;val &gt; p-&gt;val &amp;&amp; root-&gt;val &gt; q-&gt;val)</span><br><span class="line">                <span class="keyword">return</span> lowestCommonAncestor(root-&gt;left, p, q);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(root-&gt;val &lt; p-&gt;val &amp;&amp; root-&gt;val &lt; q-&gt;val)</span><br><span class="line">                <span class="keyword">return</span> lowestCommonAncestor(root-&gt;right, p, q);</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/11/%E5%89%91%E6%8C%87%20Offer%2068%20-%20II.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +343,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -328,7 +446,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -436,7 +554,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -545,7 +663,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -648,7 +766,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -754,7 +872,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -865,7 +983,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -970,7 +1088,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1077,7 +1195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
+                <time title="Modified: 2021-12-11 20:33:53" itemprop="dateModified" datetime="2021-12-11T20:33:53+08:00">2021-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1130,110 +1248,6 @@
       
           <h4 id="剑指-offer-66.-构建乘积数组"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/">剑指 Offer 66. 构建乘积数组</a></h4>
 <p>参考<a href="https://leetcode.cinte.cc/2021/07/07/238.%20Product%20of%20Array%20Except%20Self/">238. Product of Array Except Self</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/09/%E5%89%91%E6%8C%87%20Offer%2059%20-%20II.%20%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/09/%E5%89%91%E6%8C%87%20Offer%2059%20-%20II.%20%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" class="post-title-link" itemprop="url">剑指 Offer 59 - II. 队列的最大值</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-09 08:09:08" itemprop="dateCreated datePublished" datetime="2021-07-09T08:09:08+08:00">2021-07-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-11 17:08:09" itemprop="dateModified" datetime="2021-12-11T17:08:09+08:00">2021-12-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%91%E6%8C%87-Offer/" itemprop="url" rel="index"><span itemprop="name">剑指 Offer</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/07/09/%E5%89%91%E6%8C%87%20Offer%2059%20-%20II.%20%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/09/剑指 Offer 59 - II. 队列的最大值/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>779</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="剑指-offer-59---ii.-队列的最大值"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/">剑指 Offer 59 - II. 队列的最大值</a></h4>
-<h5 id="维护一个辅助队列">维护一个辅助队列</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MaxQueue</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    MaxQueue() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">max_value</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nodes.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> helper.front();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push_back</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(!helper.empty() &amp;&amp; value &gt; helper.back())</span><br><span class="line">            helper.pop_back();</span><br><span class="line">        helper.push_back(value);</span><br><span class="line">        nodes.push_back(value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pop_front</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nodes.empty())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(helper.front() == nodes.front())</span><br><span class="line">            helper.pop_front();</span><br><span class="line">        <span class="keyword">auto</span> ret = nodes.front();</span><br><span class="line">        nodes.pop_front();</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; nodes; <span class="comment">// 其实这个直接用queue也行</span></span><br><span class="line">    <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; helper;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MaxQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MaxQueue* obj = new MaxQueue();</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;max_value();</span></span><br><span class="line"><span class="comment"> * obj-&gt;push_back(value);</span></span><br><span class="line"><span class="comment"> * int param_3 = obj-&gt;pop_front();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1320,7 +1334,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">361</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1396,12 +1410,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">438k</span>
+    <span title="Symbols count total">439k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:38</span>
+    <span title="Reading time total">6:39</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
