@@ -3350,6 +3350,18 @@ len_n = len_{n-1} * 2 + 1 \\
       </tags>
   </entry>
   <entry>
+    <title>630. 课程表 III</title>
+    <url>/2021/12/14/630.%20%E8%AF%BE%E7%A8%8B%E8%A1%A8%20III/</url>
+    <content><![CDATA[<h4 id="课程表-iii"><a href="https://leetcode-cn.com/problems/course-schedule-iii/">630. 课程表 III</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">scheduleCourse</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; courses)</span> </span>&#123;</span><br><span class="line">        sort(courses.begin(), courses.end(), [](<span class="keyword">auto</span>&amp; v1, <span class="keyword">auto</span>&amp; v2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> v1[<span class="number">1</span>] &lt; v2[<span class="number">1</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>&gt; pq;</span><br><span class="line">        <span class="keyword">int</span> endTime = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; course : courses)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(endTime + course[<span class="number">0</span>] &lt;= course[<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                endTime += course[<span class="number">0</span>];</span><br><span class="line">                pq.push(course[<span class="number">0</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(!pq.empty() &amp;&amp; course[<span class="number">0</span>] &lt; pq.top()) <span class="comment">// 重点在这，如果当前不能简单得加到原来的序列中，那么如果当前的消耗时间小于里面的最长时间，就替换进去</span></span><br><span class="line">            &#123;</span><br><span class="line">                endTime -= pq.top();</span><br><span class="line">                endTime += course[<span class="number">0</span>];</span><br><span class="line">                pq.pop();</span><br><span class="line">                pq.push(course[<span class="number">0</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pq.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>设之前的是<code>t1 + t2 + .... t_j-1 + t_j + t_j+1 +.....tk &lt;= dk</code></p>
+<p>那么将<code>t_j</code>替换成<code>t_i</code>后，由于后者小于前者，所以上述关系仍旧存在，而由于<code>d_i &lt;= d_k</code>，所以都成立。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>633. 平方数之和</title>
     <url>/2021/12/11/633.%20%E5%B9%B3%E6%96%B9%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
     <content><![CDATA[<h4 id="平方数之和"><a href="https://leetcode-cn.com/problems/sum-of-square-numbers/">633. 平方数之和</a></h4>
