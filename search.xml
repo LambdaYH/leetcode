@@ -5782,7 +5782,7 @@ public:
 <p>继续结合套路<a href="https://leetcode-cn.com/problems/search-rotate-array-lcci/solution/xuan-zhuan-shu-zu-cong-yi-dao-nan-ge-ge-dcv7a/">【旋转数组】从易到难，各个击破！ - 搜索旋转数组 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
 <p>对于一个旋转数组，分为2种，一种是出于旋转节点右边，一种是处于旋转节点左边。</p>
 <p>当<code>arr[lo] == arr[target]</code>时，直接返回</p>
-<p>当<code>arr[mid] &lt;= arr.back()</code>时，处于旋转节点右边</p>
+<p>当<code>arr[mid] &lt; arr.back()</code>时，处于旋转节点右边</p>
 <ol type="1">
 <li><code>arr[mid] &gt; target</code> : 此时<code>target</code>必定处于旋转节点右边一部分，那么<code>hi = mid - 1</code></li>
 <li><code>arr[mid] &lt; target</code> : 此时<code>target</code>有两种情况
