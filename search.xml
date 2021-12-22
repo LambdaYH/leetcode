@@ -3488,6 +3488,22 @@ len_n = len_{n-1} * 2 + 1 \\
       </categories>
   </entry>
   <entry>
+    <title>686. 重复叠加字符串匹配</title>
+    <url>/2021/12/22/686.%20%E9%87%8D%E5%A4%8D%E5%8F%A0%E5%8A%A0%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/</url>
+    <content><![CDATA[<h4 id="重复叠加字符串匹配"><a href="https://leetcode-cn.com/problems/repeated-string-match/">686. 重复叠加字符串匹配</a></h4>
+<h5 id="模拟法">模拟法</h5>
+<p>下界：复制后的a的长度必须大于等于b的长度</p>
+<p>上界：下界+1(因为原字符串长度可能大于下界-1但小于下界，所以不能保证b的结尾可以具备使用a中所有字符的能力，因此多复制一个可以保证a中所有字符都作为b的开头和结尾)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">repeatedStringMatch</span><span class="params">(<span class="built_in">string</span> a, <span class="built_in">string</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = a.size(), n = b.size();</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">string</span> tmp;</span><br><span class="line">        <span class="keyword">while</span>(tmp.size() &lt; b.size() &amp;&amp; ++c)</span><br><span class="line">            tmp += a;</span><br><span class="line">        tmp += a;</span><br><span class="line">        <span class="keyword">int</span> pos = tmp.find(b, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(pos == <span class="built_in">std</span>::<span class="built_in">string</span>::npos)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(pos + n - <span class="number">1</span> &lt; m * c)</span><br><span class="line">            <span class="keyword">return</span> c;</span><br><span class="line">        <span class="keyword">return</span> c + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="kmp">kmp</h5>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzU4NDE3MTEyMA==&amp;mid=2247486317&amp;idx=1&amp;sn=9c2ff2fa5db427133cce9c875064e7a4&amp;chksm=fd9ca072caeb29642bf1f5c151e4d5aaff4dc10ba408b23222ea1672cfc41204a584fede5c05&amp;token=1782709324&amp;lang=zh_CN#rd">一文详解 KMP 算法</a></p>
+<h5 id="字符串哈希">字符串哈希</h5>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title>69. Sqrt(x)</title>
     <url>/2021/05/02/69.%20Sqrt(x)/</url>
     <content><![CDATA[<h4 id="sqrtx"><a href="https://leetcode.cinte.cc/index.html">69. Sqrt(x)</a></h4>
