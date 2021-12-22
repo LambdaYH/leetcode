@@ -194,6 +194,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/30/45.%20Jump%20Game%20II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/30/45.%20Jump%20Game%20II/" class="post-title-link" itemprop="url">45. Jump Game II</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-30 08:34:42" itemprop="dateCreated datePublished" datetime="2021-04-30T08:34:42+08:00">2021-04-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/30/45.%20Jump%20Game%20II/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/30/45. Jump Game II/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="jump-game-ii"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/jump-game-ii/">45. Jump Game II</a></h4>
+<h5 id="section"></h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> level = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxReach = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(maxReach &lt; nums.size() - <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++level;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> maxT = maxReach; i &lt;= maxT; ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                maxReach = max(maxReach, nums[i] + i);</span><br><span class="line">                <span class="keyword">if</span>(maxReach &gt;= nums.size() - <span class="number">1</span>)</span><br><span class="line">                    <span class="keyword">return</span> level;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> level;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>视为<a target="_blank" rel="noopener" href="https://leetcode.com/problems/jump-game-ii/discuss/18028/O(n)-BFS-solution">BFS问题</a></p>
+<p>每个区域里都可以走到下一层的任何一个点，实在走不到了，只能换层了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> level = <span class="number">0</span>, maxReachFurther = <span class="number">0</span>, maxReachEnd = <span class="number">0</span>; <span class="comment">// #defind jumptime level，这样解释比较合理</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() - <span class="number">1</span>; ++i)  <span class="comment">// 这里用nums.size() - 1而不是nums.size() 是因为如果走到了最后一个，但是最后一个，那么已经不用考虑换层了，例如[0]，如果到达0，再换层，那就扰乱了结果。因为假设的是一定可以到达终点，而最后一次起跳就表示了一定可以到达终点。这里面对最后一跳超越终点也无所谓，因为已经记录了这一跳了。</span></span><br><span class="line">        &#123;</span><br><span class="line">            maxReachFurther = max(maxReachFurther, nums[i] + i); <span class="comment">// 目前层能达到的最远</span></span><br><span class="line">            <span class="comment">// 首先先从0开始起跳，跳跃次数加一。然后每次碰到这次的结尾，跳跃次数加一。</span></span><br><span class="line">            <span class="keyword">if</span>(maxReachEnd == i)</span><br><span class="line">            &#123;</span><br><span class="line">                maxReachEnd = maxReachFurther;  <span class="comment">// 对于下一层来说  记录上一层能达到的最远，如果遇见，那么这一层就结束了</span></span><br><span class="line">                ++level; <span class="comment">// level代表着需要重新起跳，跳到下一层了，记录的不是层数而跳跃的次数。</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> level;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/28/581.%20Shortest%20Unsorted%20Continuous%20Subarray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +332,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -345,7 +452,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -459,7 +566,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -567,7 +674,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -671,7 +778,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -790,7 +897,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -897,7 +1004,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1006,7 +1113,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1116,7 +1223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1177,115 +1284,6 @@
 <h5 id="dp复习时候看不懂了">dp（复习时候看不懂了</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; pc;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; val; <span class="comment">// vector来存放节点的值</span></span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; qNode; <span class="comment">// 用来遍历</span></span><br><span class="line">        <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; qIndex; <span class="comment">// 用来存放节点所对应的指标</span></span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">-1</span>;</span><br><span class="line">        qNode.push(root);</span><br><span class="line">        qIndex.push(index);</span><br><span class="line">        <span class="comment">// 将所有节点的值放入val，每个节点对应index</span></span><br><span class="line">        <span class="keyword">while</span>(!qNode.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 层级遍历</span></span><br><span class="line">            <span class="keyword">auto</span> node = qNode.front();</span><br><span class="line">            qNode.pop();</span><br><span class="line">            <span class="keyword">auto</span> fatherI = qIndex.front();</span><br><span class="line">            qIndex.pop();</span><br><span class="line">            <span class="keyword">if</span>(node)</span><br><span class="line">            &#123;</span><br><span class="line">                ++index;</span><br><span class="line">                pc[fatherI].push_back(index); <span class="comment">// father中放入孩子</span></span><br><span class="line">                val.push_back(node-&gt;val);</span><br><span class="line">                qNode.push(node-&gt;left);</span><br><span class="line">                qNode.push(node-&gt;right);</span><br><span class="line">                qIndex.push(index);</span><br><span class="line">                qIndex.push(index);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 开始dp</span></span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dpRob</span><span class="params">(index + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dpNoRob</span><span class="params">(index + <span class="number">1</span>)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 从最后一层开始往上走</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = index; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(pc[i].empty()) <span class="comment">// 叶子节点的情况</span></span><br><span class="line">            &#123;</span><br><span class="line">                dpRob[i] = val[i];</span><br><span class="line">                dpNoRob[i] = <span class="number">0</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dpRob[i] = val[i];</span><br><span class="line">                <span class="comment">// 遍历孩子节点</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; j : pc[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    dpRob[i] += dpNoRob[j]; <span class="comment">// 如果rob，那么就加上前面不rob的</span></span><br><span class="line">                    dpNoRob[i] += max(dpRob[j], dpNoRob[j]); <span class="comment">// 如果不rob，那么前面随便rob还是不rob，取最大值</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max(dpRob[<span class="number">0</span>], dpNoRob[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>base : leaf</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/23/5.%20Longest%20Palindromic%20Substring/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/23/5.%20Longest%20Palindromic%20Substring/" class="post-title-link" itemprop="url">5. Longest Palindromic Substring</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-23 14:23:09" itemprop="dateCreated datePublished" datetime="2021-04-23T14:23:09+08:00">2021-04-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/23/5.%20Longest%20Palindromic%20Substring/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/23/5. Longest Palindromic Substring/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="longest-palindromic-substring"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-palindromic-substring/">5. Longest Palindromic Substring</a></h4>
-<h5 id="approach-3">Approach 3</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; maxp&#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> maxlen = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(s.size(), <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(s.size(), <span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); ++i)</span><br><span class="line">            dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size() - <span class="number">1</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][i + <span class="number">1</span>] = (s[i] == s[i + <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(dp[i][i + <span class="number">1</span>] &amp;&amp; maxlen &lt; <span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                maxlen = <span class="number">2</span>;</span><br><span class="line">                maxp = <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&#123;i, <span class="number">2</span>&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 此处循环先j再i 是由于以下j为j - 1 而 i 为 i + 1</span></span><br><span class="line">        <span class="comment">// 如果先i 再 j，则i + 1永远不是i的前一任</span></span><br><span class="line">        <span class="comment">// 先j后i，则可以用i,i+1的base来处理</span></span><br><span class="line">        <span class="comment">// 也是不断拉长区间</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; s.size(); ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; j; ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == j || j == i + <span class="number">1</span>)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>] &amp;&amp; s[i] == s[j];</span><br><span class="line">                <span class="keyword">if</span>(dp[i][j])</span><br><span class="line">                &#123;</span><br><span class="line">                    maxp = j - i + <span class="number">1</span> &gt; maxlen ? <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&#123;i, j - i + <span class="number">1</span>&#125; : maxp;   </span><br><span class="line">                    maxlen = max(maxlen, maxp.second);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substr(maxp.first, maxp.second);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>T(n) : O(n^2) <br> S(n) : O(n^2)</p>
-<p>dp改 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = s.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(m, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(m, <span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">int</span> start&#123; <span class="number">0</span> &#125;, maxLength&#123; <span class="number">1</span> &#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">            dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m - <span class="number">1</span>; ++i)</span><br><span class="line">            <span class="keyword">if</span>((dp[i][i + <span class="number">1</span>] = s[i] == s[i + <span class="number">1</span>]) &amp;&amp; (maxLength = <span class="number">2</span>))</span><br><span class="line">                start = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> len = <span class="number">3</span>; len &lt;= m; ++len)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = i + len - <span class="number">1</span>; j &lt; m; ++i, ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(dp[i][j] = s[i] == s[j] &amp;&amp; dp[i + <span class="number">1</span>][j - <span class="number">1</span>])</span><br><span class="line">                &#123;</span><br><span class="line">                    start = i;</span><br><span class="line">                    maxLength = len;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substr(start, maxLength);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> ##### approach4(很快)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; maxP;</span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> lenO = extract(s, i, i);</span><br><span class="line">            <span class="keyword">auto</span> lenS = extract(s, i, i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (max(lenO.second, lenS.second) &gt; maxLen)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (lenO.second &gt; lenS.second)</span><br><span class="line">                    maxP = lenO;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    maxP = lenS;</span><br><span class="line">                maxLen = maxP.second;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substr(maxP.first, maxP.second);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    pair&lt;int, int&gt; extract(string&amp; s, int left, int right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt;= s.size() &amp;&amp; s[left] == s[right])</span><br><span class="line">        &#123;</span><br><span class="line">            --left;</span><br><span class="line">            ++right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&#123;left + <span class="number">1</span>, right - left - <span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>T(n) : O(n^2) <br> S(n) : O(1)</p>
-<h5 id="approach-5-manachers-algorithm"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Longest_palindromic_substring#Manacher&#39;s_algorithm">Approach 5: Manacher's Algorithm</a></h5>
 
       
     </div>
@@ -1372,7 +1370,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">369</span>
+          <span class="site-state-item-count">370</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

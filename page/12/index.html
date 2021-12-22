@@ -194,6 +194,137 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/02/%E9%9D%A2%E8%AF%95%E9%A2%98%2010.03.%20%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/02/%E9%9D%A2%E8%AF%95%E9%A2%98%2010.03.%20%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">面试题 10.03. 搜索旋转数组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-08-03 07:50:28" itemprop="dateCreated datePublished" datetime="2021-08-03T07:50:28+08:00">2021-08-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/08/02/%E9%9D%A2%E8%AF%95%E9%A2%98%2010.03.%20%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/02/面试题 10.03. 搜索旋转数组/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="面试题-10.03.-搜索旋转数组"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-rotate-array-lcci/">面试题 10.03. 搜索旋转数组</a></h4>
+<p>边界条件真复杂。结合<a href="https://leetcode.cinte.cc/2021/06/16/剑指%20Offer%2011.%20旋转数组的最小数字/">剑指 Offer 11. 旋转数组的最小数字 | Cinte's Leetcode Record</a>思考</p>
+<p>继续结合套路<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-rotate-array-lcci/solution/xuan-zhuan-shu-zu-cong-yi-dao-nan-ge-ge-dcv7a/">【旋转数组】从易到难，各个击破！ - 搜索旋转数组 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p>对于一个旋转数组，分为2种，一种是出于旋转节点右边，一种是处于旋转节点左边。</p>
+<p>当<code>arr[lo] == arr[target]</code>时，直接返回</p>
+<p>当<code>arr[mid] &lt; arr.back()</code>时，处于旋转节点右边</p>
+<ol type="1">
+<li><code>arr[mid] &gt; target</code> : 此时<code>target</code>必定处于旋转节点右边一部分，那么<code>hi = mid - 1</code></li>
+<li><code>arr[mid] &lt; target</code> : 此时<code>target</code>有两种情况
+<ol type="1">
+<li><code>target &gt;= arr[0]</code> : 表示了<code>target</code>处于<code>0 ~ mid</code>，则<code>hi = mid - 1</code></li>
+<li><code>target &lt; arr[0]</code> : 表示了<code>target</code>处于<code>mid ~</code>，则<code>lo = mid + 1</code></li>
+</ol></li>
+</ol>
+<p>当<code>arr[mid] &gt; arr.back()</code>时，处于旋转节点左边</p>
+<ol type="1">
+<li><code>arr[mid] &lt; target</code> : 此时<code>target</code>必定位于旋转节点左边，是<code>lo = mid + 1</code></li>
+<li><code>arr[mid] &gt; target</code> : 此时<code>target</code>有两种情况
+<ol type="1">
+<li><code>target &gt;= arr[0]</code> : 表示了<code>target</code>处于<code>0 ~ mid</code>，则<code>hi = mid - 1</code></li>
+<li><code>target &lt; arr[0]</code> : 表示了<code>target</code>处于<code>mid ~</code>，则<code>lo = mid + 1</code></li>
+</ol></li>
+</ol>
+<p><strong>重点</strong></p>
+<p><code>arr[mid] == target</code>时，<code>hi = mid</code>，使其向左缩</p>
+<p><strong>重点2</strong></p>
+<p>当<code>arr[mid] == arr.back()</code>时，存在2种不确定的可能，对于这种情况需要单独处理，做法就是收缩区间。</p>
+<p>那收缩区间是收缩<code>lo</code>还是<code>hi</code>呢，这里选择移动<code>lo</code>，因为所求的是最左的边界值，如果在前面没有返回的话，说明<code>arr[lo]</code>必定小于target，所以<code>++lo</code>后是安全的。</p>
+<p>由此便可以进行二分查找</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lo = <span class="number">0</span>, hi = arr.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt;= hi)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[lo] == target)</span><br><span class="line">                <span class="keyword">return</span> lo;</span><br><span class="line">            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(arr[mid] == target)</span><br><span class="line">                hi = mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(arr[mid] &lt; arr.back())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[mid] &gt; target)</span><br><span class="line">                    hi = mid - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (target &gt;= arr[<span class="number">0</span>])</span><br><span class="line">                        hi = mid - <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        lo = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[mid] &gt; arr.back())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[mid] &lt; target)</span><br><span class="line">                    lo = mid + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(target &gt;= arr[<span class="number">0</span>])</span><br><span class="line">                        hi = mid - <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        lo = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                ++lo;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.11.%20%E7%A1%AC%E5%B8%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +356,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -409,7 +540,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -521,7 +652,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -627,7 +758,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -730,7 +861,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -833,7 +964,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -939,7 +1070,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1047,7 +1178,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1155,7 +1286,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
+                <time title="Modified: 2021-12-22 20:34:24" itemprop="dateModified" datetime="2021-12-22T20:34:24+08:00">2021-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1217,110 +1348,6 @@ public:
 <img src="https://image.cinte.cc/2021/07/30/3d6104b0875d0.png" alt="1627634517255.png" /><figcaption aria-hidden="true">1627634517255.png</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; subsets(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> length = <span class="number">1</span> &lt;&lt; nums.size(); <span class="comment">// 移位计算2的幂</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>((<span class="number">1</span> &lt;&lt; j) &amp; i)</span><br><span class="line">                    tmp.push_back(nums[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            ret.push_back(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.01.%20%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.01.%20%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">面试题 08.01. 三步问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-28 10:54:23" itemprop="dateCreated datePublished" datetime="2021-07-28T10:54:23+08:00">2021-07-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-22 20:22:51" itemprop="dateModified" datetime="2021-12-22T20:22:51+08:00">2021-12-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/07/28/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.01.%20%E4%B8%89%E6%AD%A5%E9%97%AE%E9%A2%98/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/28/面试题 08.01. 三步问题/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>222</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="面试题-08.01.-三步问题"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/three-steps-problem-lcci/">面试题 08.01. 三步问题</a></h4>
-<p>简单的dp</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">waysToStep</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">long</span> a = <span class="number">1</span>, b = <span class="number">1</span>, c = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            a = (c + b + a) % <span class="number">1000000007</span>;</span><br><span class="line">            swap(a, c);</span><br><span class="line">            swap(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1407,7 +1434,7 @@ public:
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">369</span>
+          <span class="site-state-item-count">370</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
