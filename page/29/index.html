@@ -194,6 +194,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/26/208.%20Implement%20Trie%20(Prefix%20Tree)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/26/208.%20Implement%20Trie%20(Prefix%20Tree)/" class="post-title-link" itemprop="url">208. Implement Trie (Prefix Tree)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-26 11:34:42" itemprop="dateCreated datePublished" datetime="2021-04-26T11:34:42+08:00">2021-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/26/208.%20Implement%20Trie%20(Prefix%20Tree)/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/26/208. Implement Trie (Prefix Tree)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="implement-trie-prefix-tree"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/implement-trie-prefix-tree/">208. Implement Trie (Prefix Tree)</a></h4>
+<h5 id="使用vector">使用vector</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    Trie() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> Node();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Inserts a word into the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        Node* point = root;        </span><br><span class="line">        <span class="keyword">while</span>(++start &lt; word.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!travesalChilds(word, start, point))</span><br><span class="line">            &#123;</span><br><span class="line">                point-&gt;childs.push_back(<span class="keyword">new</span> Node(word[start]));</span><br><span class="line">                point = point-&gt;childs.back(); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        point-&gt;endOfWord = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns if the word is in the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        Node* point = root;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(++start &lt; word.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!travesalChilds(word, start, point))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> point-&gt;endOfWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns if there is any word in the trie that starts with the given prefix. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">startsWith</span><span class="params">(<span class="built_in">string</span> prefix)</span> </span>&#123;</span><br><span class="line">        Node* point = root;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(++start &lt; prefix.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!travesalChilds(prefix, start, point))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;   </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">        <span class="keyword">bool</span> endOfWord = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">char</span> val;</span><br><span class="line">        <span class="built_in">vector</span>&lt;Node*&gt; childs;</span><br><span class="line">        Node() = <span class="keyword">default</span>;</span><br><span class="line">        Node(<span class="keyword">char</span> val, <span class="keyword">bool</span> end = <span class="literal">false</span>) : val(val), endOfWord(end) &#123;&#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node* root;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">travesalChilds</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="keyword">int</span>&amp; start, Node*&amp; node)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; child : node-&gt;childs)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(child-&gt;val == s[start])</span><br><span class="line">            &#123;</span><br><span class="line">                node = child;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Trie* obj = new Trie();</span></span><br><span class="line"><span class="comment"> * obj-&gt;insert(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> * bool param_3 = obj-&gt;startsWith(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h5 id="使用hashmap">使用hashmap</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    Trie() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> Node();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Inserts a word into the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        Node* point = root;        </span><br><span class="line">        <span class="keyword">while</span>(++start &lt; word.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(point-&gt;childs.find(word[start]) != point-&gt;childs.end())</span><br><span class="line">                point = point-&gt;childs[word[start]];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                point = point-&gt;childs.insert(&#123;word[start] ,<span class="keyword">new</span> Node(word[start])&#125;).first-&gt;second;</span><br><span class="line">        &#125;</span><br><span class="line">        point-&gt;endOfWord = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns if the word is in the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        Node* point = root;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(++start &lt; word.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(point-&gt;childs.find(word[start]) != point-&gt;childs.end())</span><br><span class="line">                point = point-&gt;childs[word[start]];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> point-&gt;endOfWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns if there is any word in the trie that starts with the given prefix. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">startsWith</span><span class="params">(<span class="built_in">string</span> prefix)</span> </span>&#123;</span><br><span class="line">        Node* point = root;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(++start &lt; prefix.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(point-&gt;childs.find(prefix[start]) != point-&gt;childs.end())</span><br><span class="line">                point = point-&gt;childs[prefix[start]];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;   </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">        <span class="keyword">bool</span> endOfWord = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">char</span> val;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span> ,Node*&gt; childs;</span><br><span class="line">        Node() = <span class="keyword">default</span>;</span><br><span class="line">        Node(<span class="keyword">char</span> val, <span class="keyword">bool</span> end = <span class="literal">false</span>) : val(val), endOfWord(end) &#123;&#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node* root;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Trie* obj = new Trie();</span></span><br><span class="line"><span class="comment"> * obj-&gt;insert(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> * bool param_3 = obj-&gt;startsWith(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h5 id="使用数组">使用数组</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    Trie() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> Node();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Inserts a word into the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        Node* point = root;        </span><br><span class="line">        <span class="keyword">while</span>(++start &lt; word.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(point-&gt;childs[word[start] - <span class="string">&#x27;a&#x27;</span>] != <span class="literal">nullptr</span>)</span><br><span class="line">                point = point-&gt;childs[word[start] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                point-&gt;childs[word[start] - <span class="string">&#x27;a&#x27;</span>] = <span class="keyword">new</span> Node(word[start]);</span><br><span class="line">                point = point-&gt;childs[word[start] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        point-&gt;endOfWord = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns if the word is in the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        Node* point = root;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(++start &lt; word.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(point-&gt;childs[word[start] - <span class="string">&#x27;a&#x27;</span>] != <span class="literal">nullptr</span>)</span><br><span class="line">                point = point-&gt;childs[word[start] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> point-&gt;endOfWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns if there is any word in the trie that starts with the given prefix. */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">startsWith</span><span class="params">(<span class="built_in">string</span> prefix)</span> </span>&#123;</span><br><span class="line">        Node* point = root;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(++start &lt; prefix.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(point-&gt;childs[prefix[start] - <span class="string">&#x27;a&#x27;</span>] != <span class="literal">nullptr</span>)</span><br><span class="line">                point = point-&gt;childs[prefix[start] - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;   </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">        <span class="keyword">bool</span> endOfWord = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">char</span> val;</span><br><span class="line">        Node* childs[<span class="number">26</span>]&#123; <span class="literal">nullptr</span> &#125;;</span><br><span class="line">        Node() = <span class="keyword">default</span>;</span><br><span class="line">        Node(<span class="keyword">char</span> val, <span class="keyword">bool</span> end = <span class="literal">false</span>) : val(val), endOfWord(end) &#123;&#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node* root;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Trie* obj = new Trie();</span></span><br><span class="line"><span class="comment"> * obj-&gt;insert(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> * bool param_3 = obj-&gt;startsWith(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h5 id="review">review</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Trie() : head(<span class="keyword">new</span> Node()) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> point = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : word)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!point-&gt;childs[ch - <span class="string">&#x27;a&#x27;</span>])</span><br><span class="line">                point-&gt;childs[ch - <span class="string">&#x27;a&#x27;</span>] = <span class="keyword">new</span> Node();</span><br><span class="line">            point = point-&gt;childs[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        point-&gt;isWord = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> point = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : word)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!point-&gt;childs[ch - <span class="string">&#x27;a&#x27;</span>])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            point = point-&gt;childs[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> point-&gt;isWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">startsWith</span><span class="params">(<span class="built_in">string</span> prefix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> point = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : prefix)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!point-&gt;childs[ch - <span class="string">&#x27;a&#x27;</span>])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            point = point-&gt;childs[ch - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        Node* childs[<span class="number">26</span>]&#123;&#125;;</span><br><span class="line">        <span class="keyword">bool</span> isWord;</span><br><span class="line">        Node() : isWord(<span class="literal">false</span>) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Node *head;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Trie* obj = new Trie();</span></span><br><span class="line"><span class="comment"> * obj-&gt;insert(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> * bool param_3 = obj-&gt;startsWith(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/23/337.%20House%20Robber%20III/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +335,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -336,7 +446,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -445,7 +555,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -555,7 +665,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -659,7 +769,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -766,7 +876,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -878,7 +988,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -990,7 +1100,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1098,7 +1208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
+                <time title="Modified: 2021-12-23 19:11:16" itemprop="dateModified" datetime="2021-12-23T19:11:16+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1156,116 +1266,6 @@
 <p>review</p>
 <p>和上面区别就是他留了一部分左子树给后面处理，而我就直接处理完了</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">flatten</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        TreeNode* pt = root;</span><br><span class="line">        <span class="keyword">while</span>(pt)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(pt-&gt;left)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> cur = pt-&gt;left;</span><br><span class="line">                TreeNode* pre;</span><br><span class="line">                <span class="keyword">while</span>(cur)</span><br><span class="line">                &#123;</span><br><span class="line">                    pre = cur;</span><br><span class="line">                    <span class="keyword">if</span>(cur-&gt;right)</span><br><span class="line">                        cur = cur-&gt;right;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        cur = cur-&gt;left;</span><br><span class="line">                &#125;</span><br><span class="line">                pre-&gt;right = pt-&gt;right;</span><br><span class="line">                pt-&gt;right = pt-&gt;left;</span><br><span class="line">                pt-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            pt = pt-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/15/394.%20Decode%20String/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/15/394.%20Decode%20String/" class="post-title-link" itemprop="url">394. Decode String</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-15 09:50:34" itemprop="dateCreated datePublished" datetime="2021-04-15T09:50:34+08:00">2021-04-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-23 17:50:19" itemprop="dateModified" datetime="2021-12-23T17:50:19+08:00">2021-12-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/15/394.%20Decode%20String/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/15/394. Decode String/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="decode-string"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/decode-string/">394. Decode String</a></h4>
-<h5 id="我越来越菜了">我越来越菜了</h5>
-<p>由于括号是包裹的，后出现的左括号会匹配后面遇到的第一个右括号，所以使用堆栈</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">decodeString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; st; <span class="comment">// 保存遇到方括号之前的字符串</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; num; <span class="comment">// 保存方括号前的计数</span></span><br><span class="line">        <span class="keyword">int</span> curNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; ch : s)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ch == <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                st.push(ret); <span class="comment">// 遇到方括号开端后，先压入当前字符串，当进入方括号过程中中再次遇到，就会压入先前方括号开端到此方括号之间的字符串</span></span><br><span class="line">                num.push(curNum); <span class="comment">// 计数值同理</span></span><br><span class="line">                curNum = <span class="number">0</span>; <span class="comment">// 此方括号计数已经入栈，所以开始下一轮计数</span></span><br><span class="line">                ret = <span class="string">&quot;&quot;</span>; <span class="comment">// 开始计算方括号中的字符串</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ch == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> p = st.top(); <span class="comment">// 遇见结尾，出栈，先把这个方括号之前，上一个方括号之后的字符串出栈</span></span><br><span class="line">                st.pop();</span><br><span class="line">                <span class="keyword">auto</span> c = num.top(); <span class="comment">// 当前方括号的计数值出栈</span></span><br><span class="line">                num.pop();</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; c; ++i)</span><br><span class="line">                    p += ret; <span class="comment">// 之前的加上当前括号的值，代表了前一个大括号所包含的字符串</span></span><br><span class="line">                ret = p;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ch &lt;= <span class="string">&#x27;9&#x27;</span> &amp;&amp; ch &gt;= <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">                curNum = curNum * <span class="number">10</span> + ch - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ret += ch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="递归">递归</h5>
-<p>本质上就是将堆栈方法改为了函数递归栈实现，碰到]就返回，碰到[就进去</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">decodeString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(s, index);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">helper</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="keyword">int</span>&amp; index)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(index &lt; s.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[index] == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(s[index] &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; s[index] &lt;= <span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">                ret += s[index++];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span>(s[index] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[index] &lt;= <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">                    num = num * <span class="number">10</span> + s[index++] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                ++index;</span><br><span class="line">                <span class="keyword">auto</span> t = helper(s, index);</span><br><span class="line">                <span class="keyword">while</span>(num-- &gt; <span class="number">0</span>)</span><br><span class="line">                    ret += t;</span><br><span class="line">                ++index;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>处理一个框框中的数据，框框里遇到框框就再递归</p>
-<p>review <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">decodeString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(s, i, s.size());</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">helper</span><span class="params">(<span class="built_in">string</span>&amp; s, <span class="keyword">int</span>&amp; i, <span class="keyword">int</span> sz)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> curTime = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">string</span> r;</span><br><span class="line">        <span class="keyword">for</span>(i; i &lt; sz; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> ch = s[i];</span><br><span class="line">            <span class="keyword">if</span>(ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">                curTime = curTime * <span class="number">10</span> + ch - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ch == <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> tmp = helper(s, ++i, sz);</span><br><span class="line">                <span class="keyword">if</span>(curTime == <span class="number">0</span>)</span><br><span class="line">                    curTime = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; curTime; ++j)</span><br><span class="line">                    r.append(tmp);</span><br><span class="line">                curTime = <span class="number">0</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ch == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">                <span class="keyword">return</span> r;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r += ch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -1352,7 +1352,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">371</span>
+          <span class="site-state-item-count">372</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1428,12 +1428,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">445k</span>
+    <span title="Symbols count total">446k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:44</span>
+    <span title="Reading time total">6:45</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
