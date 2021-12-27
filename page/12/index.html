@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -329,7 +329,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -436,7 +436,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -567,7 +567,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -599,7 +599,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>329</span>
+              <span>344</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -623,7 +623,7 @@
 <p>(题中<code>i</code>为4，且面额为<code>[1, 5, 10, 25]</code>)</p>
 <p>将第<code>i</code>个面额记为<code>c_i</code></p>
 <p>则转移方程 <span class="math display">\[
-F(i, v) = F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
+F(i, v) = F(i - 1, v - 0 * c_i) + F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
 \]</span></p>
 <p>这是一个纵轴为采用的硬币种类，横轴为面额，内部值为方案数的表格</p>
 <p><img src="https://image.cinte.cc/2021/08/02/7610cb05b7f9d.jpg" width="304" height="228"></p>
@@ -660,11 +660,11 @@ public:
 </details>
 <p>但是<strong>超时了</strong></p>
 <strong>进行对时间的优化</strong> <span class="math display">\[
-F(i, v) = F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
+F(i, v) = F(i - 1, v - 0 * c_i) + F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
 \]</span> 图中标红的公式与 <span class="math display">\[
-F(i, v - c_i) = F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
+F(i, v - c_i) = F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
 \]</span> 进行比较，发现相同，所以 <span class="math display">\[
-F(i, v) = F(i - 1, v - 1 * c_i) + F(i, v - c_i)
+F(i, v) = F(i - 1, v - 0 * c_i) + F(i, v - c_i)
 \]</span> 于是就可以减少一层循环
 <details>
 <summary>
@@ -751,7 +751,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -863,7 +863,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -969,7 +969,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1074,7 +1074,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1177,7 +1177,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1283,7 +1283,7 @@ public:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:53:20" itemprop="dateModified" datetime="2021-12-25T11:53:20+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 15:47:13" itemprop="dateModified" datetime="2021-12-27T15:47:13+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
