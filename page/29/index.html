@@ -194,6 +194,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/28/560.%20Subarray%20Sum%20Equals%20K/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/28/560.%20Subarray%20Sum%20Equals%20K/" class="post-title-link" itemprop="url">560. Subarray Sum Equals K</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-28 11:13:44" itemprop="dateCreated datePublished" datetime="2021-04-28T11:13:44+08:00">2021-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/28/560.%20Subarray%20Sum%20Equals%20K/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/28/560. Subarray Sum Equals K/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>378</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="subarray-sum-equals-k"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/subarray-sum-equals-k/">560. Subarray Sum Equals K</a></h4>
+<h5 id="和httpsleetcode.comproblemspath-sum-iii思路相同">和<a target="_blank" rel="noopener" href="https://leetcode.com/problems/path-sum-iii/">https://leetcode.com/problems/path-sum-iii/</a>思路相同</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="built_in">map</span>[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> curSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            curSum += num;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.find(curSum - k) != <span class="built_in">map</span>.end())</span><br><span class="line">                count += <span class="built_in">map</span>[curSum - k];</span><br><span class="line">            <span class="built_in">map</span>[curSum] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/27/416.%20Partition%20Equal%20Subset%20Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +329,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -344,7 +448,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -451,7 +555,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -560,7 +664,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -670,7 +774,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -781,7 +885,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -890,7 +994,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1000,7 +1104,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1104,7 +1208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
+                <time title="Modified: 2022-01-04 17:10:39" itemprop="dateModified" datetime="2022-01-04T17:10:39+08:00">2022-01-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1161,118 +1265,6 @@
 <p>对于每个点都是一条路走到黑，所以是DFS</p>
 <h5 id="review">review</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canFinish</span><span class="params">(<span class="keyword">int</span> numCourses, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; prerequisites)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">visited</span><span class="params">(numCourses, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">checked</span><span class="params">(numCourses, <span class="number">0</span>)</span></span>; <span class="comment">// 0 : unknown, 1 : ok</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; graph(numCourses);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; c : prerequisites)</span><br><span class="line">            graph[c[<span class="number">0</span>]].push_back(c[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numCourses; ++i)</span><br><span class="line">            <span class="keyword">if</span>(!check(graph, visited, checked, i))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; graph, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; visited, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; checked, <span class="keyword">int</span> course)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// checked表示这些课的所有先决条件都满足</span></span><br><span class="line">        <span class="comment">// checked过的点是某些点的先决条件</span></span><br><span class="line">        <span class="comment">// 一门课可能有多个先决课，没门先决课都得学，而不是多个课选一个学</span></span><br><span class="line">        <span class="keyword">if</span>(checked[course])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">// 如果这些课不在checked的列表中，那么这节课往回走的时候，注定遇上了环路。</span></span><br><span class="line">        <span class="keyword">if</span>(visited[course])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        visited[course] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; c : graph[course])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!check(graph, visited, checked, c))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        visited[course] = <span class="number">0</span>;</span><br><span class="line">        checked[course] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/04/20/240.%20Search%20%20a%202D%20Matrix%20II/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/20/240.%20Search%20%20a%202D%20Matrix%20II/" class="post-title-link" itemprop="url">240. Search a 2D Matrix II</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-20 11:52:40" itemprop="dateCreated datePublished" datetime="2021-04-20T11:52:40+08:00">2021-04-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-04 16:33:29" itemprop="dateModified" datetime="2022-01-04T16:33:29+08:00">2022-01-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/04/20/240.%20Search%20%20a%202D%20Matrix%20II/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/20/240. Search  a 2D Matrix II/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>715</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="search-a-2d-matrix-ii"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-a-2d-matrix-ii/">240. Search a 2D Matrix II</a></h4>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">searchMatrix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = matrix[<span class="number">0</span>].size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; matrix.size() &amp;&amp; j &gt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i][j] == target)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i][j] &lt; target)</span><br><span class="line">                ++i;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                --j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>T(n) : O(n)</p>
-<p>从第一行的最后一个元素开始，如果这个元素比target大，那么让j减小，减小到这个元素比target小，因为<code>matrix[i][j + 1] &gt; target</code>，所以这一列及以后都可以被抛弃了</p>
-<p>如果当前元素比target小，那么让i增加，由于<code>matrix[i - 1][j] &lt; target</code>表明上一行，在经过列筛选后的上限都低于target，因此也可以被抛弃了。</p>
-<p>重复上述，不断抛弃列和行，如得到相等，则找到了，若无则未找到</p>
-<p>j从最后一列而i从0开始是为了可以使得i和j的<strong>判断条件分离</strong>，若两者都是从0或从最大开始，那么他们的抛弃条件同为<或>，导致无法很好的分开操作2者</p>
-<p>真的太棒了</p>
-<p>补充</p>
-<p>当一个元素&lt;target时候，那么包括这个元素以及其左上角都小于target，可以舍弃</p>
-<p>当一个元素&gt;target时候，那么包括这个元素及其右下角都大于target，可以舍弃</p>
 
       
     </div>
@@ -1359,7 +1351,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">375</span>
+          <span class="site-state-item-count">376</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
