@@ -28,7 +28,7 @@
 <meta property="og:description" content="剑指 Offer 03. 数组中重复的数字 记录 1234567891011121314class Solution &amp;#123;public:    int findRepeatNumber(vector&lt;int&gt;&amp; nums) &amp;#123;        vector&lt;int&gt; memo(nums.size());        for(auto&amp; nu">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-15T01:57:41.000Z">
-<meta property="article:modified_time" content="2022-01-06T08:26:11.728Z">
+<meta property="article:modified_time" content="2022-01-08T03:12:34.269Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
 
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-06 16:26:11" itemprop="dateModified" datetime="2022-01-06T16:26:11+08:00">2022-01-06</time>
+                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,7 +261,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>924</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -293,6 +293,8 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i] != i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] == nums[nums[i]])</span><br><span class="line">                    <span class="keyword">return</span> nums[i];</span><br><span class="line">                swap(nums[i], nums[nums[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>对于当走到i时，如果i处的数字不是i的话，就把这个数字移动到正确的位置nums[nums[i]]，然后对交换过来的数字继续判断是不是==i。</p>
 <p>这样一来所有的数字都会被交换到正确的位置，当碰到重复数字时，那他一定不在正确的位置，这时候想把它交换过去的话，就会发现，唉！交换过去的位置已经有他了，那么就可以判断出来时重复了</p>
+<h5 id="自制hash">自制hash</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> num : nums)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[num % n] &gt;= n)</span><br><span class="line">                <span class="keyword">return</span> num % n;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                nums[num % n] += n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -380,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E6%8C%87-offer-03.-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 03. 数组中重复的数字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8swap"><span class="nav-number">1.3.</span> <span class="nav-text">用swap</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%91%E6%8C%87-offer-03.-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 03. 数组中重复的数字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8swap"><span class="nav-number">1.3.</span> <span class="nav-text">用swap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E5%88%B6hash"><span class="nav-number">1.4.</span> <span class="nav-text">自制hash</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
