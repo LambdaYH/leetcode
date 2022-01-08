@@ -65,3 +65,22 @@ public:
 对于当走到i时，如果i处的数字不是i的话，就把这个数字移动到正确的位置nums[nums[i]]，然后对交换过来的数字继续判断是不是==i。
 
 这样一来所有的数字都会被交换到正确的位置，当碰到重复数字时，那他一定不在正确的位置，这时候想把它交换过去的话，就会发现，唉！交换过去的位置已经有他了，那么就可以判断出来时重复了
+
+##### 自制hash
+
+```c++
+class Solution {
+public:
+    int findRepeatNumber(vector<int>& nums) {
+        int n = nums.size();
+        for(auto num : nums)
+        {
+            if(nums[num % n] >= n)
+                return num % n;
+            else
+                nums[num % n] += n;
+        }
+        return 0;
+    }
+};
+```
