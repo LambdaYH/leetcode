@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +331,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -393,6 +393,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">exist</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.size(); ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(backTrack(board, i, j, word, <span class="number">0</span>))</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">backTrack</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board,<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="built_in">string</span>&amp; word, <span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(board[i][j] &lt; <span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(board[i][j] == word[index])</span><br><span class="line">        &#123;</span><br><span class="line">            board[i][j] -= <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">            <span class="keyword">bool</span> ret = (i &gt; <span class="number">0</span> &amp;&amp; backTrack(board, i - <span class="number">1</span>, j, word, index + <span class="number">1</span>))</span><br><span class="line">                    || (i &lt; board.size() - <span class="number">1</span> &amp;&amp; backTrack(board, i + <span class="number">1</span>, j, word, index + <span class="number">1</span>))</span><br><span class="line">                    || (j &gt; <span class="number">0</span> &amp;&amp; backTrack(board, i, j - <span class="number">1</span>, word, index + <span class="number">1</span>))</span><br><span class="line">                    || (j &lt; board[<span class="number">0</span>].size() - <span class="number">1</span> &amp;&amp; backTrack(board, i, j + <span class="number">1</span>, word, index + <span class="number">1</span>))</span><br><span class="line">                    || (index == word.size() - <span class="number">1</span>);</span><br><span class="line">            board[i][j] += <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h5 id="review-again">review again</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">exist</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = board.size(), n = board[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j)</span><br><span class="line">                <span class="keyword">if</span>(search(board, i, j, m, n, word, <span class="number">0</span>))</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board,<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">const</span> <span class="keyword">int</span>&amp; m, <span class="keyword">const</span> <span class="keyword">int</span>&amp; n, <span class="built_in">string</span>&amp; word, <span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index &gt;= word.size())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(i &gt;= m || i &lt; <span class="number">0</span> || j &gt;= n || j &lt; <span class="number">0</span> || board[i][j] &lt; <span class="string">&#x27;A&#x27;</span> || word[index] != board[i][j])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        board[i][j] -= <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="keyword">auto</span> ret = search(board, i + <span class="number">1</span>, j, m, n, word, index + <span class="number">1</span>)</span><br><span class="line">                || search(board, i - <span class="number">1</span>, j, m, n, word, index + <span class="number">1</span>)</span><br><span class="line">                || search(board, i, j + <span class="number">1</span>, m, n, word, index + <span class="number">1</span>)</span><br><span class="line">                || search(board, i, j - <span class="number">1</span>, m, n, word, index + <span class="number">1</span>);</span><br><span class="line">        board[i][j] += <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>注意，字符串不能从后往前，不然不知道为什么会超时</p>
 
       
     </div>
@@ -443,7 +444,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -552,7 +553,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -660,7 +661,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -767,7 +768,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -885,7 +886,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -999,7 +1000,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1108,7 +1109,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1219,7 +1220,7 @@ t = pM + x \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-08 11:12:34" itemprop="dateModified" datetime="2022-01-08T11:12:34+08:00">2022-01-08</time>
+                <time title="Modified: 2022-01-11 10:53:46" itemprop="dateModified" datetime="2022-01-11T10:53:46+08:00">2022-01-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
