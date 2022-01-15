@@ -194,6 +194,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/12/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.01.%20%E6%8F%92%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.01.%20%E6%8F%92%E5%85%A5/" class="post-title-link" itemprop="url">面试题 05.01. 插入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-12-10 07:57:37" itemprop="dateCreated datePublished" datetime="2021-12-10T07:57:37+08:00">2021-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/12/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2005.01.%20%E6%8F%92%E5%85%A5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/12/09/面试题 05.01. 插入/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>206</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="面试题-05.01.-插入"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/insert-into-bits-lcci/">面试题 05.01. 插入</a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insertBits</span><span class="params">(<span class="keyword">int</span> N, <span class="keyword">int</span> M, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 把N的i~j置为0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = i; k &lt;= j; ++k)</span><br><span class="line">            <span class="keyword">if</span>((<span class="number">1</span> &lt;&lt; k) &amp; N)</span><br><span class="line">                N ^= <span class="number">1</span> &lt;&lt; k;</span><br><span class="line">        <span class="comment">// M放到i开头上</span></span><br><span class="line">        M &lt;&lt;= i;</span><br><span class="line">        <span class="keyword">return</span> M + N;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/12/06/605.%20%E7%A7%8D%E8%8A%B1%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +328,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +434,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -441,7 +544,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -544,7 +647,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -648,7 +751,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -757,7 +860,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -861,7 +964,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -967,7 +1070,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1071,7 +1174,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
+                <time title="Modified: 2022-01-15 16:37:13" itemprop="dateModified" datetime="2022-01-15T16:37:13+08:00">2022-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1125,113 +1228,6 @@
           <h4 id="二进制求和"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/add-binary/">67. 二进制求和</a></h4>
 <p>模拟</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">addBinary</span><span class="params">(<span class="built_in">string</span> a, <span class="built_in">string</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = a.size(), n = b.size();</span><br><span class="line">        <span class="keyword">int</span> i = m - <span class="number">1</span>, j = n - <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">string</span> ret;</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = a[i--] - <span class="string">&#x27;0&#x27;</span> + b[j--] - <span class="string">&#x27;0&#x27;</span> + c;</span><br><span class="line">            c = sum / <span class="number">2</span>;</span><br><span class="line">            ret += sum % <span class="number">2</span> + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(c)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sum;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= <span class="number">0</span>)</span><br><span class="line">                sum = a[i--] - <span class="string">&#x27;0&#x27;</span> + c;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(j &gt;= <span class="number">0</span>)</span><br><span class="line">                sum = b[j--] - <span class="string">&#x27;0&#x27;</span> + c;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sum = c;</span><br><span class="line">            c = sum / <span class="number">2</span>;</span><br><span class="line">            ret += sum % <span class="number">2</span> + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(ret.begin(), ret.end());</span><br><span class="line">        <span class="keyword">if</span>(i &gt;= <span class="number">0</span>)</span><br><span class="line">            ret = a.substr(<span class="number">0</span>, i + <span class="number">1</span>) + ret;</span><br><span class="line">        <span class="keyword">if</span>(j &gt;= <span class="number">0</span>)</span><br><span class="line">            ret = b.substr(<span class="number">0</span>, j + <span class="number">1</span>) + ret;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/11/20/594.%20%E6%9C%80%E9%95%BF%E5%92%8C%E8%B0%90%E5%AD%90%E5%BA%8F%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/20/594.%20%E6%9C%80%E9%95%BF%E5%92%8C%E8%B0%90%E5%AD%90%E5%BA%8F%E5%88%97/" class="post-title-link" itemprop="url">594. 最长和谐子序列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-20 11:52:27" itemprop="dateCreated datePublished" datetime="2021-11-20T11:52:27+08:00">2021-11-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-14 17:14:30" itemprop="dateModified" datetime="2022-01-14T17:14:30+08:00">2022-01-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/11/20/594.%20%E6%9C%80%E9%95%BF%E5%92%8C%E8%B0%90%E5%AD%90%E5%BA%8F%E5%88%97/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/20/594. 最长和谐子序列/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>612</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="最长和谐子序列"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-harmonious-subsequence/">594. 最长和谐子序列</a></h4>
-<p>排序后滑动窗口</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findLHS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">0</span>, end = <span class="number">1</span>, n = nums.size();</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(end &lt; n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[end] - nums[begin] &gt; <span class="number">1</span>)</span><br><span class="line">                ++begin;</span><br><span class="line">            <span class="keyword">if</span>(nums[end] - nums[begin] != <span class="number">0</span>)</span><br><span class="line">                ret = max(ret, end - begin + <span class="number">1</span>); </span><br><span class="line">            ++end;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>O(NlogN)</p>
-<p>哈希表，把x和x+1的出现个数加上去，厉害啊</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findLHS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line">        <span class="keyword">int</span> ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> num : nums)</span><br><span class="line">            ++<span class="built_in">map</span>[num];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> [num, time] : <span class="built_in">map</span>)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.count(num + <span class="number">1</span>))</span><br><span class="line">                ret = max(ret, time + <span class="built_in">map</span>[num + <span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1318,7 +1314,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">378</span>
+          <span class="site-state-item-count">379</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1394,7 +1390,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">454k</span>
+    <span title="Symbols count total">455k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
