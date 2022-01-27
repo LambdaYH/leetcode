@@ -50,7 +50,7 @@ public:
         while(runner < nums.size())
         {
             if(nums[runner] & 1)
-                swap(nums[walker++], nums[runner]);
+                swap(nums[walker++], nums[runner]); // 从walker换过来是奇数是不可能的，因为之前已经处理过了
             ++runner;
         }
         return nums;
