@@ -69,7 +69,7 @@ private:
 			auto res = tmp.substr(start);
 			if(res != "0")
 				ret.push_back(res);
-			if (start == n - nine)
+			if (start == n - nine)  // 之所以在这里要用引用的形式，是因为根据回溯的顺序，他数字是依次递增的。如果在完成遍历0009后开始便利0010,那么如果不是引用，这时候传递的start依旧是之前的，因为变化是从返回前产生的
 				--start;
 			return;
 		}
