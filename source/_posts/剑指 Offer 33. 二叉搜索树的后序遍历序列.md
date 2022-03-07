@@ -34,6 +34,8 @@ private:
 
 真的难，还是没想透为什么不管升序要管降序
 
+因为要找大于当前节点中最小的来做parent，所以使用单增栈
+
 ```c++
 class Solution {
 public:
