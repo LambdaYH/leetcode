@@ -194,6 +194,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2022/03/08/460.%20LFU%20%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/08/460.%20LFU%20%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">460. LFU 缓存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-09 04:55:31 / Modified: 14:09:07" itemprop="dateCreated datePublished" datetime="2022-03-09T04:55:31+08:00">2022-03-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2022/03/08/460.%20LFU%20%E7%BC%93%E5%AD%98/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/03/08/460. LFU 缓存/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="lfu-缓存"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lfu-cache/">460. LFU 缓存</a></h4>
+<h5 id="自己维护一个双向链表">自己维护一个双向链表</h5>
+<p>记录每个count的值的最后一位是哪个</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LFUCache</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    LFUCache(<span class="keyword">int</span> capacity) : head(<span class="keyword">new</span> Node(<span class="number">-1</span>, <span class="number">0</span>, <span class="number">-1</span>)), tail(<span class="keyword">new</span> Node(<span class="number">-1</span>, <span class="number">0</span>, INT_MAX)), size(<span class="number">0</span>), capacity(capacity) &#123;</span><br><span class="line">        head-&gt;next = tail;</span><br><span class="line">        tail-&gt;prev = head;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(capacity == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">map</span>.count(key))</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">auto</span> ret = <span class="built_in">map</span>[key]-&gt;value;</span><br><span class="line">        <span class="keyword">int</span> oldc = <span class="built_in">map</span>[key]-&gt;count++;</span><br><span class="line">        <span class="keyword">if</span>(oldc != <span class="built_in">map</span>[key]-&gt;prev-&gt;count &amp;&amp; oldc != <span class="built_in">map</span>[key]-&gt;next-&gt;count)</span><br><span class="line">            location.erase(oldc);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(oldc == <span class="built_in">map</span>[key]-&gt;prev-&gt;count &amp;&amp; oldc != <span class="built_in">map</span>[key]-&gt;next-&gt;count)</span><br><span class="line">            location[oldc] = <span class="built_in">map</span>[key]-&gt;prev;</span><br><span class="line">        <span class="keyword">int</span> c = oldc + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(c &gt;= <span class="built_in">map</span>[key]-&gt;next-&gt;count)</span><br><span class="line">            moveToNext(location[<span class="built_in">map</span>[key]-&gt;next-&gt;count], <span class="built_in">map</span>[key]);</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="built_in">map</span>[key]-&gt;next-&gt;count)</span><br><span class="line">            moveToNext(location[c], <span class="built_in">map</span>[key]);</span><br><span class="line">        location[c] = <span class="built_in">map</span>[key];</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(capacity == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">map</span>.count(key))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(++size &gt; capacity)</span><br><span class="line">            &#123;</span><br><span class="line">                --size;</span><br><span class="line">                removeHead();</span><br><span class="line">            &#125;</span><br><span class="line">            addToHead(key, value);</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">map</span>[key]-&gt;value = value;</span><br><span class="line">            <span class="keyword">int</span> oldc = <span class="built_in">map</span>[key]-&gt;count++;</span><br><span class="line">            <span class="keyword">if</span>(oldc != <span class="built_in">map</span>[key]-&gt;prev-&gt;count &amp;&amp; oldc != <span class="built_in">map</span>[key]-&gt;next-&gt;count)</span><br><span class="line">                location.erase(oldc);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(oldc == <span class="built_in">map</span>[key]-&gt;prev-&gt;count &amp;&amp; oldc != <span class="built_in">map</span>[key]-&gt;next-&gt;count)</span><br><span class="line">                location[oldc] = <span class="built_in">map</span>[key]-&gt;prev;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> c = <span class="built_in">map</span>[key]-&gt;count;</span><br><span class="line">        <span class="keyword">if</span>(c &gt;= <span class="built_in">map</span>[key]-&gt;next-&gt;count)</span><br><span class="line">            moveToNext(location[<span class="built_in">map</span>[key]-&gt;next-&gt;count], <span class="built_in">map</span>[key]);</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="built_in">map</span>[key]-&gt;next-&gt;count)</span><br><span class="line">            moveToNext(location[c], <span class="built_in">map</span>[key]);</span><br><span class="line">        location[c] = <span class="built_in">map</span>[key];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">int</span> key;</span><br><span class="line">        <span class="keyword">int</span> count;</span><br><span class="line">        <span class="keyword">int</span> value;</span><br><span class="line">        Node* prev;</span><br><span class="line">        Node* next;</span><br><span class="line">        Node(<span class="keyword">int</span> key, <span class="keyword">int</span> value, <span class="keyword">int</span> count = <span class="number">1</span>) : key(key), value(value), count(count) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node *head, *tail;</span><br><span class="line">    <span class="keyword">int</span> size, capacity;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, Node*&gt; <span class="built_in">map</span>;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, Node*&gt; location;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">exchangeNearbyNodes</span><span class="params">(Node* n1, Node* n2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        n1-&gt;next = n2-&gt;next;</span><br><span class="line">        n2-&gt;next-&gt;prev = n1;</span><br><span class="line">        n2-&gt;next = n1;</span><br><span class="line">        n2-&gt;prev = n1-&gt;prev;</span><br><span class="line">        n1-&gt;prev-&gt;next = n2;</span><br><span class="line">        n1-&gt;prev = n2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeHead</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head-&gt;next == tail)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">auto</span> node = head-&gt;next;</span><br><span class="line">        head-&gt;next-&gt;next-&gt;prev = head;</span><br><span class="line">        head-&gt;next = head-&gt;next-&gt;next;</span><br><span class="line">        <span class="built_in">map</span>.erase(node-&gt;key);</span><br><span class="line">        <span class="keyword">if</span>(node-&gt;next-&gt;count != node-&gt;count)</span><br><span class="line">            location.erase(node-&gt;count);</span><br><span class="line">        <span class="keyword">delete</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addToHead</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> node = <span class="keyword">new</span> Node(key, value);</span><br><span class="line">        node-&gt;next = head-&gt;next;</span><br><span class="line">        head-&gt;next-&gt;prev = node;</span><br><span class="line">        head-&gt;next = node;</span><br><span class="line">        node-&gt;prev = head;</span><br><span class="line">        <span class="built_in">map</span>.emplace(key, node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">isolatedNode</span><span class="params">(Node* node)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        node-&gt;prev-&gt;next = node-&gt;next;</span><br><span class="line">        node-&gt;next-&gt;prev = node-&gt;prev;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">moveToNext</span><span class="params">(Node* prev, Node* node)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        isolatedNode(node);</span><br><span class="line">        node-&gt;next = prev-&gt;next;</span><br><span class="line">        node-&gt;prev = prev;</span><br><span class="line">        prev-&gt;next-&gt;prev = node;</span><br><span class="line">        prev-&gt;next = node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LFUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LFUCache* obj = new LFUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(key);</span></span><br><span class="line"><span class="comment"> * obj-&gt;put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>get: O(1)</p>
+<p>put: O(1)</p>
+<h5 id="使用红黑树c中的set">使用红黑树(c++中的set)</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LFUCache</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    LFUCache(<span class="keyword">int</span> capacity) : time(<span class="number">0</span>), capacity(capacity) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(capacity == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">map</span>.count(key))</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="built_in">set</span>.erase(<span class="built_in">map</span>[key]);</span><br><span class="line">        <span class="built_in">map</span>[key].time = ++time;</span><br><span class="line">        ++<span class="built_in">map</span>[key].count;</span><br><span class="line">        <span class="built_in">set</span>.insert(<span class="built_in">map</span>[key]);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">map</span>[key].value;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(capacity == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>.count(key))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">set</span>.erase(<span class="built_in">map</span>[key]);</span><br><span class="line">            <span class="built_in">map</span>[key].time = ++time;</span><br><span class="line">            ++<span class="built_in">map</span>[key].count;</span><br><span class="line">            <span class="built_in">map</span>[key].value = value;</span><br><span class="line">            <span class="built_in">set</span>.insert(<span class="built_in">map</span>[key]);</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.size() == capacity)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> node = <span class="built_in">set</span>.begin();</span><br><span class="line">                <span class="built_in">map</span>.erase(node-&gt;key);</span><br><span class="line">                <span class="built_in">set</span>.erase(node);</span><br><span class="line">            &#125;</span><br><span class="line">            Node node&#123;key, value, <span class="number">1</span>, ++time&#125;;</span><br><span class="line">            <span class="built_in">map</span>.emplace(key, node);</span><br><span class="line">            <span class="built_in">set</span>.insert(<span class="built_in">std</span>::move(node));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">int</span> key;</span><br><span class="line">        <span class="keyword">int</span> value;</span><br><span class="line">        <span class="keyword">int</span> count;</span><br><span class="line">        <span class="keyword">int</span> time;</span><br><span class="line">        Node() = <span class="keyword">default</span>;</span><br><span class="line">        Node(<span class="keyword">int</span> key, <span class="keyword">int</span> value, <span class="keyword">int</span> count, <span class="keyword">int</span> time) : key(key), value(value), count(count), time(time) &#123;&#125;</span><br><span class="line">        <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Node&amp; rhs) <span class="keyword">const</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> count == rhs.count ? time &lt; rhs.time : count &lt; rhs.count;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">int</span> time;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, Node&gt; <span class="built_in">map</span>;</span><br><span class="line">    <span class="built_in">set</span>&lt;Node&gt; <span class="built_in">set</span>;</span><br><span class="line">    <span class="keyword">int</span> capacity;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LFUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LFUCache* obj = new LFUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(key);</span></span><br><span class="line"><span class="comment"> * obj-&gt;put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>get: O(logn)</p>
+<p>put: O(logn)</p>
+<h5 id="使用双哈希表">使用双哈希表</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LFUCache</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    LFUCache(<span class="keyword">int</span> capacity) : capacity(capacity), minFreq(<span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(capacity == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">map</span>.count(key))</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">auto</span> it = <span class="built_in">map</span>[key];</span><br><span class="line">        <span class="keyword">auto</span> count = it-&gt;count;</span><br><span class="line">        <span class="keyword">auto</span> value = it-&gt;value;</span><br><span class="line">        freq[count].erase(it);</span><br><span class="line">        <span class="keyword">if</span>(freq[count].size() == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            freq.erase(count);</span><br><span class="line">            <span class="keyword">if</span>(count == minFreq)</span><br><span class="line">                ++minFreq;</span><br><span class="line">        &#125;</span><br><span class="line">        ++count;</span><br><span class="line">        freq[count].push_front(Node(key, value, count));</span><br><span class="line">        <span class="built_in">map</span>[key] = freq[count].begin();</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(capacity == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">map</span>.count(key))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.size() == capacity)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> it = --freq[minFreq].end(); <span class="comment">// 不是随机迭代器，不能用-1</span></span><br><span class="line">                <span class="built_in">map</span>.erase(it-&gt;key);</span><br><span class="line">                freq[minFreq].pop_back();</span><br><span class="line">                <span class="keyword">if</span>(freq[minFreq].size() == <span class="number">0</span>)</span><br><span class="line">                    freq.erase(minFreq);</span><br><span class="line">            &#125;</span><br><span class="line">            freq[<span class="number">1</span>].push_front(Node(key, value, <span class="number">1</span>));</span><br><span class="line">            <span class="built_in">map</span>.emplace(key, freq[<span class="number">1</span>].begin());</span><br><span class="line">            minFreq = <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> it = <span class="built_in">map</span>[key];</span><br><span class="line">            <span class="keyword">auto</span> count = it-&gt;count;</span><br><span class="line">            freq[count].erase(it);</span><br><span class="line">            <span class="keyword">if</span>(freq[count].size() == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                freq.erase(count);</span><br><span class="line">                <span class="keyword">if</span>(count == minFreq)</span><br><span class="line">                    ++minFreq;</span><br><span class="line">            &#125;</span><br><span class="line">            ++count;</span><br><span class="line">            freq[count].push_front(Node(key, value, count));</span><br><span class="line">            <span class="built_in">map</span>[key] = freq[count].begin();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">int</span> key;</span><br><span class="line">        <span class="keyword">int</span> value;</span><br><span class="line">        <span class="keyword">int</span> count;</span><br><span class="line">        Node(<span class="keyword">int</span> key, <span class="keyword">int</span> value, <span class="keyword">int</span> count) : key(key), value(value), count(count) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">list</span>&lt;Node&gt;::iterator&gt; <span class="built_in">map</span>;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">list</span>&lt;Node&gt;&gt; freq;</span><br><span class="line">    <span class="keyword">int</span> capacity;</span><br><span class="line">    <span class="keyword">int</span> minFreq;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LFUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LFUCache* obj = new LFUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(key);</span></span><br><span class="line"><span class="comment"> * obj-&gt;put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2022/03/06/498.%20%E5%AF%B9%E8%A7%92%E7%BA%BF%E9%81%8D%E5%8E%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,10 +324,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-03-07 07:18:01 / Modified: 15:20:07" itemprop="dateCreated datePublished" datetime="2022-03-07T07:18:01+08:00">2022-03-07</time>
+              <time title="Created: 2022-03-07 07:18:01" itemprop="dateCreated datePublished" datetime="2022-03-07T07:18:01+08:00">2022-03-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -316,10 +429,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-03-07 06:23:10 / Modified: 15:20:07" itemprop="dateCreated datePublished" datetime="2022-03-07T06:23:10+08:00">2022-03-07</time>
+              <time title="Created: 2022-03-07 06:23:10" itemprop="dateCreated datePublished" datetime="2022-03-07T06:23:10+08:00">2022-03-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -425,7 +544,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 15:20:07" itemprop="dateModified" datetime="2022-03-07T15:20:07+08:00">2022-03-07</time>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -531,7 +650,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 15:20:07" itemprop="dateModified" datetime="2022-03-07T15:20:07+08:00">2022-03-07</time>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -635,7 +754,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 15:20:07" itemprop="dateModified" datetime="2022-03-07T15:20:07+08:00">2022-03-07</time>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -738,7 +857,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 15:20:07" itemprop="dateModified" datetime="2022-03-07T15:20:07+08:00">2022-03-07</time>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -845,7 +964,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 15:20:07" itemprop="dateModified" datetime="2022-03-07T15:20:07+08:00">2022-03-07</time>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -953,7 +1072,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 15:20:07" itemprop="dateModified" datetime="2022-03-07T15:20:07+08:00">2022-03-07</time>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1056,7 +1175,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 15:20:07" itemprop="dateModified" datetime="2022-03-07T15:20:07+08:00">2022-03-07</time>
+                <time title="Modified: 2022-03-09 14:09:07" itemprop="dateModified" datetime="2022-03-09T14:09:07+08:00">2022-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1113,113 +1232,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(<span class="built_in">string</span> text1, <span class="built_in">string</span> text2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = text1.size(), n = text2.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(m + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(text1[i - <span class="number">1</span>] == text2[j - <span class="number">1</span>])</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][j] = max(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back().back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>优化空间</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(<span class="built_in">string</span> text1, <span class="built_in">string</span> text2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = text1.size(), n = text2.size();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            tmp = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> pre = dp[j];</span><br><span class="line">                <span class="keyword">if</span>(text1[i - <span class="number">1</span>] == text2[j - <span class="number">1</span>])</span><br><span class="line">                    dp[j] = tmp + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[j] = max(dp[j], dp[j - <span class="number">1</span>]);</span><br><span class="line">                tmp = pre;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2022/01/14/151.%20%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/14/151.%20%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/" class="post-title-link" itemprop="url">151. 翻转字符串里的单词</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-01-14 08:54:04" itemprop="dateCreated datePublished" datetime="2022-01-14T08:54:04+08:00">2022-01-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 15:20:07" itemprop="dateModified" datetime="2022-03-07T15:20:07+08:00">2022-03-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2022/01/14/151.%20%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/01/14/151. 翻转字符串里的单词/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>845</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="翻转字符串里的单词"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-words-in-a-string/">151. 翻转字符串里的单词</a></h4>
-<p>参考<a href="https://leetcode.cinte.cc/2021/07/07/%E5%89%91%E6%8C%87%20Offer%2058%20-%20I.%20%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F/">剑指 Offer 58 - I. 翻转单词顺序</a></p>
-<h6 id="非原地解法">非原地解法</h6>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseWords</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">int</span> begin = n - <span class="number">1</span>, end = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(begin &gt;= <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(begin == <span class="number">-1</span> || s[begin] == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(begin != end)</span><br><span class="line">                &#123;</span><br><span class="line">                    ret += s.substr(begin + <span class="number">1</span>, end - begin);</span><br><span class="line">                    ret += <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                end = --begin;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                --begin;</span><br><span class="line">        &#125;</span><br><span class="line">        ret.pop_back();</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h6 id="原地解法">原地解法</h6>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseWords</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        reverse(s.begin(), s.end());</span><br><span class="line">        <span class="keyword">int</span> idx = <span class="number">0</span>, end = <span class="number">0</span>, start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">while</span>(start &lt; n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[start] != <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                end = start;</span><br><span class="line">                <span class="keyword">while</span>(end &lt; n &amp;&amp; s[end] != <span class="string">&#x27; &#x27;</span>) s[idx++] = s[end++];</span><br><span class="line">                reverse(s.begin() + idx - (end - start), s.begin() + idx);</span><br><span class="line">                s[idx++] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                start = end;</span><br><span class="line">            &#125;</span><br><span class="line">            ++start;</span><br><span class="line">        &#125;</span><br><span class="line">        s.erase(s.begin() + idx - <span class="number">1</span>, s.end());</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1306,7 +1318,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">387</span>
+          <span class="site-state-item-count">388</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1382,12 +1394,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">465k</span>
+    <span title="Symbols count total">471k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">7:02</span>
+    <span title="Reading time total">7:08</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div><div>
