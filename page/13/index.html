@@ -194,6 +194,122 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lambda_YH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cinte's Leetcode Record">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/" class="post-title-link" itemprop="url">面试题 16.07. 最大数值</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-08-09 08:40:39" itemprop="dateCreated datePublished" datetime="2021-08-09T08:40:39+08:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/08/09/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.07.%20%E6%9C%80%E5%A4%A7%E6%95%B0%E5%80%BC/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/09/面试题 16.07. 最大数值/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="面试题-16.07.-最大数值"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-lcci/">面试题 16.07. 最大数值</a></h4>
+<h5 id="解法1">解法1</h5>
+<p><span class="math display">\[
+max(a, b) = (a + b + abs(a - b)) / 2;
+\]</span></p>
+<p>其中绝对值使用位运算代替，假设<code>a, b</code>为32位，则 <span class="math display">\[
+abs(a) = ((a &gt;&gt; 31) \^{} a) - (a &gt;&gt; 31)
+\]</span> c++中对有符号数的右移是算数右移</p>
+<p>当<code>a &gt; 0</code>，<code>a &gt;&gt; 31 = 0x0000</code>，则<code>a &gt;&gt; 31 ^ a</code>就等于<code>a</code>，再减去<code>0x0000</code>还是a</p>
+<p>当<code>a &lt; 0</code>，<code>a &gt;&gt; 31 = 0xFFFF</code>，则<code>a &gt;&gt; 31 ^ a</code>就等于<code>~a</code>，由于<code>0 - 0xFFFF = 1</code> ，所以最后是<code>~a + 1 = -a</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> la = a, lb = b;</span><br><span class="line">        <span class="keyword">return</span> ((la + lb) + (((la - lb) &gt;&gt; <span class="number">63</span>) ^ (la - lb)) - ((la - lb) &gt;&gt; <span class="number">63</span>)) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="解法2">解法2</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> d = (<span class="keyword">long</span>)a - (<span class="keyword">long</span>)b; <span class="comment">// 求出差</span></span><br><span class="line">        <span class="keyword">int</span> k = d &gt;&gt; <span class="number">63</span>; <span class="comment">// 注意是有符号数右移，所以如果a&gt;b,k=0,如果a&lt;b,k=-1</span></span><br><span class="line">        <span class="comment">// k = 0时，= a</span></span><br><span class="line">        <span class="comment">// k = -1时，=-1 * -1 * b = b</span></span><br><span class="line">        <span class="keyword">return</span> (k + <span class="number">1</span>) * a - k * b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="解法3">解法3</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> aSign = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)a &gt;&gt; <span class="number">31</span>; <span class="comment">// 只判断符号位，需要转为逻辑右移，否则移完会出现1</span></span><br><span class="line">       <span class="keyword">int</span> bSign = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)b &gt;&gt; <span class="number">31</span>;</span><br><span class="line">       <span class="keyword">int</span> diff = aSign ^ bSign; <span class="comment">// 相同为0，相异为1</span></span><br><span class="line">       <span class="comment">// 如果diff为1，异号，当k=0取a，反之取1，此时短路运算符||不会导致后面的溢出发生</span></span><br><span class="line">       <span class="comment">// diff为0，同号，运算时不会产生运算溢出，所以直接减然后取符号位，因为这里是逻辑与，所以无所谓算术右移逻辑右移</span></span><br><span class="line">       <span class="keyword">int</span> k = diff &amp;&amp; aSign || ((diff ^ <span class="number">1</span>) &amp;&amp; ((a - b) &gt;&gt; <span class="number">31</span>));</span><br><span class="line">       <span class="keyword">return</span> (k ^ <span class="number">1</span>) * a + k * b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/09/313.%20%E8%B6%85%E7%BA%A7%E4%B8%91%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +341,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +447,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,7 +553,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -543,7 +659,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -650,7 +766,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -772,7 +888,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -878,7 +994,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -985,7 +1101,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1089,7 +1205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
+                <time title="Modified: 2022-03-11 21:09:20" itemprop="dateModified" datetime="2022-03-11T21:09:20+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1185,190 +1301,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.11.%20%E7%A1%AC%E5%B8%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Lambda_YH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cinte's Leetcode Record">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.11.%20%E7%A1%AC%E5%B8%81/" class="post-title-link" itemprop="url">面试题 08.11. 硬币</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-02 07:44:07" itemprop="dateCreated datePublished" datetime="2021-08-02T07:44:07+08:00">2021-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-10 20:43:40" itemprop="dateModified" datetime="2022-03-10T20:43:40+08:00">2022-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.11.%20%E7%A1%AC%E5%B8%81/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/01/面试题 08.11. 硬币/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>344</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="面试题-08.11.-硬币"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coin-lcci/">面试题 08.11. 硬币</a></h4>
-<p>设<code>F(i, v)</code>为前<code>i</code>种面值硬币构成面额为<code>v</code>的方案数。</p>
-<p>(题中<code>i</code>为4，且面额为<code>[1, 5, 10, 25]</code>)</p>
-<p>将第<code>i</code>个面额记为<code>c_i</code></p>
-<p>则转移方程 <span class="math display">\[
-F(i, v) = F(i - 1, v - 0 * c_i) + F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
-\]</span></p>
-<p>这是一个纵轴为采用的硬币种类，横轴为面额，内部值为方案数的表格</p>
-<p><img src="https://image.cinte.cc/2021/08/02/7610cb05b7f9d.jpg" width="304" height="228"></p>
-<p>以上的原始版本的代码实现</p>
-<details>
-<summary>
-以上的原始版本的代码实现
-</summary>
-<pre><code>
-class Solution &#123;
-public:
-    int waysToChange(int n) &#123;
-        int coins[4]&#123;1, 5, 10, 25&#125;;
-        vector<vector<int>> dp(5, vector<int>(n + 1, 0));
-        dp[0][0] = 1;
-        for(int i = 1; i <= 4; ++i)
-        &#123;
-            dp[i][0] = 1;
-            auto coin = coins[i - 1];
-            for(int j = 1; j <= n; ++j)
-            &#123;
-                dp[i][j] = dp[i - 1][j];
-                for(int k = 1; k <= j / coin; ++k)
-                &#123;
-                    dp[i][j] += dp[i - 1][j - k * coin];
-                    dp[i][j] %= 1000000007;
-                &#125;
-            &#125;
-        &#125;
-        return dp.back().back();
-    &#125;
-&#125;;
-</code></pre>
-</details>
-<p>但是<strong>超时了</strong></p>
-<strong>进行对时间的优化</strong> <span class="math display">\[
-F(i, v) = F(i - 1, v - 0 * c_i) + F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
-\]</span> 图中标红的公式与 <span class="math display">\[
-F(i, v - c_i) = F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
-\]</span> 进行比较，发现相同，所以 <span class="math display">\[
-F(i, v) = F(i - 1, v - 0 * c_i) + F(i, v - c_i)
-\]</span> 于是就可以减少一层循环
-<details>
-<summary>
-以上的优化时间版本的代码实现
-</summary>
-<pre><code>
-class Solution &#123;
-public:
-    int waysToChange(int n) &#123;
-        int coins[4]&#123;1, 5, 10, 25&#125;;
-        vector<vector<int>> dp(5, vector<int>(n + 1, 0));
-        dp[0][0] = 1;
-        for(int i = 1; i <= 4; ++i)
-        &#123;
-            dp[i][0] = 1;
-            auto coin = coins[i - 1];
-            for(int j = 1; j <= n; ++j)
-            &#123;
-                dp[i][j] = dp[i - 1][j];
-                if(j >= coin)
-                    dp[i][j] += dp[i][j - coin];
-                dp[i][j] %= 1000000007;
-            &#125;
-        &#125;
-        return dp.back().back();
-    &#125;
-&#125;;
-</code></pre>
-</details>
-<p><strong>对空间优化</strong></p>
-<p>发现每次循环仅仅使用到了上一层的数据，因此可以将空间使用从二维减少到一维，就用常规的方式即可</p>
-<p>最终版本的代码</p>
-<p>T(n) : O(n)</p>
-<p>S(n) : O(n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">waysToChange</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> coins[<span class="number">4</span>]&#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>&#125;;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> coin = coins[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = coin; j &lt;= n; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[j] = dp[j] + dp[j - coin];</span><br><span class="line">                dp[j] %= <span class="number">1000000007</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>还有数学方法，抄累了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1440,7 +1372,7 @@ public:
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">388</span>
+          <span class="site-state-item-count">389</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
