@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -329,7 +329,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -435,7 +435,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -541,7 +541,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -573,7 +573,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>605</span>
+              <span>663</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -595,7 +595,7 @@
           <h4 id="通配符匹配"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/wildcard-matching/">44. 通配符匹配</a></h4>
 <p>类似<a href="https://leetcode.cinte.cc/2021/06/24/剑指%20Offer%2019.%20正则表达式匹配/">剑指 Offer 19. 正则表达式匹配 | Cinte's Leetcode Record</a></p>
 <h5 id="dp">dp</h5>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length1 = s.size(), length2 = p.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(length1 + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(length2 + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line">        dp.back().back() = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = length1; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = length2 - <span class="number">1</span>; j &gt;= <span class="number">0</span>; --j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">bool</span> firstMatch = i &lt; length1 &amp;&amp; (s[i] == p[j] || p[j] == <span class="string">&#x27;?&#x27;</span>);</span><br><span class="line">                <span class="keyword">if</span>(p[j] == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                    dp[i][j] = dp[i][j + <span class="number">1</span>] || (i &lt; length1 &amp;&amp; dp[i + <span class="number">1</span>][j]);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i &lt; length1)</span><br><span class="line">                    dp[i][j] = firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length1 = s.size(), length2 = p.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(length1 + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(length2 + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line">        dp.back().back() = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = length1; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = length2 - <span class="number">1</span>; j &gt;= <span class="number">0</span>; --j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">bool</span> firstMatch = i &lt; length1 &amp;&amp; (s[i] == p[j] || p[j] == <span class="string">&#x27;?&#x27;</span>);</span><br><span class="line">                <span class="keyword">if</span>(p[j] == <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">                    dp[i][j] = dp[i][j + <span class="number">1</span>] || (i &lt; length1 &amp;&amp; dp[i + <span class="number">1</span>][j]); <span class="comment">// 如果我匹配你星号，那我要看看我前面的串能不能和你匹配。如果我拒绝你的星号，那我要看看我能不能和你前面的表达式匹配</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i &lt; length1)</span><br><span class="line">                    dp[i][j] = firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -646,7 +646,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -751,7 +751,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -855,7 +855,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -959,7 +959,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1077,7 +1077,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1187,7 +1187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-14 22:53:49" itemprop="dateModified" datetime="2022-03-14T22:53:49+08:00">2022-03-14</time>
+                <time title="Modified: 2022-03-15 15:29:18" itemprop="dateModified" datetime="2022-03-15T15:29:18+08:00">2022-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
