@@ -16,6 +16,7 @@ class Solution {
 public:
     int lastRemaining(int n, int m) {
         int pre = 0;
+        // 不从1开始是因为1中的第一个也是0，没必要从1开始
         for(int i = 2; i <= n; ++i)
         {
             pre = (pre + m) % i;
