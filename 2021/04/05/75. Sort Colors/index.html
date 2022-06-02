@@ -28,7 +28,7 @@
 <meta property="og:description" content="75. Sort Colors 12345678910111213141516171819202122232425262728class Solution &amp;#123;public:    void sortColors(vector&lt;int&gt;&amp; nums) &amp;#123;        sort(nums, 0, nums.size() - 1);    &amp;#125;priva">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-05T22:54:16.000Z">
-<meta property="article:modified_time" content="2022-05-19T13:27:11.648Z">
+<meta property="article:modified_time" content="2022-06-02T02:56:46.124Z">
 <meta property="article:author" content="Lambda_YH">
 <meta property="article:tag" content="sort">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-19 21:27:11" itemprop="dateModified" datetime="2022-05-19T21:27:11+08:00">2022-05-19</time>
+                <time title="Modified: 2022-06-02 10:56:46" itemprop="dateModified" datetime="2022-06-02T10:56:46+08:00">2022-06-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,7 +262,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -288,6 +288,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> second = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> zero = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(nums[i] == <span class="number">2</span> &amp;&amp; i &lt; second)</span><br><span class="line">                swap(nums[i], nums[second--]);</span><br><span class="line">            <span class="keyword">while</span>(nums[i] == <span class="number">0</span> &amp;&amp; i &gt; zero)</span><br><span class="line">                swap(nums[i], nums[zero++]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>总体思路是将0移到最前面，将2移到最后面</p>
 <p>这里<code>==2</code>必须放在<code>==0</code>之前，因为2为最大的，将2换到最后去，换回来的只可能比2小，会有可能是0，需要处理。若0在前，则2换完后的0得不到处理。</p>
+<p>review <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> z_p = <span class="number">0</span>, t_p = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= t_p; ++i) &#123;</span><br><span class="line">            <span class="keyword">while</span>(i &lt;= t_p &amp;&amp; nums[i] == <span class="number">2</span>)</span><br><span class="line">                swap(nums[i], nums[t_p--]);</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= z_p &amp;&amp; nums[i] == <span class="number">0</span>)</span><br><span class="line">                swap(nums[i], nums[z_p++]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
