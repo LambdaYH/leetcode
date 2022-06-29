@@ -14,7 +14,7 @@ public:
         while(lo < hi)
         {
             int mid = (lo + hi) / 2;
-            if(numbers[mid] > numbers[hi]) // 之所以和hi判断，是因为当numbers[mid] > numbers[lo] 时候，具有多种情况，而和hi判断只有一种。例如11222情况和34513,前者显然hi=mid，后者显然lo=mid+1
+            if(numbers[mid] > numbers[hi]) // 之所以和hi判断，是因为当numbers[mid] > numbers[lo] 时候，具有多种情况，而和hi判断只有一种。例如11222情况和34513,前者显然hi=mid，后者显然lo=mid+1(review：当和lo判断时，假如numbers[mid] > numbers[lo]，当存在转折点是，最小值在右边，不存在转折点时，最小值在左边，很显然无法判断）
                 lo = mid + 1;
             else if(numbers[mid] < numbers[hi]) // 因为numbers[mid] < numbers[hi] 所以mid这个位置可能会最小，所以hi=mid
                 hi = mid;
