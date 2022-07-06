@@ -63,7 +63,7 @@ public:
     }
 };
 ```
-
+![SmartSelect_20220706-103930_Samsung Notes.jpg](https://s2.loli.net/2022/07/06/DWy67UOfAr9sSvm.jpg)
 [题解](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/solution/di-gui-he-zhan-liang-chong-fang-shi-jie-jue-zui-ha/)
 
 ```c++
