@@ -40,3 +40,23 @@ public:
 T(n) : O(n)
 
 S(n) : O(n)
+
+# review
+```c++
+class Solution {
+public:
+    string reverseWords(string s) {
+        string ret;
+        int end = s.size();
+        for(int i = s.size() - 1; i >= -1; --i) {
+            if(i == -1 || s[i] == ' ') {
+                if(i != end - 1)
+                    ret += s.substr(i + 1, end - i - 1) + " ";
+                end = i;
+            }
+        }
+        ret.pop_back();
+        return ret;
+    }
+};
+```
