@@ -70,4 +70,4 @@ private:
 };
 ```
 
-![1623937126537.png](https://image.cinte.cc/2021/06/17/5f549df3dac5e.png)
+![1623937126537.png](https://image.cinte.cc/i/2021/06/17/5f549df3dac5e.png)

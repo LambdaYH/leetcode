@@ -6,7 +6,7 @@ categories: 剑指 Offer
 #### [剑指 Offer 14- II. 剪绳子 II](https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/)
 
 这题由于n的范围加大
-![1624010226494.png](https://image.cinte.cc/2021/06/18/0c502a5a8b2f5.png)
+![1624010226494.png](https://image.cinte.cc/i/2021/06/18/0c502a5a8b2f5.png)
 
 ##### 数学方法  TAIFUZALE
 循环求余

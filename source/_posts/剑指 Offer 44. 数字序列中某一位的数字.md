@@ -26,6 +26,6 @@ public:
 };
 ```
 
-![1625218647824.png](https://image.cinte.cc/2021/07/02/e8c38b67f4a9f.png)
-![1625218657922.png](https://image.cinte.cc/2021/07/02/8e35c23ecca2e.png)
-![1625218664563.png](https://image.cinte.cc/2021/07/02/bb1f38fce087f.png)
+![1625218647824.png](https://image.cinte.cc/i/2021/07/02/e8c38b67f4a9f.png)
+![1625218657922.png](https://image.cinte.cc/i/2021/07/02/8e35c23ecca2e.png)
+![1625218664563.png](https://image.cinte.cc/i/2021/07/02/bb1f38fce087f.png)

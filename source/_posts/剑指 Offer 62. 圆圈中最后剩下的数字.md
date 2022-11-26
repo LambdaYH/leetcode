@@ -24,4 +24,4 @@ public:
     }
 };
 ```
-![Screenshot_20210712-115540_Samsung Notes.jpg](https://image.cinte.cc/2021/07/12/dcd4cf4ae07a7.jpg)
+![Screenshot_20210712-115540_Samsung Notes.jpg](https://image.cinte.cc/i/2021/07/12/dcd4cf4ae07a7.jpg)

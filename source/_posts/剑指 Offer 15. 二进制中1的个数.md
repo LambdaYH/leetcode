@@ -37,4 +37,4 @@ public:
 };
 ```
 
-![1624447689192.png](https://image.cinte.cc/2021/06/23/920f8c9f62526.png)
+![1624447689192.png](https://image.cinte.cc/i/2021/06/23/920f8c9f62526.png)

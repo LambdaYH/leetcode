@@ -80,7 +80,7 @@ private:
 
 ##### 状态机
 
-![1624440075950.png](https://image.cinte.cc/2021/06/23/13ee451ce60e5.png)
-![1624440089788.png](https://image.cinte.cc/2021/06/23/c4e27f54b0503.png)
+![1624440075950.png](https://image.cinte.cc/i/2021/06/23/13ee451ce60e5.png)
+![1624440089788.png](https://image.cinte.cc/i/2021/06/23/c4e27f54b0503.png)
 
 太烦了 不想做
