@@ -27,13 +27,13 @@
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
 <meta property="og:description" content="84. Largest Rectangle in Histogram  123456789101112131415161718192021222324252627282930class Solution &amp;#123;public:    int largestRectangleArea(vector&lt;int&gt;&amp; heights) &amp;#123;        int sz &#x3D; h">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://image.cinte.cc/2021/05/08/41df4c0a04bc7.png">
+<meta property="og:image" content="https://image.cinte.cc/i/2021/05/08/41df4c0a04bc7.png">
 <meta property="article:published_time" content="2021-05-08T03:58:07.000Z">
-<meta property="article:modified_time" content="2022-07-18T02:07:03.295Z">
+<meta property="article:modified_time" content="2022-11-26T16:40:44.915Z">
 <meta property="article:author" content="Lambda_YH">
 <meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://image.cinte.cc/2021/05/08/41df4c0a04bc7.png">
+<meta name="twitter:image" content="https://image.cinte.cc/i/2021/05/08/41df4c0a04bc7.png">
 
 <link rel="canonical" href="https://leetcode.cinte.cc/2021/05/08/84.%20Largest%20Rectangle%20in%20Histogram/">
 
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-18 10:07:03" itemprop="dateModified" datetime="2022-07-18T10:07:03+08:00">2022-07-18</time>
+                <time title="Modified: 2022-11-27 00:40:44" itemprop="dateModified" datetime="2022-11-27T00:40:44+08:00">2022-11-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,7 +291,7 @@
 <p><strong>设想，对于先前查找过的元素，比如<code>p&lt;i</code>，如果p是符合条件<code>heights[p] &gt;= heights[i]</code>的，那么p的左边界也必然是符合这个条件的，由此可以进行坐标的跳跃，将下一迭代的<code>p = left[p]</code>，道理则依次。所以每个查找都可以运用到之前到查找的信息。总体来说仅仅为O(n)，对于右边界来说则同理。</strong></p>
 <h5 id="使用stack">使用stack</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        heights.push_back(<span class="number">-1</span>); <span class="comment">// 这里的-1是为了在最后计算所有横跨许多块的长度</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; heights.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s.empty() &amp;&amp; heights[i] &lt; heights[s.top()])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">auto</span> h = heights[s.top()];</span><br><span class="line">                s.pop();</span><br><span class="line">                ret = max(ret, (i - (s.empty() ? <span class="number">-1</span> : s.top()) - <span class="number">1</span>) * h);</span><br><span class="line">            &#125;</span><br><span class="line">            s.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>维持stack为上升序列，每碰到之前比他大的就pop掉，因为你如果比他小了，那么对于你这个柱子来说的最大矩形的高度必定受限于你而不是他，之前所有比你大的pop掉后的真空区域就是这个的面积。而循环中的i为右界，取不到，stack.top()，为左界，也取不到，中间的就是所有比你大的。上升队列的每2个之间都会有一个真空区域，而面积必定为区域宽度x右边。 <img src="https://image.cinte.cc/2021/05/08/41df4c0a04bc7.png" alt="1620478443908.png" /></p>
+<p>维持stack为上升序列，每碰到之前比他大的就pop掉，因为你如果比他小了，那么对于你这个柱子来说的最大矩形的高度必定受限于你而不是他，之前所有比你大的pop掉后的真空区域就是这个的面积。而循环中的i为右界，取不到，stack.top()，为左界，也取不到，中间的就是所有比你大的。上升队列的每2个之间都会有一个真空区域，而面积必定为区域宽度x右边。 <img src="https://image.cinte.cc/i/2021/05/08/41df4c0a04bc7.png" alt="1620478443908.png" /></p>
 <p><a target="_blank" rel="noopener" href="https://abhinandandubey.github.io/posts/2019/12/15/Largest-Rectangle-In-Histogram.html">why stack?</a></p>
 
     </div>

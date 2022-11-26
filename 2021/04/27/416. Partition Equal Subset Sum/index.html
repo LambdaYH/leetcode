@@ -27,13 +27,13 @@
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
 <meta property="og:description" content="416. Partition Equal Subset Sum 若求是否存在两个子序列相等，只需要求序列中是否存在子序列和等于总序列的一半。所以当和为奇数时候就是无效的。 转化为dp dp[i][j]表示0~i的数字能否获得和为j，若能为true，不能为false。 对于一行的dp[i][j]来说  取当前这个nums[i]，则如果0~i-1的数字可以达到j - nums[i]和的话就是true，">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://image.cinte.cc/2021/07/14/dd813ec6f1dfb.jpg">
+<meta property="og:image" content="https://image.cinte.cc/i/2021/07/14/dd813ec6f1dfb.jpg">
 <meta property="article:published_time" content="2021-04-27T04:25:30.000Z">
-<meta property="article:modified_time" content="2022-07-18T02:07:03.291Z">
+<meta property="article:modified_time" content="2022-11-26T16:40:44.911Z">
 <meta property="article:author" content="Lambda_YH">
 <meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://image.cinte.cc/2021/07/14/dd813ec6f1dfb.jpg">
+<meta name="twitter:image" content="https://image.cinte.cc/i/2021/07/14/dd813ec6f1dfb.jpg">
 
 <link rel="canonical" href="https://leetcode.cinte.cc/2021/04/27/416.%20Partition%20Equal%20Subset%20Sum/">
 
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-18 10:07:03" itemprop="dateModified" datetime="2022-07-18T10:07:03+08:00">2022-07-18</time>
+                <time title="Modified: 2022-11-27 00:40:44" itemprop="dateModified" datetime="2022-11-27T00:40:44+08:00">2022-11-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,7 +293,7 @@
 <li>不取当前这个<code>nums[i - 1]</code>，则如果0~i-1可以达到和为j，也就是<code>dp[i - 1][j]</code>是否为true。</li>
 </ol>
 <p>基础情况是当没有数字时，当且仅当j为0时为true。当和为0时，对于所有数字都是true，因此只需要不取。</p>
-<p><img src="https://image.cinte.cc/2021/07/14/dd813ec6f1dfb.jpg" /></p>
+<p><img src="https://image.cinte.cc/i/2021/07/14/dd813ec6f1dfb.jpg" /></p>
 <h5 id="二维dp">二维dp</h5>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPartition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : nums)</span><br><span class="line">            sum += num;</span><br><span class="line">        <span class="keyword">if</span>(sum &amp; <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        sum &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(nums.size() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(sum + <span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sum; ++i)</span><br><span class="line">            dp[<span class="number">0</span>][i] = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= nums.size(); ++i)</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= sum; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][j] = dp[i - <span class="number">1</span>][j] || (j &gt;= nums[i - <span class="number">1</span>] ? dp[i - <span class="number">1</span>][j - nums[i - <span class="number">1</span>]] : <span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.back()[sum];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h5 id="dp">dp</h5>

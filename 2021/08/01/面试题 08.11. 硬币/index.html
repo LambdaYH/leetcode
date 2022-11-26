@@ -27,12 +27,12 @@
 <meta property="og:site_name" content="Cinte&#39;s Leetcode Record">
 <meta property="og:description" content="面试题 08.11. 硬币 设F(i, v)为前i种面值硬币构成面额为v的方案数。 (题中i为4，且面额为[1, 5, 10, 25]) 将第i个面额记为c_i 则转移方程 \[ F(i, v) &#x3D; F(i - 1, v - 0 * c_i) + F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v&#x2F;c_i * c">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://image.cinte.cc/2021/08/02/7610cb05b7f9d.jpg">
+<meta property="og:image" content="https://image.cinte.cc/i/2021/08/02/7610cb05b7f9d.jpg">
 <meta property="article:published_time" content="2021-08-01T23:44:07.000Z">
-<meta property="article:modified_time" content="2022-07-18T02:07:03.295Z">
+<meta property="article:modified_time" content="2022-11-26T16:40:44.923Z">
 <meta property="article:author" content="Lambda_YH">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://image.cinte.cc/2021/08/02/7610cb05b7f9d.jpg">
+<meta name="twitter:image" content="https://image.cinte.cc/i/2021/08/02/7610cb05b7f9d.jpg">
 
 <link rel="canonical" href="https://leetcode.cinte.cc/2021/08/01/%E9%9D%A2%E8%AF%95%E9%A2%98%2008.11.%20%E7%A1%AC%E5%B8%81/">
 
@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-18 10:07:03" itemprop="dateModified" datetime="2022-07-18T10:07:03+08:00">2022-07-18</time>
+                <time title="Modified: 2022-11-27 00:40:44" itemprop="dateModified" datetime="2022-11-27T00:40:44+08:00">2022-11-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -290,7 +290,7 @@
 F(i, v) = F(i - 1, v - 0 * c_i) + F(i - 1, v - 1 * c_i) + F(i - 1, v - 2 * c_i) + ... + F(i - 1, v - v/c_i * c_i)
 \]</span></p>
 <p>这是一个纵轴为采用的硬币种类，横轴为面额，内部值为方案数的表格</p>
-<p><img src="https://image.cinte.cc/2021/08/02/7610cb05b7f9d.jpg" width="304" height="228"></p>
+<p><img src="https://image.cinte.cc/i/2021/08/02/7610cb05b7f9d.jpg" width="304" height="228"></p>
 <p>以上的原始版本的代码实现</p>
 <details>
 <summary>
